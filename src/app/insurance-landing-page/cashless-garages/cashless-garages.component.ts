@@ -42,7 +42,9 @@ export class CashlessGaragesComponent {
   hospitalsList = [];
   insurar_data: any;
   cardList: any = [];
+  smallCardList:any = [];
   totalCardList: any = [];
+  isViewAll: boolean= true;
   constructor(
     private fb: FormBuilder,
     private apiService: ApiService,
@@ -121,9 +123,15 @@ export class CashlessGaragesComponent {
     this.apiService.getRequestedResponse(url, header).subscribe((response) => {
       this.totalCardList = response?.data;
       this.cardList = response?.data?.slice(0, 12);
+      this.smallCardList = response?.data?.slice(0,12);
     });
   }
   ViewAll() {
-    this.cardList = this.totalCardList;
+    this.isViewAll = !this.isViewAll;
+    if(this.isViewAll){
+      this.cardList = this.smallCardList;
+    }else{
+      this.cardList = this.totalCardList;
+    }
   }
 }
