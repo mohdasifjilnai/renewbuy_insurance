@@ -1,13 +1,6 @@
 import { Routes } from '@angular/router';
 import { authGuard } from './utilis/guard/auth.guard';
 export const routes: Routes = [
-  // {
-  //   path: '',
-  //   loadChildren: () =>
-  //     import('./landing-page/landing-page.module').then(
-  //       (r) => r.LandingPageModule
-  //     ),
-  // },
   {
     path: '',
     loadChildren: () =>
