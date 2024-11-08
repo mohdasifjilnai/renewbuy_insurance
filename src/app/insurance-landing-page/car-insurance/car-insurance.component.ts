@@ -392,7 +392,6 @@ export class CarInsuranceComponent {
         .subscribe(
           (res) => {
             if (res) {
-              this.toastService.toastError(res, 'success');
               if (this.selectedTab == 'Health') {
                 window.location.href =
                   'https://health.renewbuyinsurance.com/health/basic-details';
@@ -400,6 +399,7 @@ export class CarInsuranceComponent {
                 // window.location.href =
                 //   'https://www.renewbuyinsurance.com/online-term-plan';
                 this.registrationForm.reset();
+                this.toastService.toastError(res, 'success');
               } else if (this.selectedTab === 'Bike') {
                 window.location.href = `https://apex.renewbuyinsurance.com/motor/?reg_no=${
                   this.registrationForm.get('vehicleNumber')?.value
@@ -414,6 +414,7 @@ export class CarInsuranceComponent {
                 }&vehicle=fourWheeler`;
               }else{
                 this.registrationForm.reset();
+                this.toastService.toastError(res, 'success');
               }
             }
           },
