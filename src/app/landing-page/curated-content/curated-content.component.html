@@ -1,0 +1,283 @@
+<div class="main-curated left-right-container-padding">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6 col-md-12 col-sm-12">
+        <div class="row">
+          <div
+            class="col-12 col-sm-12 d-flex justify-content-between my-4 curated-header"
+          >
+            <div class="curated-text">
+              Curated <span class="fw-bold">Content</span>
+            </div>
+            <div class="view-all">
+              <a (click)="redirect('https://www.renewbuy.com/articles')"
+                >View All</a
+              >
+            </div>
+          </div>
+          <div class="col-12 col-sm-12">
+            <div class="d-flex align-items-center slide-container">
+              <div
+                class="prev-tab btn btn-circle bg-primary-light p-1 d-flex align-items-center justify-content-center me-2"
+                [class.d-none]="currentIndex === 0"
+                (click)="scrollTabs(-1)"
+              >
+                <img
+                  src="../../../rb_assets/assets/images/left.svg"
+                  class="left-arrow"
+                />
+              </div>
+              <div class="content-tab-wrapper flex-grow-1">
+                <div class="content-tab d-flex" #tabsContainer>
+                  <div
+                    *ngFor="let tag of tags; let i = index; trackBy: trackById"
+                    class="tab-button"
+                    [ngClass]="{ active: i === activeTagIndex }"
+                    (click)="
+                      filterActiveData(tags[i], tag?.id,i)
+                    "
+                  >
+                    {{ tag?.attributes?.tag_title }}
+                  </div>
+                </div>
+              </div>
+              <div
+                class="next-tab btn btn-circle bg-primary-light btn-next p-1 d-flex align-items-center justify-content-center ms-2"
+                [class.d-none]="currentIndex === curated_content_length"
+                (click)="scrollTabs(1)"
+              >
+                <img
+                  src="../../../rb_assets/assets/images/right.svg"
+                  class="right-arrow"
+                />
+              </div>
+            </div>
+          </div>
+          @for(blog of this.blogs; track blog.id){
+          <div class="col-12 col-sm-12 d-none d-lg-block">
+            <div
+              class="content-card-bg"
+              (click)="redirect(blog.attributes?.blog_link)"
+            >
+              <div class="content-card-flex">
+                <div>
+                  <img
+                    [src]="blog?.attributes?.thumbnail?.data?.attributes?.url"
+                    class="curated-card-img"
+                  />
+                </div>
+                <div>
+                  <div class="content-heading">
+                    {{
+                      blogs?.attributes?.title?.split(" ")?.length >= 8
+                        ? blog?.attributes?.title
+                            ?.split(" ")
+                            ?.slice(0, 8)
+                            ?.join(" ") + "....."
+                        : blog?.attributes?.title
+                    }}
+                  </div>
+                  <div class="content-text">
+                    {{
+                      blog?.attributes?.short_description?.split(" ").length >
+                      20
+                        ? blog?.attributes?.short_description
+                            ?.split(" ")
+                            ?.slice(0, 20)
+                            ?.join(" ") + "....."
+                        : blog?.attributes?.short_description
+                    }}
+                  </div>
+                </div>
+                <div class="up-right">
+                  <img
+                    (click)="redirect(blog.attributes?.blog_link)"
+                    src="../../../rb_assets/assets/images/up-right.svg"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+          }
+          <div class="col-12 col-sm-12 my-5 d-block d-lg-none">
+            <div
+              id="mobileCarousel"
+              class="carousel slide"
+              data-bs-ride="carousel"
+            >
+              <div class="carousel-inner">
+                <div
+                  class="carousel-item"
+                  *ngFor="let blog of blogs; let i = index"
+                  [class.active]="i === activeIndex"
+                >
+                  <div
+                    class="content-card-bg"
+                    (click)="redirect(blog?.attributes?.blog_link)"
+                  >
+                    <div class="content-card-flex">
+                      <div>
+                        <img
+                          [src]="
+                            blog?.attributes?.mobile_thumbnail?.data?.attributes
+                              ?.url
+                          "
+                          class="curated-card-img d-block"
+                          [alt]="
+                            blog?.attributes?.mobile_thumbnail?.data?.attributes
+                              ?.name
+                          "
+                        />
+                      </div>
+                      <div>
+                        <div class="content-heading">
+                          {{
+                            blog?.attributes?.title?.split(" ")?.length >= 8
+                              ? blog?.attributes?.title
+                                  ?.split(" ")
+                                  ?.slice(0, 8)
+                                  ?.join(" ") + "....."
+                              : blog?.attributes?.title
+                          }}
+                        </div>
+                        <div class="content-text">
+                          {{
+                            blog?.attributes?.short_description?.split(" ")
+                              .length > 20
+                              ? blog?.attributes?.short_description
+                                  ?.split(" ")
+                                  ?.slice(0, 20)
+                                  ?.join(" ") + "....."
+                              : blog?.attributes?.short_description
+                          }}
+                        </div>
+                      </div>
+                      <div class="up-right">
+                        <img
+                          (click)="redirect(blog?.attributes?.blog_link)"
+                          src="../../../rb_assets/assets/images/up-right.svg"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Carousel Indicators -->
+              <div class="carousel-indicators custom-indicators">
+                <button
+                  *ngFor="let blog of blogs; let i = index"
+                  type="button"
+                  (click)="goToSlide(i)"
+                  [attr.data-bs-target]="'#mobileCarousel'"
+                  [attr.data-bs-slide-to]="i"
+                  [class.active]="i === activeIndex"
+                  [attr.aria-current]="i === activeIndex ? 'true' : null"
+                  [attr.aria-label]="'Slide ' + (i + 1)"
+                ></button>
+              </div>
+            </div>
+          </div>
+
+          <!-- @for(blog of this.blogs; track blog.id){
+          <div class="col-12 col-sm-12 d-block d-lg-none">
+            <div
+              class="content-card-bg"
+              (click)="redirect(blog?.attributes?.blog_link)"
+            >
+              <div class="content-card-flex">
+                <div>
+                  <img
+                    [src]="blog?.attributes?.mobile_thumbnail?.data?.attributes?.url"
+                    class="curated-card-img"
+                  />
+                </div>
+                <div>
+                  <div class="content-heading">
+                    {{
+                    blog.attributes?.title?.split(" ")?.length >= 8
+                    ? blog.attributes?.title
+                    ?.split(" ")
+                    ?.slice(0, 8)
+                    ?.join(" ") + "....."
+                    : blog.attributes?.title
+                    }}
+                  </div>
+                  <div class="content-text">
+                    {{
+                    blog.attributes?.short_description?.split(" ").length >
+                    20
+                    ? blog.attributes?.short_description
+                    ?.split(" ")
+                    ?.slice(0, 20)
+                    ?.join(" ") + "....."
+                    : blog.attributes?.short_description
+                    }}
+                  </div>
+                </div>
+                <div class="up-right">
+                  <img
+                    (click)="redirect(blog.attributes?.blog_link)"
+                    src="../../../rb_assets/assets/images/up-right.svg"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+           } -->
+        </div>
+      </div>
+      <div class="col-lg-1 col-md-2 col-sm-2 d-lg-block d-none"></div>
+      <div class="col-lg-5 col-md-4 col-sm-4 podcast-col">
+        <div class="row my-5 podcast-section">
+          <div class="col-12 my-4 col-sm-12 d-lg-block d-none"></div>
+          <div
+            class="col-lg-12 col-sm-12 d-flex justify-content-between podcast-header"
+          >
+            <div class="podcast-text">Podcasts</div>
+            <div
+              class="view-all view-all-podcasts"
+              (click)="redirect('https://www.renewbuy.com/podcast')"
+            >
+              View All
+            </div>
+          </div>
+          @for(pod of podcats; track pod?.id){
+          <div
+            class="col-lg-6 col-md-12 col-sm-12 d-flex justify-content-end align-items-center podcast-card"
+            (click)="redirectToYouTube(pod?.attributes?.link)"
+          >
+            <div class="podcast-img-bg align-items-center">
+              <img
+                [src]="pod?.attributes?.thumbnail?.data?.attributes?.url"
+                class="usr-img"
+              />
+              <div
+                class="podcast-flex d-flex mt-3 justify-content-between align-items-center"
+              >
+                <div class="podcast-img-heading">
+                  {{
+                    pod?.attributes?.short_description?.split(" ")?.length > 6
+                      ? pod?.attributes?.short_description
+                          ?.split(" ")
+                          ?.slice(0, 6)
+                          ?.join(" ") + "....."
+                      : pod?.attributes?.short_description
+                  }}
+                </div>
+                <div
+                  class="podcast-play-button"
+                  (click)="redirectToYouTube(pod?.attributes?.link)"
+                >
+                  <img src="../../../rb_assets/assets/images/video.svg" />
+                </div>
+              </div>
+              <!-- <div class="podcast-subheading">1 episode</div> -->
+            </div>
+          </div>
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

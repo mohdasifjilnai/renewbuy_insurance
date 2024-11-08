@@ -1,0 +1,86 @@
+<div class="">
+  <div class="row investor-section">
+    <div class="col-12">
+      <div class="investor-section">
+        <div class="landing-container">
+          <div class="investor">
+            <div class="investor-heading">Investors</div>
+
+            <div class="slider-container d-block d-lg-none">
+              <div
+                class="slide-track"
+                #slideTrack
+                [ngStyle]="{ width: slideTrackWidth }"
+                (mouseenter)="pauseCarousel()"
+                (mouseleave)="resumeCarousel()"
+              >
+                <!-- Loop through investors and duplicate them for smooth scrolling -->
+                <!-- @for (item of investors?.concat(investors); track item?.id){ -->
+                <div
+                  class="slide"
+                  *ngFor="let item of investors?.concat(investors)"
+                >
+                  <img
+                    [src]="item?.img?.data?.attributes?.url"
+                    [alt]="item?.id"
+                  />
+                </div>
+                <!-- } -->
+              </div>
+            </div>
+            <div class="investors-logo d-none d-lg-block">
+              <div class="logo_items d-flex justify-content-center">
+                @for (item of investors; track item?.id){
+
+                <img
+                  [src]="item?.img?.data?.attributes?.url"
+                  [alt]="item?.id"
+                  class="investor-logo-img"
+                />
+                }
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row my-4 row-investor">
+    <div class="col-12 col-lg-6 col-sm-12 new-become-partner my-4">
+      <div class="become-partner-heading d-block d-lg-none">
+        Become an <span>Advisor</span>
+      </div>
+      <div class="become-partner-text d-block d-lg-none">
+        Start your journey as a RenewBuy Partner and enjoy the benefits of
+        selling a wide range of insurance policies.
+      </div>
+      <div class="text-center">
+        <app-lottie-animation></app-lottie-animation>
+      </div>
+    </div>
+    <div class="col-12 col-lg-6 col-sm-12 new-become-partner mt-5">
+      <div class="become-partner-heading d-none d-lg-block">
+        Become an <span>Advisor</span>
+      </div>
+      <div class="become-partner-text d-none d-lg-block">
+        Start your journey as a RenewBuy Partner and enjoy the benefits of
+        selling a wide range of insurance policies.
+      </div>
+      <div class="mobile-partner-squad">
+        <div>
+          <img
+            src="../../../rb_assets/assets/icons/Join our Partner Squad.svg"
+            class="squad-img"
+          />
+        </div>
+
+        <div
+          class="joinour-squad"
+          (click)="redirect('https://partners.renewbuy.com/v2/')"
+        >
+          Join our Advisor Squad.
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

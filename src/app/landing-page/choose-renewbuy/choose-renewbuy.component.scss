@@ -1,0 +1,236 @@
+.why-choose-renewbuy {
+  // max-width: 95%;
+  margin: auto;
+  padding: 10px 0px 20px 0px;
+}
+.mt-choose-renewbuy {
+  margin-top: 3rem;
+}
+.why-choose-text {
+  font-size: 40px;
+  font-weight: 400;
+  line-height: 56px;
+  color: #1a2e35;
+  .choose-text-bold {
+    font-weight: 600 !important;
+  }
+}
+
+.why-choose-subheading {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 19.36px;
+  color: #797a7e;
+}
+
+.card-item {
+  padding: 5px;
+  border-radius: 12px;
+  background-color: #f0f0f0;
+}
+
+.card-heading {
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 25.2px;
+  color: rgba(45, 49, 52, 1);
+}
+
+.card-subheading {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 21.94px;
+  color: rgba(121, 122, 126, 1);
+  text-align: center;
+}
+
+/* Custom background colors for cards */
+.bg-light-yellow {
+  background-color: #fffcf8;
+  border: 1px solid rgba(255, 237, 214, 1);
+}
+
+.bg-light-blue {
+  background-color: #f5faff;
+  border: 1px solid rgba(222, 238, 255, 1);
+}
+// .img-responsive {
+//   width: 143px;
+// }
+@media (max-width: 1110px) {
+  .img-responsive {
+    position: relative;
+    right: 10%;
+    width: 143px;
+  }
+}
+.insurance-partners {
+  margin: auto;
+  padding: 20px 0px;
+
+  .partners-heading {
+    font-size: 30px;
+    line-height: 45px;
+    font-weight: 400;
+    color: rgba(45, 49, 52, 1);
+    text-align: center;
+    padding: 10px 0px 20px 0px;
+    .fw-bold {
+      font-weight: 600;
+    }
+  }
+
+  .partners-logos {
+    overflow: hidden;
+    // padding: 10px 40px 20px 40px;
+    white-space: nowrap;
+    position: relative;
+  }
+
+  .partner-logo-img {
+    width: 150px; /* Adjust this value as needed */
+    height: 50px; /* Adjust this value as needed */
+
+    /* Ensure all images fit the container while maintaining aspect ratio */
+    overflow: hidden; /* Hide any overflow */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    // filter: grayscale(100%);
+    cursor: pointer;
+  }
+  .partner-logo-img:hover {
+    filter: grayscale(0%);
+  }
+}
+
+.partner-logo-img img {
+  /* Ensure images cover the container */
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.slider {
+  /* Ensure the slider container fits its contents */
+  display: flex;
+  overflow: hidden;
+}
+
+@media (max-width: 768px) {
+  .why-choose-renewbuy {
+    padding: 10px 0px 00px 0px;
+  }
+  .mt-choose-renewbuy {
+    margin-top: 1rem;
+  }
+  .partner-logo-img {
+    margin-right: 10px;
+  }
+  .custome-margin-top-5 {
+    margin-top: 0rem !important;
+  }
+  .why-choose-text {
+    font-size: 22px;
+  }
+  .why-choose-container {
+    display: none;
+  }
+  .carousel-inner-choose-custome {
+    padding-left: 10%;
+  }
+  .why-choose-container {
+    overflow-x: auto;
+    white-space: nowrap;
+    scroll-snap-type: x mandatory;
+    gap: 10px;
+    padding-bottom: 44px;
+    overflow-y: hidden;
+  }
+
+  .insurance-partners {
+    .partners-heading {
+      font-size: 20px;
+      font-weight: 400;
+      line-height: 30px;
+    }
+    .partners-logos {
+      margin-top: 0rem !important;
+    }
+  }
+  .custome-margin-top-2 {
+    margin-top: -2rem !important;
+  }
+
+  .slider-card {
+    .slick-slide {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0 10px;
+    }
+
+    .card-item {
+      width: 260px;
+      height: 280px !important;
+      max-width: 280px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      text-align: center;
+      padding: 5px;
+      box-sizing: border-box;
+    }
+
+    .card-body {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 0px;
+    }
+
+    .card-heading {
+      font-size: 14px;
+      font-weight: 600;
+      line-height: 21px;
+
+      margin-bottom: 10px;
+      word-wrap: break-word;
+      white-space: normal;
+    }
+
+    .card-subheading {
+      font-size: 12px;
+      color: rgba(121, 122, 126, 1);
+      word-wrap: break-word;
+      white-space: normal;
+      // padding-top: 20px;
+    }
+
+    .card-body img {
+      max-width: 99px;
+      // margin-top: 40px;
+      height: 100px;
+      right: 0%;
+      top: -2%;
+    }
+
+    .slick-dots {
+      bottom: -25px;
+    }
+
+    .slick-dots li {
+      margin: 0 5px;
+    }
+
+    .slick-dots li button:before {
+      font-size: 12px;
+      color: #000;
+    }
+
+    .slick-dots li.slick-active button:before {
+      color: #007bff;
+    }
+  }
+}

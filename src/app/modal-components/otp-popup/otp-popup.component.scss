@@ -1,0 +1,115 @@
+.modal.opt-popup {
+  .modal-dialog {
+    .modal-content {
+      padding: 1rem 1rem 0 1rem;
+      border-radius: 16px;
+      .modal-header {
+        border-bottom: none;
+        .close-btn-custom {
+          align-self: flex-start;
+          padding: 0;
+          color: #000000;
+        }
+        .opt-title {
+          font-size: 32px;
+          font-weight: 600;
+          line-height: 48px;
+          text-align: left;
+        }
+      }
+      .modal-body {
+        .otp-section {
+          display: flex;
+          justify-content: space-between;
+          .mobile-text {
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 24px;
+            span.mobile-number {
+              font-size: 16px;
+              font-weight: 600;
+              line-height: 24px;
+            }
+          }
+          span.resend-text {
+            font-size: 16px;
+            font-weight: 600;
+            line-height: 24px;
+            color: #3a6bea;
+            cursor: pointer;
+          }
+        }
+        .opt-input-group {
+          height: 60px;
+          .input-box {
+            height: 58px;
+            border-radius: 12px;
+            margin-top: 1.5rem;
+          }
+        }
+        // .input-box {
+        //   height: 58px;
+        //   border-radius: 12px;
+        //   margin-top: 1.5rem;
+        // }
+        .dont-receive-text {
+          font-size: 16px;
+          font-weight: 400;
+          line-height: 24px;
+          span.resend-text {
+            font-size: 16px;
+            font-weight: 600;
+            line-height: 24px;
+          }
+          span.set-cursor{
+            cursor: pointer;
+          }
+        }
+        .verify-button {
+          background-color: #0068cf;
+          border-radius: 12px;
+          height: 58px;
+
+          font-size: 16px;
+          font-weight: 500;
+          line-height: 24px;
+          color: #ffffff;
+        }
+        .processing-btn {
+          background-color: rgb(150, 163, 190);
+          color: #fff;
+          padding: 10px 20px;
+          border: none;
+          border-radius: 14px;
+          cursor: progress;
+          font-size: 16px;
+          height: 58px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) { 
+  .modal-content {
+    position: fixed; 
+    bottom: 0; 
+    left: 0;
+    right: 0;
+    margin: 0; 
+    height: auto; 
+    max-height: 90%; 
+    overflow-y: auto;
+    border-radius: 16px 16px 0 0 !important; 
+  }
+  
+  .modal-dialog {
+    height: auto; 
+    margin: 0; 
+  }
+
+  .modal-content {
+    border-radius: 0; 
+    height: auto; 
+  }
+}

@@ -1,0 +1,39 @@
+<div
+  class="modal modal-custom-thank-you"
+  tabindex="-1"
+  data-bs-backdrop="static"
+  #thankYouPopup
+>
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-body">
+        <header>
+          <h5 class="header">Thank you!</h5>
+        </header>
+        <div class="center-icon my-1">
+          <img
+            class="thank-image"
+            src="../../../../rb_assets/assets/animations/Successful_Verified.gif"
+            alt=""
+            srcset=""
+          />
+        </div>
+        <p class="footer-text">We'll get right back at you within 24 hrs</p>
+        <div class="d-grid gap-2">
+          <button
+            type="button"
+            class="btn got-it-button"
+            (click)="closePopUp(true)"
+            (keydown.enter)="closePopUp(true)"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+            tabindex="0"
+            #gotItButton
+          >
+            Got it
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

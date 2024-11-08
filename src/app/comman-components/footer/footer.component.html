@@ -1,0 +1,190 @@
+<div class="row footer-background">
+  <div class="container">
+    <div class="row">
+      <div class="footer-top">
+        <div class="footer-container">
+          <div class="footer-links">
+            <div class="col-lg-3 col-md-6 col-12 footer-column-first">
+              <div class="footer-left">
+                <img
+                  src="../../../rb_assets/assets/images/RenewBuylogo.svg"
+                  class="footer-logo"
+                />
+                @if(!isMainPage){
+                <div class="footer-description">
+                  RenewBuyInsurance.com is one of the fastest-growing online
+                  insurance distribution platforms, which simplifies insurance
+                  and makes it accessible for its customers through digitally
+                  enabled advisors
+                </div>
+                }@else {
+                <div class="footer-description">
+                  RenewBuy simplifies insurance & financial products and makes
+                  them accessible for its customers through our digitally
+                  enabled advisors.
+                </div>
+                }
+              </div>
+
+              <div class="footer-social">
+                <div class="social-title">Follow us on</div>
+                <div class="social-icons">
+                  <a
+                    class="atag"
+                    (click)="redirect('https://www.facebook.com/RenewBuy/')"
+                    ><img
+                      class="icon"
+                      src="../../../../rb_assets/assets/images/Facebook.svg"
+                      alt="Facebook"
+                  /></a>
+                  <a
+                    class="atag"
+                    (click)="
+                      redirect(
+                        'https://www.instagram.com/renewbuyofficial?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=='
+                      )
+                    "
+                    ><img
+                      class="icon"
+                      src="../../../../rb_assets/assets/images/instagram-icon.svg"
+                      alt="Instagram"
+                  /></a>
+
+                  <a
+                    class="atag"
+                    (click)="
+                      redirect(
+                        'https://www.linkedin.com/company/renewbuyofficial/'
+                      )
+                    "
+                    ><img
+                      class="icon"
+                      src="../../../../rb_assets/assets/images/linkdin.svg"
+                      alt="LinkedIn"
+                  /></a>
+                  <a
+                    class="atag"
+                    (click)="redirect('https://www.youtube.com/c/Renewbuy')"
+                    ><img
+                      class="icon"
+                      src="../../../../rb_assets/assets/images/youtube-icon.svg"
+                      alt="YouTube"
+                  /></a>
+                </div>
+              </div>
+            </div>
+            @for( footer_head of footer_links; track footer_head.id ){
+            <div class="col-lg-3 col-md-6 col-12 footer-column footer-column">
+              <h4 class="heading fw-bold">
+                {{ footer_head?.attributes?.title }}
+              </h4>
+
+              @if(footer_head?.attributes?.footer_tags.data.length > 0){
+              @for(item of footer_head?.attributes?.footer_tags.data; track
+              item?.id){
+              <div class="footer-pd">
+                <div class="sub-heading">
+                  @if(item.attributes?.links?.length>0){
+                  <img
+                    class="toggle-icon"
+                    [src]="getIconSrc(item?.attributes?.tag_name)"
+                    (click)="toggleFooterLinks(item?.attributes?.tag_name)"
+                    src="../../../../rb_assets/assets/images/footer-icon.svg"
+                  />
+                  }
+
+                  <div
+                    class="sub-row"
+                    [ngStyle]="{
+                      'padding-left':
+                        item.attributes?.links?.length === 0 ? '3.5px' : '0px'
+                    }"
+                  >
+                    <a
+                      class="primary-link"
+                      (click)="redirect(item?.attributes?.url_link)"
+                      id="link?.id"
+                      >{{ item?.attributes?.tag_name }}</a
+                    >
+                  </div>
+                </div>
+                @if(item?.attributes?.links.length > 0){ @for(link of
+                item?.attributes?.links; track link?.id){
+                <ul
+                  class="footer-links-row"
+                  [ngClass]="{
+                    expanded: expandedSections[item?.attributes?.tag_name]
+                  }"
+                >
+                  <li class="sub-row">
+                    <a class="primary-link" (click)="redirect(link?.link)">{{
+                      link?.title
+                    }}</a>
+                  </li>
+                </ul>
+                } }
+              </div>
+              } }
+            </div>
+            }
+          </div>
+
+          <div class="footer-border"></div>
+
+          <div class="footer-info">
+            <div class="footer-top">
+              <div class="col-12 footer-company-info">
+                @if(!isMainPage){
+                <div class="description">
+                  D2C INSURANCE BROKING PVT. LTD (CIN U66030DL2013PTC249265),
+                  Principal Place Of Business: 1st Floor, Plot No 94, Sector-
+                  32, Gurugram -122001, Haryana; Registered Office: 3rd Floor,
+                  5B/16, Tilak Nagar, New Delhi-110018, India, IRDAI Broking
+                  License Code No. DB 571/14, Certificate No. 505, License
+                  Category- Direct Broker (Life & General), Valid Till
+                  26/11/2026. Product Information Is Solely Based On The
+                  Information Received From The Insurers. For More Details On
+                  Risk Factors, Associated Terms And Conditions And Exclusions,
+                  Please Read The Sales Brochure Carefully Of Respective Insurer
+                  Before Concluding A Sale. The Point Of Sales Person (POSP) Is
+                  Appointed By D2C Insurance Broking Private Limited As Per The
+                  Guidelines On Point Of Sales Person Issued By The IRDAI And
+                  Amended From Time To Time.
+                </div>
+                }@else {
+                <div class="description">
+                  D2C Consulting Services Private Limited (CIN
+                  U74900DL2012PTC246820) Principal Place Of Business: 2nd Floor,
+                  Plot 94, Sector 32 Gurugram 122001,
+                </div>
+                }
+
+                <div class="sub-description">
+                  Registered Office: 3rd Floor, 5B/16, Tilak Nagar, New Delhi –
+                  110018, India.
+                </div>
+              </div>
+              <div class="footer-border"></div>
+
+              <div class="col-12 footer-copy-right text-center">
+                <div class="footer-bottom-info">
+                  @if(!isMainPage){
+                  <p>D2C INSURANCE BROKING PVT. LTD.</p>
+
+                  }@else{
+                  <p>D2C Consulting Services Private Limited</p>
+                  }
+
+                  <div class="footer-border d-block d-lg-none"></div>
+                  <p class="copyright">
+                    © {{ currentYear }} RenewBuy All Rights Reserved
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,79 @@
+.success {
+  width: 400px;
+  height: 230px;
+  position: relative;
+  margin: auto;
+  // bottom: 266px;
+  // left: 172px;
+  gap: 0px;
+  border-radius: 16px 16px 16px 16px;
+  opacity: 0px;
+  // position: relative;
+  background: #ffffff;
+  box-shadow: 0px 25px 40px 0px #0000001a;
+  z-index: 999;
+
+  .success-sign {
+    width: auto;
+    height: 64px;
+    // top: 34px;
+    // left: 178px;
+    gap: 0px;
+    opacity: 0px;
+    // position: relative;
+  }
+  .success-text {
+    width: auto;
+    height: 24px;
+    // top: 56px;
+    // left: 157px;
+    gap: 0px;
+    opacity: 0px;
+    // position: relative;
+    font-family: Poppins;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 24px;
+    letter-spacing: 0.04em;
+    text-align: left;
+  }
+  .success-foot {
+    width: auto;
+    height: 35px;
+    // top: 57px;
+    // left: 96px;
+    gap: 0px;
+    opacity: 0px;
+    // position: relative;
+    font-family: Poppins;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    // letter-spacing: 0.04em;
+    text-align: center;
+  }
+  .got-button {
+    width: 147px;
+    height: 58px;
+    // top: 58px;
+    // left: 117px;
+    padding: 17px 43px 17px 43px;
+    gap: 10px;
+    width: 47%;
+    border-radius: 12px 12px 12px 12px;
+    opacity: 0px;
+    background: #0068cf;
+    position: relative;
+    border: none;
+    color: #fff2f2;
+  }
+}
+.fileLoader-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Dull, dark background */
+    z-index: 999; /* Make sure it's on top */
+  }

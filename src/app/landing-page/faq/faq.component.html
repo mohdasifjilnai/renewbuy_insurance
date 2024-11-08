@@ -1,0 +1,342 @@
+<div class="left-right-container-padding faq-main-header">
+  <div class="container">
+    <div class="row mt-5">
+      <div class="col-lg-6 col-12 col-sm-12 faq-ps justify-content-center">
+        <div class="faq-header">
+          <div class="faq-header-title">Got Questions?</div>
+          <div class="faq-header-sub-title">
+            We are here to <span>help</span>
+          </div>
+          <div class="faq-header-discription">
+            Browse through our FAQs for quick answers, and don’t hesitate to ask
+            if you need more help
+          </div>
+        </div>
+        <div class="faq-image">
+          <img
+            class="faq-icon"
+            src="../../../rb_assets/assets/images/faq-section-icon.svg"
+            alt="FAQ Image"
+          />
+        </div>
+      </div>
+      <div class="col-lg-6 col-12 col-sm-12">
+        <div
+          class="faq-slider-container position-relative d-flex align-items-center mb-4"
+        >
+          <div
+            class="prev-tab btn btn-circle bg-primary-light p-1 d-flex align-items-center justify-content-center me-2"
+            [class.d-none]="currentIndex === 0"
+            (click)="scrollTabs(-1)"
+          >
+            <img
+              src="../../../rb_assets/assets/images/left.svg"
+              class="left-arrow"
+            />
+          </div>
+
+          <div class="faq-tabs d-flex content-tab-wrapper">
+            <div class="content-tab d-flex" #tabsContainer>
+              @for( tag of faq_tags; track tag?.id){
+              <button
+                class="tab-button btn"
+                [ngClass]="{ active: tag?.id === activeTagId }"
+                data-tab-target="health"
+                (click)="showTab(tag)"
+              >
+                {{ tag?.attributes?.tag_name }}
+              </button>
+              }
+            </div>
+          </div>
+          <div
+            class="next-tab btn btn-circle bg-primary-light btn-next p-1 d-flex align-items-center justify-content-center ms-2"
+            [class.d-none]="currentIndex === tags_length"
+            (click)="scrollTabs(1)"
+          >
+            <img
+              src="../../../rb_assets/assets/images/right.svg"
+              class="right-arrow"
+            />
+          </div>
+        </div>
+        <div class="main-faq-section">
+          <div class="faq-section">
+            @for(faq_data of faqs_data ; track faq_data?.id){
+            <div class="faq-content">
+              <div class="faq-panel active">
+                <div class="faq-item">
+                  <button class="faq-question" (click)="toggleAnswer($event)">
+                    {{ faq_data?.attributes?.question }}
+                    <span class="toggle-icon">
+                      <img
+                        src="../../../rb_assets/assets/images/faq-dropdown.svg"
+                        alt="Toggle Icon"
+                      />
+                    </span>
+                  </button>
+                  <div class="faq-answer">
+                    {{ faq_data?.attributes?.answer }}
+                  </div>
+                </div>
+              </div>
+            </div>
+            }
+          </div>
+        </div>
+      </div>
+    </div>
+    @if(home_sponsored?.is_sponsored === true){
+    <div class="row mt-5 g-0">
+      <div class="col-12 col-lg-12 text-center">
+        <div class="sponsored-text">Sponsored Ad</div>
+      </div>
+      <div class="col-12 col-lg-12 my-5 d-none d-lg-block">
+        <div id="customCarousel" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-inner carousel-inner-custome">
+            <div class="carousel-item active">
+              <div class="row">
+                <div class="col-12 col-lg-3 col-md-3">
+                  <img
+                    src="../../../rb_assets/assets/images/image 31.svg"
+                    class="img-fluid"
+                    alt="Image 1"
+                  />
+                </div>
+                <div class="col-12 col-lg-3 col-md-3">
+                  <img
+                    src="../../../rb_assets/assets/images/image 32.svg"
+                    class="img-fluid"
+                    alt="Image 2"
+                  />
+                </div>
+                <div class="col-12 col-lg-3 col-md-3">
+                  <img
+                    src="../../../rb_assets/assets/images/image 33.svg"
+                    class="img-fluid"
+                    alt="Image 3"
+                  />
+                </div>
+                <div class="col-12 col-lg-3 col-md-3">
+                  <img
+                    src="../../../rb_assets/assets/images/image 34.svg"
+                    class="img-fluid"
+                    alt="Image 4"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="row">
+                <div class="col-12 col-lg-3 col-md-3">
+                  <img
+                    src="../../../rb_assets/assets/images/image 31.svg"
+                    class="img-fluid"
+                    alt="Image 1"
+                  />
+                </div>
+                <div class="col-12 col-lg-3 col-md-3">
+                  <img
+                    src="../../../rb_assets/assets/images/image 32.svg"
+                    class="img-fluid"
+                    alt="Image 2"
+                  />
+                </div>
+                <div class="col-12 col-lg-3 col-md-3">
+                  <img
+                    src="../../../rb_assets/assets/images/image 33.svg"
+                    class="img-fluid"
+                    alt="Image 3"
+                  />
+                </div>
+                <div class="col-12 col-lg-3 col-md-3">
+                  <img
+                    src="../../../rb_assets/assets/images/image 34.svg"
+                    class="img-fluid"
+                    alt="Image 4"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Controls -->
+          <button
+            class="carousel-control-prev carousel-control-prev-btn"
+            type="button"
+            data-bs-target="#customCarousel"
+            data-bs-slide="prev"
+          >
+            <div class="left-arr carousel-control-left-arr">
+              <img
+                src="../../../rb_assets/assets/images/blue-right.svg"
+                alt="left"
+                class="arrimg blue-arrimg carousel-arrimg"
+              />
+              <img
+                src="../../../rb_assets/assets/images/white-right.svg"
+                alt="left"
+                class="arrimg white-arrimg carousel-arrimg"
+              />
+            </div>
+          </button>
+          <button
+            class="carousel-control-next carousel-control-next-btn"
+            type="button"
+            data-bs-target="#customCarousel"
+            data-bs-slide="next"
+          >
+            <div class="left-arr carousel-control-left-arr">
+              <img
+                src="../../../rb_assets/assets/images/blue-left.svg"
+                alt="left"
+                class="arrimg blue-arrimg carousel-arrimg"
+              />
+              <img
+                src="../../../rb_assets/assets/images/white-left.svg"
+                alt="left"
+                class="arrimg white-arrimg carousel-arrimg"
+              />
+            </div>
+          </button>
+        </div>
+      </div>
+      <div class="col-12 col-sm-12 my-5 d-block d-lg-none">
+        <div
+          id="customCarousel-mobile"
+          class="carousel slide"
+          data-bs-ride="carousel"
+        >
+          <div class="carousel-inner carousel-inner-custome">
+            <!-- First Slide (Single Image per Carousel Item) -->
+            <div class="carousel-item active">
+              <div class="row">
+                <div class="col-12 col-sm-12">
+                  <img
+                    src="../../../rb_assets/assets/images/image 31.svg"
+                    class="img-fluid"
+                    alt="Image 1"
+                  />
+                </div>
+              </div>
+            </div>
+            <!-- Second Slide -->
+            <div class="carousel-item">
+              <div class="row">
+                <div class="col-12 col-sm-12">
+                  <img
+                    src="../../../rb_assets/assets/images/image 32.svg"
+                    class="img-fluid"
+                    alt="Image 2"
+                  />
+                </div>
+              </div>
+            </div>
+            <!-- Third Slide -->
+            <div class="carousel-item">
+              <div class="row">
+                <div class="col-12 col-sm-12">
+                  <img
+                    src="../../../rb_assets/assets/images/image 33.svg"
+                    class="img-fluid"
+                    alt="Image 3"
+                  />
+                </div>
+              </div>
+            </div>
+            <!-- Fourth Slide -->
+            <div class="carousel-item">
+              <div class="row">
+                <div class="col-12">
+                  <img
+                    src="../../../rb_assets/assets/images/image 34.svg"
+                    class="img-fluid"
+                    alt="Image 4"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Controls -->
+          <button
+            class="carousel-control-prev carousel-control-prev-btn"
+            type="button"
+            data-bs-target="#customCarousel-mobile"
+            data-bs-slide="prev"
+          >
+            <div class="left-arr carousel-control-left-arr">
+              <img
+                src="../../../rb_assets/assets/images/blue-right.svg"
+                alt="left"
+                class="arrimg blue-arrimg carousel-arrimg"
+              />
+              <img
+                src="../../../rb_assets/assets/images/white-right.svg"
+                alt="left"
+                class="arrimg white-arrimg carousel-arrimg"
+              />
+            </div>
+          </button>
+          <button
+            class="carousel-control-next carousel-control-next-btn"
+            type="button"
+            data-bs-target="#customCarousel-mobile"
+            data-bs-slide="next"
+          >
+            <div class="left-arr carousel-control-left-arr">
+              <img
+                src="../../../rb_assets/assets/images/blue-left.svg"
+                alt="left"
+                class="arrimg blue-arrimg carousel-arrimg"
+              />
+              <img
+                src="../../../rb_assets/assets/images/white-left.svg"
+                alt="left"
+                class="arrimg white-arrimg carousel-arrimg"
+              />
+            </div>
+          </button>
+        </div>
+      </div>
+    </div>
+    }
+
+    <div class="row">
+      <div class="col-lg-12 col-sm-12 d-flex justify-content-center">
+        <div class="newsletter-container">
+          <div class="newsletter-content">
+            <div class="newsletter-left-content">
+              <h2 class="newsletter-title">Subscribe Now!</h2>
+              <div class="newsletter-description">
+                For the latest in insurance and financial products
+              </div>
+            </div>
+            <div class="newsletter-right-form">
+              <form class="newsletter-form">
+                <input
+                  type="email"
+                  class="newsletter-input"
+                  placeholder="Enter Your Email ID"
+                  aria-label="Email Address"
+                  name="email"
+                  required
+                  [(ngModel)]="email"
+                />
+                <div class="submit-button">
+                  <button
+                    type="submit"
+                    (click)="subscribe_email(email)"
+                    class="newsletter-button"
+                  >
+                    Subscribe
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

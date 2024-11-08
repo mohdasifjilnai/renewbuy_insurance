@@ -1,0 +1,235 @@
+<div class="main-customer-stories left-right-container-padding">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 col-lg-7 col-sm-12 col-md-6 video-column-item mt-5">
+        <div class="partners-heading ps-1">
+          Customer <span class="partners-stories">Stories</span>
+        </div>
+        <div class="cs-column-item">
+          <div [ngClass]="girdClassName">
+            <div class="nested-item">
+              <div class="customer-video">
+                <div class="video-overlay">
+                  <div
+                    class="video-container video-cover"
+                    (mouseover)="increaseWidth(1, 'cs-grid-1', video1)"
+                    (mouseleave)="stopVideo(1, 'cs-grid-1', video1)"
+                  >
+                    <video
+                      #video1
+                      controls
+                      controlslist="nodownload noremoteplayback nofullscreen noplaybackrate"
+                      disablePictureInPicture
+                      muted
+                      class="width-expended"
+                      poster="../../../rb_assets/assets/images/4_1.png"
+                    >
+                      <source
+                        type="video/mp4"
+                        src="https://dw3xef9i2485y.cloudfront.net/assets/renewbuy_videos/ashish1.mp4"
+                      />
+                    </video>
+                    <div
+                      class="text"
+                      [ngClass]="{
+                        'rotate-0': videoNumber === 1,
+                        'rotate-90': videoNumber !== 1
+                      }"
+                    >
+                      Ashish Kalra
+                    </div>
+                    <div
+                      class="post-name"
+                      [ngClass]="{
+                        'rotate-0': videoNumber === 1,
+                        'rotate-90': videoNumber !== 1
+                      }"
+                    >
+                      Finance
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="nested-item">
+              <div class="customer-video">
+                <div class="video-overlay">
+                  <div
+                    class="video-container video-cover"
+                    (mouseover)="increaseWidth(2, 'cs-grid-2', video2)"
+                    (mouseleave)="stopVideo(2, 'cs-grid-2', video2)"
+                  >
+                    <video
+                      #video2
+                      controls
+                      controlslist="nodownload noremoteplayback nofullscreen noplaybackrate"
+                      disablePictureInPicture
+                      muted
+                      class="width-expended"
+                      poster="../../../rb_assets/assets/images/2_1.png"
+                    >
+                      <source
+                        type="video/mp4"
+                        src="https://dw3xef9i2485y.cloudfront.net/assets/renewbuy_videos/hina1.mp4"
+                      />
+                    </video>
+                    <div
+                      class="text"
+                      [ngClass]="{
+                        'rotate-0': videoNumber === 2,
+                        'rotate-90': videoNumber !== 2
+                      }"
+                    >
+                      Hina
+                    </div>
+                    <div
+                      class="post-name"
+                      [ngClass]="{
+                        'rotate-0': videoNumber === 2,
+                        'rotate-90': videoNumber !== 2
+                      }"
+                    >
+                      Marketing Head
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="nested-item">
+              <div class="customer-video">
+                <div class="video-overlay">
+                  <div
+                    class="video-container video-cover"
+                    (mouseover)="increaseWidth(3, 'cs-grid-3', video3)"
+                    (mouseleave)="stopVideo(3, 'cs-grid-3', video3)"
+                  >
+                    <video
+                      #video3
+                      controls
+                      controlslist="nodownload noremoteplayback nofullscreen noplaybackrate"
+                      disablePictureInPicture
+                      muted
+                      class="width-expended"
+                      poster="../../../rb_assets/assets/images/1_1.png"
+                    >
+                      <source
+                        type="video/mp4"
+                        src="https://dw3xef9i2485y.cloudfront.net/assets/renewbuy_videos/shubham1.mp4"
+                      />
+                    </video>
+                    <div
+                      class="text"
+                      [ngClass]="{
+                        'rotate-0': videoNumber === 3,
+                        'rotate-90': videoNumber !== 3
+                      }"
+                    >
+                      Shubham
+                    </div>
+                    <div
+                      class="post-name"
+                      [ngClass]="{
+                        'rotate-0': videoNumber === 3,
+                        'rotate-90': videoNumber !== 3
+                      }"
+                    >
+                      Engineer
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="col-12 col-lg-5 col-md-6 col-sm-12 mx-auto review-customer mt-5"
+      >
+        <div class="customer-stories-text">
+          Customer <span class="fw-bold">Reviews</span>
+        </div>
+        <div class="mt-4">
+          <div
+            id="carouselExampleControls"
+            class="carousel slide custome-carousel"
+            data-bs-ride="carousel"
+          >
+            <!--  data-bs-ride="carousel" -->
+            <div class="carousel-inner custom-inner-carousel">
+              <div
+                class="carousel-item"
+                *ngFor="
+                  let cus of custome_stories;
+                  let i = index;
+                  trackBy: trackById
+                "
+                [ngClass]="{ active: i === 0 }"
+              >
+                <div class="d-flex justify-content-center customer-review">
+                  <div class="card border-1 customer-card">
+                    <div class="customer-photo my-3">
+                      <img
+                        [src]="cus?.avatar?.data?.attributes?.url"
+                        [alt]="cus?.alt"
+                        class="img-fluid img-fluid-responsive mx-auto d-block rounded"
+                      />
+                    </div>
+                    <div class="customer-name text-center my-2">
+                      {{ cus?.name }}<br />
+                      <small class="customer-designation-text">
+                        {{ cus?.designation }}
+                      </small>
+                    </div>
+                    <div class="customer-text text-center mx-3">
+                      {{ cus?.message }}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <button
+              class="carousel-control-prev"
+              type="button"
+              data-bs-target="#carouselExampleControls"
+              data-bs-slide="prev"
+            >
+              <div class="left-arr">
+                <img
+                  src="../../../rb_assets/assets/images/blue-right.svg"
+                  alt="left"
+                  class="arrimg blue-arrimg"
+                />
+                <img
+                  src="../../../rb_assets/assets/images/white-right.svg"
+                  alt="left"
+                  class="arrimg white-arrimg"
+                />
+              </div>
+            </button>
+
+            <button
+              class="carousel-control-next"
+              type="button"
+              data-bs-target="#carouselExampleControls"
+              data-bs-slide="next"
+            >
+              <div class="left-arr">
+                <img
+                  src="../../../rb_assets/assets/images/blue-left.svg"
+                  alt="left"
+                  class="arrimg blue-arrimg"
+                />
+                <img
+                  src="../../../rb_assets/assets/images/white-left.svg"
+                  alt="left"
+                  class="arrimg white-arrimg"
+                />
+              </div>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

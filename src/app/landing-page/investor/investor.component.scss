@@ -1,0 +1,250 @@
+@import "../../../_mixins.scss";
+.row-investor {
+  background-color: #fcfcff;
+  padding: 0px 0px 6px 0px;
+}
+.investor-section {
+  padding: 0px 0px 15px;
+  border: solid 1ox red;
+  .investor {
+    padding: 0px 50px;
+    .investor-heading {
+      font-size: 32px;
+      line-height: 48px;
+      color: #1a2e35;
+      font-weight: 500;
+      text-align: center;
+      padding: 10px 0px;
+    }
+
+    .investors-logo {
+      overflow: hidden;
+      padding: 10px 40px 20px 40px;
+      white-space: nowrap;
+      position: relative;
+
+      .logo_items {
+        display: inline-block;
+        animation: 35s investors infinite linear;
+        .investor-logo-img {
+          height: auto;
+          padding: 0px 30px;
+          cursor: pointer;
+        }
+      }
+    }
+    .investors-logo:hover .logo_items {
+      animation-play-state: paused;
+    }
+  }
+}
+.carousel-inner {
+  display: flex;
+  justify-content: flex-start;
+  position: relative;
+  overflow: hidden;
+}
+
+.carousel-item {
+  flex: 0 0 66.6667%; /* Show two images and part of the third */
+  position: relative;
+}
+
+.carousel-content {
+  display: flex;
+  justify-content: flex-start;
+  overflow: hidden;
+}
+
+.image-item {
+  width: 100%;
+  height: auto;
+  object-fit: cover; /* Ensures images cover their container */
+}
+
+.carousel-inner::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 33.3333%; /* Show partial (1/3rd) of the third image */
+  height: 100%;
+  background: rgba(
+    255,
+    255,
+    255,
+    0
+  ); /* Transparent to show partial third image */
+}
+
+.mobile-investor-icon {
+  padding: 0 10px; /* Adjust padding for better appearance */
+  overflow: hidden;
+
+  .slick-slide {
+    padding: 0 5px; /* Adds spacing between images */
+  }
+
+  img {
+    width: 100%; /* Ensures the images take up full space within the slide */
+    height: auto;
+  }
+}
+
+.title {
+  position: relative;
+  bottom: 40%;
+  @include for-big-desktop-only {
+    bottom: 50%;
+  }
+}
+.sub-title {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 1);
+  font-weight: 400;
+  line-height: 23.44px;
+  letter-spacing: -0.01em;
+  text-align: center;
+}
+
+.mobile-text {
+  display: none;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.investor-section .investor {
+  padding: 0px;
+}
+
+.slider-container {
+  overflow: hidden; /* Ensures content outside the slider is hidden */
+  width: 100%; /* Set the container to the width of the viewport */
+}
+
+.slide-track {
+  display: flex;
+  animation: scroll 30s linear infinite;
+}
+
+.slide {
+  flex: 0 0 140px; /* Each slide is 160px wide */
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.slide img {
+  width: 100%;
+  height: auto;
+}
+
+/* Pausing the animation on hover */
+.slide-track:hover {
+  animation-play-state: paused;
+}
+@media (min-width: 1296px) and (max-width: 1366px) {
+  .logo_items img {
+    padding: 0px 20px !important;
+  }
+}
+@media (min-width: 1024px) and (max-width: 1295px) {
+  .logo_items {
+    .investor-logo-img {
+      padding: 0px 10px !important;
+    }
+  }
+}
+.new-become-partner {
+  .become-partner-heading {
+    font-size: 36px;
+    font-weight: 600;
+    line-height: 50.4px;
+    letter-spacing: 0.25px;
+    text-align: left;
+    color: #1a2e35;
+  }
+
+  .become-partner-text {
+    font-size: 14px;
+    line-height: 28px;
+    color: #8e8e93;
+    font-weight: 400;
+    padding: 10px 0px;
+    max-width: 530px;
+  }
+  .joinour-squad {
+    font-size: 12px;
+    line-height: 17.92px;
+    color: #0068cf;
+    margin-top: 0px;
+    font-weight: 400px;
+    padding: 5px 10px 15px 10px;
+    cursor: pointer;
+  }
+  .text-center {
+    order: 3;
+    justify-content: center; /* Center the Lottie animation */
+    align-items: center;
+    width: 100%; /* Full width of container */
+    // margin-bottom: 20px;
+  }
+  .mobile-partner-squad {
+    margin-top: 10px;
+  }
+}
+
+@media (max-width: 768px) {
+  .investor-heading {
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 36px;
+  }
+
+  .row-investor {
+    margin-top: 0px !important;
+
+    border-radius: 24px;
+    box-shadow: 0px 4px 8px -2px #11182726;
+    margin-left: 10px;
+    margin-right: 10px;
+    height: auto;
+  }
+  .investor-section {
+    padding: 10px 0px !important;
+  }
+
+  .investor-section {
+    margin: 0px !important;
+  }
+  .new-become-partner {
+    .mobile-partner-squad {
+      text-align: center;
+    }
+    .become-partner-heading {
+      font-size: 24px;
+      font-weight: 600;
+      line-height: 33.6px;
+      letter-spacing: 0.25px;
+      text-align: left;
+      color: #1a2e35;
+      padding-left: 10px;
+    }
+    .become-partner-text {
+      font-size: 14px;
+      line-height: 26px;
+      color: #8e8e93;
+      font-weight: 400;
+      padding-left: 10px;
+    }
+  }
+}

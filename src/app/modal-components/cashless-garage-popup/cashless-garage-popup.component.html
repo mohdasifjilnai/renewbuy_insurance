@@ -1,0 +1,374 @@
+<!-- Main Popup Container -->
+<div class="popup-overlay-profile" id="popupOverlay" (click)="close(false)">
+  <div (click)="$event.stopPropagation()">
+    <div class="popup-content-container">
+      <div class="popup" id="popup">
+        <div
+          *ngIf="isChangeLocationVisible"
+          class="change_location unlock-popup"
+        >
+          <div class="" (click)="$event.stopPropagation()">
+            <div>
+              <div class="d-flex justify-content-between">
+                <h3 class="insurer-heading mb-4">
+                  Select one of the following Insurers
+                </h3>
+                <div
+                  class="close"
+                  (click)="closeChangeLocationPopup()"
+                  aria-label="Close"
+                >
+                  <span class="change-location-cross" aria-hidden="true"
+                    >&times;</span
+                  >
+                </div>
+              </div>
+              <div class="row group-card">
+                <div
+                  class="col-4 col-sm-4 col-md-auto mb-3 pe-0"
+                  *ngFor="let card of card_list"
+                >
+                  <div
+                    class="card small-card text-center p-3"
+                    (click)="closeChangeLocationPopupWithInuraraCard(card)"
+                  >
+                    <img
+                      src="{{
+                        card?.attributes?.insurer_logo?.data?.attributes?.url
+                      }}"
+                      class="card-img-top mb-2"
+                      alt="{{ card?.attributes?.alt }}"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- <button
+          class="btn btn-secondary mt-3"
+          (click)="closeChangeLocationPopup()"
+        >
+          Back to Garages
+        </button> -->
+        </div>
+
+        <!-- Main Garage List Section -->
+        <div>
+          <span class="btn-close" id="closePopup" (click)="close(false)"></span>
+          <div>
+            <div class="align-items-center mb-4">
+              <div class="modal-header">
+                <img
+                  src="{{
+                    insurar_data?.attributes?.insurer_logo?.data?.attributes
+                      ?.url
+                  }}"
+                  alt="{{ insurar_data?.attributes?.alt }}"
+                  class="image-size"
+                />
+                <!-- <h2 class="font-weight-bold px-3">
+                  {{ insurar_data?.attributes?.insurer_name }}
+                </h2> -->
+                <!-- Change Location link that opens the Change Location section -->
+                <a
+                  class="mx-3 text-primary change-location"
+                  (click)="openChangeLocationPopup()"
+                  >Change Insurer</a
+                >
+              </div>
+              <div class="heading-desc">
+                <!-- {{
+                  list_type == "is_garages"
+                    ? insurar_data?.attributes?.garage_discrpition
+                    : insurar_data?.attributes?.hospital_discrpition
+                }} -->
+              </div>
+
+              <div class="d-flex filter-section">
+                <div class="res-cashless-from">
+                  <form
+                    class="form-container filter-container"
+                    [formGroup]="searchForm"
+                    (ngSubmit)="onSubmitSearchForm()"
+                  >
+                    <div class="row no-gutters">
+                      <div
+                        class="search-filter-secion col-12 col-lg-4 col-sm-12"
+                        *ngIf="insurar_data?.attributes?.is_garages"
+                      >
+                        <ng-select
+                          [items]="carBrands"
+                          [virtualScroll]="true"
+                          bindLabel="name"
+                          bindValue="id"
+                          placeholder="Select make"
+                          formControlName="make"
+                          (clear)="onClear()"
+                        >
+                        </ng-select>
+                      </div>
+                      <div
+                        class="position-relative select-pincode col-4 col-lg-4 col-sm-12"
+                      >
+                        <input
+                          type="text"
+                          class="form-control input-box pincode-input"
+                          placeholder="Enter Pincode/City"
+                          maxlength="10"
+                          formControlName="pincode"
+                          (ngModelChange)="resetPin()"
+                        />
+                        <span class="location-icon p-1">
+                          <img
+                            src="../../../../rb_assets/assets/insurance/location.svg"
+                            alt="Location Icon"
+                          />
+                        </span>
+                        <div
+                          *ngIf="
+                            searchForm.get('pincode')?.invalid &&
+                            (searchForm.get('pincode')?.dirty ||
+                              searchForm.get('pincode')?.touched)
+                          "
+                          class="error-message"
+                        >
+                          <div
+                            *ngIf="searchForm.get('pincode')?.errors?.['pattern']"
+                          >
+                            Please enter a valid 6-digit pincode or city name.
+                          </div>
+                        </div>
+                      </div>
+
+                      <div
+                        class="input-group-append col-4 col-lg-4 col-sm-12 mb-3"
+                      >
+                        <button
+                          class="btn btn-light search-btn ml-1"
+                          type="submit"
+                        >
+                          Search
+                          {{
+                            list_type == "is_garages" ? "Garage" : "Hospital "
+                          }}
+                        </button>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+
+                <div class="d-flex">
+                  <!-- <div class="mb-3 position-relative col-12 col-sm-5">
+                  <input
+                    type="text"
+                    class="form-control p-2 input-box pincode-input"
+                    placeholder="Enter Pincode"
+                    maxlength="6"
+                  />
+                  <span class="location-icon p-1">
+                    <img
+                      src="../../../../rb_assets/assets/insurance/location.svg"
+                      alt="Location Icon"
+                    />
+                  </span>
+                </div> -->
+                </div>
+              </div>
+
+              <div class="cashless-garage mb-3">
+                <div class="cashless-count">
+                  {{ totalCount }} Cashless
+                  {{ list_type == "is_garages" ? "Garage" : "Hospital " }}
+                </div>
+                <input
+                  type="text"
+                  class="form-control search-input-box"
+                  [(ngModel)]="searchQuery"
+                  (input)="filterGarages(insurar_data?.attributes?.is_garages)"
+                  [placeholder]="
+                    'Search ' +
+                    (list_type == 'is_garages' ? 'Garage' : 'Hospital') +
+                    ' by Name/Area'
+                  "
+                />
+              </div>
+            </div>
+
+            <div class="table-body d-none d-lg-block">
+              <div class="table-responsive">
+                <table class="table table-bordered">
+                  <thead class="thead-light">
+                    <tr>
+                      <th class="text-center">
+                        {{ list_type == "is_garages" ? "Garage" : "Hospital " }}
+                        Name
+                      </th>
+                      <th class="text-center">Address</th>
+                      <th class="text-center">Contact Number</th>
+                      <th class="text-center">City</th>
+                      <th class="text-center">State</th>
+                    </tr>
+                  </thead>
+                  <tbody
+                    *ngIf="
+                      list_type == 'is_garages' && filteredGarages.length > 0
+                    "
+                  >
+                    <tr
+                      *ngFor="
+                        let garage of filteredGarages
+                          | paginate
+                            : {
+                                itemsPerPage: 25,
+                                currentPage: page,
+                                totalItems: totalItems
+                              }
+                      "
+                    >
+                      <td class="text-wrap">
+                        {{ garage?.attributes?.workshop_name }}
+                      </td>
+                      <td class="text-wrap">
+                        {{ garage?.attributes?.workshop_address }}
+                      </td>
+                      <td class="text-wrap">
+                        {{ garage?.attributes?.workshop_contact_number }}
+                      </td>
+                      <td class="text-wrap">
+                        {{ garage?.attributes?.workshop_city }}
+                      </td>
+                      <td class="text-wrap">
+                        {{ garage?.attributes?.workshop_state }}
+                      </td>
+                    </tr>
+                  </tbody>
+                  <tbody
+                    *ngIf="
+                      list_type != 'is_garages' && filteredGarages.length > 0
+                    "
+                  >
+                    <tr
+                      *ngFor="
+                        let garage of filteredGarages
+                          | paginate
+                            : {
+                                itemsPerPage: 25,
+                                currentPage: page,
+                                totalItems: totalItems
+                              }
+                      "
+                    >
+                      <td class="text-wrap">
+                        {{ garage?.attributes?.hospital_name }}
+                      </td>
+                      <td class="text-wrap">
+                        {{ garage?.attributes?.hospital_address }}
+                      </td>
+                      <td class="text-wrap">
+                        {{ garage?.attributes?.hospital_contact_number }}
+                      </td>
+                      <td class="text-wrap">
+                        {{ garage?.attributes?.hospital_city }}
+                      </td>
+                      <td class="text-wrap">
+                        {{ garage?.attributes?.hospital_state }}
+                      </td>
+                    </tr>
+                  </tbody>
+                  <tbody *ngIf="filteredGarages.length <= 0">
+                    <tr class="no-data-found">
+                      <td colspan="5" class="text-color-no-data">
+                        Data not found.
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div
+                class="pagination-controls-page"
+                *ngIf="filteredGarages.length > 0"
+              >
+                <pagination-controls
+                  (pageChange)="page = $event"
+                  (pageChange)="onPageChange($event)"
+                  [maxSize]="5"
+                ></pagination-controls>
+              </div>
+            </div>
+            <div class="d-block d-lg-none cashsless-detail">
+              <div class="card custom-card" *ngIf="filteredGarages.length > 0">
+                <div class="card-body">
+                  <div
+                    *ngFor="
+                      let garage of filteredGarages
+                        | paginate
+                          : {
+                              itemsPerPage: 25,
+                              currentPage: page,
+                              totalItems: totalItems
+                            }
+                    "
+                  >
+                    <div class="garage-title">
+                      {{ garage?.attributes?.workshop_name }}
+                    </div>
+                    <div class="garage-title">
+                      {{ garage?.attributes?.hospital_name }}
+                    </div>
+                    <div class="garage-detail">
+                      {{ garage?.attributes?.workshop_address }}
+                      <span *ngIf="garage?.attributes?.workshop_contact_number"
+                        >, Contact No.-
+                        {{ garage?.attributes?.workshop_contact_number }}</span
+                      >
+                    </div>
+                    <div class="garage-detail">
+                      {{ garage?.attributes?.hospital_address }}
+                      <span *ngIf="garage?.attributes?.hospital_contact_number"
+                        >, Contact No.-
+                        {{ garage?.attributes?.hospital_contact_number }}</span
+                      >
+                    </div>
+                    <hr class="" />
+                  </div>
+                </div>
+              </div>
+              <div *ngIf="filteredGarages.length <= 0" class="card-body">
+                <div class="no-data-found">Data not found</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <br />
+        <div
+          class="pagination-controls-page d-flex d-lg-none"
+          *ngIf="filteredGarages.length > 0"
+        >
+          <pagination-controls
+            (pageChange)="page = $event"
+            (pageChange)="onPageChange($event)"
+            [maxSize]="5"
+          ></pagination-controls>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- <div class="popup-overlay-profile" id="changeLocationOverlay" (click)="closeChangeLocationPopup()" [hidden]="!isChangeLocationVisible">
+  <div class="container my-5" (click)="$event.stopPropagation()">
+    <div class="popup" id="changeLocationPopup">
+      <span class="btn-close" id="closeChangeLocation" (click)="closeChangeLocationPopup()"></span>
+      <h3 class="font-weight-bold mb-4">Select one of the following Insurers</h3>
+      <div class="row">
+        
+        <div class="col-6 col-sm-4 col-md-1 mb-3" *ngFor="let location of locations">
+          <div class="card small-card text-center p-3">
+            <img src="{{location.image}}" class="card-img-top mb-2" alt="Location Image">
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->
+</div>

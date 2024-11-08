@@ -1,0 +1,238 @@
+<div
+  class="modal modal-custom-new-sign-in"
+  tabindex="-1"
+  data-bs-backdrop="static"
+  #newSignIn
+  *ngIf="!isProfile"
+>
+  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content modal-main-content">
+      <div class="modal-body">
+        <div class="popup" id="popup">
+          <span
+            class="btn-close"
+            id="closePopup"
+            (click)="close(false)"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></span>
+          <!-- [START] Login sign up -->
+
+          @if(!isSignUp){
+          <form
+            [formGroup]="signUpForm"
+            (ngSubmit)="submitForm(signUpForm.valid, $event)"
+            (keydown.enter)="submitOnEnter()"
+          >
+            <div class="my-4">
+              <div class="text-start login-page-text ps-login-page">
+                <div class="sign-text">Sign in</div>
+                <div class="renewbuy-sign-text">to your account</div>
+                <label for="mobile" class="mobile-text mb-4 mt-4">
+                  Login using your mobile number
+                </label>
+                <div class="phone-number-input-box">
+                  <div
+                    class="phone-input-container"
+                    [ngClass]="{
+                      'error-border':
+                        signUpForm.get('mobile_number')?.invalid &&
+                        signUpForm.get('mobile_number')?.dirty
+                    }"
+                  >
+                    <div class="flag-and-code">
+                      <img
+                        src="../../../rb_assets/assets/images/india-flag.svg"
+                        alt="Indian Flag"
+                        class="flag"
+                      />
+                      <span class="country-code">+91</span>
+                    </div>
+                    <input
+                      type="tel"
+                      class="phone-input"
+                      placeholder="Enter mobile number"
+                      formControlName="mobile_number"
+                      maxlength="10"
+                      applyOnlyNumber
+                      appAcceptOnlyDigit
+                    />
+                  </div>
+                  <div
+                    *ngIf="
+                      signUpForm.get('mobile_number')?.invalid &&
+                      signUpForm.get('mobile_number')?.dirty
+                    "
+                    class="error-message"
+                  >
+                    <div
+                      *ngIf="signUpForm.get('mobile_number')?.errors?.['required']"
+                    >
+                      Mobile number field is required.
+                    </div>
+                    <div
+                      *ngIf="signUpForm.get('mobile_number')?.errors?.['pattern']||signUpForm.get('mobile_number')?.errors?.['maxlength']||signUpForm.get('mobile_number')?.errors?.['minlength']"
+                    >
+                      Please enter a valid mobile number.
+                    </div>
+                  </div>
+                </div>
+
+                <br />
+
+                <div class="d-flex align-items-center mt-3">
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      value=""
+                      id="flexCheckDefault"
+                      formControlName="terms_conditions"
+                    />
+                  </div>
+                  <p class="agree-text mb-0 ms-2">
+                    I agree to Platform
+                    <a
+                      class="tc-color"
+                      href="https://www.renewbuy.com/terms-conditions/"
+                      target="_blank"
+                      >Terms and Conditions</a
+                    >
+                    and
+                    <a
+                      class="tc-color"
+                      href="https://www.renewbuy.com/privacy-policy/"
+                      target="_blank"
+                      >Privacy Policy</a
+                    >
+                  </p>
+                </div>
+                <br />
+                @if(!apiWaiting){
+                <button
+                  type="submit"
+                  id="loginId"
+                  class="submit-btn"
+                  [ngClass]="{
+                    'submit-disabled-btn':
+                      signUpForm.invalid ||
+                      this.signUpForm.get('terms_conditions')?.value == false
+                  }"
+                >
+                  Continue
+                </button>
+                }@else {
+                <button type="submit" class="submit-disabled-btn submit-btn">
+                  <span
+                    class="spinner-border spinner-border-sm"
+                    role="status"
+                    aria-hidden="true"
+                  ></span>
+                  Processing....
+                </button>
+                }
+
+                <a
+                  href="https://partners.renewbuy.com/v2/"
+                  class="login-partner-text pt-4"
+                  >Login as RenewBuy Partner</a
+                >
+              </div>
+              <!-- <br /><br />
+                <div class="login-partner-text pt-4">
+                  <a
+                    class="t_c-color"
+                    href="https://partners.renewbuy.com/v2/"
+                    >Login as RenewBuy Partner</a
+                  >
+                </div> -->
+            </div>
+          </form>
+          }
+          <!-- [END] Login sign up -->
+          <!-- [START] OTP Form -->
+          @if(isSignUp){
+          <form
+            [formGroup]="otpForm"
+            (ngSubmit)="submitOtpForm(otpForm.valid)"
+            (keydown.enter)="submitOnEnterOtp()"
+          >
+            <div class="text-start otp-page-text ps-otp-page mt-5">
+              <p class="otp-text">Verify OTP</p>
+              <div class="otp-section">
+                <label for="otp" class="mobile-text">
+                  Enter the OTP sent on
+                  {{
+                    this.signUpForm.get("mobile_number")?.value || mobileNumber
+                  }}
+                </label>
+                <span
+                  class="tc-color resend-text set-cursor"
+                  (click)="changeMobileNumber()"
+                  >Change</span
+                >
+              </div>
+              <div class="phone-input-container mt-4">
+                <input
+                  type="tel"
+                  class="phone-input"
+                  formControlName="otp"
+                  maxlength="6"
+                  applyOnlyNumber
+                  appAcceptOnlyDigit
+                  id="otp"
+                />
+              </div>
+              <p class="light-green" *ngIf="!error">
+                <!--   OTP sent on your mobile no. -->
+              </p>
+              <p *ngIf="error" class="text-danger">{{ error }}</p>
+              <div class="dont-receive-text mb-2">
+                Didn't receive the OTP yet? 
+                <span class="resend-text" *ngIf="!timerFlag"
+                  >Resend in {{ timer }}s</span
+                >
+                <span
+                  class="tc-color resend-text underline-text set-cursor"
+                  *ngIf="timerFlag"
+                  (click)="resend()"
+                  >Resend</span
+                >
+              </div>
+              <br />
+              @if(!apiWaiting){
+              <button
+                type="submit"
+                class="submit-btn"
+                [ngClass]="{ 'submit-disabled-btn': otpForm.invalid }"
+              >
+                Confirm OTP
+              </button>
+              }@else {
+              <button type="submit" class="submit-disabled-btn submit-btn">
+                <span
+                  class="spinner-border spinner-border-sm"
+                  role="status"
+                  aria-hidden="true"
+                ></span>
+                Processing....
+              </button>
+              }
+
+              <br />
+              <br />
+            </div>
+          </form>
+
+          }
+          <!-- [END] OTP From -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<app-profile-page
+  (isUserProfile)="isClose($event)"
+  *ngIf="isProfile"
+></app-profile-page>
+<app-toast-modal></app-toast-modal>

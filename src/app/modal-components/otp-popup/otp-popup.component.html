@@ -1,0 +1,102 @@
+<div
+  class="modal opt-popup"
+  *ngIf="isOtpPopOpen"
+  tabindex="-1"
+  data-bs-backdrop="static"
+  #otpPopup
+>
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title opt-title">Verify OTP</h5>
+        <button
+          type="button"
+          class="btn-close close-btn-custom"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+          (click)="closePopUp(false)"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="otpForm" (ngSubmit)="submitOtpForm(otpForm.valid)" (keydown.enter)="submitOnEnterOtp()">
+          <div class="text-start mt-5">
+            <div class="otp-section">
+              <label for="otp" class="mobile-text">
+                Enter the OTP sent on
+                <span class="mobile-number">{{ mobileNumber }}</span>
+              </label>
+              <span
+                class="tc-color resend-text"
+                (click)="changeMobileNumber()"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+                >Change</span
+              >
+            </div>
+            <div class="mb-4 opt-input-group">
+              <input
+                type="text"
+                class="form-control input-box"
+                id="formGroupExampleInput2"
+                maxlength="6"
+                appAcceptOnlyDigit
+                formControlName="otp"
+              />
+              <div
+                *ngIf="
+                  otpForm.get('otp')?.invalid &&
+                  (otpForm.get('otp')?.dirty || otpForm.get('otp')?.touched)
+                "
+                class="error-message"
+              >
+                <div *ngIf="otpForm.get('otp')?.errors?.['minlength']">
+                  Please Enter Valid OTP number.
+                </div>
+              </div>
+            </div>
+
+            <p *ngIf="error" class="text-danger">{{ error }}</p>
+            <div class="dont-receive-text mb-2">
+              Didn't receive the OTP yet? 
+              <span class="resend-text" *ngIf="!timerFlag"
+                >Resend in {{ timer }}s</span
+              >
+              <span
+                class="tc-color resend-text underline-text set-cursor"
+                *ngIf="timerFlag"
+                (click)="resend()"
+                >Resend</span
+              >
+            </div>
+            <br />
+            @if(!apiWaiting){
+            <div class="d-grid gap-2">
+              <button
+                type="submit"
+                class="btn verify-button"
+                [disabled]="otpForm.invalid"
+              >
+                Confirm OTP
+              </button>
+            </div>
+            }@else {
+            <div class="d-grid gap-2">
+              <button type="button" class="processing-btn">
+                <span
+                  class="spinner-border spinner-border-sm"
+                  role="status"
+                  aria-hidden="true"
+                ></span>
+                Processing....
+              </button>
+            </div>
+            }
+
+            <br />
+            <br />
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

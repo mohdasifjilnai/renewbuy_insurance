@@ -1,0 +1,228 @@
+.claim-file {
+  // .intimation-desc{
+  //   width: 68%;
+  // }
+  .claim-row {
+    gap: 2%;
+  }
+  .claim-margin {
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+  }
+
+  .lead {
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 27px;
+    text-align: center;
+    opacity: 50%;
+    color: #242424;
+    padding: 15px;
+    margin: 0% 10% 0% 5%;
+  }
+
+  .claim-main-title {
+    font-size: 32px;
+    line-height: 48px;
+    font-weight: 600;
+    color: #242424;
+  }
+
+  .claim-steps-wrapper {
+    display: flex;
+    gap: 20px;
+  }
+
+  .icon-container {
+    display: flex;
+    align-items: center;
+
+    .icon-numbers {
+      font-size: 50px;
+      line-height: 75px;
+      font-weight: 600;
+      color: rgba(36, 36, 36, 1);
+      opacity: 25%;
+      margin-left: 12px;
+    }
+
+    .intimation-icon {
+      width: 60px;
+      height: 60px;
+      border-radius: 16px;
+      background: linear-gradient(
+        180deg,
+        rgba(255, 177, 113, 0.12) 0%,
+        rgba(255, 148, 61, 0.12) 100%
+      );
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      img {
+        width: 26px;
+        height: 34px;
+        margin-bottom: 0% !important;
+      }
+    }
+
+    .expert-icon,
+    .tracking-icon,
+    .claim-icon {
+      width: 60px;
+      height: 60px;
+      border-radius: 16px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      img {
+        width: 26px;
+        height: 34px;
+        margin-bottom: 0% !important;
+      }
+    }
+
+    /* Other icons and their background styles */
+    .expert-icon {
+      background: rgba(83, 132, 234, 0.12);
+    }
+
+    .claim-icon {
+      background: #5384ea1f;
+    }
+
+    .tracking-icon {
+      background: linear-gradient(
+        180deg,
+        rgba(255, 177, 113, 0.12) 0%,
+        rgba(255, 148, 61, 0.12) 100%
+      );
+    }
+  }
+
+  .text-muted {
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 500;
+    text-align: start;
+    opacity: 50%;
+    color: rgba(36, 36, 36, 1);
+  }
+
+  .claim-title {
+    text-align: start;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 30px;
+  }
+
+  .gradient-line {
+    border: none;
+    height: 2px;
+    background: linear-gradient(
+      to right,
+      rgba(234, 234, 234, 1),
+      rgba(102, 102, 102, 1),
+      rgba(234, 234, 234, 1)
+    );
+    margin: 0;
+  }
+
+  .btn-center {
+    padding: 0.375rem 1rem;
+    border-radius: 12px;
+    font-weight: bold;
+    border: 1px solid #5384ea;
+    background: #ffffff;
+    color: #5384ea;
+  }
+
+  .btn-center:hover {
+    color: #242424;
+  }
+}
+/**laptop view start */
+@media (min-width: 1024px) and (max-width: 1295px) {
+  .claim-file {
+    .claim-steps-wrapper {
+      gap: 12px;
+    }
+    .text-muted {
+      line-height: 20px;
+      font-size: 14px;
+    }
+  }
+}
+/**laptop view start */
+
+/** mobile view */
+@media only screen and (max-width: 768px) {
+  .claim-file {
+    .claim-main-title span {
+      font-weight: 600;
+    }
+    .claim-margin {
+      margin-top: 3rem;
+      margin-bottom: -2.5rem;
+    }
+
+    .claim-main-title {
+      font-size: 20px;
+      font-weight: 400;
+      line-height: 30px;
+      text-align: center;
+    }
+
+    .lead {
+      font-size: 12px;
+      font-weight: 500;
+      line-height: 18px;
+      text-align: center;
+      margin: 0px;
+      padding: 0px;
+      padding-top: 10px;
+    }
+
+    .icon-container {
+      // .intimation-icon {
+      //   width: 44px;
+      //   height: 44px;
+      // }
+
+      .icon-numbers {
+        font-size: 30px;
+        font-weight: 600;
+        line-height: 44px;
+      }
+    }
+
+    .claim-title {
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 24px;
+      text-align: left;
+    }
+
+    .text-muted {
+      font-size: 13px;
+      line-height: 20px;
+    }
+    .claim-steps-wrapper {
+      display: flex;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      gap: 36px;
+      padding: 10px 0;
+    }
+
+    .claim-steps-wrapper::-webkit-scrollbar {
+      display: none;
+    }
+
+    .claim-slider {
+      flex: 0 0 56%;
+      scroll-snap-align: start;
+    }
+  }
+}

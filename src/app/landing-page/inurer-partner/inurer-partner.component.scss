@@ -1,0 +1,109 @@
+.my-inurer-partners {
+  margin-top: 1.5rem !important;
+  margin-bottom: 1.5rem !important;
+}
+@media (max-width: 768px) {
+  .my-inurer-partners {
+    margin-top: -2rem !important;
+  }
+}
+.inurer-partners {
+  @media (max-width: 1110px) {
+    .img-responsive {
+      position: relative;
+      right: 10%;
+      width: 143px;
+    }
+  }
+  .insurance-partners {
+    margin: auto;
+    padding: 20px 0px;
+
+    .partners-heading {
+      font-size: 30px;
+      line-height: 45px;
+      font-weight: 400;
+      color: rgba(45, 49, 52, 1);
+      text-align: center;
+      padding: 10px 0px 20px 0px;
+      .fw-bold {
+        font-weight: 600;
+      }
+    }
+
+    .partners-logos {
+      overflow: hidden;
+      // padding: 10px 40px 20px 40px;
+      white-space: nowrap;
+      position: relative;
+    }
+
+    .partner-logo-img {
+      width: 150px; /* Adjust this value as needed */
+      height: 50px; /* Adjust this value as needed */
+
+      /* Ensure all images fit the container while maintaining aspect ratio */
+      overflow: hidden; /* Hide any overflow */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      // filter: grayscale(100%);
+      cursor: pointer;
+    }
+    .partner-logo-img:hover {
+      filter: grayscale(0%);
+    }
+  }
+
+  .partner-logo-img img {
+    /* Ensure images cover the container */
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+  .slider {
+    /* Ensure the slider container fits its contents */
+    display: flex;
+    overflow: hidden;
+  }
+
+  @media (max-width: 768px) {
+    .partner-logo-img {
+      margin-right: 10px;
+    }
+    .custome-margin-top-5 {
+      margin-top: 0rem !important;
+    }
+    .carousel-inner-choose-custome {
+      padding-left: 10%;
+    }
+
+    .insurance-partners {
+      .partners-heading {
+        font-size: 20px;
+        font-weight: 400;
+        line-height: 30px;
+      }
+      .partners-logos {
+        margin-top: 0rem !important;
+      }
+    }
+
+    .slick-dots {
+      bottom: -25px;
+    }
+
+    .slick-dots li {
+      margin: 0 5px;
+    }
+
+    .slick-dots li button:before {
+      font-size: 12px;
+      color: #000;
+    }
+
+    .slick-dots li.slick-active button:before {
+      color: #007bff;
+    }
+  }
+}

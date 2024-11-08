@@ -1,0 +1,17 @@
+@if(show){
+<div class="fileLoader-overlay"></div>
+<div class="success"  >
+  <div class="row alignment">
+    <img class="success-sign col-6 mx-auto" [src]="iconLogo" />
+  </div>
+  <div class="row alignment">
+    <p class="success-text col-6 mx-auto">{{ message }}</p>
+  </div>
+  <div class="row alignment">
+    <p class="success-foot col-12 mx-auto">{{ statusText }}</p>
+  </div>
+  <div class="row alignment">
+    <button class="got-button col-6 mx-auto" (click)="reset()">Got It</button>
+  </div>
+</div>
+}

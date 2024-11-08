@@ -1,0 +1,185 @@
+<div
+  class="modal modal-custom-auto-loan"
+  tabindex="-1"
+  data-bs-backdrop="static"
+  #autoLoanPopup
+>
+  <div class="modal-dialog modal-xl modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-body ">
+        <div class="row auto-loan-popup-card">
+          <div class="row">
+            <div class="col-12 col-lg-6 col-md-6 col-sm-6 mb-3 mb-sm-0">
+              <div class="d-flex d-sm-none header">
+                <span class="form-heading">Simple. Quick. Transparent</span>
+                <button
+                  type="button"
+                  class="btn-close mt-1"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                  (click)="closePopUp(false)"
+                ></button>
+              </div>
+              <div class="card-body">
+                <h5 class="d-none d-sm-block card-title">
+                  Simple. Quick. Transparent
+                </h5>
+                <p class="card-text">
+                  Get behind the wheel faster with our speedy application and approval process.
+                </p>
+              </div>
+              <img
+                src="../../../rb_assets/assets/images/auto-loan-car.svg"
+                class="card-img-top"
+                alt="..."
+              />
+              <p class="card-text text-center">
+                <small class="text-muted"
+                  >Trusted by your favourite banking partners</small
+                >
+              </p>
+              <div class="footer-image d-flex text-center">
+                <img
+                  src="../../../rb_assets/assets/images/axis-bank-img.svg"
+                  class="card-img-footer"
+                  alt="..."
+                />
+                <img
+                  src="../../../rb_assets/assets/images/icici-bank-img.svg"
+                  class="card-img-footer"
+                  alt="..."
+                />
+              </div>
+            </div>
+            <div class="col-12 col-lg-6 col-md-6 col-sm-6">
+              <div class="header">
+                <span class="form-heading">Enter your basic details</span>
+                <button
+                  type="button"
+                  class="d-none d-sm-block btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                  (click)="closePopUp(false)"
+                ></button>
+              </div>
+              <form
+                class="form-container"
+                [formGroup]="registrationForm"
+                (ngSubmit)="onSubmitregistrationForm(registrationForm.valid)"
+                (keydown.enter)="submitOnEnterRegistrationForm()"
+              >
+                <div class="mb-4">
+                  <label for="formGroupExampleInput" class="form-label label"
+                    >Full Name<span class="mandatory-required">*</span></label
+                  >
+                  <input
+                    type="text"
+                    class="form-control input-box"
+                    id="formGroupExampleInput"
+                    placeholder="Enter here"
+                    formControlName="name"
+                    maxlength="20"
+                    appSingleSpace
+                  />
+                  <div
+                  *ngIf="
+                    registrationForm.get('name')?.invalid &&
+                    (registrationForm.get('name')?.dirty ||
+                      registrationForm.get('name')?.touched)
+                  "
+                  class="error-message"
+                >
+                  <div *ngIf="registrationForm.get('name')?.errors?.['required']">
+                    Name field is required.
+                  </div>
+                  <div *ngIf="registrationForm.get('name')?.errors?.['pattern']">
+                    Only Alphabet is allowed.
+                  </div>
+                  <div *ngIf="registrationForm.get('name')?.hasError('minlength')">
+                    Min. 3 character required
+                  </div>
+                </div>
+                </div>
+                <div class="mb-4">
+                  <label for="formGroupExampleInput2" class="form-label label"
+                    >Contact Number<span class="mandatory-required"
+                      >*</span
+                    ></label
+                  >
+                  <input
+                    type="text"
+                    class="form-control input-box"
+                    id="formGroupExampleInput2"
+                    placeholder="Enter here"
+                    formControlName="contactNumber"
+                    maxlength="10"
+                    minlength="10"
+                    appAcceptOnlyDigit
+                  />
+                  <!-- Error start  -->
+                <div
+                *ngIf="
+                  registrationForm.get('contactNumber')?.invalid &&
+                  (registrationForm.get('contactNumber')?.dirty ||
+                    registrationForm.get('contactNumber')?.touched)
+                "
+                class="error-message"
+              >
+                <div
+                  *ngIf="registrationForm.get('contactNumber')?.errors?.['required']"
+                >
+                  Mobile number field is required.
+                </div>
+                <div
+                  *ngIf="registrationForm.get('contactNumber')?.errors?.['pattern']||registrationForm.get('contactNumber')?.errors?.['maxlength']||registrationForm.get('mobile_number')?.errors?.['minlength']"
+                >
+                  Please enter a valid mobile number.
+                </div>
+              </div>
+              <!-- Error end  -->
+                </div>
+                <div class="mb-4">
+                  <label for="formGroupExampleInput2" class="form-label label"
+                    >PAN</label
+                  >
+                  <input
+                    type="text"
+                    class="form-control input-box"
+                    id="formGroupExampleInput2"
+                    placeholder="Ex: ABCDE1234F"
+                    maxlength="10"
+                    formControlName="pan"
+                    appCapitalize
+                  />
+                  <div
+                  *ngIf="
+                    registrationForm.get('pan')?.invalid &&
+                    (registrationForm.get('pan')?.dirty ||
+                      registrationForm.get('pan')?.touched)
+                  "
+                  class="error-message"
+                >
+                  <div
+                    *ngIf="registrationForm.get('pan')?.errors?.['pattern']"
+                  >
+                  Please Enter Valid PAN number.
+                  </div>
+                </div>
+                </div>
+                <div class="d-grid gap-2">
+                  <button
+                    class="btn submit-button"
+                    type="submit"
+                    [disabled]="registrationForm.invalid"
+                  >
+                    Submit
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

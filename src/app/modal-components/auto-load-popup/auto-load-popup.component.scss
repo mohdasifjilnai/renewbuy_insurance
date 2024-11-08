@@ -1,0 +1,113 @@
+.modal.modal-custom-auto-loan {
+  .modal-dialog {
+    .modal-content {
+      margin-top: 84px;
+      .modal-body {
+        .auto-loan-popup-card {
+          display: flex;
+          align-items: center;
+          flex-direction: row;
+          justify-content: center;
+          
+          .card-body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin-top: 2rem;
+            .card-title {
+              font-size: 28px;
+              font-weight: 600;
+              line-height: 42px;
+              text-align: center;
+            }
+            .card-text {
+              font-size: 16px;
+              font-weight: 500;
+              line-height: 24px;
+              text-align: center;
+            }
+          }
+          .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            margin-top: .5rem;
+            .form-heading {
+              font-size: 24px;
+              font-weight: 600;
+            }
+          }
+          .label {
+            font-size: 14px;
+            font-weight: 500;
+            line-height: 24px;
+            margin-bottom: 0.2rem;
+            .mandatory-required{
+              color:red;
+            }
+          }
+          .input-box {
+            height: 52px;
+            border-radius: 12px;
+          }
+          .footer-image {
+            justify-content: center;
+            .card-img-footer {
+              width: 115px;
+              height: 33px;
+            }
+          }
+          .submit-button {
+            background-color: #0068cf;
+            border-radius: 12px;
+            height: 58px;
+            font-size: 16px;
+            font-weight: 500;
+            line-height: 24px;
+            color: #ffffff;
+          }
+          @media (min-width: 1024px) and (max-width: 1295px) {
+            .card-body{
+              .card-title{
+                font-size: 24px;
+              }
+              .card-text{
+                font-size: 12px;
+                .text-muted{
+                  font-size: 12px;
+                }
+              }
+            }
+            .header{
+              .form-heading{
+                font-size: 20px;
+              }
+            }
+            .label{
+              font-size: 10px;
+            }
+            .input-box{
+              height: 48px;
+            }
+          }
+          @media (max-width: 768px) {
+            flex-direction: column;
+            .header{
+              align-items: flex-start;
+              .form-heading{
+                font-size: 20px;
+                margin-bottom: 1rem;
+              }
+            }
+            
+          }
+        }
+      }
+      @media (min-width:1296px) and (max-width:1366px) {
+        margin-top: 0;
+      }
+    }
+  }
+}

@@ -1,0 +1,361 @@
+<div class="container car-insurance-container">
+  <div class="row justify-content-between align-items-lg-center">
+    <div
+      class="col-12 col-lg-4 col-sm-12 d-flex d-block d-lg-none justify-content-center"
+    >
+      <div id="customCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div
+            class="carousel-item"
+            *ngFor="let banner of mobileBanner; let i = index"
+            [class.active]="i === activeIndex"
+          >
+            <img
+              [src]="banner?.img?.data?.attributes?.url"
+              class="d-block banner-img banner-img-mobile"
+              [alt]="banner?.img?.data?.attributes?.name"
+              (click)="navigationByLink(banner?.link)"
+            />
+          </div>
+        </div>
+
+        <!-- Carousel Indicators -->
+        <div class="carousel-indicators custom-indicators">
+          <button
+            *ngFor="let banner of mobileBanner; let i = index"
+            type="button"
+            (click)="goToSlide(i)"
+            [attr.data-bs-target]="'#customCarousel'"
+            [attr.data-bs-slide-to]="i"
+            [class.active]="i === activeIndex"
+            [attr.aria-current]="i === activeIndex ? 'true' : null"
+            [attr.aria-label]="'Slide ' + (i + 1)"
+          ></button>
+        </div>
+      </div>
+    </div>
+    <div
+      class="col-12 text-center text-md-start card-margin"
+      [innerHtml]="title"
+    ></div>
+    <div class="subtitle text-center text-md-start">
+      <div [innerHtml]="subtitle"></div>
+    </div>
+    <!-- car-insurance-left-start -->
+    <div class="col-lg-7">
+      <div class="navigation-tab">
+        <div class="nav-item">
+          <a
+            class="item"
+            *ngFor="let tab of tabList"
+            (click)="onTabClick(tab.name, tab.type)"
+          >
+            <div
+              class="image-container"
+              [ngClass]="{ 'active-tab': selectedTab == tab.name }"
+            >
+              <img
+                class="icon"
+                [src]="selectedTab == tab.name ? tab.activeIcon : tab.image"
+                [alt]="tab.name"
+              />
+            </div>
+            <p
+              class="nav-text"
+              [ngClass]="{ 'active-text': selectedTab == tab.name }"
+            >
+              {{ tab.name }}
+            </p>
+          </a>
+        </div>
+        <!-- <div class="banner align-items-center">
+          <div class="banner-label-top-right"></div>
+          <div class="banner-status">new</div>
+          <div class="banner-label-top-left"></div>
+          <div class="image">
+            <img
+              src="../../../../rb_assets/assets/insurance/star.svg"
+              alt="star"
+            />
+          </div>
+          <div class="content px-3">
+            <p class="mb-0 text-primary font-weight-bold">Find a Product</p>
+            <p class="mb-0 text-primary font-weight-bold">
+              that fit your needs
+            </p>
+          </div> 
+        </div> -->
+      </div>
+      <div class="card">
+        <div class="row align-items-center p-3">
+          <div class="col-lg-6 col-sm-12">
+            <form
+              class="form-container"
+              [formGroup]="registrationForm"
+              (ngSubmit)="onSubmitregistrationForm(registrationForm.valid)"
+              (keydown.enter)="submitOnEnterRegistrationForm()"
+            >
+              @if(isSharedForm(selectedTab)){
+              <div>
+                <div class="mb-3">
+                  <input
+                    appRegistraionNumber
+                    type="text"
+                    maxlength="14"
+                    minlength="10"
+                    class="form-control p-3 input-box"
+                    formControlName="vehicleNumber"
+                    placeholder="Enter Registration Number"
+                  />
+                  <div
+                    *ngIf="
+                      registrationForm.get('vehicleNumber')?.invalid &&
+                      (registrationForm.get('vehicleNumber')?.dirty ||
+                        registrationForm.get('vehicleNumber')?.touched)
+                    "
+                    class="error-message"
+                  >
+                    <div
+                      *ngIf="registrationForm.get('vehicleNumber')?.errors?.['required']"
+                    >
+                      Registration number field is required.
+                    </div>
+                    <div
+                      *ngIf="registrationForm.get('vehicleNumber')?.errors?.['minlength']"
+                    >
+                      Min. 10 character required
+                    </div>
+                    <div
+                      *ngIf="registrationForm.get('vehicleNumber')?.errors?.['maxlength']"
+                    >
+                      Max. 14 character required
+                    </div>
+                  </div>
+                </div>
+              </div>
+              }
+
+              <div *ngIf="selectedTab === 'Health'">
+                <div class="mb-3 position-relative">
+                  <input
+                    type="text"
+                    class="form-control p-3 input-box pincode-input"
+                    formControlName="pincode"
+                    appAcceptOnlyDigit
+                    maxlength="6"
+                    placeholder="Enter Pincode"
+                  />
+                  <span class="location-icon">
+                    <img
+                      src="../../../../rb_assets/assets/insurance/location.svg"
+                      alt="Location Icon"
+                    />
+                  </span>
+                  <div
+                    *ngIf="
+                      registrationForm.get('pincode')?.invalid &&
+                      (registrationForm.get('pincode')?.dirty ||
+                        registrationForm.get('pincode')?.touched)
+                    "
+                    class="error-message"
+                  >
+                    <div
+                      *ngIf="registrationForm.get('pincode')?.errors?.['required']"
+                    >
+                      Pincode number field is required.
+                    </div>
+                    <div
+                      *ngIf="registrationForm.get('pincode')?.errors?.['pattern']||registrationForm.get('pincode')?.errors?.['maxlength']||registrationForm.get('pincode')?.errors?.['minlength']"
+                    >
+                      Please enter a valid Pincode number.
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div *ngIf="selectedTab === 'Life'">
+                <div class="mb-3 position-relative">
+                  <input
+                    type="date"
+                    class="form-control p-3 input-box date-input"
+                    formControlName="dob"
+                    data-placeholder="Select Date of Birth"
+                    [min]="minDateString"
+                    [max]="maxDateString"
+                  />
+                  <div
+                    class="error-message"
+                    *ngIf="
+                      registrationForm.get('dob')?.invalid &&
+                      registrationForm.get('dob')?.touched
+                    "
+                  >
+                    <div
+                      *ngIf="registrationForm.get('dob')?.errors?.['required']"
+                    >
+                      Date of birth is required.
+                    </div>
+                    <div
+                      *ngIf="
+                        registrationForm.get('dob')?.hasError('futureDate')
+                      "
+                    >
+                      Date cannot be in the future.
+                    </div>
+                    <div
+                      *ngIf="registrationForm.get('dob')?.errors?.['ageInvalid']"
+                    >
+                      DOB must be between 18 and 100 years.
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mb-3">
+                <input
+                  type="text"
+                  class="form-control p-3 input-box"
+                  formControlName="contactNumber"
+                  (input)="OpenOtpPopUp()"
+                  id="contactNumber"
+                  maxlength="10"
+                  appAcceptOnlyDigit
+                  placeholder="Enter Contact Number"
+                />
+                <!-- Error start    -->
+                <div
+                  *ngIf="
+                    registrationForm.get('contactNumber')?.invalid &&
+                    (registrationForm.get('contactNumber')?.dirty ||
+                      registrationForm.get('contactNumber')?.touched)
+                  "
+                  class="error-message"
+                >
+                  <div
+                    *ngIf="registrationForm.get('contactNumber')?.errors?.['required']"
+                  >
+                    Mobile number field is required.
+                  </div>
+                  <div
+                    *ngIf="registrationForm.get('contactNumber')?.errors?.['pattern']||registrationForm.get('contactNumber')?.errors?.['maxlength']||registrationForm.get('mobile_number')?.errors?.['minlength']"
+                  >
+                    Please enter a valid mobile number.
+                  </div>
+                </div>
+                <!-- Error end  -->
+              </div>
+
+              <div class="row mx-0 mb-3">
+                @if(!isWait){
+                <button
+                  class="btn btn-primary button-radius"
+                  type="submit"
+                  [disabled]="registrationForm.invalid"
+                >
+                  Get Quotes
+                </button>
+                }@else{
+                <button
+                  type="submit"
+                  class="submit-disabled-btn btn button-radius"
+                >
+                  <span
+                    class="spinner-border spinner-border-sm"
+                    role="status"
+                    aria-hidden="true"
+                  ></span>
+                  Processing....
+                </button>
+                }
+              </div>
+
+              <label class="form-check-label" for="invalidCheck2">
+                <small class="mt-4 term-and-conditions">
+                  By clicking, I Agree to
+                  <span class="text-primary">
+                    <a
+                      class="text-decoration-none"
+                      href="https://www.renewbuyinsurance.com/terms-conditions"
+                      target="_blank"
+                      >T&C</a
+                    >
+                  </span>
+                  and
+                  <span class="text-primary"
+                    ><a
+                      class="text-decoration-none"
+                      href="https://www.renewbuyinsurance.com/privacy-policy"
+                      target="_blank"
+                      >Privacy Policy</a
+                    ></span
+                  ></small
+                >
+              </label>
+            </form>
+          </div>
+          <div
+            class="col-lg-6 d-none d-sm-flex justify-content-center align-items-center"
+          >
+            <img
+              src="../../../../rb_assets/assets/insurance/{{
+                selectedHeroImage
+              }}"
+              class="rounded mx-auto d-block"
+              alt="..."
+              [ngClass]="{
+                'image-position-bottom': selectedTab === 'Life' || selectedTab === 'Health'
+              }"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- car-insurance-left-end -->
+
+    <!-- car-insurance-right-start -->
+    <div
+      class="col-4 col-lg-4 col-sm-12 d-flex d-none d-lg-block justify-content-center align-self-center banner-margin-top"
+    >
+      <div id="customCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div
+            class="carousel-item"
+            *ngFor="let banner of banners; let i = index"
+            [class.active]="i === activeIndex"
+          >
+            <img
+              [src]="banner?.img?.data?.attributes?.url"
+              class="d-block scroall-banner-image banner-img"
+              [alt]="banner?.img?.data?.attributes?.name"
+              width="100%"
+              (click)="navigationByLink(banner?.link)"
+            />
+          </div>
+        </div>
+
+        <!-- Carousel Indicators -->
+        <div class="carousel-indicators custom-indicators">
+          <button
+            *ngFor="let banner of banners; let i = index"
+            type="button"
+            (click)="goToSlide(i)"
+            [attr.data-bs-target]="'#customCarousel'"
+            [attr.data-bs-slide-to]="i"
+            [class.active]="i === activeIndex"
+            [attr.aria-current]="i === activeIndex ? 'true' : null"
+            [attr.aria-label]="'Slide ' + (i + 1)"
+          ></button>
+        </div>
+      </div>
+    </div>
+    <!-- car-insurance-right-end -->
+  </div>
+</div>
+<sign-in
+  *ngIf="isOtp"
+  (isCloseOTPPopUp)="closeOTPPopUp($event)"
+  (isVerifyOtp)="isOtpVerified($event)"
+  [isSignUp]="true"
+  [isRenewbuyInsurance]="true"
+  [mobileNumber]="phoneNumber"
+></sign-in>

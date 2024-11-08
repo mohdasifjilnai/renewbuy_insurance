@@ -1,0 +1,228 @@
+<div class="main-insurar">
+  <div class="container">
+    <div class="row">
+      <div
+        class="col-12 col-lg-4 col-sm-12 d-flex d-block d-lg-none justify-content-center"
+      >
+        <div id="customCarousel" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-inner">
+            <div
+              class="carousel-item"
+              *ngFor="let banner of mobileBanner; let i = index"
+              [class.active]="i === activeIndex"
+            >
+              <img
+                [src]="banner?.img?.data?.attributes?.url"
+                class="d-block banner-img"
+                [alt]="banner?.img?.data?.attributes?.name"
+                (click)="navigationByLink(banner)"
+              />
+            </div>
+          </div>
+
+          <!-- Carousel Indicators     -->
+          <div class="carousel-indicators custom-indicators">
+            <button
+              *ngFor="let banner of mobileBanner; let i = index"
+              type="button"
+              (click)="goToSlide(i)"
+              [attr.data-bs-target]="'#customCarousel'"
+              [attr.data-bs-slide-to]="i"
+              [class.active]="i === activeIndex"
+              [attr.aria-current]="i === activeIndex ? 'true' : null"
+              [attr.aria-label]="'Slide ' + (i + 1)"
+            ></button>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-lg-8 col-sm-12">
+        <div class="row no-gutters">
+          <div class="col-12 col-lg-12 col-sm-12">
+            <div class="title my-4 d-none d-lg-block">
+              <h1 class="fast-title">
+                Quick. Secure.
+                <span class="highlight-text"></span>Dependable.
+              </h1>
+              <p class="sub-title">
+                Simplifying your insurance & financial journey with trust.
+              </p>
+            </div>
+            <div class="title d-block d-lg-none">
+              <h1 class="m-fast-title">
+                Quick. Secure.
+                <span class="highlight-text"> </span>Dependable.
+              </h1>
+              <p class="m-sub-title">
+                Simplifying your insurance and financial journey with trust.
+              </p>
+            </div>
+          </div>
+          @for(product of renewbuyProducts; track product?.id){
+          <div class="col-auto d-none d-lg-block">
+            <div class="insurance-option" (click)="navigationByLink(product)">
+              <div class="card insurace-card">
+                @if(product?.tag_status){
+
+                <div class="half-circle-right"></div>
+                <div class="ribbon">{{ product?.tag }}</div>
+                <div class="half-circle-left"></div>
+                }
+                <img
+                  class="insurance-card-image"
+                  [src]="product?.img?.data?.attributes?.url"
+                  [alt]="product?.img?.data?.attributes?.name"
+                />
+                <div class="card-name">{{ product?.product_name }}</div>
+              </div>
+            </div>
+          </div>
+          <div class="col-4 col-sm-4 col-md-4 col-lg-2 d-block d-lg-none">
+            <div class="insurance-option" (click)="navigationByLink(product)">
+              <div class="card insurace-card">
+                @if(product?.tag_status){
+
+                <div class="half-circle-right"></div>
+                <div class="ribbon">{{ product?.tag }}</div>
+                <div class="half-circle-left"></div>
+                }
+                <img
+                  class="insurance-card-image"
+                  [src]="product?.img?.data?.attributes?.url"
+                  [alt]="product?.img?.data?.attributes?.name"
+                />
+                <div class="card-name">{{ product?.product_name }}</div>
+              </div>
+            </div>
+          </div>
+          }
+        </div>
+        <div class="row mt-financial">
+          <h2 class="sub-title">
+            <span class="sub-title-highlight">Empowering</span> your financial
+            future
+          </h2>
+        </div>
+        <div class="row position-relative-change">
+          @for(beyondProduct of beyondProducts; track beyondProducts?.id){
+          <div class="col-auto d-none d-lg-block">
+            <div
+              class="beyond-insurnace-card position-relative"
+              (click)="navigationByLink(beyondProduct)"
+            >
+              @if(beyondProduct?.tag_status){
+              <div class="half-circle-right-beyond"></div>
+              <div class="ribbon-beyond">{{ beyondProduct?.tag }}</div>
+              <div class="half-circle-left-beyond"></div>
+              }
+              <img
+                [src]="beyondProduct?.img?.data?.attributes?.url"
+                [alt]="beyondProduct?.img?.data?.attributes?.name"
+                class="beyond-card-image"
+              />
+              <div class="beyond-card-name">
+                {{ beyondProduct?.product_name }}
+              </div>
+            </div>
+          </div>
+          <div class="col-4 col-sm-4 col-md-3 col-lg-3 d-block d-lg-none">
+            <div
+              class="beyond-insurnace-card position-relative"
+              (click)="navigationByLink(beyondProduct)"
+            >
+              @if(beyondProduct?.tag_status){
+              <div class="half-circle-right-beyond"></div>
+              <div class="ribbon-beyond">{{ beyondProduct?.tag }}</div>
+              <div class="half-circle-left-beyond"></div>
+              }
+              <img
+                [src]="beyondProduct?.img?.data?.attributes?.url"
+                [alt]="beyondProduct?.img?.data?.attributes?.name"
+                class="beyond-card-image"
+              />
+              <div class="beyond-card-name">
+                {{ beyondProduct?.product_name }}
+              </div>
+            </div>
+          </div>
+
+          }
+        </div>
+      </div>
+
+      <div
+        class="col-4 col-lg-4 col-sm-12 my-5 d-flex d-none d-lg-block justify-content-center"
+      >
+        <div id="customCarousel" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-inner">
+            <div
+              class="carousel-item"
+              *ngFor="let banner of banners; let i = index"
+              [class.active]="i === activeIndex"
+            >
+              <img
+                [src]="banner?.img?.data?.attributes?.url"
+                class="d-block banner-img"
+                [alt]="banner?.img?.data?.attributes?.name"
+                (click)="navigationByLink(banner)"
+              />
+            </div>
+          </div>
+
+          <!-- Carousel Indicators -->
+          <div class="carousel-indicators custom-indicators">
+            <button
+              *ngFor="let banner of banners; let i = index"
+              type="button"
+              (click)="goToSlide(i)"
+              [attr.data-bs-target]="'#customCarousel'"
+              [attr.data-bs-slide-to]="i"
+              [class.active]="i === activeIndex"
+              [attr.aria-current]="i === activeIndex ? 'true' : null"
+              [attr.aria-label]="'Slide ' + (i + 1)"
+            ></button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <app-cookie-consent *ngIf="true"></app-cookie-consent>
+
+    <div class="row position-relative-change-stats">
+      <div class="col-12 col-lg-7.5 col-sm-12">
+        <div class="stats">
+          <div class="stat">
+            <p class="stat-heading">50 lac+</p>
+            <div class="stat-sub-heading">Customers</div>
+          </div>
+          <div class="stat lr-border">
+            <p class="stat-heading">1.5 lac+</p>
+            <div class="stat-sub-heading">Advisors</div>
+          </div>
+          <div class="stat">
+            <p class="stat-heading">750+</p>
+            <div class="stat-sub-heading">Districts in India</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<app-auto-load-popup
+  *ngIf="isAutoloanPopupOpen"
+  [isAutoloanPopOpen]="isAutoloanPopupOpen"
+  [userPreviousDetails]="userBasicDetails"
+  (closeAutoLoanPopup)="closeAutoLoanModal($event)"
+>
+</app-auto-load-popup>
+<app-otp-popup
+  *ngIf="isOtpPopUpOpen"
+  [isOtpPopOpen]="isOtpPopUpOpen"
+  [mobileNumber]="userMobileNumber"
+  (closeOtpPopUp)="closeOtpModal($event)"
+  (isOtpVerified)="getVerifyOtpStatus($event)"
+></app-otp-popup>
+<app-thank-you-popup
+  *ngIf="isThankyouPopupOpen"
+  [isThankyouPopOpen]="isThankyouPopupOpen"
+  (closeThankYouPopUp)="closeThankYouModal($event)"
+>
+</app-thank-you-popup>

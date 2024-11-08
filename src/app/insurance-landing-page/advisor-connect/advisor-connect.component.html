@@ -1,0 +1,54 @@
+<div class="advisor-connect my-4">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="reverse-div">
+        <div class="col-md-5 text-center">
+          <img
+            [src]="advisorConnectData.advisorImage"
+            [alt]="advisorConnectData.advisorImageAlt"
+            class="advisor-img"
+          />
+        </div>
+
+        <div class="col-md-6">
+          <img
+            [src]="advisorConnectData.logoImage"
+            [alt]="advisorConnectData.logoImageAlt"
+            class="img-fluid"
+          />
+
+          <div class="advisor-description">
+            {{ advisorConnectData.description }}
+            <div class="d-none d-lg-block">
+              {{ advisorConnectData.callToAction }}
+            </div>
+          </div>
+          <div class="button-large-view">
+            <a
+              href="https://www.renewbuy.com/advisor-connect/"
+              class="btn btn-primary custom-btn"
+            >
+              {{ advisorConnectData.buttonText }}
+              <img
+                [src]="advisorConnectData.buttonIcon"
+                [alt]="advisorConnectData.buttonIconAlt"
+              />
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="button-mobile-view">
+        <a
+          href="https://www.renewbuy.com/advisor-connect/"
+          class="btn btn-primary custom-btn"
+        >
+          {{ advisorConnectData.buttonText }}
+          <img
+            [src]="advisorConnectData.buttonIcon"
+            [alt]="advisorConnectData.buttonIconAlt"
+          />
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

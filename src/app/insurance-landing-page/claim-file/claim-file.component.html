@@ -1,0 +1,44 @@
+<div class="claim-file">
+  <div class="container claim-margin text-center">
+    <div class="claim-main-title">How to <span> file a claim</span></div>
+    <div class="lead">
+      Experience a smooth, transparent claim process that prioritizes your peace
+      of mind. Your recovery is our priority, from filing to resolution.
+    </div>
+
+    <div class="row">
+      <!-- <div class="slider-card-banner"> -->
+      <div class="claim-steps-wrapper">
+        <div
+          class="col-6 col-md-3 col-sm-6 mb-4 claim-slider"
+          *ngFor="let step of claimSteps"
+        >
+          <div class="icon-container">
+            <div class="icon" [ngClass]="step.icon_background">
+              <img [src]="step.icon" [alt]="step.iconAlt" class="mb-3" />
+            </div>
+            <div class="icon-numbers">{{ step.number }}</div>
+          </div>
+          <div class="claim-title">{{ step.title }}</div>
+          <div class="text-muted">{{ step.description }}</div>
+        </div>
+      </div>
+
+      <!-- </div> -->
+    </div>
+
+    <!-- <div class="row align-items-center justify-content-center">
+      <div class="col-3 col-lg-4 col-sm-3 px-0">
+        <hr class="gradient-line" />
+      </div> -->
+
+    <!-- <div class="col-6 col-lg-4 col-sm-6 px-0">
+        <button class="btn btn-center">Raise a Claim</button>
+      </div> -->
+
+    <!-- <div class="col-3 col-lg-4 col-sm-3 px-0">
+        <hr class="gradient-line" />
+      </div> -->
+    <!-- </div> -->
+  </div>
+</div>

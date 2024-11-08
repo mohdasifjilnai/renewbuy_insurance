@@ -1,0 +1,205 @@
+<div class="cashless">
+  <div class="container container-custom">
+    <div class="row">
+      <!-- Header Section Start  -->
+      <div class="header mb-4">
+        <div class="header-heading">
+          Cashless <span class="text-bold">Garages/Hospitals</span> Near You
+        </div>
+        <div class="header-text">
+          Enjoy easy, cashless claims within the network of leading insurance
+          providers. We ensure peace of mind, wherever you are.
+        </div>
+      </div>
+
+      <div
+        class="toggle-buttons btn-group mb-4"
+        role="group"
+        aria-label="Toggle buttons"
+      >
+        <button
+          type="button"
+          class="btn"
+          [ngClass]="{
+            'btn-toggle-primary': activeTab === 'is_garages',
+            'btn-toggle-light': activeTab !== 'is_garages'
+          }"
+          (click)="setActiveTab('is_garages')"
+        >
+          Garages
+        </button>
+        <button
+          type="button"
+          class="btn"
+          [ngClass]="{
+            'btn-toggle-primary': activeTab === 'is_hospital',
+            'btn-toggle-light': activeTab !== 'is_hospital'
+          }"
+          (click)="setActiveTab('is_hospital')"
+        >
+          Hospitals
+        </button>
+      </div>
+      <!-- Toggle Button Section End  -->
+
+      <!-- Filter Section Start  -->
+      <!-- <div class="row">
+        <form
+          class="form-container filter-container"
+          [formGroup]="searchForm"
+          (ngSubmit)="onSubmitsearchForm(searchForm.valid)"
+        >
+          <div class="search-filter-secion">
+            <div class="relation-search-container col-12 col-sm-5 mb-3">
+              <div class="row select-drowdown">
+                <div class="col-10">
+                  <li
+                    class="nav nav-item custom-nav-item custom-dropdown dropdown"
+                  >
+                    <div
+                      class="nav-link dropdown-custom-toggle name-input"
+                      id="navbarDropdown"
+                      role="button"
+                      [ngClass]="{
+                        'selected-item': selectedItem
+                      }"
+                      (click)="DropdownToggle()"
+                    >
+                      {{ selectedItem ? selectedItem : "Select make" }}
+                    </div>
+                    <ul
+                      class="custom-dropdown-menu dropdown-menu name-input"
+                      aria-labelledby="navbarDropdown"
+                      [ngClass]="{ show: dropdownVisible }"
+                    >
+                      <li
+                        *ngFor="let item of selectionOptions"
+                        [value]="item.item_id"
+                        class="col-10"
+                      >
+                        <div
+                          class="dropdown-item drop-down-item-custom"
+                          (click)="onItemSelect(item.item_id, item.item)"
+                        >
+                          {{ item?.name }}
+                        </div>
+                      </li>
+                    </ul>
+                  </li>
+                </div>
+                <div class="col-2 dropdown-icon-width">
+                  <img
+                    src="../../../../rb_assets/assets/icons/down-arrow.svg"
+                    alt="icon"
+                    class="custom-cursor-pointer"
+                    (click)="DropdownToggle()"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="mb-3 position-relative col-12 col-sm-5">
+              <input
+                type="text"
+                class="form-control p-3 input-box pincode-input"
+                (keypress)="validateNumberInput($event)"
+                formControlName="pincode"
+                maxlength="6"
+                placeholder="Enter Pincode"
+              />
+              <span class="location-icon">
+                <img
+                  src="../../../../rb_assets/assets/insurance/location.svg"
+                  alt="Location Icon"
+                />
+              </span>
+              <div
+                *ngIf="
+                  searchForm.get('pincode')?.invalid &&
+                  (searchForm.get('pincode')?.dirty ||
+                    searchForm.get('pincode')?.touched)
+                "
+                class="error-message"
+              >
+                <div *ngIf="searchForm.get('pincode')?.errors?.['required']">
+                  Pincode number field is required.
+                </div>
+                <div
+                  *ngIf="searchForm.get('pincode')?.errors?.['pattern']||searchForm.get('pincode')?.errors?.['maxlength']||searchForm.get('pincode')?.errors?.['minlength']"
+                >
+                  Please enter a valid Pincode number.
+                </div>
+              </div>
+            </div>
+            <div class="input-group-append col-12 col-sm-2 mb-3 text-center">
+              <button
+                class="btn btn-light search-btn"
+                type="submit"
+                [disabled]="searchForm.invalid"
+              >
+                Search
+              </button>
+            </div>
+          </div>
+        </form>
+      </div> -->
+
+      <div class="row card-container my-4">
+        <div
+          class="col-4 col-sm-2"
+          *ngFor="let card of cardList; let i = index"
+        >
+          <div class="card-section" (click)="search(card)">
+            <div class="card-image">
+              <img
+                src="{{
+                  card?.attributes?.insurer_logo?.data?.attributes?.url
+                }}"
+                class="image-size"
+                alt="{{ card?.attributes?.alt }}"
+              />
+            </div>
+            <div class="name-text d-none d-sm-block">
+              <div class="main-logo-name">
+                <div class="insurance-first-name">
+                  {{ card?.attributes?.insurer_name }}
+                </div>
+                <!-- <div
+                  class="insurance-second-name"
+                  *ngIf="card?.attributes?.insurer_type[1]"
+                >
+                  {{ card?.attributes?.insurer_type[1] }}
+                </div> -->
+              </div>
+            </div>
+          </div>
+        </div>
+        <app-cashless-garage-popup
+          *ngIf="cashlessPopup"
+          [insurar_data]="insurar_data"
+          [card_list]="totalCardList"
+          [list_type]="listType"
+          (closePopup)="close()"
+        ></app-cashless-garage-popup>
+      </div>
+      <!-- Card List Section Start  -->
+      <!-- View All Section Start  -->
+      <div
+        class="row align-items-center justify-content-evenly view-all-container mt-3"
+        *ngIf="totalCardList.length > 12"
+      >
+        <div class="col-4 col-sm-4 px-0">
+          <hr class="horizontal-line" />
+        </div>
+        <div class="col-auto col-sm-2 px-0 text-center">
+          <button class="btn view-btn" type="button" (click)="ViewAll()">
+            View All
+          </button>
+        </div>
+        <div class="col-4 col-sm-4 px-0">
+          <hr class="horizontal-line" />
+        </div>
+      </div>
+      <!-- View All Section End  -->
+    </div>
+  </div>
+</div>

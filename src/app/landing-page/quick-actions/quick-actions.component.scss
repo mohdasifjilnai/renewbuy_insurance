@@ -1,0 +1,283 @@
+.position-relative-change-quick-action {
+  position: relative;
+  left: -0.5%;
+  // top: -45px;
+}
+
+.quick-action-section {
+  .quick-actions {
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0px 4px 4px 0px rgba(32, 41, 76, 0.1);
+    max-width: 100%;
+    overflow-x: auto;
+    height: auto;
+    border-left: 4px solid var(--blue, rgb(0, 104, 207));
+    border: 1px solid rgb(241, 241, 241);
+    // Prevent content from wrapping to the next line
+
+    // Hide scrollbar on most browsers while keeping the functionality
+    &::-webkit-scrollbar {
+      // For Chrome, Safari, and Opera
+    }
+    // For Firefox
+  }
+}
+.up-arrow {
+  opacity: 0;
+  visibility: hidden;
+  margin-left: 5px;
+}
+.hover-bg-primary-div {
+  font-weight: 500;
+  color: rgba(141, 149, 152, 1);
+  font-size: 14px;
+  border-radius: 32px;
+  line-height: 28.56px;
+}
+
+.hover-bg-primary-div {
+  transition: 0.3s ease, color 0.3s ease; /* Smooth transition */
+}
+
+.hover-bg-primary-div:hover {
+  background: rgba(245, 250, 255, 1);
+  /* Background color on hover */
+  border-radius: 32px; /* Rounded corners */
+  font-size: 15px; /* Font size */
+  cursor: pointer; /* Pointer cursor on hover */
+  /* Text color on hover */
+  // padding: 10px 1px;
+  padding-left: 10px; /* Add some padding to create spacing inside the div */
+  display: flex; /* Ensure flex properties are applied */
+  align-items: center; /* Align items vertically center */
+}
+
+/* Ensure the up-arrow is styled properly */
+.up-arrow {
+  opacity: 0; /* Hide arrow by default */
+  visibility: hidden; /* Hide arrow by default */
+  transition: opacity 0.3s ease, visibility 0.3s ease; /* Smooth transition */
+}
+
+.hover-bg-primary-div:hover .up-arrow {
+  opacity: 1; /* Show arrow on hover */
+  visibility: visible; /* Show arrow on hover */
+}
+.quick-actions-container {
+  border-radius: 8px;
+
+  box-shadow: 0px 1px 4px 0px rgba(32, 41, 76, 0.1);
+
+  margin-bottom: 10px;
+
+  border: 0px 0px 0px 3px;
+  opacity: 0px;
+}
+
+.quick-actions-container {
+  border-radius: 8px;
+
+  box-shadow: 0px 1px 4px 0px rgba(32, 41, 76, 0.1);
+
+  margin-bottom: 10px;
+
+  // width: 22rem;
+
+  // position: relative;
+  // left: 13px;
+
+  border: 0px 0px 0px 3px;
+  opacity: 0px;
+}
+.find-product {
+  padding-right: 0px !important;
+}
+
+/* Quick Actions Header with Icon */
+.quick-actions-header {
+  width: 105px;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  background-color: #f8f9fa;
+  border-left: 4px solid var(--blue, rgba(0, 104, 207, 1));
+  border-radius: 12px 0px 0px 12px;
+
+  // max-width: 100%;
+  // overflow-x: auto;
+  // height: auto;
+}
+
+.quick-actions-icon img {
+  width: 15px;
+  height: 20px;
+  margin-left: 8px;
+}
+
+/* Scrollable Buttons Section */
+.quick-actions-buttons-wrapper {
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+.quick-actions-buttons {
+  display: flex;
+  flex-wrap: nowrap;
+  white-space: nowrap;
+  width: 100%;
+}
+.quick-actions-buttons-wrapper::-webkit-scrollbar-thumb {
+  // background-color: #007bff;
+  // border-radius: 2px;
+}
+.quick-actions-buttons-wrapper {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Action Buttons */
+.action-btn {
+  background: rgba(244, 244, 244, 1);
+  font-size: 13px;
+
+  border: none;
+  color: rgba(141, 149, 152, 1);
+  border-radius: 22px;
+
+  margin-right: 5px;
+  transition: background-color 0.3s;
+  white-space: nowrap; /* Ensure text doesn't wrap inside buttons */
+}
+
+.action-btn:hover {
+  background: rgba(245, 250, 255, 1);
+  color: rgba(0, 104, 207, 1);
+}
+
+/* Action Buttons */
+.action-btn {
+  background: rgba(244, 244, 244, 1);
+  font-size: 13px;
+
+  border: none;
+  color: rgba(141, 149, 152, 1);
+  border-radius: 22px;
+
+  margin-right: 5px;
+  transition: background-color 0.3s;
+  white-space: nowrap; /* Ensure text doesn't wrap inside buttons */
+}
+
+.action-btn:hover {
+  background: rgba(245, 250, 255, 1);
+  color: rgba(0, 104, 207, 1);
+}
+
+/* Media Query: Hide on larger screens */
+
+.quick-action-title .quick-action-sub-title {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 13.92px;
+  letter-spacing: -0.011em;
+  text-align: left;
+}
+.quick-action-sub-title {
+  font-weight: 600;
+  margin-top: -5px;
+}
+
+.quick-action-header-section {
+  padding-right: 0px !important;
+  padding-left: 5px !important;
+}
+.buttons-group {
+  background-color: white;
+  padding-right: 0px !important;
+  padding-left: 0px !important;
+}
+.quick-buttons {
+  border-radius: 22px !important;
+  width: auto;
+  padding: 10px;
+  // padding:10px;
+}
+.find-product {
+  padding: 15px 10px 10px 20px;
+  color: rgba(0, 104, 207, 1);
+  font-size: 12px;
+  line-height: 25px;
+}
+.quick-action-links:hover {
+  position: relative;
+  left: 6px;
+}
+.quick-action-links {
+  position: relative;
+  left: 6px;
+}
+.hover-bg-primary-productsn {
+  color: rgba(0, 104, 207, 1);
+}
+@media (min-width: 1296px) and (max-width: 1366px) {
+  .hover-bg-primary-div {
+    font-size: 11.5px;
+  }
+  .insurace-card {
+    width: 125px;
+  }
+  .hover-bg-primary-div:hover {
+    font-size: 13px;
+  }
+}
+@media (min-width: 1024px) and (max-width: 1295px) {
+  .hover-bg-primary-div {
+    font-size: 11px;
+    padding-left: 0px;
+  }
+  .position-relative-change-stats {
+    bottom: 25px !important;
+  }
+  .slide {
+    width: auto !important;
+  }
+  .carousel-indicators {
+    left: 34%;
+  }
+  .beyond-insurnace-card {
+    width: 179px;
+  }
+  .title {
+    font-size: 35px;
+  }
+  .hover-bg-primary-productsn {
+    font-size: 9.9px;
+  }
+  .half-circle-left-beyond {
+    left: 55px;
+  }
+
+  .title {
+    .fast-title {
+      font-size: 35px;
+      line-height: 60px;
+
+      letter-spacing: 1.5px;
+      color: rgba(45, 49, 52, 1);
+      font-weight: 600;
+    }
+    .highlight-text {
+      font-weight: 100;
+    }
+    .sub-title {
+      font-size: 25px;
+      font-weight: 400;
+    }
+  }
+  .hover-bg-primary-div:hover {
+    font-size: 12px;
+  }
+}

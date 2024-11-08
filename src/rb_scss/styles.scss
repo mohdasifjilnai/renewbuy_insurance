@@ -1,0 +1,308 @@
+@import "../../node_modules/bootstrap/scss/bootstrap";
+@import "./../_mixins.scss";
+@import "@ng-select/ng-select/themes/default.theme.css";
+/* You can add global styles to this file, and also import other style files */
+* {
+  font-family: "Poppins";
+}
+body {
+  overflow-y: scroll !important;
+  padding-right: 0px !important;
+}
+.no-scroll {
+  overflow: hidden !important;
+}
+
+.left-right-container-padding {
+  padding-right: 60px;
+  padding-left: 60px;
+  padding-bottom: 20px;
+}
+
+.main__container {
+  height: 25vh !important;
+  margin-left: 25%;
+  margin-top: 1%;
+}
+body.no-scroll {
+  overflow: hidden;
+}
+@media (min-width: 1296px) and (max-width: 1366px) {
+  .main__container {
+    height: 25vh !important;
+    margin-left: 25%;
+    margin-top: 3%;
+  }
+}
+
+/**................................................................**/
+.dark-orange {
+  color: #ee8029;
+}
+
+.heading-one {
+  font-size: 48px;
+  line-height: 67.2px;
+  text-align: center;
+  font-weight: 400;
+  padding: 10px 0px;
+}
+
+.dflex {
+  display: flex;
+}
+
+.dark-orange {
+  color: #ee8029;
+}
+
+.bold {
+  font-weight: 700;
+}
+
+.heading-one {
+  font-size: 42px;
+  line-height: 58.8px;
+  text-align: center;
+  font-weight: 400;
+  padding: 10px 0px;
+}
+
+.landing-container {
+  margin: auto;
+}
+
+/* Add this to your CSS file */
+.error-border {
+  border: 1px solid red !important;
+}
+
+.error-message {
+  color: red !important;
+  font-size: 12px;
+  font-weight: 400;
+  margin-top: 0.5em;
+}
+
+.light-green {
+  color: rgba(28, 195, 25, 1);
+}
+
+.owl-theme .owl-nav.disabled + .owl-dots {
+  position: relative;
+  bottom: 24rem;
+  left: 0rem;
+}
+
+.owl-item .slide {
+  position: relative;
+  /* Ensures that the inner positioning is relative to this container */
+}
+
+.custome-margin-top-5 {
+  margin-top: -2rem !important;
+}
+
+.custome-margin-top-2 {
+  margin-top: 2rem !important;
+}
+
+/* Apply styles specifically to the inner div if needed */
+.owl-item .slide:nth-child(2) {
+  bottom: 26rem;
+  /* Adjust the positioning of the second slide */
+}
+
+.owl-carousel .owl-stage-outer {
+  border-radius: 12px;
+}
+
+@media (min-width: 1296px) and (max-width: 1366px) {
+  // Regular desktops
+  // .main__container {
+  //   height: 70vh !important;
+  // }
+  .title {
+    bottom: 50% !important;
+  }
+  // .main__container {
+  //   height: 40vh !important;
+  // }
+}
+
+// @media (max-width: 1024px) {
+@media (min-width: 1024px) and (max-width: 1295px) {
+  .main__container {
+    height: 35vh !important;
+  }
+  .car-insurance-container {
+    .page-title {
+      font-size: 24px;
+    }
+    .subtitle .text-bold {
+      font-size: 12px;
+    }
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .custome-margin-top-5 {
+    margin-top: 0rem;
+  }
+  ul.ngx-pagination {
+    padding-left: 0px;
+  }
+
+  .left-right-container-padding {
+    padding-right: 0px;
+    padding-left: 0px;
+    padding-bottom: 0px;
+  }
+
+  .slider-card {
+    .slick-dots {
+      bottom: -40px !important;
+    }
+
+    .slick-dots li button:before {
+      font-size: 14px;
+    }
+
+    .slick-dots li.slick-active button:before {
+      color: #007bff;
+    }
+    .slick-dots li {
+      margin: 0 0px !important;
+      width: 15px !important;
+      height: 20px !important;
+    }
+  }
+
+  .main__container {
+    height: 35vh !important;
+    margin-left: 0%;
+    padding-top: 20px;
+  }
+}
+
+.left-arr {
+  width: 45px;
+  height: 45px;
+  border: solid 1px #4ea6ff;
+  border-radius: 50%;
+
+  .blue-arrimg {
+    display: block;
+  }
+
+  .white-arrimg {
+    display: none;
+  }
+}
+
+.left-arr:hover {
+  background-color: rgb(0, 104, 207);
+  border: solid 1px rgb(0, 104, 207);
+
+  .blue-arrimg {
+    display: none;
+  }
+
+  .white-arrimg {
+    display: block;
+  }
+}
+
+.submit-disabled-btn {
+  background-color: rgba(150, 163, 190, 1) !important;
+  cursor: none;
+}
+
+/** 
+* car insurance page scss start
+*/
+.car-insurance-container {
+  .page-title {
+    text-wrap: nowrap;
+    font-weight: 500;
+    @media (max-width: 576px) {
+      & {
+        text-wrap: wrap;
+      }
+    }
+  }
+
+  .day-color {
+    color: #47be88;
+    font-weight: 600;
+    font-family: Poppins;
+    line-height: 48px;
+  }
+  .subtitle {
+    .text-bold {
+      font-weight: 600;
+      line-height: 30px;
+      color: #242424;
+    }
+    .percentage-icon {
+      margin: 0px 8px 0px 0px;
+      width: 24px;
+      height: 24px;
+    }
+    .discount {
+      color: #47be88;
+      font-weight: 600;
+      line-height: 20px;
+    }
+  }
+
+  @media only screen and (max-width: 768px) {
+    .page-title {
+      font-size: 18px;
+      line-height: 27px;
+
+      .day-color {
+        font-size: 18px;
+        line-height: 27px;
+      }
+    }
+
+    .subtitle {
+      font-size: 13px;
+      line-height: 19.5px;
+
+      .text-bold {
+        font-size: 13px;
+        line-height: 19.5px;
+      }
+    }
+  }
+}
+
+.ngx-pagination {
+  .current {
+    background: #2199e8 !important;
+    color: #fff !important;
+    border-radius: 4px !important;
+  }
+}
+.ng-select.ng-select-single .ng-select-container {
+  border: 1px solid #e5e3e3;
+  border-radius: 10px;
+  background-color: #fff;
+  padding: 7px;
+  height: 43px;
+  width: 363px;
+}
+.ng-arrow-wrapper {
+  background: url("/rb_assets/assets/icons/down-arrow.svg");
+  .ng-arrow {
+    border-color: transparent !important;
+  }
+}
+.modal-backdrop {
+  z-index: 100 !important;
+}
+.ng-placeholder {
+  color: #4d4d4d !important;
+}

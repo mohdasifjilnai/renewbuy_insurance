@@ -1,0 +1,316 @@
+.car-insurance-container {
+  margin-top: 84px;
+  margin-bottom: 30px;
+  .card-margin {
+    margin-top: 0.25rem;
+  }
+
+  .banner-margin-top {
+    margin-top: 1rem;
+  }
+  .title {
+    .page-title {
+      font-weight: 500;
+      line-height: 48px;
+    }
+  }
+
+  .subtitle {
+    font-weight: 400;
+    line-height: 30px;
+    margin: 10px 0 20px 0;
+  }
+
+  .navigation-tab {
+    display: flex;
+    align-items: start;
+
+    .nav-item {
+      column-gap: 2rem;
+      display: flex;
+
+      @media (max-width: 500px) {
+        & {
+          column-gap: 1rem;
+        }
+      }
+
+      .item {
+        display: grid;
+        justify-items: center;
+        text-decoration: none;
+        cursor: pointer;
+
+        .image-container {
+          width: 54px;
+          height: 54px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          border-radius: 10px;
+          background: #f0f8ff;
+
+          &.active-tab {
+            border: 1px solid #0068cf;
+            border-radius: 10px;
+            background: #f0f8ff;
+          }
+
+          &:hover {
+            border: 1px solid #0068cf;
+            border-radius: 10px;
+            background: #f0f8ff;
+          }
+        }
+
+        .nav-text {
+          color: #8d8888;
+          font-weight: 600;
+          margin-top: 15px;
+        }
+
+        .active-text {
+          @extend .nav-text;
+          color: #5384ea;
+        }
+      }
+    }
+
+    .banner {
+      display: flex;
+      background: #f0f8ff;
+      border-radius: 10px;
+      padding: 15px;
+      margin-left: 2rem;
+      position: relative;
+
+      @media (max-width: 576px) {
+        & {
+          display: none;
+        }
+      }
+
+      .banner-label-top-right,
+      .banner-label-top-left {
+        width: 10px;
+        height: 5px;
+        background-color: #47be88;
+        border-radius: 100px 100px 0 0;
+        position: absolute;
+        top: -3px;
+      }
+
+      .banner-label-top-right {
+        left: 10px;
+      }
+
+      .banner-label-top-left {
+        right: 135px;
+      }
+
+      .banner-status {
+        position: absolute;
+        font-size: 10px;
+        background-color: #e5f9ed;
+        color: #1ea56e;
+        font-weight: 600;
+        padding: 2px 10px;
+        border-radius: 0 0 10px 10px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+        width: 80px;
+        text-align: center;
+        z-index: 1;
+        top: -2.6px;
+      }
+    }
+  }
+
+  .card {
+    background: #f8fafe;
+    border-color: #f8fafe;
+    border-radius: 28px;
+    padding-top: 1rem;
+    .image-position-bottom {
+      position: absolute;
+      bottom: 0;
+    }
+
+    .input-box {
+      border-radius: 16px;
+      border-color: #eaeaea;
+    }
+
+    .button-radius {
+      border-radius: 12px;
+      padding: 10px 20px;
+      background-color: #0068cf;
+      color: #ffffff;
+      font-weight: 600;
+      font-size: 14px;
+    }
+
+    .form-container {
+      input::placeholder {
+        font-size: 18px;
+        font-weight: 500;
+        line-height: 20px;
+        text-align: left;
+        color: hsl(0, 1%, 71%);
+      }
+
+      input[type="date"]::-webkit-calendar-picker-indicator {
+        background: url("/rb_assets/assets/insurance/dob.svg") no-repeat center
+          center;
+        cursor: pointer;
+        border-radius: 4px;
+        margin-right: 2px;
+        opacity: 1;
+      }
+
+      .date-input {
+        color: hsl(0, 1%, 71%);
+      }
+
+      .date-input.ng-dirty {
+        color: black;
+      }
+
+      .date-input.ng-valid {
+        color: black;
+      }
+
+      /* Placeholder text styling */
+      .name-input::placeholder {
+        color: hsl(0, 1%, 71%);
+      }
+
+      .term-and-conditions {
+        font-size: 12px;
+        font-weight: 600;
+        line-height: 18px;
+      }
+    }
+
+    .position-relative {
+      position: relative;
+    }
+
+    .calendar-icon,
+    .location-icon {
+      position: absolute;
+      right: 15px;
+      top: 65px;
+      transform: translateY(-50px);
+      cursor: pointer;
+      z-index: 1;
+    }
+
+    .calendar-icon img {
+      width: 20px;
+      /* Adjust size as needed */
+      height: auto;
+    }
+  }
+
+  .slide {
+    overflow: visible !important;
+  }
+
+  .beyond-insurnace-card:hover {
+    cursor: pointer;
+  }
+
+  .custome-progress {
+    height: 10px;
+    background-color: #e0e0e0;
+    /* Customize as needed */
+  }
+
+  .progress-bar {
+    background-color: #007bff;
+    /* Customize active color */
+  }
+
+  .progress {
+    position: relative;
+    top: 11px;
+  }
+}
+
+/* Mobile view start */
+@media only screen and (max-width: 768px) {
+  .banner-img-mobile {
+    width: 328px !important;
+  }
+  .car-insurance-container {
+    margin-top: 46px;
+    .navigation-tab {
+      align-items: center;
+      justify-content: center;
+      .nav-item {
+        .item {
+          .image-container {
+            width: 48px;
+            height: 48px;
+          }
+
+          .nav-text {
+            font-size: 14px;
+          }
+        }
+      }
+    }
+    .card {
+      .form-container {
+        input::placeholder {
+          font-size: 14px;
+          font-weight: 500;
+        }
+      }
+      .button-radius {
+        padding: 12px 20px;
+      }
+    }
+  }
+  .car-insurance-container {
+    .card-margin {
+      margin-top: 3rem;
+    }
+  }
+}
+.carousel-item {
+  transition: none;
+}
+
+.custom-indicators {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+}
+
+.custom-indicators button {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #ccc;
+  border: none;
+}
+
+.custom-indicators .active {
+  background-color: #007bff;
+}
+.carousel-indicators {
+  position: absolute;
+  bottom: -38px;
+  left: 36%;
+  transform: translateX(-50%);
+  // margin-top: 10px;
+}
+
+.banner-img {
+  cursor: pointer;
+}
+/* Mobile view end */

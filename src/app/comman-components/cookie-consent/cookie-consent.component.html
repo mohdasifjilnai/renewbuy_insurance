@@ -1,0 +1,27 @@
+@if(isVisible){
+<div class="cookie-consent-popup">
+  <div>
+    <div class="cookie-title">We value your privacy</div>
+  </div>
+  <button class="close-btn" (click)="closePopup()">
+    <img
+      class="toggle-icon"
+      src="../../../../rb_assets/assets/icons/close.svg"
+    />
+  </button>
+  <div class="cookie-message">
+    <p>
+      We use cookies on this website. By continuing to browse, you are agreeing
+      to our use of cookies and privacy policy.
+    </p>
+  </div>
+  <div class="cookie-buttons">
+    <button (click)="rejectCookies()" class="btn btn-reject-all">
+      Reject All
+    </button>
+    <button (click)="acceptCookies()" class="btn btn-accept-all">
+      Accept All
+    </button>
+  </div>
+</div>
+}

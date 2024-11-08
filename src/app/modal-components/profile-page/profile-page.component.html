@@ -1,0 +1,314 @@
+<div class="popup-overlay-profile" id="popupOverlay">
+  <div class="row">
+    <div class="col-lg-4 col-md-6 col-sm-6">
+      <div class="popup" id="popup">
+        <!-- <span class="btn-close" id="closePopup" (click)="close(false)"></span> -->
+        <!-- Open the form tag properly to wrap the inputs -->
+        <form
+          [formGroup]="profileForm"
+          (ngSubmit)="submitProfileForm(profileForm.valid)"
+          (keydown.enter)="submitOnEnter()"
+        >
+          <div class="text-start login-page-text">
+            <div class="profile-text">Complete your Profile</div>
+            <div class="row">
+              <!-- Name Field -->
+              <div class="col-lg-6 mb-3">
+                <label for="name" class="mobile-text mb-1"
+                  >Name<span class="mandatory-required">*</span></label
+                >
+                <div
+                  class="name-input-container"
+                  [ngClass]="{
+                    'error-border':
+                      profileForm.get('name')?.invalid &&
+                      (profileForm.get('name')?.dirty ||
+                        profileForm.get('name')?.touched)
+                  }"
+                >
+                  <input
+                    type="text"
+                    class="name-input"
+                    placeholder="Enter Name"
+                    formControlName="name"
+                    maxlength="20"
+                    id="name"
+                  />
+                </div>
+                <div
+                  *ngIf="
+                    profileForm.get('name')?.invalid &&
+                    (profileForm.get('name')?.dirty ||
+                      profileForm.get('name')?.touched)
+                  "
+                  class="error-message"
+                >
+                  <div *ngIf="profileForm.get('name')?.errors?.['required']">
+                    Name field is required.
+                  </div>
+                  <div *ngIf="profileForm.get('name')?.errors?.['pattern']">
+                    Only Alphabet is allowed.
+                  </div>
+                  <div *ngIf="profileForm.get('name')?.hasError('minlength')">
+                    Min. 3 character required
+                  </div>
+                </div>
+              </div>
+
+              <!-- Gender Field -->
+              <div class="col-lg-6 mb-3">
+                <label class="mobile-text mb-1">Gender</label>
+
+                <div class="gender-selection">
+                  <!-- Male -->
+                  <div
+                    class="gender-option"
+                    [ngClass]="{
+                      active: profileForm.get('gender')?.value == 1
+                    }"
+                  >
+                    <input
+                      type="radio"
+                      formControlName="gender"
+                      id="male"
+                      value="1"
+                      class="visually-hidden"
+                    />
+                    <label for="male" class="male-female gender-label-box">
+                      <img
+                        [src]="
+                          profileForm.get('gender')?.value == 1
+                            ? './rb_assets/assets/icons/male-active.svg'
+                            : './rb_assets/assets/icons/male-inactive.svg'
+                        "
+                        alt="Male Icon"
+                        height="30"
+                        width="30"
+                      />
+                      <span class="male-text">Male</span>
+                    </label>
+                  </div>
+
+                  <!-- Female -->
+                  <div
+                    class="gender-option"
+                    [ngClass]="{
+                      active: profileForm.get('gender')?.value == 2
+                    }"
+                  >
+                    <input
+                      type="radio"
+                      formControlName="gender"
+                      id="female"
+                      value="2"
+                      class="visually-hidden"
+                    />
+                    <label
+                      for="female"
+                      class="male-female gender-label-box female-box"
+                    >
+                      <img
+                        [src]="
+                          profileForm.get('gender')?.value == 2
+                            ? './rb_assets/assets/icons/female-active.svg'
+                            : './rb_assets/assets/icons/female-inactive.svg'
+                        "
+                        alt="Female Icon"
+                        width="30"
+                        height="30"
+                      />
+                      <span class="male-text">Female</span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Date of Birth Field -->
+              <div class="col-lg-6 mb-3">
+                <label for="dob" class="mobile-text mb-1">
+                  Date of Birth<span class="mandatory-required">*</span>
+                </label>
+                <div
+                  class="name-input-container"
+                  [ngClass]="{
+                    'error-border':
+                      profileForm.get('dob')?.invalid &&
+                      (profileForm.get('dob')?.dirty ||
+                        profileForm.get('dob')?.touched)
+                  }"
+                >
+                  <input
+                    type="date"
+                    class="name-input date-input"
+                    placeholder="DD/MM/YYYY"
+                    formControlName="dob"
+                    id="date-input"
+                    [max]="maxDateString"
+                    [min]="minDateString"
+                  />
+                </div>
+
+                <div
+                  *ngIf="
+                    profileForm.get('dob')?.invalid &&
+                    (profileForm.get('dob')?.dirty ||
+                      profileForm.get('dob')?.touched)
+                  "
+                  class="error-message"
+                >
+                  <div *ngIf="profileForm.get('dob')?.errors?.['required']">
+                    DOB field is required.
+                  </div>
+                  <div
+                    *ngIf="profileForm.get('dob')?.errors?.['dateRangeInvalid']"
+                  >
+                    DOB must be between 18 to 100 years.
+                  </div>
+                </div>
+              </div>
+
+              <!-- City Field    -->
+              <div class="col-lg-6 mb-3">
+                <label for="city" class="mobile-text mb-1">City</label>
+                <div
+                  class="city-input-container"
+                  (mouseleave)="hideDropdown()"
+                  [ngClass]="{
+                    'error-border':
+                      profileForm.get('city')?.invalid &&
+                      (profileForm.get('city')?.dirty ||
+                        profileForm.get('city')?.touched)
+                  }"
+                >
+                  <div class="row city-input">
+                    <div class="col-10">
+                      <li
+                        class="nav nav-item custom-nav-item custom-dropdown dropdown"
+                      >
+                        <div
+                          class="nav-link dropdown-custom-toggle"
+                          id="navbarDropdown"
+                          role="button"
+                          [ngClass]="{
+                            'selected-city':
+                              selectedCity ||
+                              profileForm.get('citySearch')?.value
+                          }"
+                        >
+                          <input
+                            type="text"
+                            class="form-control city-field"
+                            placeholder="Search City"
+                            formControlName="citySearch"
+                            (input)="onCitySearchChange($event)"
+                          />
+                        </div>
+                        <div class="city-dropdown-container">
+                          <ul
+                            *ngIf="filteredCities.length && showDropdown"
+                            class="custom-dropdown-menu dropdown-menu name-input drop"
+                            aria-labelledby="navbarDropdown"
+                          >
+                            <div class="city-dropdown-list">
+                              <li
+                                *ngFor="let city of filteredCities"
+                                (click)="selectCity(city)"
+                              >
+                                <a class="dropdown-item">
+                                  {{ city["name"] }}
+                                </a>
+                              </li>
+                            </div>
+                          </ul>
+                        </div>
+                      </li>
+                    </div>
+                  </div>
+                  <div class="col-1 dropdown-icon">
+                    <img
+                      src="./rb_assets/assets/icons/search.svg"
+                      alt="down arrow"
+                      width="20"
+                      height="20"
+                      (click)="
+                        dropDownList(profileForm.get('citySearch')?.value)
+                      "
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <!-- Email Field -->
+              <div class="col-lg-6 mb-4">
+                <label for="email" class="mobile-text mb-1"
+                  >Email ID<span class="mandatory-required">*</span></label
+                >
+                <div
+                  class="name-input-container"
+                  [ngClass]="{
+                    'error-border':
+                      profileForm.get('email')?.invalid &&
+                      (profileForm.get('email')?.dirty ||
+                        profileForm.get('email')?.touched)
+                  }"
+                >
+                  <input
+                    type="text"
+                    class="name-input"
+                    placeholder="Enter Email ID"
+                    formControlName="email"
+                    id="email"
+                  />
+                </div>
+                <div
+                  *ngIf="
+                    profileForm.get('email')?.invalid &&
+                    (profileForm.get('email')?.dirty ||
+                      profileForm.get('email')?.touched)
+                  "
+                  class="error-message"
+                >
+                  <div *ngIf="profileForm.get('email')?.errors?.['required']">
+                    Email field is required.
+                  </div>
+                  <div *ngIf="profileForm.get('email')?.errors?.['pattern']">
+                    Invalid Email format.
+                  </div>
+                </div>
+              </div>
+
+              <!-- Submit and Cancel Buttons -->
+              <div class="col-lg-6 mb-2"></div>
+              <div class="col-lg-12">
+                @if(!apiWaiting){
+                <button
+                  type="submit"
+                  class="submit-btn"
+                  [ngClass]="{ 'submit-disabled-btn': profileForm.invalid }"
+                >
+                  Continue
+                </button>
+                }@else {
+                <button type="submit" class="submit-disabled-btn submit-btn">
+                  <span
+                    class="spinner-border spinner-border-sm"
+                    role="status"
+                    aria-hidden="true"
+                  ></span>
+                  Processing....
+                </button>
+                }
+              </div>
+              <!-- <div class="col-lg-3 mt-4">
+                <button type="button" class="cancel-btn" (click)="close(false)">
+                  Cancel
+                </button>
+              </div> -->
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<app-toast-modal></app-toast-modal>

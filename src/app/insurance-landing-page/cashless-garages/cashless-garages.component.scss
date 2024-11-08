@@ -1,0 +1,378 @@
+.cashless {
+  background: #5384ea0f;
+  padding: 10px;
+
+  .container-custom {
+    padding: 50px 0;
+
+    .card img {
+      width: 100px;
+      height: 60px;
+      object-fit: cover;
+      margin-bottom: 10px;
+    }
+  }
+
+  .view-all-button {
+    margin-top: 20px;
+  }
+
+  .hidden {
+    display: none;
+  }
+
+  .header-heading {
+    font-size: 32px;
+    font-weight: 400;
+    line-height: 48px;
+    text-align: center;
+    color: #242424;
+
+    .text-bold {
+      font-weight: 600;
+    }
+  }
+
+  .header-text {
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 27px;
+    text-align: center;
+    color: #242424;
+    opacity: 0.5;
+  }
+
+  .toggle-buttons {
+    width: 199px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 0 auto;
+    background: #f6f6f6;
+    border: 1px solid #eaeaea;
+    border-radius: 12px;
+    gap: 1px;
+  }
+
+  .btn-toggle-primary {
+    width: 105px;
+    height: 44px;
+    gap: 0px;
+    border-radius: 12px;
+    color: #5384ea;
+    opacity: 0px;
+    border: 1px solid #5384ea;
+    background-color: #ffff;
+    opacity: 1;
+  }
+
+  .btn-toggle-light {
+    width: 216px;
+    height: 44px;
+    gap: 0px;
+    opacity: 0px;
+    color: #4d4a4a;
+    background: #f6f6f6;
+    opacity: 1;
+  }
+
+  .card-container {
+    display: flex;
+    justify-content: center;
+    row-gap: 20px;
+
+    .card-section {
+      padding: 5px 10px;
+      border-radius: 16px;
+      background: #ffffff;
+      cursor: pointer;
+
+      .card-image {
+        height: 85px;
+        display: grid;
+        place-items: center;
+
+        @media (min-width: 1024px) and (max-width: 1295px) {
+          & {
+            .image-size {
+              width: 90%;
+              object-fit: contain;
+            }
+          }
+        }
+      }
+
+      .name-text {
+        height: 85px;
+        text-align: center;
+        display: grid;
+        align-content: center;
+      }
+
+      .insurance-first-name,
+      .insurance-second-name {
+        margin: 0;
+        padding: 0;
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 20px;
+        letter-spacing: 0.04em;
+        text-align: center;
+        color: #6f6f6f;
+      }
+    }
+  }
+
+  .filter-container {
+    display: grid;
+    grid-auto-flow: column;
+    justify-content: center;
+    .search-filter-secion {
+      display: flex;
+      column-gap: 2rem;
+    }
+
+    .relation-search-container {
+      display: flex;
+      align-items: center;
+      border: 1px solid #e5e3e3;
+      border-radius: 10px;
+      background-color: #fff;
+      padding: 7px;
+      height: 44px;
+
+      .select-drowdown {
+        display: contents;
+      }
+
+      .dropdown-custom-toggle {
+        color: #282828;
+        font-size: 14px;
+        padding: 5px;
+        font-weight: 500;
+      }
+    }
+
+    .custom-dropdown:hover .custom-dropdown-menu,
+    .custom-dropdown-menu.show {
+      pointer-events: auto;
+      display: block;
+    }
+
+    .custom-dropdown:hover .custom-dropdown-menu {
+      pointer-events: auto;
+      display: block;
+    }
+
+    .custom-dropdown-menu {
+      box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.05);
+      border: 1px solid rgb(234, 234, 234);
+      margin-top: 30px;
+      width: 280px;
+      padding: 0px;
+      padding-top: 5px;
+      border-radius: 10px;
+      margin-left: -17px;
+    }
+
+    .selected-relation {
+      color: #000000 !important;
+    }
+
+    .selected-policy {
+      color: #000000 !important;
+    }
+
+    .search-input {
+      height: 46px;
+      /* width: 400px; */
+      border-radius: 10px;
+      padding: 5px 20px;
+      padding-right: 35px;
+      font-size: 14px;
+    }
+
+    .input-with-icon {
+      display: flex;
+      align-items: center;
+    }
+
+    .select-arrow {
+      position: absolute;
+      right: 10px;
+      pointer-events: none;
+    }
+
+    .position-relative {
+      position: relative;
+
+      .pincode-input {
+        border-radius: 10px;
+        border-color: #eaeaea;
+        height: 44px;
+      }
+    }
+
+    .location-icon {
+      position: absolute;
+      right: 25px;
+      top: 60px;
+      transform: translateY(-50px);
+      cursor: pointer;
+      z-index: 1;
+    }
+
+    .input-group-append {
+      .search-btn {
+        background: #ffffff;
+        color: #5384ea;
+        border-radius: 10px;
+        padding: 10px 20px;
+        font-size: 14px;
+        font-weight: 600;
+        letter-spacing: 1px;
+      }
+    }
+  }
+
+  .view-all-container {
+    .horizontal-line {
+      border: none;
+      height: 2px;
+      background: linear-gradient(
+        to right,
+        rgba(234, 234, 234, 1),
+        rgba(102, 102, 102, 1),
+        rgba(234, 234, 234, 1)
+      );
+      margin: 0;
+    }
+
+    .view-btn {
+      padding: 0.575rem 1.5rem;
+      border-radius: 12px;
+      background: #ffffff;
+      color: #5384ea;
+      text-align: center;
+      font-size: 14px;
+      line-height: 20px;
+      font-weight: 600;
+    }
+  }
+}
+
+/* Mobile view start */
+@media only screen and (max-width: 768px) {
+  .cashless {
+    .view-all-container {
+      .view-btn {
+        padding: 0rem;
+        width: 80px;
+        height: 36px;
+        font-weight: 600;
+        font-size: 12px;
+        line-height: 20px;
+      }
+    }
+  }
+  .toggle-buttons {
+    height: 36px;
+  }
+  .btn-toggle-primary {
+    font-weight: 600;
+  }
+  .image-size {
+  }
+  .cashless {
+    .card-container {
+      display: flex;
+      justify-content: start;
+      row-gap: 10px;
+    }
+    .header-heading {
+      font-size: 20px;
+      line-height: 30px;
+      font-weight: 400;
+
+      .text-bold {
+        font-weight: 600;
+      }
+    }
+
+    .header-text {
+      font-size: 12px;
+      line-height: 18px;
+      font-weight: 500;
+    }
+
+    .container-custom {
+      padding-top: 30px;
+
+      .card-container {
+        .card-section {
+          padding: 5px 2px;
+          width: 100px;
+          height: 50px;
+          cursor: pointer;
+
+          .card-image {
+            height: 0px;
+            .image-size {
+              // width: 80%;
+              width: 80%;
+              height: 37px;
+
+              object-fit: scale-down;
+            }
+          }
+        }
+      }
+    }
+    .filter-container {
+      .search-filter-secion {
+        flex-direction: column;
+      }
+    }
+  }
+}
+
+.image-size {
+  width: 120px;
+  // height: 110px;
+}
+.main-logo-name {
+  padding-top: 30px;
+}
+.pincode-search {
+  position: relative; /* Position relative for absolute positioning of suggestions */
+}
+
+.suggestion-list {
+  position: absolute; /* Positioning it absolutely */
+  z-index: 1000; /* Ensure it appears on top of other elements */
+  background-color: #ffffff; /* Background color of the dropdown */
+  border: 1px solid #ddd; /* Border to define the dropdown */
+  border-radius: 4px; /* Rounded corners */
+  width: 100%; /* Full width to match the input field */
+  max-height: 200px; /* Limit the height */
+  overflow-y: auto; /* Scrollable if the content is too long */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Shadow for depth effect */
+  padding: 0; /* No padding */
+  margin: 0; /* No margin */
+  list-style-type: none; /* Remove bullet points */
+}
+
+.suggestion-list li {
+  padding: 10px 15px; /* Padding for each suggestion */
+  cursor: pointer; /* Pointer cursor on hover */
+  transition: background-color 0.2s; /* Smooth background change */
+}
+
+.suggestion-list li:hover {
+  background-color: #f0f0f0; /* Background change on hover */
+}
+
+.suggestion-list li.active {
+  background-color: #e0e0e0; /* Active suggestion highlight */
+}

@@ -1,0 +1,710 @@
+<div
+  class="popup-overlay-header"
+  *ngIf="overlayActive"
+  (click)="setOverlayActive(false)"
+></div>
+
+<div
+  class="main-header d-flex justify-content-between"
+  [ngClass]="{ 'header-shadow': isScrolled }"
+>
+  <div class="container">
+    <div class="row header-row">
+      <!-- Mobile Menu Icon for smaller screens -->
+
+      <div class="col-1 col-sm-1 d-block d-lg-none" (click)="setActive()">
+        <!-- Button that triggers the collapse -->
+        <a
+          class="nav-icon nav-icon-custom"
+          [ngClass]="{
+            'nav-icon-custom-cross': mHeader,
+            'nav-icon-custom': !mHeader
+          }"
+          data-bs-toggle="collapse"
+          href="#mobileNav"
+          role="button"
+          aria-expanded="false"
+          aria-controls="mobileNav"
+        >
+          <img
+            [src]="
+              mHeader
+                ? '../../../rb_assets/assets/icons/close.svg'
+                : '../../../rb_assets/assets/icons/hamburger.svg'
+            "
+            alt="nav"
+          />
+        </a>
+      </div>
+
+      <!-- Logo Section    -->
+      <div class="col-lg-3 col-sm-5 col-5">
+        <img
+          src="../../../rb_assets/assets/images/RenewBuylogo.svg"
+          alt="Logo"
+          class="img-fluid"
+          (click)="redirectToHome()"
+        />
+      </div>
+      <div class="col-lg-6 text-center d-none d-lg-block">
+        <nav class="center-menu">
+          <ul class="nav justify-content-center">
+            <!-- <li class="nav-item nav-item-space">
+              <a class="nav-link item-text" href="#"
+                >Products
+                <img
+                  src="../../../rb_assets/assets/images/arrow_down.svg"
+                  class="down-arrow ms-2" [ngClass]="{ 'show': dropdownActive }"
+              /></a> 
+            </li> -->
+            <li
+              class="nav-item dropdown"
+              (mouseenter)="setOverlayActive(true)"
+              (mouseleave)="setOverlayActive(false)"
+            >
+              <a
+                class="nav-link dropdown-toggle dropdown-custom-toggle product-btn"
+                id="navbarDropdown"
+                role="button"
+                data-bs-toggle="null"
+                aria-expanded="false"
+              >
+                Products
+              </a>
+              <div
+                class="dropdown-menu product-dropdown"
+                aria-labelledby="navbarDropdown"
+              >
+                <div class="product-dropdown-child">
+                  <div class="row">
+                    <div class="col-lg-12 d-flex insurance-category">
+                      @for(header_head of Header_links; track header_head.id){
+                      <div
+                        class="motor-dropdown border-right-1 px-4"
+                        [ngClass]="{
+                          active:
+                            activeCategory === header_head?.attributes?.title
+                        }"
+                        (mouseenter)="
+                          setActiveCategory(header_head?.attributes?.title)
+                        "
+                        (click)="redirect(header_head?.attributes?.link)"
+                      >
+                        <img
+                          class="insurance-icon"
+                          src="{{
+                            header_head?.attributes?.menu_icon?.data?.attributes
+                              ?.url
+                          }}"
+                        />
+                        {{ header_head?.attributes?.title }}
+                      </div>
+                      <div class="vl"></div>
+                      }
+                    </div>
+                  </div>
+                  <hr class="mb-0" />
+                  <div class="row">
+                    <div class="col-lg-5 text-start insurance-category-col">
+                      <div *ngFor="let menu of notShowSubMenu; let i = index">
+                        <ul
+                          class="insurance-category-pages scrollspy-example"
+                          data-bs-spy="scroll"
+                        >
+                          <li
+                            class="category-menu px-4"
+                            [class.activeMenu]="i == activeIndex"
+                            (mouseenter)="getsubmenu(menu, i)"
+                          >
+                            <span
+                              (click)="redirect(menu?.attributes?.menu_link)"
+                              >{{ menu?.attributes?.menu_name }}</span
+                            >
+
+                            @if(subSubMenue?.attributes?.sub_menu.length > 0){
+                            <img
+                              class="category-arrow"
+                              src="../../../rb_assets/assets/icons/insurance-category-Icons.svg"
+                            />
+                            }
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+
+                    <div class="col-lg-4 text-start ps-0 category-col-sub-menu">
+                      <div class="insurance-category-sub-menu">
+                        <ul
+                          class="sub-menu-title"
+                          *ngFor="let menu of subSubMenue?.attributes?.sub_menu"
+                        >
+                          <li (click)="redirect(menu?.link)">
+                            {{ menu?.title }}
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+
+                    <!-- } -->
+
+                    <!-- <div
+                      class="col-lg-4 text-start"
+                      *ngFor="let twoWheelerItem of twoWheelerInsurance"
+                    >
+                      <div class="two-wheeler-title mx-1 px-4">
+                        {{ twoWheelerItem?.attributes?.menu_name }}
+                      </div>
+                      <div class="m-2 border-top">
+                        <ul class="two-wheeler-pages px-4">
+                          <li
+                            *ngFor="
+                              let subSubMenu of twoWheelerItem?.attributes
+                                ?.sub_menu
+                            "
+                            (click)="redirect(subSubMenu?.link)"
+                          >
+                            {{ subSubMenu?.title }}
+                          </li>
+                        </ul>
+                      </div>
+                    </div> -->
+                  </div>
+                  <div class="right-bottom-icon">
+                    <img
+                      src="../../../rb_assets/assets/icons/header-icon.svg"
+                    />
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li
+              class="nav-item dropdown rosource-btn"
+              (mouseenter)="setOverlayActive(true)"
+              (mouseleave)="setOverlayActive(false)"
+            >
+              <a
+                class="nav-link dropdown-toggle dropdown-custom-toggle"
+                href="#"
+                id="navbarDropdown"
+                role="button"
+                data-bs-toggle="null"
+                aria-expanded="false"
+              >
+                Resources
+              </a>
+
+              <ul
+                class="dropdown-menu support"
+                aria-labelledby="navbarDropdown"
+              >
+                <div class="support-child pb-3">
+                  <li (click)="redirect('https://www.renewbuy.com/articles/')">
+                    <a class="dropdown-item dropdown-item-custom"
+                      ><img
+                        class="dropdown-icon"
+                        src="../../../rb_assets/assets/icons/articles-icon.svg"
+                      />
+                      Articles</a
+                    >
+                  </li>
+                  <li (click)="redirect('https://www.renewbuy.com/press/')">
+                    <a class="dropdown-item dropdown-item-custom"
+                      ><img
+                        class="dropdown-icon"
+                        src="../../../rb_assets/assets/icons/news-icon.svg"
+                      />News</a
+                    >
+                  </li>
+                  <li (click)="redirect(' https://www.renewbuy.com/podcast')">
+                    <a class="dropdown-item dropdown-item-custom"
+                      ><img
+                        class="dropdown-icon"
+                        src="../../../rb_assets/assets/icons/podcast-icon.svg"
+                      />Podcasts</a
+                    >
+                  </li>
+                  <!-- <li>
+                    <a class="dropdown-item dropdown-item-custom" 
+                      ><img
+                        class="dropdown-icon"
+                        src="../../../rb_assets/assets/icons/calculators-icon.svg"
+                      />Calculators</a
+                    >
+                  </li>
+                  <li>
+                    <a class="dropdown-item dropdown-item-custom" 
+                      ><img
+                        class="dropdown-icon"
+                        src="../../../rb_assets/assets/icons/advisor-connect-icon.svg"
+                      />Advisor Connect</a
+                    >
+                  </li> -->
+                </div>
+              </ul>
+            </li>
+            <li
+              class="nav-item dropdown support-btn"
+              (mouseenter)="setOverlayActive(true)"
+              (mouseleave)="setOverlayActive(false)"
+            >
+              <a
+                class="nav-link dropdown-toggle dropdown-custom-toggle"
+                href="#"
+                id="navbarDropdown"
+                role="button"
+                data-bs-toggle="null"
+                aria-expanded="false"
+              >
+                Support
+              </a>
+              <ul
+                class="dropdown-menu support"
+                aria-labelledby="navbarDropdown"
+              >
+                <div class="support-child support-dropmenu pb-3">
+                  <!-- <li>
+                    <a class="dropdown-item dropdown-item-custom" href="#"
+                      ><img
+                        class="dropdown-icon"
+                        src="../../../rb_assets/assets/icons/Renewals-icon.svg"
+                      />
+                      Renewals</a
+                    >
+                  </li> -->
+                  <!-- <li>
+                    <a class="dropdown-item dropdown-item-custom" href="#"
+                      ><img
+                        class="dropdown-icon"
+                        src="../../../rb_assets/assets/icons/cliam-icon.svg"
+                      />Claims</a
+                    >
+                  </li> -->
+                  <!-- <li>
+                    <a class="dropdown-item dropdown-item-custom" href="#"
+                      ><img
+                        class="dropdown-icon"
+                        src="../../../rb_assets/assets/icons/raise-a-ticket.svg"
+                      />Raise a Ticket</a
+                    >
+                  </li> -->
+                  <li>
+                    <a class="dropdown-item dropdown-item-custom"
+                      ><img
+                        class="dropdown-icon"
+                        src="../../../rb_assets/assets/icons/call-us.svg"
+                      />Call Us: <span>1800-419-7852</span></a
+                    >
+                  </li>
+                  <li>
+                    <a class="dropdown-item dropdown-item-custom"
+                      ><img
+                        class="dropdown-icon"
+                        src="../../../rb_assets/assets/icons/call-us.svg"
+                      />Claim Support: <span>1800-419-7852</span></a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      class="dropdown-item dropdown-item-custom"
+                      href="mailto:customersupport@renewbuy.com"
+                      ><img
+                        class="dropdown-icon"
+                        src="../../../rb_assets/assets/icons/write-us.svg"
+                      />Write to us <br />
+                      <span class="support-email"
+                        >Customersupport&#64;renewbuy.com</span
+                      ></a
+                    >
+                  </li>
+                </div>
+              </ul>
+            </li>
+            <!-- <li class="nav-item nav-item-space">
+              <a class="nav-link item-text" href="#"
+                >Support
+                <img
+                  src="../../../rb_assets/assets/images/arrow_down.svg"
+                  class="down-arrow ms-2"
+              /></a>
+            </li> -->
+
+            <li
+              class="nav-item nav-item-space"
+              (click)="redirect('https://www.renewbuy.com/become-an-advisor/')"
+            >
+              <a class="nav-link item-text" href="#">Become an Advisor</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+      <!-- <div class="col-lg-6" *ngIf="!isHomePage"></div> -->
+      <!-- User Section -->
+      <div
+        class="col-lg-3 col-sm-6 col-6 d-flex align-items-center justify-content-end"
+      >
+        @if(!isUserLogin){
+        <div class="login" (click)="login()">Login</div>
+        }@else {
+
+        <div class="d-flex user-container">
+          <img
+            src="../../../rb_assets/assets/images/user-icon.svg"
+            alt="User Icon"
+            class="user-icon d-none d-lg-block"
+          />
+
+          <!-- Login Logo (visible only on small to medium screens) -->
+          <img
+            src="../../../rb_assets/assets/images/user-icon.svg"
+            alt="Login Logo"
+            class="d-block d-lg-none"
+            width="25"
+            height="25"
+          />
+          <div>
+            <img
+              src="../../../rb_assets/assets/icons/dropdown-icon.svg"
+              class="d-block d-lg-none dropdown login-dropdown-icon"
+              alt=""
+              width="14"
+              height="13"
+            />
+          </div>
+          <div class="user-icon-text d-none d-lg-block" (click)="afterLogin()">
+            Hi,
+            {{
+              username == "null"
+                ? "Guest"
+                : (username?.split(" ")[0] | titlecase)
+            }}
+          </div>
+          <div class="dropdown-menu user-btn" *ngIf="isProfileOpen">
+            <a (click)="goToUserProfile(isProfileComplete, 'profile')"
+              >Profile</a
+            >
+            <a (click)="goToPolicies(isProfileComplete, 'policies')"
+              >My Policies</a
+            >
+            <!-- <a href="#">Transaction History</a>
+            <a href="#">Claims</a>
+            <a href="#">Get Help</a> -->
+            <a (click)="logout()">Logout</a>
+          </div>
+        </div>
+        }
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 col-12 d-lg-none" *ngIf="overlayActive">
+        <div class="m-header">
+          <div class="accordion mobile-header" id="mobileNav">
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingProducts">
+                <button
+                  class="accordion-button collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#collapseProducts"
+                  aria-expanded="false"
+                  aria-controls="collapseProducts"
+                >
+                  Products
+                </button>
+              </h2>
+              <div
+                id="collapseProducts"
+                class="accordion-collapse collapse"
+                aria-labelledby="headingProducts"
+                data-bs-parent="#mobileNav"
+              >
+                <div class="accordion-body product">
+                  <div class="accordion" id="productAccordion">
+                    <div
+                      class="accordion-item"
+                      *ngFor="let header_head of Header_links; let i = index"
+                    >
+                      <h2 class="accordion-header" [id]="'heading' + i">
+                        <button
+                          class="accordion-button collapsed"
+                          type="button"
+                          data-bs-toggle="collapse"
+                          [attr.data-bs-target]="'#collapse' + i"
+                          aria-expanded="false"
+                          [attr.aria-controls]="'collapse' + i"
+                        >
+                          <!-- <pre>{{header_head.attributes | json }}</pre> -->
+
+                          <img
+                            [src]="
+                              header_head.attributes.menu_icon.data.attributes
+                                .url
+                            "
+                            alt="Icon"
+                            class="icon-img"
+                          />
+                          <span
+                            (click)="redirect(header_head.attributes.link)"
+                            class="header-font-mobile"
+                          >
+                            {{ header_head.attributes.title }}
+                          </span>
+                        </button>
+                      </h2>
+
+                      <div
+                        [id]="'collapse' + i"
+                        class="accordion-collapse collapse"
+                        [attr.aria-labelledby]="'heading' + i"
+                      >
+                        <div class="accordion-body">
+                          <ul>
+                            <li
+                              *ngFor="
+                                let menu of header_head.attributes.menu_items
+                                  .data;
+                                let j = index
+                              "
+                            >
+                              <h2
+                                class="accordion-header"
+                                [id]="'headingMenu' + i + j"
+                              >
+                                <ng-container
+                                  *ngIf="
+                                    menu.attributes.sub_menu.length > 0;
+                                    else noSubMenu
+                                  "
+                                >
+                                  <button
+                                    class="accordion-button collapsed"
+                                    type="button"
+                                    data-bs-toggle="collapse"
+                                    [attr.data-bs-target]="
+                                      '#collapseMenu' + i + j
+                                    "
+                                    aria-expanded="false"
+                                    [attr.aria-controls]="
+                                      'collapseMenu' + i + j
+                                    "
+                                  >
+                                    <span
+                                      class="header-font-mobile"
+                                      (click)="
+                                        redirect(menu.attributes.menu_link)
+                                      "
+                                    >
+                                      {{ menu.attributes.menu_name }}</span
+                                    >
+                                  </button>
+                                </ng-container>
+                                <ng-template #noSubMenu>
+                                  <button
+                                    class="btn"
+                                    type="button"
+                                    style="border: none; background: none"
+                                  >
+                                    <span
+                                      (click)="
+                                        redirect(menu.attributes.menu_link)
+                                      "
+                                      class="header-font-mobile"
+                                      >{{ menu.attributes.menu_name }}</span
+                                    >
+                                  </button>
+                                </ng-template>
+                              </h2>
+
+                              <div
+                                [id]="'collapseMenu' + i + j"
+                                class="accordion-collapse collapse"
+                                [attr.aria-labelledby]="'headingMenu' + i + j"
+                              >
+                                <ul *ngIf="menu.attributes.sub_menu.length > 0">
+                                  <li
+                                    *ngFor="
+                                      let subMenu of menu.attributes.sub_menu
+                                    "
+                                    class="nested-submenu"
+                                  >
+                                    <a (click)="redirect(subMenu.link)">{{
+                                      subMenu.title
+                                    }}</a>
+                                  </li>
+                                </ul>
+                              </div>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingResources">
+                <button
+                  class="accordion-button collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#collapseResources"
+                  aria-expanded="false"
+                  aria-controls="collapseResources"
+                >
+                  Resources
+                </button>
+              </h2>
+              <div
+                id="collapseResources"
+                class="accordion-collapse collapse"
+                aria-labelledby="headingResources"
+                data-bs-parent="#mobileNav"
+              >
+                <div class="accordion-body res-support">
+                  <ul>
+                    <li
+                      (click)="redirect('https://www.renewbuy.com/articles/')"
+                      class="header-font-mobile"
+                    >
+                      <img
+                        alt="Icon"
+                        class="icon-img"
+                        src="../../../rb_assets/assets/icons/articles-icon.svg"
+                      />
+                      Articles
+                    </li>
+                    <li
+                      (click)="redirect('https://www.renewbuy.com/press/')"
+                      class="header-font-mobile"
+                    >
+                      <img
+                        alt="Icon"
+                        class="icon-img"
+                        src="../../../rb_assets/assets/icons/news-icon.svg"
+                      />
+                      News
+                    </li>
+                    <li
+                      (click)="redirect('https://www.renewbuy.com/podcast')"
+                      class="header-font-mobile"
+                    >
+                      <img
+                        alt="Icon"
+                        class="icon-img"
+                        src="../../../rb_assets/assets/icons/podcast-icon.svg"
+                      />
+                      Podcasts
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingSupport">
+                <button
+                  class="accordion-button collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#collapseSupport"
+                  aria-expanded="false"
+                  aria-controls="collapseSupport"
+                >
+                  Support
+                </button>
+              </h2>
+              <div
+                id="collapseSupport"
+                class="accordion-collapse collapse"
+                aria-labelledby="headingSupport"
+                data-bs-parent="#mobileNav"
+              >
+                <div class="accordion-body res-support">
+                  <ul class="m-support">
+                    <li class="header-font-mobile">
+                      <img
+                        alt="Icon"
+                        class="icon-img"
+                        src="../../../rb_assets/assets/icons/call-us.svg"
+                      />
+                      Call Us:
+                      <a
+                        href="tel:18004197852"
+                        class="dropdown-item-custom-mobile"
+                        ><span>18004197852</span></a
+                      >
+                    </li>
+                    <li class="header-font-mobile">
+                      <img
+                        alt="Icon"
+                        class="icon-img"
+                        src="../../../rb_assets/assets/icons/call-us.svg"
+                      />
+                      Claim Support:
+                      <a
+                        href="tel:18004197852"
+                        class="dropdown-item-custom-mobile"
+                        ><span>18004197852</span></a
+                      >
+                    </li>
+                    <li class="header-font-mobile">
+                      <img
+                        alt="Icon"
+                        class="icon-img"
+                        src="../../../rb_assets/assets/icons/write-us.svg"
+                      />
+                      Write to us:
+                      <a
+                        href="mailto:customersupport@renewbuy.com"
+                        class="dropdown-item-custom-mobile"
+                      >
+                        <span>Customersupport&#64;renewbuy.com</span>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <h2
+                class="accordion-header"
+                id="headingPartner"
+                (click)="
+                  redirect('https://www.renewbuy.com/become-an-advisor/')
+                "
+              >
+                <button
+                  class="accordion-button collapsed"
+                  type="button"
+                  aria-controls="collapsePartner"
+                >
+                  Become an Advisor
+                </button>
+              </h2>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- <sign-in
+    (isClosePopUp)="close($event)"
+    *ngIf="isSign"
+    (closeEvent)="closeComponent()"
+  ></sign-in> -->
+
+  <app-profile-page
+    *ngIf="userProfileComplete"
+    (isUserProfile)="closeProfile($event)"
+  ></app-profile-page>
+</div>
+
+<app-new-sign-in
+  (isClosePopUp)="close($event)"
+  *ngIf="isSign"
+  (closeEvent)="closeComponent()"
+  [isNewSignInPopOpen]="isSign"
+>
+</app-new-sign-in>

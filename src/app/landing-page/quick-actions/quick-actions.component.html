@@ -1,0 +1,108 @@
+<div class="container">
+  <div class="row position-relative-change-quick-action d-none d-lg-block">
+    <div class="quick-action-section">
+      <div class="quick-actions">
+        <div
+          class="col-2 col-lg-2 d-flex justify-content-center align-items-center"
+        >
+          <div class="d-flex align-items-center">
+            <span class="text-black">Quick</span>
+            <span class="fw-bold text-black ms-1">Actions</span>
+            <img
+              class="ms-2"
+              src="../../../rb_assets/assets/images/thunder.svg"
+              alt="Quick Actions Icon"
+              width="20"
+              height="20"
+            />
+          </div>
+        </div>
+
+        <!-- Right Column (col-8) with Border-Left -->
+        <div
+          class="col-8 col-lg-7.5 d-flex flex-wrap gap-2 ps-3 py-2 border-start align-items-center"
+        >
+          @for(link of quickLinks; track link?.id){
+          <div
+            class="d-flex align-items-center ps-2 py-2 hover-bg-primary-div"
+            (click)="navigationByLink(link?.title, link?.link)"
+          >
+            <div class="quick-action-links">{{ link?.title }}</div>
+            <img
+              src="../../../rb_assets/assets/images/quick-action-arrow-up.svg"
+              class="up-arrow"
+              width="30"
+              height="30"
+            />
+          </div>
+          }
+        </div>
+
+        <!-- <div class="col-2 col-lg-2.5 d-flex align-items-center">
+          <div
+            class="d-flex align-items-center py-2 hover-bg-primary-div hover-bg-primary-productsn f-size"
+          >
+            <div class="quick-action-links">//Find your best Product</div>
+            <img
+              src="../../../rb_assets/assets/images/quick-action-arrow-up.svg"
+              class="up-arrow"
+              width="30"
+              height="30"
+            />
+          </div>
+        </div> -->
+        <!-- </div> -->
+      </div>
+    </div>
+  </div>
+
+  <div class="quick-container d-block d-lg-none mt-4">
+    <div class="row quick-actions-container">
+      <!-- Quick Actions Section with Icon -->
+      <!-- <div class="d-flex quick-action-header-section"> -->
+      <!-- Quick Actions Header with Icon -->
+      <div class="col-4 col-sm-4 align-items-center quick-actions-header">
+        <div class="quick-action-heading-container">
+          <div class="quick-action-title">Quick</div>
+
+          <div class="quick-action-sub-title">Actions</div>
+        </div>
+        <div class="p-1 quick-actions-icon">
+          <img
+            class="dummy-icon"
+            src="../../../rb_assets/assets/images/thunder.svg"
+          />
+          <!-- Replace with your actual icon -->
+        </div>
+      </div>
+
+      <!-- Scrollable Buttons Section -->
+      <div class="col-8 col-sm-8 buttons-group">
+        <!-- Additional content -->
+        <!-- <div class="row">
+          <div class="col-sm-12 find-product">//Find Your Best Product</div>
+        </div> -->
+
+        <!-- Scrollable buttons wrapper -->
+        <div class="quick-actions-buttons-wrapper">
+          <div class="d-flex flex-row align-items-center quick-actions-buttons">
+            <div class="btn-group ps-2 py-3 button-links">
+              @for(link of quickLinks; track link?.id){
+              <!-- Buttons -->
+
+              <button
+                type="button"
+                class="btn action-btn quick-buttons"
+                (click)="navigationByLink(link?.title, link?.link)"
+              >
+                {{ link?.title }}
+              </button>
+              }
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- </div> -->
+    </div>
+  </div>
+</div>
