@@ -1,0 +1,67 @@
+stages:
+  - build-dev
+  - dev-deploy
+  - build-prod
+  - prod-deploy
+
+build-dev:
+  stage: build-dev
+  image: docker:latest
+  services:
+    - name: docker:dind
+  before_script:
+    - docker login -u gitlab-ci-token -p $CI_BUILD_TOKEN $CI_REGISTRY
+  script:
+    - docker build  -t $CI_REGISTRY_IMAGE:$(date +%Y.%m.%d.%H) .
+    - docker push $CI_REGISTRY_IMAGE:$(date +%Y.%m.%d.%H)
+    - docker tag $CI_REGISTRY_IMAGE:$(date +%Y.%m.%d.%H) $CI_REGISTRY_IMAGE:latest
+    - docker push $CI_REGISTRY_IMAGE:latest
+  only:
+    - main
+
+variables:
+  DEV_SERVER_1: 172.24.1.90
+dev-deploy:
+  stage: dev-deploy
+  before_script:
+    - 'command -v ssh-agent >/dev/null || ( apt-get update -y && apt-get install openssh-client -y )'
+    - eval $(ssh-agent -s)
+    # ssh conf
+    - mkdir -p ~/.ssh
+    - chmod 700 ~/.ssh
+    - echo "$SSH_PRIVATE_KEY" | tr -d '\r' > ~/.ssh/id_rsa
+    - chmod 400 ~/.ssh/id_rsa
+  script:
+    - ssh -o stricthostkeychecking=no ubuntu@${DEV_SERVER_1} "sudo docker login -u clone_token -p "YANkxZ4_imRoBZSidzuL" registry.gitlab.renewbuy.in && cd /home/ubuntu/repos/renewbuy_insurance && sh deploy.sh "
+  only: 
+    - main
+
+build-prod:
+  stage: build-prod
+  image: docker:latest
+  services:
+    - name: docker:dind
+  before_script:
+    - docker login -u gitlab-ci-token -p $CI_BUILD_TOKEN $CI_REGISTRY
+  script:
+    - docker build -f DockerfileProd -t $CI_REGISTRY_IMAGE:$(date +%Y.%m.%d.%H) .
+    - docker push $CI_REGISTRY_IMAGE:$(date +%Y.%m.%d.%H)
+    - docker tag $CI_REGISTRY_IMAGE:$(date +%Y.%m.%d.%H) $CI_REGISTRY_IMAGE:prod-latest
+    - docker push $CI_REGISTRY_IMAGE:prod-latest
+  only:
+    - tags
+
+prod-deploy:
+  stage: prod-deploy
+  before_script:
+    - 'command -v ssh-agent >/dev/null || ( apt-get update -y && apt-get install openssh-client -y )'
+    - eval $(ssh-agent -s)
+    # ssh conf
+    - mkdir -p ~/.ssh
+    - chmod 700 ~/.ssh
+    - echo "$SSH_PRIVATE_KEY" | tr -d '\r' > ~/.ssh/id_rsa
+    - chmod 400 ~/.ssh/id_rsa
+  script:
+    - ssh -o stricthostkeychecking=no ubuntu@${PROD_SERVER_IP} "sudo docker login -u clone_token -p "YANkxZ4_imRoBZSidzuL" registry.gitlab.renewbuy.in && cd /home/ubuntu/repos/renewbuy_insurance && sh deploy.sh "
+  only: 
+    - tags
