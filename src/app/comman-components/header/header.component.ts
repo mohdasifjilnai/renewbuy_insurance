@@ -18,6 +18,7 @@ import { ApiConstants } from '../../utilis/api.constant';
 import { CookieService } from 'ngx-cookie-service';
 import { Renderer2, ElementRef } from '@angular/core';
 import { NewSignInComponent } from '../../modal-components/new-sign-in/new-sign-in.component';
+import { ToastService } from '../../utilis/service/toast.service';
 @Component({
   selector: 'app-header',
   standalone: true,
@@ -72,7 +73,8 @@ export class HeaderComponent {
     private router: Router,
     private apiService: ApiService,
     private sharedService: ShareService,
-    private cookieService: CookieService
+    private cookieService: CookieService,
+    private toastService:ToastService
   ) {
     this.checkViewport();
     this.getHeaderLink(this.activeCategory);
@@ -173,12 +175,34 @@ export class HeaderComponent {
       });
     }
   }
+  // logout() {
+  //   this.isUserLogin = false;
+  //   this.overlayActive = false;
+  //   this.cookieService.deleteAll('/', environment['subDomain']);
+  //   this.cookieService.delete('username', '/', window.location.hostname);
+  //   this.router.navigate(['/']);
+  // }
   logout() {
     this.isUserLogin = false;
     this.overlayActive = false;
-    this.cookieService.deleteAll('/', environment['subDomain']);
-    this.cookieService.delete('username', '/', window.location.hostname);
-    this.router.navigate(['/']);
+    const header = new HttpHeaders({
+      Authorization: `Bearer ${this.cookieService.get('access_token')}`,
+    });
+    this.apiService
+      .getpostRequest(
+        `${environment['unicornDomain']}${ApiConstants.LOGOUT}`,
+        '',
+        header
+      )
+      .subscribe((response) => {
+        if(response){
+        this.cookieService.deleteAll('/', environment['subDomain']);
+        this.cookieService.delete('username', '/', window.location.hostname);
+        window.location.href = environment['mainDomain'];
+        }
+      } ,(error: any) => {
+        this.toastService.toastError(error?.statusText, 'error');
+      });
   }
   closeComponent() {
     this.isSign = false;
