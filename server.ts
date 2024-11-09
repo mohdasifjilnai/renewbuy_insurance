@@ -4,6 +4,8 @@ import express from 'express';
 import { fileURLToPath } from 'node:url';
 import { dirname, join, resolve } from 'node:path';
 import bootstrap from './src/main.server';
+import { WebSocketServer } from 'ws';
+import * as cookie from 'cookie'; // Import cookie as a namespace
 
 // The Express app is exported so that it can be used by serverless Functions.
 export function app(): express.Express {
@@ -19,6 +21,7 @@ export function app(): express.Express {
 
   // Example Express Rest API endpoints
   // server.get('/api/**', (req, res) => { });
+  
   // Serve static files from /browser
   server.get(
     '*.*',
@@ -29,7 +32,7 @@ export function app(): express.Express {
 
   // All regular routes use the Angular engine
   server.get('*', (req, res, next) => {
-    const { protocol, originalUrl, baseUrl,headers } = req;
+    const { protocol, originalUrl, baseUrl, headers } = req;
     commonEngine
       .render({
         bootstrap,
@@ -46,12 +49,39 @@ export function app(): express.Express {
 }
 
 function run(): void {
-  const port = process.env['PORT'] || 4000;
+  const port = process.env['PORT'] || 4001;
 
   // Start up the Node server
   const server = app();
-  server.listen(port, () => {
+  const httpServer = server.listen(port, () => {
     console.log(`Node Express server listening on http://localhost:${port}`);
+  });
+
+  // Create WebSocket server on top of the HTTP server
+  const wss = new WebSocketServer({ server: httpServer });
+  
+  // Handle WebSocket connections
+  wss.on('connection', (ws, req) => {
+    // Parse cookies from request headers
+   
+    const cookies = cookie.parse(req.headers.cookie || '');
+    const token = `insurance${cookies['acces_token']}`; // Replace 'authToken' with the actual token name
+    //const token = "web socket testing insurance";
+
+    // Handle messages received from WebSocket clients
+    ws.on('message', (message) => {
+      const data = JSON.parse(message.toString());
+
+      if (data.type === 'tokenRequest') {
+        // Respond with the token from cookies
+        ws.send(JSON.stringify({ type: 'tokenResponse', token: token || 'No token found' }));
+      }
+    });
+
+    // Log when a WebSocket connection is closed
+    ws.on('close', () => {
+      console.log('WebSocket client disconnected');
+    });
   });
 }
 
