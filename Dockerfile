@@ -29,7 +29,7 @@ COPY package*.json ./
 RUN npm install --force
 
 # Expose the server port
-EXPOSE 4000
+EXPOSE 4001
 
 # Start the SSR server
 CMD ["node", "dist/consumer/server/server.mjs"]
