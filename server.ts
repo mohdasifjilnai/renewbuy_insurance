@@ -1,37 +1,37 @@
-import { APP_BASE_HREF } from '@angular/common';
-import { CommonEngine } from '@angular/ssr';
-import express from 'express';
-import { fileURLToPath } from 'node:url';
-import { dirname, join, resolve } from 'node:path';
-import bootstrap from './src/main.server';
-import { WebSocketServer } from 'ws';
-import * as cookie from 'cookie'; // Import cookie as a namespace
+import { APP_BASE_HREF } from "@angular/common";
+import { CommonEngine } from "@angular/ssr";
+import express from "express";
+import { fileURLToPath } from "node:url";
+import { dirname, join, resolve } from "node:path";
+import bootstrap from "./src/main.server";
+import { WebSocketServer } from "ws";
+import * as cookie from "cookie"; // Import cookie as a namespace
 
 // The Express app is exported so that it can be used by serverless Functions.
 export function app(): express.Express {
   const server = express();
   const serverDistFolder = dirname(fileURLToPath(import.meta.url));
-  const browserDistFolder = resolve(serverDistFolder, '../browser');
-  const indexHtml = join(serverDistFolder, 'index.server.html');
+  const browserDistFolder = resolve(serverDistFolder, "../browser");
+  const indexHtml = join(serverDistFolder, "index.server.html");
 
   const commonEngine = new CommonEngine();
 
-  server.set('view engine', 'html');
-  server.set('views', browserDistFolder);
+  server.set("view engine", "html");
+  server.set("views", browserDistFolder);
 
   // Example Express Rest API endpoints
   // server.get('/api/**', (req, res) => { });
 
   // Serve static files from /browser
   server.get(
-    '*.*',
+    "*.*",
     express.static(browserDistFolder, {
-      maxAge: '6h',
+      maxAge: "6h",
     })
   );
 
   // All regular routes use the Angular engine
-  server.get('*', (req, res, next) => {
+  server.get("*", (req, res, next) => {
     const { protocol, originalUrl, baseUrl, headers } = req;
     commonEngine
       .render({
@@ -49,7 +49,7 @@ export function app(): express.Express {
 }
 
 function run(): void {
-  const port = process.env['PORT'] || 4001;
+  const port = process.env["PORT"] || 4001;
 
   // Start up the Node server
   const server = app();
@@ -61,32 +61,36 @@ function run(): void {
   const wss = new WebSocketServer({ server: httpServer });
 
   // Handle WebSocket connections
-  wss.on('connection', (ws, req) => {
+  wss.on("connection", (ws, req) => {
     // Parse cookies from request headers
 
     // const cookies = cookie.parse(req.headers.cookie || '');
     // const token = cookies['authToken']; // Replace 'authToken' with the actual token name
-    const cookies = cookie.parse(req.headers.cookie || '');
-    const token = `renewbuy${cookies['acces_token']}`;
+    const cookies = cookie.parse(req.headers.cookie || "");
+    const token = `${cookies["access_token"]}`;
+    const tokenfron = "renewbuy";
+    const name = `${cookies["username"]}`;
 
     // Handle messages received from WebSocket clients
-    ws.on('message', (message) => {
+    ws.on("message", (message) => {
       const data = JSON.parse(message.toString());
 
-      if (data.type === 'tokenRequest') {
+      if (data.type === "tokenRequest") {
         // Respond with the token from cookies
         ws.send(
           JSON.stringify({
-            type: 'tokenResponse',
-            token: token || 'No token found',
+            type: "tokenResponse",
+            token: token || "No token found",
+            name: name || "",
+            token_fron: tokenfron,
           })
         );
       }
     });
 
     // Log when a WebSocket connection is closed
-    ws.on('close', () => {
-      console.log('WebSocket client disconnected');
+    ws.on("close", () => {
+      console.log("WebSocket client disconnected");
     });
   });
 }
