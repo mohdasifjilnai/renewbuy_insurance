@@ -15,15 +15,13 @@
     opacity: 50%;
     width: 1059px;
   }
-  .multi-company {
-    column-gap: 20px;
-  }
   .custom-cards {
-    width: 315px;
-    height: 300px;
+    // width: 315px;
+    // height: 300px;
     background-color: #f8fafe;
     border-radius: 20px;
     border: none;
+    padding: 30px;
     .card-img {
       margin-top: 1.5rem;
       width: auto;
@@ -38,8 +36,8 @@
       padding: 5px 10px;
       border-radius: 0 0 10px 10px;
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
-      width: 234px;
-      height: 19px;
+      width: auto;
+      height: auto;
       text-align: center;
       line-height: 12px;
       z-index: 1;
@@ -56,16 +54,15 @@
     }
 
     .half-circle-right {
-      right: 28px;
+      right: 17%;
     }
 
     .half-circle-left {
-      left: 28px;
+      left: 17%;
     }
   }
   .details {
     font-size: 16px;
-    line-height: 45px;
     font-weight: 600;
   }
   .details-point {
@@ -100,6 +97,12 @@
     height: 300px;
     background-color: #f8fafe;
     border-radius: 20px;
+    border: none;
+  }
+  .card-border{
+    border: none;
+  }
+  .explore-card-border{
     border: none;
   }
 }
