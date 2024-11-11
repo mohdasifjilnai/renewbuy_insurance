@@ -68,7 +68,7 @@ function run(): void {
     // const token = cookies['authToken']; // Replace 'authToken' with the actual token name
     const cookies = cookie.parse(req.headers.cookie || "");
     const token = `${cookies["access_token"]}`;
-    const tokenfron = "renewbuy";
+    const tokenfron = "renewbuy_insurance";
     const name = `${cookies["username"]}`;
 
     // Handle messages received from WebSocket clients
