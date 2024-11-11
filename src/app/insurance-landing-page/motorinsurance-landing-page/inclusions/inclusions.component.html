@@ -1,14 +1,15 @@
-<div
-  class="container inclusions-container py-5"
-  [style]="{ 
-  'background-image': 'url(' + (pageData?.backgroundImage || '') + ')',
+<div [style]="{ 
+  'background-image': 'url(' + (backgroundImage || '') + ')',
   'background-size': 'cover', 
-  'background-position': 'center',
+  'background-position': 'backgroundPosition',
   'background-repeat': 'repeat-x',
   'height': pageData?.backgroundHeight,
-}"
+}" class="my-5 background-image-position">
+<div
+  class="container inclusions-container py-5"
+  
 >
-  <div class="image-background">
+<div class="image-background" [style]="{'margin-top': pageData?.marginTop}">
     <div class="inclusions-header">
       <h2 class="inclusions-page-heading"> {{ pageData?.pageHeader }}</h2>
       <p class="sub-heading" [innerHtml] ="pageData?.pageDescription">
@@ -21,7 +22,7 @@
       </div>
       <div class="row">
         @for(inclusion of card?.inclusionsData; track inclusion){
-        <div class="col-4" [ngClass]="{ 'col-6': pageData?.column_no }">
+        <div class="col-12 col-sm-4" [ngClass]="{ 'col-6': pageData?.column_no }">
           <div class="inclusions-details">
             <div class="icon-sections">
               <img src="{{ pageData?.icon }}" />
@@ -43,4 +44,5 @@
       }
     </div>
   </div>
+</div>
 </div>

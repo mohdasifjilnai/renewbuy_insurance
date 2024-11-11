@@ -18,7 +18,10 @@ export class MotorinsuranceLandingPageComponent {
       components.`,
     icon: '../../../../rb_assets/assets/insurance/check-icon.svg',
     backgroundImage:'../../../../rb_assets/assets/insurance/inclusions-background.svg',
+    backgroundImageMobileView:'../../../../rb_assets/assets/insurance/inclusions-background-sm.svg',
     backgroundHeight:'35rem',
+    backgroundPosition:'40rem 55rem',
+    marginTop:'2%',
     cards: [
       {
         cardHeader: 'Comprehensive Motor Insurance Policy',
@@ -57,7 +60,10 @@ export class MotorinsuranceLandingPageComponent {
     pageDescription: `Exclusions refer to circumstances where the insurer is not required to pay the claim. Let us learn more about it below.`,
     icon: '../../../../rb_assets/assets/insurance/cross-shield.svg',
     backgroundImage:'../../../../rb_assets/assets/insurance/exclusions-background.svg',
+    backgroundImageMobileView:'../../../../rb_assets/assets/insurance/exclusion-background-sm.svg',
     backgroundHeight:'30rem',
+    backgroundPosition:'40rem 50rem',
+    marginTop:'5%',
     cards: [
       {
         cardHeader: '',
@@ -92,7 +98,7 @@ export class MotorinsuranceLandingPageComponent {
   };
   benefitsMotorInsuranceData = {
     pageHeader: 'Benefits of Buying Motor Insurance Online',
-    pageDescription: `Most <a class="active-text text-decoration-none">motor insurance companies in India</a>  have taken their business online with advanced technology. The benefits of buying motor insurance online have perks, so let us look at them.`,
+    pageDescription: `Most <a class="active-text text-decoration-none cursor-pointer">motor insurance companies in India</a>  have taken their business online with advanced technology. The benefits of buying motor insurance online have perks, so let us look at them.`,
     icon: '../../../../rb_assets/assets/insurance/check-icon.svg',
     cards: [
       {
@@ -168,6 +174,19 @@ export class MotorinsuranceLandingPageComponent {
       advisable.
     </p>` 
   }]
+  questionsList=[
+    {question:'How is Motor Insurance Premium calculated?', answer:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam natus, optio fugit alias ad veniam. At omnis accusantium reprehenderit suscipit qui sapiente earum, non nostrum quas similique minus, placeat ullam.'},
+    {question:'What is the validity period of a Motor Insurance Policy?',answer:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam natus, optio fugit alias ad veniam. At omnis accusantium reprehenderit suscipit qui sapiente earum, non nostrum quas similique minus, placeat ullam.'},
+    {question:'What documents are needed to file a Motor Insurance Claim?',answer:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam natus, optio fugit alias ad veniam. At omnis accusantium reprehenderit suscipit qui sapiente earum, non nostrum quas similique minus, placeat ullam.'},
+    {question:'If I lose my Vehicle Insurance Policy, can I get a duplicate one?',answer:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam natus, optio fugit alias ad veniam. At omnis accusantium reprehenderit suscipit qui sapiente earum, non nostrum quas similique minus, placeat ullam.'},
+    {question:'Is Motor Insurance Renewal possible online?'},
+    {question:'Is GST levied on Motor Insurance Premiums?'},
+    {question:'What is IDV (Insured Declared Value)?'},
+    {question:'Is GST levied on Motor Insurance Premiums?'},
+    {question:'How can I get a discount on my Motor Insurance Policy Premium?'},
+    {question:'Is it beneficial to buy Motor Insurance Online?'},
+    {question:'For how long is the NCB on a policy valid?'}
+  ]
   constructor(private apiService: ApiService, private meta: MetaService) {
     const header = new HttpHeaders({
       Authorization: `Bearer ${environment['bearerToken']}`,

@@ -28,6 +28,7 @@
       background-color: #ffffff;
       padding: 2rem;
       border-color: #ffffff;
+      height: 365px;
       .card-image-box {
         display: flex;
         justify-content: center;
@@ -61,6 +62,42 @@
           line-height: 24px;
           text-align: center;
           color: #5384ea;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
+@media (min-width: 1024px) and (max-width: 1295px) {
+  .types-of-policy-container{
+    .types-of-policy-card-container{
+      .card{
+        padding: 1rem;
+        height: 375px;
+      }
+    }
+  }
+}
+@media (min-width: 1296px) and (max-width: 1366px){
+  .types-of-policy-container{
+    .types-of-policy-card-container{
+      .card{
+        padding: 1rem;
+        height: 355px;
+      }
+    }
+  }
+}
+@media (max-width:768px) {
+  .types-of-policy-container{
+    .types-of-policy-card-container{
+      .card-container{
+        row-gap: 16px;
+        .card {
+          padding: 1.5rem;
+          .card-name{
+            margin: 1rem 0;
+          }
         }
       }
     }

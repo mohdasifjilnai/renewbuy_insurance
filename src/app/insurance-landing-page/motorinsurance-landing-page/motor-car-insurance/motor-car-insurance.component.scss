@@ -6,6 +6,10 @@
       .right-section{
         display: flex;
         align-items: center;
+        justify-content: center;
+      }
+      .custom-position{
+        align-items: end;
       }
     }
     .title {
@@ -208,8 +212,10 @@
     .right-section{
       .padding-left{
         padding-left: 25%;
-        width: 100%;
       }
+    }
+    .custom-width{
+      width: 80%;
     }
   
     .slide {

@@ -20,6 +20,8 @@ import { OtpPopupComponent } from '../modal-components/otp-popup/otp-popup.compo
 import { RegistraionNumberDirective } from '../utilis/directives/registraion-number.directive';
 import { MotorCarInsuranceComponent } from '../insurance-landing-page/motorinsurance-landing-page/motor-car-insurance/motor-car-insurance.component';
 import { AddOnsInuranceComponent } from '../insurance-landing-page/motorinsurance-landing-page/add-ons-inurance/add-ons-inurance.component';
+import { InclusionsComponent } from '../insurance-landing-page/motorinsurance-landing-page/inclusions/inclusions.component';
+import { FaqMotorComponent } from '../insurance-landing-page/motorinsurance-landing-page/faq-motor/faq-motor.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +35,8 @@ import { AddOnsInuranceComponent } from '../insurance-landing-page/motorinsuranc
     RegistraionNumberDirective,
     MotorCarInsuranceComponent,
     AddOnsInuranceComponent,
+    InclusionsComponent,
+    FaqMotorComponent
   ],
   imports: [
     CommonModule,
@@ -64,7 +68,9 @@ import { AddOnsInuranceComponent } from '../insurance-landing-page/motorinsuranc
     CookieConsentComponent,
     RegistraionNumberDirective,
     MotorCarInsuranceComponent,
-    AddOnsInuranceComponent
+    AddOnsInuranceComponent,
+    InclusionsComponent,
+    FaqMotorComponent
   ],
 })
 export class CommanModuleModule {}

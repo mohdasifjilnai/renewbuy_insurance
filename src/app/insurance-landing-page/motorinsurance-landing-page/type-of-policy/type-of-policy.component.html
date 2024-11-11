@@ -1,4 +1,5 @@
-<div class="container types-of-policy-container py-5">
+<div class="types-of-policy-container py-5">
+<div class="container">
   <div class="types-of-policy-header">
     <h2 class="heading-text">Types of Motor Insurance Policy</h2>
   </div>
@@ -10,8 +11,8 @@
     </p>
   </div>
   <div class="types-of-policy-card-container">
-    <div class="row">
-      <div class="col-4" *ngFor="let card of insuranceCardData">
+    <div class="row card-container">
+      <div class="col-12 col-sm-4" *ngFor="let card of insuranceCardData">
         <div class="card">
           <div class="card-image-box">
             <img
@@ -28,4 +29,5 @@
       </div>
     </div>
   </div>
+</div>
 </div>

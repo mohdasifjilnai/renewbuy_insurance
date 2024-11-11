@@ -306,3 +306,19 @@ body.no-scroll {
 .ng-placeholder {
   color: #4d4d4d !important;
 }
+.cursor-pointer{
+  cursor: pointer;
+}
+.add-ons-description {
+  .decsription-text {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 20px;
+    color: #24242480;
+    .link-text {
+      font-weight: 600;
+      color: #5384ea;
+      cursor: pointer;
+    }
+  }
+}
