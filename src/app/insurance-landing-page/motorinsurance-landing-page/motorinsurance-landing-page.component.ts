@@ -18,7 +18,9 @@ export class MotorinsuranceLandingPageComponent {
       components.`,
     icon: '../../../../rb_assets/assets/insurance/check-icon.svg',
     backgroundImage:'../../../../rb_assets/assets/insurance/inclusions-background.svg',
+    backgroundImageMobileView:'../../../../rb_assets/assets/insurance/inclusions-background-sm.svg',
     backgroundHeight:'35rem',
+    backgroundPosition:'40rem 55rem',
     marginTop:'2%',
     cards: [
       {
@@ -58,7 +60,9 @@ export class MotorinsuranceLandingPageComponent {
     pageDescription: `Exclusions refer to circumstances where the insurer is not required to pay the claim. Let us learn more about it below.`,
     icon: '../../../../rb_assets/assets/insurance/cross-shield.svg',
     backgroundImage:'../../../../rb_assets/assets/insurance/exclusions-background.svg',
+    backgroundImageMobileView:'../../../../rb_assets/assets/insurance/exclusion-background-sm.svg',
     backgroundHeight:'30rem',
+    backgroundPosition:'40rem 50rem',
     marginTop:'5%',
     cards: [
       {
