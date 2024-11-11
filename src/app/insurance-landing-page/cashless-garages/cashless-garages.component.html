@@ -1,6 +1,6 @@
 <div class="cashless">
   <div class="container container-custom">
-    <div class="row position-center">
+    <div class="row">
       <!-- Header Section Start  -->
       <div class="header mb-4">
         <div class="header-heading">
@@ -145,7 +145,7 @@
 
       <div class="row card-container my-4">
         <div
-          class="col-4 col-sm-2 padding-custom"
+          class="col-4 col-sm-2"
           *ngFor="let card of cardList; let i = index"
         >
           <div class="card-section" (click)="search(card)">
@@ -192,7 +192,7 @@
         </div>
         <div class="col-auto col-sm-2 px-0 text-center">
           <button class="btn view-btn" type="button" (click)="ViewAll()">
-            {{isViewAll ? 'View All': 'Hide'}}
+            View All
           </button>
         </div>
         <div class="col-4 col-sm-4 px-0">

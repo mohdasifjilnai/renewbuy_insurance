@@ -1,0 +1,69 @@
+<div class="container companies-comaparison mb-5">
+  <div class="">
+    <h1 class="heading">
+      Health Insurance companies data comparison in India 2024
+    </h1>
+    <div class="d-flex justify-content-center">
+      <p class="heading-para">
+        There are 28 health insurance companies available in India, and all have
+        unique features. In the table below, RenewBuy has listed all the health
+        insurance companies available in India and their claim settlement ratio,
+        solvency ratio, and network hospitals.
+      </p>
+    </div>
+  </div>
+  <div class="">
+    <table class="custom-table mt-4">
+      <thead>
+        <tr>
+          <th>Insurer</th>
+          <th>
+            Claim Settlement Ratio <br /><span class="year"
+              >(2022-23)
+              <img src="./rb_assets/assets/images/comparison.svg" alt=""
+              (click)="sort()"
+            /></span>
+          </th>
+          <th>
+            Incurred Claim Ratio <br /><span class="year"
+              >(2022-23)
+              <img src="./rb_assets/assets/images/comparison.svg" alt=""
+              (click)="sort()"
+            /></span>
+          </th>
+          <th>
+            Solvency Ratio <br /><span class="year"
+              >(2022-23)
+              <img src="./rb_assets/assets/images/comparison.svg" alt=""
+              (click)="sort()"
+            /></span>
+          </th>
+          <th>
+            Gross Direct Premium <br /><span class="year"
+              >(2022-23)
+              <img src="./rb_assets/assets/images/comparison.svg" alt=""
+              (click)="sort()"
+            /></span>
+          </th>
+          <th>Network Hospitals</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let data of companiesData">
+          <td class="insurer-name">{{ data?.insurer }}</td>
+          <td>{{ data?.claimSettlementRatio }}</td>
+          <td>{{ data?.incurredClaimRatio }}</td>
+          <td>{{ data?.solvencyRatio }}</td>
+          <td>{{ data?.grossDirectPremium }}</td>
+          <td>{{ data?.networkHospitals }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="d-flex justify-content-center mt-3">
+    <span class="view-more text-center"
+      >View more
+      <img class="download" src="./rb_assets/assets/images/dwnld.svg" alt=""
+    /></span>
+  </div>
+</div>

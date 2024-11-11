@@ -1,0 +1,42 @@
+.reduce-premium {
+    .heading {
+      font-size: 24px;
+      font-weight: 500;
+      line-height: 36px;
+      text-align: center;
+      color: #242424;
+      margin-top: 6rem;
+    }
+    .heading-para {
+      font-size: 16px;
+      font-weight: 500;
+      line-height: 20px;
+      text-align: center;
+      color: #242424;
+      opacity: 50%;
+      width: 789px;
+    }
+    .card-gap{
+        margin-top: 54px;
+    }
+    .custom-card{
+        width: 400px;
+        height: 160px;
+        background-color: #f8fafe;
+        border-radius: 20px;
+        border: none;
+        .card-heading{
+            font-size: 16px;
+            font-weight: 600;
+            line-height: 24px;
+        }
+        .sub-heading{
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 20px;
+        }
+    }
+    .reduce-premium-img{
+        // margin-top: -3%;
+    }
+}

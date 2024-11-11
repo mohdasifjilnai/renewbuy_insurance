@@ -1,0 +1,103 @@
+<div class="container add-ons-insurance-container">
+  <div class="add-ons-header">
+    <span class="heading-text">What is Motor Insurance?</span>
+  </div>
+  <div class="add-ons-description">
+    <p class="decsription-text">
+      Motor insurance is required for all vehicles operating on Indian roadways,
+      and every owner/driver should have an active motor insurance policy. An
+      insurance policy's principal function is to offer a financial safety net
+      for a third party's unintentional damage, death, or injury.
+    </p>
+    <p class="decsription-text">
+      Aside from <span class="sub-text">third-party liability</span>, own-damage
+      coverage protects the insured vehicle's physical injuries or losses in the
+      event of a natural or manufactured calamity. This plan provides a
+      stress-free and secure drive on the country's roadways. To have a cover
+      for everything, buying a comprehensive motor insurance policy is
+      advisable.
+    </p>
+  </div>
+  <!-- Add on under motore insurence start -->
+  <div class="add-ons-motor-header">
+    <span class="heading-text">Add-ons Under Motor Insurance</span>
+    <p class="motor-decsription-text">
+      Additional motor insurance covers can be bought with the insurance policy
+      in order to extend the coverage benefits. We have a list of the most
+      popular <span class="motor-sub-text">motor insurance add-ons</span> listed
+      below. Subject to availability.
+    </p>
+  </div>
+  <!-- Add on under motore insurence end -->
+
+  <!-- Card Section start  -->
+  <div class="card-container">
+    <div class="card-box" *ngFor="let card of cardData; let i = index">
+      <div class="card-image-section">
+        <img
+          src="{{card.imageSrc}}"
+        />
+      </div>
+      <div class="card-content">
+        <div class="card-heading">
+          <span>{{card.heading}}</span>
+        </div>
+        <div class="card-text">
+          <p>
+            {{card.text}}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Card Section end  -->
+
+  <!-- Types of coverage start -->
+   <div class="insurance-types-container">
+    <div class="add-ons-header">
+      <span class="heading-text">Types of Coverage offered by Motor Insurance</span>
+    </div>
+    <div class="add-ons-description">
+      <p class="decsription-text">
+        The kind of motor insurance chosen will determine the scope of a motor insurance policy's coverage. The components of third-party and comprehensive vehicle insurance are listed below.
+      </p>
+    </div>
+    <div class="card-container">
+      <div class="card-box">
+        <div class="card-image-section">
+          <img
+            src="../../../../rb_assets/assets/insurance/Comprehensive.svg"
+          />
+        </div>
+        <div class="card-content">
+          <div class="card-heading">
+            <span>Comprehensive Insurance Plan</span>
+          </div>
+          <div class="card-text">
+            <p>
+              You will be entirely covered in the case of any loss or damage when talking about <span class="active-text">comprehensive motor insurance</span>. It is evident that comprehensive is the superior choice.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="card-box">
+        <div class="card-image-section">
+          <img
+            src="../../../../rb_assets/assets/insurance/third-party-insurance.svg"
+          />
+        </div>
+        <div class="card-content">
+          <div class="card-heading">
+            <span>Third-Party Insurance Plan</span>
+          </div>
+          <div class="card-text">
+            <p>
+              An individual is shielded from financial damages by a third-party car insurance policy if their covered vehicle is involved in an accident resulting in property damage, bodily harm, or death to a third party.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+   </div>
+   <!-- Types of coverage end -->
+</div>

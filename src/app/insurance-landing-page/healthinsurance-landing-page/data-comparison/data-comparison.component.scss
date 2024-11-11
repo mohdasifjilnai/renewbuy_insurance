@@ -1,0 +1,75 @@
+.companies-comaparison {
+  .heading {
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 36px;
+    text-align: center;
+    color: #242424;
+    margin-top: 6rem;
+  }
+  .heading-para {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 24px;
+    text-align: center;
+    color: #242424;
+    opacity: 50%;
+    width: 1059px;
+  }
+  .custom-table {
+    width: 100%;
+    height: 320px;
+    color: #656565;
+    
+    .insurer-name {
+      background-color: #f5f8fe;
+      border-left: 1px solid #f5f8fe;
+      border-right: 1px solid #f5f8fe;
+    }
+    thead {
+      background-color: #f5f8fe;
+    }
+    thead th:first-child {
+      border-top-left-radius: 12px;
+      border: none;
+    }
+  
+    thead th:last-child {
+      border-top-right-radius: 12px;
+      border: none !important;
+    }
+    th {
+      border: 1px solid #eaeaea;
+      border-left: 1px solid #f5f8fe;
+      border-top: 1px solid #f5f8fe;
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 24px;
+      padding-left: 20px;
+      height: 75px;
+    }
+    td {
+      border: 1px solid #eaeaea;
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 17px;
+      padding-left: 20px;
+    }
+    .year {
+      gap: 10px;
+    }
+  }
+  .view-more{
+    width: 124px;
+    height: 44px;
+    border-radius: 100px;
+    background-color: #f5f8fe;
+    font-size: 12px;
+    font-weight: 500;
+    color: #5384ea;
+    padding-left: 7px;
+    .download{
+      margin-top: 5px;
+    }
+  }
+}

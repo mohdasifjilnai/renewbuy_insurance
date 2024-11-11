@@ -1,14 +1,14 @@
-import { Inject, Injectable, PLATFORM_ID } from "@angular/core";
-import { ApiService } from "./api.service";
-import { BehaviorSubject, Subject } from "rxjs";
-import { makeStateKey } from "@angular/platform-browser";
-import { isPlatformBrowser } from "@angular/common";
-import { CookieService } from "ngx-cookie-service";
-import { environment } from "../../../environments/environment";
-const DATA_KEY = makeStateKey<any>("data");
+import { Inject, Injectable, PLATFORM_ID } from '@angular/core';
+import { ApiService } from './api.service';
+import { BehaviorSubject, Subject } from 'rxjs';
+import { makeStateKey } from '@angular/platform-browser';
+import { isPlatformBrowser } from '@angular/common';
+import { CookieService } from 'ngx-cookie-service';
+import { environment } from '../../../environments/environment';
+const DATA_KEY = makeStateKey<any>('data');
 
 @Injectable({
-  providedIn: "root",
+  providedIn: 'root',
 })
 export class ShareService {
   constructor(
@@ -38,8 +38,8 @@ export class ShareService {
   private title = new BehaviorSubject<any>(null);
   titleAction$ = this.title.asObservable();
 
-  getTitle(data: any) {
-    this.title.next(data);
+  getTitle(data:any){
+    this.title.next(data)
   }
 
   ourInsurerPartnersGetData(data: any) {
@@ -74,20 +74,20 @@ export class ShareService {
     if (isPlatformBrowser(this.platformId)) {
       const expires = new Date();
       expires.setDate(expires.getDate() + days);
-      // this.cookieService.set(name, value, {
-      //   expires,
-      //   path: '/',
-      //   domain: environment['subDomain'],
-      //   secure: true,
-      //   sameSite: 'Lax',
-      // });
       this.cookieService.set(name, value, {
         expires,
-        path: "/",
-        domain: "renewbuyinsurance.com",
+        path: '/',
+        domain: environment['subDomain'],
         secure: true,
-        sameSite: "None",
+        sameSite: 'Lax',
       });
+    //   this.cookieService.set(name, value, {
+    //     expires,
+    //     path: '/',
+    //     domain: 'renewbuyinsurance.com',
+    //     secure: true,
+    //     sameSite: 'None',
+    // });
     }
   }
 
@@ -99,7 +99,7 @@ export class ShareService {
     return new Promise((resolve, reject) => {
       if (isPlatformBrowser(this.platformId)) {
         if (
-          window.location.href != "http://test.rbstaging.in/" &&
+          window.location.href != 'http://test.rbstaging.in/' &&
           navigator?.geolocation
         ) {
           navigator.geolocation.getCurrentPosition(
@@ -114,7 +114,7 @@ export class ShareService {
             }
           );
         } else {
-          reject("Geolocation is not supported by this browser.");
+          reject('Geolocation is not supported by this browser.');
         }
       }
     });

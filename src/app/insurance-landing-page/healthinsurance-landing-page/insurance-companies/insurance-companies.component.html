@@ -1,0 +1,45 @@
+<div class="container health-companies mt-5 mb-5">
+    <div class="">
+        <h1 class="heading">Top 10 Health Insurance Companies in India 2024</h1>
+        <div class="d-flex justify-content-center">
+          <p class="heading-para">
+            With various health insurance options available, it’s not always easy to
+            choose the best one. RenewBuy has compiled a list of the top 10 insurers in
+            India, based on factors like claim processing, financial strength, and
+            hospital partnerships.
+          </p>
+        </div>
+
+    </div>
+
+    <div class="row multi-company mt-4">
+      <div
+        *ngFor="let company of insuranceCompanies"
+        class="card custom-cards col-3 col-lg-3 col-sm-12 mb-4"
+      >
+        <div class="card-body">
+          <div class="d-flex justify-content-center">
+            <div class="half-circle-right"></div>
+            <div class="ribbon">Claim Settlement Ratio-{{ company.claimSettlementRatio }}</div>
+            <div class="half-circle-left"></div>
+          </div>
+          <img class="card-img" [src]="company.image" alt="{{ company.name }}" /><br />
+          <div class="mt-3">
+            <span class="details">{{ company.name }}</span>
+            <ul class="details-point">
+              <li *ngIf="company.startYear">Started in the year {{ company.startYear }}</li>
+              <li *ngFor="let feature of company.features">{{ feature }}</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="card explore-cards col-6 mb-4">
+        <div class="card-body d-flex justify-content-center align-items-center">
+          <div>
+            <img src="./rb_assets/assets/insurance/explore-companies.svg" alt="Explore Companies" />
+          </div>
+        </div>
+      </div>
+    </div>
+    
+</div>

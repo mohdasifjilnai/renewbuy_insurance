@@ -30,7 +30,6 @@ export class InsuranceLandingPageComponent {
     });
   }
 
-
   scrollToCashlessGarages(event: boolean) {
     if (isPlatformBrowser(this.platformId)) {
       if (event) {

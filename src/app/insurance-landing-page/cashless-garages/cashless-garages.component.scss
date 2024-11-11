@@ -288,7 +288,7 @@
     .card-container {
       display: flex;
       justify-content: start;
-      row-gap: 12px;
+      row-gap: 10px;
     }
     .header-heading {
       font-size: 20px;
@@ -308,26 +308,18 @@
 
     .container-custom {
       padding-top: 30px;
-      .position-center{
-        display: flex;
-        justify-content: center;
-      }
 
       .card-container {
-        // padding-right: 0px;
-        .padding-custom:nth-child(3n-1) {
-          padding-left: 0px;
-          padding-right: 0px;
-        }
-        
         .card-section {
           padding: 5px 2px;
+          width: 100px;
           height: 50px;
           cursor: pointer;
 
           .card-image {
             height: 0px;
             .image-size {
+              // width: 80%;
               width: 80%;
               height: 37px;
 
@@ -347,6 +339,7 @@
 
 .image-size {
   width: 120px;
+  // height: 110px;
 }
 .main-logo-name {
   padding-top: 30px;

@@ -1,0 +1,53 @@
+.some-myths {
+    .heading {
+      font-size: 24px;
+      font-weight: 500;
+      line-height: 36px;
+      text-align: center;
+      color: #242424;
+      margin-top: 6rem;
+    }
+    .heading-para {
+      font-size: 16px;
+      font-weight: 500;
+      line-height: 20px;
+      text-align: center;
+      color: #242424;
+      opacity: 50%;
+      width: 1190px;
+    }
+    .myths{
+        row-gap: 35px;
+        .myth-head{
+            font-size: 24px;
+            font-weight: 600;
+            line-height: 36px;
+            color: #6F6F6F;
+            .text{
+                font-size: 16px;
+                font-weight: 600;
+                line-height: 24px;
+            }
+        }
+        .myth-sub-head{
+            font-size: 14px;
+            font-weight: 500;
+            line-height: 20px;
+            color: #242424;
+        }
+    }
+    .view-more{
+        width: 124px;
+        height: 44px;
+        border-radius: 100px;
+        background-color: #f5f8fe;
+        font-size: 12px;
+        font-weight: 500;
+        color: #5384ea;
+        padding-left: 7px;
+        .download{
+          margin-top: 5px;
+        }
+      }
+
+}
