@@ -1,14 +1,15 @@
-<div
-  class="container inclusions-container py-5"
-  [style]="{ 
+<div [style]="{ 
   'background-image': 'url(' + (pageData?.backgroundImage || '') + ')',
   'background-size': 'cover', 
   'background-position': 'center',
   'background-repeat': 'repeat-x',
   'height': pageData?.backgroundHeight,
-}"
+}">
+<div
+  class="container inclusions-container py-5"
+  
 >
-  <div class="image-background">
+<div class="image-background" [style]="{'margin-top': pageData?.marginTop}">
     <div class="inclusions-header">
       <h2 class="inclusions-page-heading"> {{ pageData?.pageHeader }}</h2>
       <p class="sub-heading" [innerHtml] ="pageData?.pageDescription">
@@ -43,4 +44,5 @@
       }
     </div>
   </div>
+</div>
 </div>

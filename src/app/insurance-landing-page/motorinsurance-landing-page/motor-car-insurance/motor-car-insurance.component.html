@@ -202,13 +202,14 @@
             </div>
           </div>
         </div>
-        <div class="right-section col-lg-8">
-          <div class="col-lg-12 d-none d-sm-block">
+        <div class="right-section col-lg-8" [ngClass]="{'custom-position': !isShowTab}">
+          <div class="d-none d-sm-flex">
             <img
               src="../../../../rb_assets/assets/insurance/{{
                 selectedHeroImage
               }}"
               class="rounded mx-auto d-block padding-left"
+              [ngClass]="{'custom-width': !isShowTab}"
               alt="..."
             />
           </div>

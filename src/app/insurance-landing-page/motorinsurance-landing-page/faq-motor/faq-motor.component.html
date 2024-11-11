@@ -1,15 +1,32 @@
-<div class="container faq-motor-container pb-3">
-        <header>
-            <h1 class="faq-motor-header">Frequently Asked Question (FAQ’s)</h1>
-        </header>
-        <div class="faq-list-container">
-            <div class="row">
-                <div class="col-12 mb-3" *ngFor="let question of questionList">
-                    <div class="question-tab">
-                        <label class="label-text" >{{question?.question}}</label>
-                        <img src="../../../rb_assets/assets/icons/down-arrow.svg" alt=" img" srcset="">
-                    </div>
-                </div>
+<div class="faq-motor-container pb-3">
+  <div class="container">
+    <header>
+      <h1 class="faq-motor-header">Frequently Asked Question (FAQ’s)</h1>
+    </header>
+    <div class="faq-list-container">
+      <div class="row">
+        <div class="col-12 mb-3" *ngFor="let question of questionList; let i = index">
+          <div class="question-tab" (click)="toggleAnswer(i)">
+            <div class="question">
+            <label class="label-text"
+            [ngClass]="{'active-question': isAnswerVisible(i)}"
+            >{{ question?.question }}</label>
+            <img
+            [src]="'../../../rb_assets/assets/icons/down-arrow.svg'"
+              alt=" img"
+              srcset=""
+              class="down-arrow"
+              [ngClass]="{'rotated': isAnswerVisible(i)}"
+            />
+          </div>
+          <div *ngIf="isAnswerVisible(i)" class="answer">
+            <div  class="answer-tab">
+              <p>{{ question?.answer }}</p>
             </div>
+          </div>
+          </div>
         </div>
+      </div>
+    </div>
+  </div>
 </div>
