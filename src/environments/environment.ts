@@ -1,7 +1,7 @@
 export const environment = {
   production: false,
   strapiDomain: 'https://cms.rbstaging.in',
-  subDomain: 'https://react.renewbuyinsurance.in',
+  subDomain: 'react.renewbuyinsurance.in',
   unicornDomain: 'https://api-unicorn.rbstaging.in',
   dashboardDomain: 'https://myaccount.rbstaging.in',
   renewbuyInsuranceDomain: 'https://react.renewbuyinsurance.in',
