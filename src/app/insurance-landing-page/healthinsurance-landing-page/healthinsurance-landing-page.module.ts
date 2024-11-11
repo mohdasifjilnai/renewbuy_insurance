@@ -11,6 +11,7 @@ import { NotSurePlansComponent } from './not-sure-plans/not-sure-plans.component
 import { SomeMythsComponent } from './some-myths/some-myths.component';
 import { ReduceInsurancePremiumComponent } from './reduce-insurance-premium/reduce-insurance-premium.component';
 import { CashlessHospitalsComponent } from './cashless-hospitals/cashless-hospitals.component';
+import { BenefitsCoveredComponent } from './benefits-covered/benefits-covered.component';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { CashlessHospitalsComponent } from './cashless-hospitals/cashless-hospit
     ChooseBestHealthInsuranceComponent,
     NotSurePlansComponent,
     SomeMythsComponent,
-    ReduceInsurancePremiumComponent
+    ReduceInsurancePremiumComponent,
+    BenefitsCoveredComponent
   ]
 })
 export class HealthinsuranceLandingPageModule { }
