@@ -1,4 +1,17 @@
 .add-ons-insurance-container {
+  .breadcrumb a {
+    text-decoration: none;
+    color: #6c757d;
+  }
+
+  .breadcrumb a:hover {
+    text-decoration: underline;
+    color: #0056b3;
+  }
+
+  .breadcrumb .active {
+    color: #007bff;
+  }
   .add-ons-header {
     text-align: center;
     padding-bottom: 1rem;
@@ -14,7 +27,7 @@
       font-weight: 500;
       line-height: 20px;
       color: #24242480;
-      .sub-text {
+      .link-text {
         font-weight: 600;
         color: #5384ea;
         cursor: pointer;
@@ -36,7 +49,7 @@
       line-height: 24px;
       margin: 12px 6rem;
       color: #24242480;
-      .motor-sub-text {
+      .motor-link-text {
         font-weight: 600;
         color: #5384ea;
         cursor: pointer;
@@ -108,6 +121,8 @@
             font-size: 14px;
             font-weight: 500;
             line-height: 24px;
+            color: #28282880;
+
             span.active-text {
               font-size: 14px;
               font-weight: 600;

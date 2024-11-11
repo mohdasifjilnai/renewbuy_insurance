@@ -1,1 +1,46 @@
-<p>inclusions works!</p>
+<div
+  class="container inclusions-container py-5"
+  [style]="{ 
+  'background-image': 'url(' + (pageData?.backgroundImage || '') + ')',
+  'background-size': 'cover', 
+  'background-position': 'center',
+  'background-repeat': 'repeat-x',
+  'height': pageData?.backgroundHeight,
+}"
+>
+  <div class="image-background">
+    <div class="inclusions-header">
+      <h2 class="inclusions-page-heading"> {{ pageData?.pageHeader }}</h2>
+      <p class="sub-heading" [innerHtml] ="pageData?.pageDescription">
+      </p>
+    </div>
+    <div class="inclusions-content">
+      @for(card of pageData?.cards; track card){
+      <div class="inclusions-content-title">
+        <h3 class="inclusions-content-text">{{ card?.cardHeader }}</h3>
+      </div>
+      <div class="row">
+        @for(inclusion of card?.inclusionsData; track inclusion){
+        <div class="col-4" [ngClass]="{ 'col-6': pageData?.column_no }">
+          <div class="inclusions-details">
+            <div class="icon-sections">
+              <img src="{{ pageData?.icon }}" />
+            </div>
+            <div class="descriptions">
+              <div class="descriptions-title">
+               <h5>
+                {{ inclusion?.title }}
+               </h5> 
+              </div>
+              <div class="description-text">
+                <p>{{ inclusion?.text }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        }
+      </div>
+      }
+    </div>
+  </div>
+</div>

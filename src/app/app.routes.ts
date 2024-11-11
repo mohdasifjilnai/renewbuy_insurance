@@ -1,5 +1,4 @@
 import { Routes } from "@angular/router";
-import { authGuard } from "./utilis/guard/auth.guard";
 export const routes: Routes = [
   {
     path: "",

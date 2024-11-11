@@ -1,0 +1,54 @@
+.inclusions-container {
+  display: grid;
+  place-items: center;
+  .image-background {
+    margin-top: 2%;
+    .inclusions-header {
+      text-align: center;
+      .inclusions-page-heading {
+        font-size: 24px;
+        font-weight: 500;
+        line-height: 36px;
+      }
+      .sub-heading {
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 20px;
+        text-align: center;
+        color: #24242480;
+      }
+    }
+    .inclusions-content {
+      .inclusions-content-title {
+        margin-bottom: 1rem;
+        .inclusions-content-text {
+          font-size: 18px;
+          font-weight: 500;
+          line-height: 27px;
+          color: #242424;
+        }
+      }
+      .inclusions-details {
+        display: flex;
+        column-gap: 0.5rem;
+        .icon-sections {
+        }
+        .descriptions {
+          .descriptions-title {
+            font-size: 16px;
+            font-weight: 600;
+            line-height: 24px;
+            color: #6f6f6f;
+          }
+          .description-text {
+            font-size: 14px;
+            font-weight: 500;
+            line-height: 20px;
+            color: #242424;
+            opacity: 50%;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,1 +1,15 @@
-<p>faq-motor works!</p>
+<div class="container faq-motor-container pb-3">
+        <header>
+            <h1 class="faq-motor-header">Frequently Asked Question (FAQ’s)</h1>
+        </header>
+        <div class="faq-list-container">
+            <div class="row">
+                <div class="col-12 mb-3" *ngFor="let question of questionList">
+                    <div class="question-tab">
+                        <label class="label-text" >{{question?.question}}</label>
+                        <img src="../../../rb_assets/assets/icons/down-arrow.svg" alt=" img" srcset="">
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>

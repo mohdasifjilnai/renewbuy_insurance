@@ -114,9 +114,9 @@ export class MotorCarInsuranceComponent {
   ];
 
   subtitle: string =
-    '<div><span class="text-bold">Cover</span> up your <span class="text-bold">Bike</span> in <span class="text-bold"> 2 Minutes</span> <span>⚡</span></div>';
+    `<span class="text-bold">Buy</span> or <span class="text-bold">Renew</span> Car Insurance Online in <span class="text-bold">5 Minutes</span> <span>⚡</span>`;
   title: string =
-    ' <h2 class="page-title">Buy Two Wheeler Insurance Online &#x40;<span class="day-color">&#8377;1.5/day</span></h2>';
+    '<h2 class="page-title">Car insurance price starting at just <span class="day-color">₹2,088<span>*<h2>';
   constructor(
     private fb: FormBuilder,
     private apiService: ApiService,
@@ -159,8 +159,11 @@ export class MotorCarInsuranceComponent {
       this.selectedTab = 'Health';
       this.selectedHeroImage = 'healthinsurance.svg';
       this.title = `<h2 class="page-title">Compare & buy customised Health Plans starting at just <span class="day-color">₹257/month</span>*</h2>`;
-      this.subtitle = `<span class='text-bold'>Discover a range of coverage plans designed to meet your specific requirements</span>`;
+      this.subtitle = `<span>Discover a range of <span class='text-bold'>coverage plans</span> designed to meet your <span class='text-bold'>specific requirements</span></span>`;
+      this.tabList = this.tabList.find((el: { name: string; }) => el.name == 'Health');
       this.resetForm();
+    }else{
+      this.tabList = this.tabList.filter((el: { name: string; }) => el.name != 'Health');
     }
   }
 

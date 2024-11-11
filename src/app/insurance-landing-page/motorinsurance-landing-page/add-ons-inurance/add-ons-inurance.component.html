@@ -1,30 +1,23 @@
 <div class="container add-ons-insurance-container">
-  <div class="add-ons-header">
-    <span class="heading-text">What is Motor Insurance?</span>
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="#">Home</a></li>
+      <li class="breadcrumb-item"><a href="#">Insurance</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Motor Insurance</li>
+    </ol>
+  </nav>
+  <div class="add-ons-header" >
+    <h2 class="heading-text">{{pageHeader}}</h2>
   </div>
-  <div class="add-ons-description">
-    <p class="decsription-text">
-      Motor insurance is required for all vehicles operating on Indian roadways,
-      and every owner/driver should have an active motor insurance policy. An
-      insurance policy's principal function is to offer a financial safety net
-      for a third party's unintentional damage, death, or injury.
-    </p>
-    <p class="decsription-text">
-      Aside from <span class="sub-text">third-party liability</span>, own-damage
-      coverage protects the insured vehicle's physical injuries or losses in the
-      event of a natural or manufactured calamity. This plan provides a
-      stress-free and secure drive on the country's roadways. To have a cover
-      for everything, buying a comprehensive motor insurance policy is
-      advisable.
-    </p>
+  <div class="add-ons-description" [innerHtml]="pageDescriptions">
   </div>
   <!-- Add on under motore insurence start -->
-  <div class="add-ons-motor-header">
+  <div class="add-ons-motor-header" >
     <span class="heading-text">Add-ons Under Motor Insurance</span>
     <p class="motor-decsription-text">
       Additional motor insurance covers can be bought with the insurance policy
       in order to extend the coverage benefits. We have a list of the most
-      popular <span class="motor-sub-text">motor insurance add-ons</span> listed
+      popular <span class="motor-link-text">motor insurance add-ons</span> listed
       below. Subject to availability.
     </p>
   </div>
@@ -39,8 +32,8 @@
         />
       </div>
       <div class="card-content">
-        <div class="card-heading">
-          <span>{{card.heading}}</span>
+        <div >
+          <h6 class="card-heading">{{card.heading}}</h6>
         </div>
         <div class="card-text">
           <p>
@@ -55,7 +48,7 @@
   <!-- Types of coverage start -->
    <div class="insurance-types-container">
     <div class="add-ons-header">
-      <span class="heading-text">Types of Coverage offered by Motor Insurance</span>
+      <h2 class="heading-text">Types of Coverage offered by Motor Insurance</h2>
     </div>
     <div class="add-ons-description">
       <p class="decsription-text">
@@ -70,8 +63,8 @@
           />
         </div>
         <div class="card-content">
-          <div class="card-heading">
-            <span>Comprehensive Insurance Plan</span>
+          <div >
+            <h6 class="card-heading">Comprehensive Insurance Plan</h6>
           </div>
           <div class="card-text">
             <p>
@@ -87,8 +80,8 @@
           />
         </div>
         <div class="card-content">
-          <div class="card-heading">
-            <span>Third-Party Insurance Plan</span>
+          <div >
+            <h6 class="card-heading">Third-Party Insurance Plan</h6>
           </div>
           <div class="card-text">
             <p>

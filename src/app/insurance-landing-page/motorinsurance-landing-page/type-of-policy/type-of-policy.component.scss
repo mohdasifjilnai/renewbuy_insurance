@@ -1,0 +1,68 @@
+.types-of-policy-container {
+  background-color: #5384ea0f;
+  .types-of-policy-header {
+    text-align: center;
+    padding-bottom: 1rem;
+    .heading-text {
+      font-size: 24px;
+      font-weight: 500;
+      line-height: 36px;
+    }
+  }
+  .types-of-policy-description {
+    .decsription-text {
+      font-size: 16px;
+      font-weight: 500;
+      line-height: 20px;
+      color: #24242480;
+      .sub-text {
+        font-weight: 600;
+        color: #5384ea;
+        cursor: pointer;
+      }
+    }
+  }
+  .types-of-policy-card-container {
+    .card {
+      border-radius: 24px;
+      background-color: #ffffff;
+      padding: 2rem;
+      border-color: #ffffff;
+      .card-image-box {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .card-image {
+          width: 80px;
+          aspect-ratio: 1;
+          border: 1px solid #5384ea;
+          border-radius: 50%;
+          padding: 8px;
+          background: #5384ea0f;
+          object-fit: none;
+        }
+      }
+
+      .card-name {
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 20px;
+        text-align: center;
+        margin: 1.5rem 0;
+      }
+      .card-description {
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 24px;
+        text-align: center;
+        .active-text {
+          font-size: 14px;
+          font-weight: 400;
+          line-height: 24px;
+          text-align: center;
+          color: #5384ea;
+        }
+      }
+    }
+  }
+}

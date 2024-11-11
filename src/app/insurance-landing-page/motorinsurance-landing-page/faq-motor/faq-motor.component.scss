@@ -1,0 +1,31 @@
+.faq-motor-container {
+  background-color: #5384EA0F;
+  .faq-motor-header {
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 29.05px;
+    letter-spacing: 0.04em;
+    text-align: center;
+    color: #282828;
+    padding: 1rem;
+  }
+  .faq-list-container {
+    .question-tab {
+      background-color: #ffffff;
+      border-radius: 12px;
+      padding: 10px 22px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      .label-text {
+        font-family: Poppins;
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 24px;
+        letter-spacing: 0.04em;
+        text-align: left;
+        color: #24242480;
+      }
+    }
+  }
+}
