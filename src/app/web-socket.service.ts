@@ -13,7 +13,7 @@ export class WebSocketService {
   constructor(@Inject(PLATFORM_ID) private platformId: Object) {
     if (isPlatformBrowser(this.platformId)) {
       // Only initialize WebSocket on the client
-      this.socket$ = new WebSocketSubject('ws://0.0.0.0:4000');
+      this.socket$ = new WebSocketSubject('ws://react.rbstaging.in');
       this.socket$.subscribe(
         (message) => this.tokenSubject.next(message),
         (error) => console.error('WebSocket error:', error),
