@@ -68,14 +68,15 @@ function run(): void {
     // const token = cookies['authToken']; // Replace 'authToken' with the actual token name
     const cookies = cookie.parse(req.headers.cookie || "");
     const token = `${cookies["access_token"]}`;
-    const tokenfron = "renewbuy";
+    const tokenfron = "renewbuy_insurance";
     const name = `${cookies["username"]}`;
 
     // Handle messages received from WebSocket clients
     ws.on("message", (message) => {
       const data = JSON.parse(message.toString());
 
-      if (data.type === "tokenRequest") {
+      // console.log(data,"message_insurance");
+      // if (data.type === "tokenRequest") {
         // Respond with the token from cookies
         ws.send(
           JSON.stringify({
@@ -83,9 +84,10 @@ function run(): void {
             token: token || "No token found",
             name: name || "",
             token_fron: tokenfron,
+            data:data,
           })
         );
-      }
+      //}
     });
 
     // Log when a WebSocket connection is closed
