@@ -88,3 +88,18 @@
     }
   }
 }
+@media (max-width:768px) {
+  .types-of-policy-container{
+    .types-of-policy-card-container{
+      .card-container{
+        row-gap: 16px;
+        .card {
+          padding: 1.5rem;
+          .card-name{
+            margin: 1rem 0;
+          }
+        }
+      }
+    }
+  }
+}

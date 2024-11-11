@@ -136,3 +136,26 @@
     }
   }
 }
+
+@media (max-width: 768px) {
+  .add-ons-insurance-container {
+    .card-container {
+      display: flex;
+      flex-direction: column;
+      .card-box {
+        flex-direction: column;
+        .card-content {
+          .card-heading {
+            text-align: center;
+            padding: 15px 0 5px 0;
+          }
+        }
+      }
+    }
+    .add-ons-motor-header{
+      .motor-decsription-text{
+        margin: 6px 0;
+      }
+    }
+  }
+}

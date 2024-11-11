@@ -1,7 +1,7 @@
 <div [style]="{ 
-  'background-image': 'url(' + (pageData?.backgroundImage || '') + ')',
+  'background-image': 'url(' + (backgroundImage || '') + ')',
   'background-size': 'cover', 
-  'background-position': 'center',
+  'background-position': 'backgroundPosition',
   'background-repeat': 'repeat-x',
   'height': pageData?.backgroundHeight,
 }" class="my-5 background-image-position">
@@ -22,7 +22,7 @@
       </div>
       <div class="row">
         @for(inclusion of card?.inclusionsData; track inclusion){
-        <div class="col-4" [ngClass]="{ 'col-6': pageData?.column_no }">
+        <div class="col-12 col-sm-4" [ngClass]="{ 'col-6': pageData?.column_no }">
           <div class="inclusions-details">
             <div class="icon-sections">
               <img src="{{ pageData?.icon }}" />

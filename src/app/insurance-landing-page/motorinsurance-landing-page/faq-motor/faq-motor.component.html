@@ -12,11 +12,10 @@
             [ngClass]="{'active-question': isAnswerVisible(i)}"
             >{{ question?.question }}</label>
             <img
-            [src]="'../../../rb_assets/assets/icons/down-arrow.svg'"
+            [src]="isAnswerVisible(i) ?  '../../../rb_assets/assets/icons/up-arrow.svg' : '../../../rb_assets/assets/icons/down-arrow.svg'"
               alt=" img"
               srcset=""
               class="down-arrow"
-              [ngClass]="{'rotated': isAnswerVisible(i)}"
             />
           </div>
           <div *ngIf="isAnswerVisible(i)" class="answer">
