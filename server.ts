@@ -21,7 +21,7 @@ export function app(): express.Express {
 
   // Example Express Rest API endpoints
   // server.get('/api/**', (req, res) => { });
-  
+
   // Serve static files from /browser
   server.get(
     '*.*',
@@ -59,14 +59,15 @@ function run(): void {
 
   // Create WebSocket server on top of the HTTP server
   const wss = new WebSocketServer({ server: httpServer });
-  
+
   // Handle WebSocket connections
   wss.on('connection', (ws, req) => {
     // Parse cookies from request headers
-   
+
+    // const cookies = cookie.parse(req.headers.cookie || '');
+    // const token = cookies['authToken']; // Replace 'authToken' with the actual token name
     const cookies = cookie.parse(req.headers.cookie || '');
-    const token = `insurance${cookies['acces_token']}`; // Replace 'authToken' with the actual token name
-    //const token = "web socket testing insurance";
+    const token = `renewbuy${cookies['acces_token']}`;
 
     // Handle messages received from WebSocket clients
     ws.on('message', (message) => {
@@ -74,7 +75,12 @@ function run(): void {
 
       if (data.type === 'tokenRequest') {
         // Respond with the token from cookies
-        ws.send(JSON.stringify({ type: 'tokenResponse', token: token || 'No token found' }));
+        ws.send(
+          JSON.stringify({
+            type: 'tokenResponse',
+            token: token || 'No token found',
+          })
+        );
       }
     });
 
