@@ -1,53 +1,94 @@
-import { Injectable, Inject, PLATFORM_ID } from '@angular/core';
-import { WebSocketSubject, webSocket } from 'rxjs/webSocket';
-import { isPlatformBrowser } from '@angular/common';
-import { Observable, Subject, retryWhen, delay, tap } from 'rxjs';
+import { APP_BASE_HREF } from '@angular/common';
+import { CommonEngine } from '@angular/ssr';
+import express from 'express';
+import { fileURLToPath } from 'node:url';
+import { dirname, join, resolve } from 'node:path';
+import bootstrap from './src/main.server';
+import { WebSocketServer } from 'ws';
+import * as cookie from 'cookie'; // Import cookie as a namespace
 
-@Injectable({
-  providedIn: 'root',
-})
-export class WebSocketService {
-  private socket$: WebSocketSubject<any> | null = null;
-  private tokenSubject = new Subject<any>(); // Subject to handle incoming WebSocket messages
-  private readonly wsUrl = 'ws://react.rbstaging.in'; // Replace with dynamic URL if needed
+// The Express app is exported so that it can be used by serverless Functions.
+export function app(): express.Express {
+  const server = express();
+  const serverDistFolder = dirname(fileURLToPath(import.meta.url));
+  const browserDistFolder = resolve(serverDistFolder, '../browser');
+  const indexHtml = join(serverDistFolder, 'index.server.html');
 
-  constructor(@Inject(PLATFORM_ID) private platformId: Object) {
-    if (isPlatformBrowser(this.platformId)) {
-      this.connect(); // Initialize WebSocket connection on the client
-    }
-  }
+  const commonEngine = new CommonEngine();
 
-  private connect(): void {
-    // Create WebSocket subject and set up connection with retry on error
-    this.socket$ = webSocket(this.wsUrl);
+  server.set('view engine', 'html');
+  server.set('views', browserDistFolder);
 
-    this.socket$.pipe(
-      retryWhen((errors) =>
-        errors.pipe(
-          tap((err) => console.error('WebSocket error:', err)),
-          delay(3000), // Retry connection every 3 seconds
-          tap(() => console.log('Reconnecting WebSocket...'))
-        )
-      )
-    ).subscribe(
-      (message) => this.tokenSubject.next(message),
-      (error) => console.error('WebSocket error:', error),
-      () => console.warn('WebSocket connection closed')
-    );
-  }
+  // Example Express Rest API endpoints
+  // server.get('/api/**', (req, res) => { });
 
-  requestToken(): void {
-    if (this.socket$) {
-      this.socket$.next({ type: 'tokenRequest' });
-    }
-  }
+  // Serve static files from /browser
+  server.get(
+    '*.*',
+    express.static(browserDistFolder, {
+      maxAge: '6h',
+    })
+  );
 
-  listenForToken(): Observable<any> {
-    return this.tokenSubject.asObservable();
-  }
+  // All regular routes use the Angular engine
+  server.get('*', (req, res, next) => {
+    const { protocol, originalUrl, baseUrl, headers } = req;
+    commonEngine
+      .render({
+        bootstrap,
+        documentFilePath: indexHtml,
+        url: `${protocol}://${headers.host}${originalUrl}`,
+        publicPath: browserDistFolder,
+        providers: [{ provide: APP_BASE_HREF, useValue: baseUrl }],
+      })
+      .then((html) => res.send(html))
+      .catch((err) => next(err));
+  });
 
-  closeConnection(): void {
-    this.socket$?.complete();
-    this.socket$ = null;
-  }
+  return server;
 }
+
+function run(): void {
+  const port = process.env['PORT'] || 4001;
+
+  // Start up the Node server
+  const server = app();
+  const httpServer = server.listen(port, () => {
+    console.log(`Node Express server listening on http://localhost:${port}`);
+  });
+
+  // Create WebSocket server on top of the HTTP server
+  const wss = new WebSocketServer({ server: httpServer });
+
+  // Handle WebSocket connections
+  wss.on('connection', (ws, req) => {
+    // Parse cookies from request headers
+
+    // const cookies = cookie.parse(req.headers.cookie || '');
+    // const token = cookies['authToken']; // Replace 'authToken' with the actual token name
+    const cookies = cookie.parse(req.headers.cookie || '');
+    const token = `renewbuy${cookies['acces_token']}`;
+
+    // Handle messages received from WebSocket clients
+    ws.on('message', (message) => {
+      const data = JSON.parse(message.toString());
+
+      if (data.type === 'tokenRequest') {
+        // Respond with the token from cookies
+        ws.send(
+          JSON.stringify({
+            type: 'tokenResponse',
+            token: token || 'No token found',
+          })
+        );
+      }
+    });
+
+    // Log when a WebSocket connection is closed
+    ws.on('close', () => {
+      console.log('WebSocket client disconnected');
+    });
+  });
+}
+
+run();
