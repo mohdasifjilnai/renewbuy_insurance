@@ -33,11 +33,11 @@ export class AppComponent implements OnInit {
       this.webSocketService.requestToken();
 
       this.webSocketService.listenForToken().subscribe((message) => {
-        console.log(message)
-        // if (message.type === 'tokenResponse') {
-        //   this.token = message.token;
-        //   console.log('Token received from WebSocket server:', this.token);
-        // }
+        console.log(message,"insurance page")
+        if (message.type === 'tokenResponse') {
+          this.token = message.token;
+          console.log('Token received from WebSocket server:', this.token);
+        }
       });
     }
   }

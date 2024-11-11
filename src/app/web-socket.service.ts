@@ -1,39 +1,24 @@
 import { Injectable, Inject, PLATFORM_ID } from '@angular/core';
-import { WebSocketSubject, webSocket } from 'rxjs/webSocket';
+import { WebSocketSubject } from 'rxjs/webSocket';
 import { isPlatformBrowser } from '@angular/common';
-import { Observable, Subject, retryWhen, delay, tap } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class WebSocketService {
   private socket$: WebSocketSubject<any> | null = null;
-  private tokenSubject = new Subject<any>(); // Subject to handle incoming WebSocket messages
-  private readonly wsUrl = 'wss://react.rbstaging.in'; // Replace with dynamic URL if needed
-
+  private tokenSubject = new Subject<any>(); // Use this subject to handle WebSocket messages
+  
   constructor(@Inject(PLATFORM_ID) private platformId: Object) {
     if (isPlatformBrowser(this.platformId)) {
-      this.connect(); // Initialize WebSocket connection on the client
+      this.socket$ = new WebSocketSubject('wss://react.rbstaging.in');
+      this.socket$.subscribe(
+        (message) => this.tokenSubject.next(message),
+        (error) => console.error('WebSocket error:', error),
+        () => console.warn('WebSocket connection closed')
+      );
     }
-  }
-
-  private connect(): void {
-    // Create WebSocket subject and set up connection with retry on error
-    this.socket$ = webSocket(this.wsUrl);
-
-    this.socket$.pipe(
-      retryWhen((errors) =>
-        errors.pipe(
-          tap((err) => console.error('WebSocket error:', err)),
-          delay(3000), // Retry connection every 3 seconds
-          tap(() => console.log('Reconnecting WebSocket...'))
-        )
-      )
-    ).subscribe(
-      (message) => this.tokenSubject.next(message),
-      (error) => console.error('WebSocket error:', error),
-      () => console.warn('WebSocket connection closed')
-    );
   }
 
   requestToken(): void {
@@ -44,10 +29,5 @@ export class WebSocketService {
 
   listenForToken(): Observable<any> {
     return this.tokenSubject.asObservable();
-  }
-
-  closeConnection(): void {
-    this.socket$?.complete();
-    this.socket$ = null;
   }
 }

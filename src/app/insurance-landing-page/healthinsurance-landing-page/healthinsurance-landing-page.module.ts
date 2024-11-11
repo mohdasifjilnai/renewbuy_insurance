@@ -10,11 +10,14 @@ import { ChooseBestHealthInsuranceComponent } from './choose-best-health-insuran
 import { NotSurePlansComponent } from './not-sure-plans/not-sure-plans.component';
 import { SomeMythsComponent } from './some-myths/some-myths.component';
 import { ReduceInsurancePremiumComponent } from './reduce-insurance-premium/reduce-insurance-premium.component';
+import { CashlessHospitalsComponent } from './cashless-hospitals/cashless-hospitals.component';
+import { BenefitsCoveredComponent } from './benefits-covered/benefits-covered.component';
 
 
 @NgModule({
   declarations: [
-    HealthinsuranceLandingPageComponent
+    HealthinsuranceLandingPageComponent,
+    CashlessHospitalsComponent,
   ],
   imports: [
     CommonModule,
@@ -25,7 +28,8 @@ import { ReduceInsurancePremiumComponent } from './reduce-insurance-premium/redu
     ChooseBestHealthInsuranceComponent,
     NotSurePlansComponent,
     SomeMythsComponent,
-    ReduceInsurancePremiumComponent
+    ReduceInsurancePremiumComponent,
+    BenefitsCoveredComponent
   ]
 })
 export class HealthinsuranceLandingPageModule { }
