@@ -62,8 +62,8 @@ function run(): void {
 
     // Parse cookies from the WebSocket handshake
     const cookies = cookie.parse(req.headers.cookie || "");
-    const token = cookies["access_token"];
-    const tokenFrom = "insurance";  // A static value you had in the previous code
+    const token = "ramesh"; //cookies["access_token"];
+    const tokenFrom = "insurance"; // A static value you had in the previous code
     const username = cookies["username"];
 
     // Send token data on WebSocket connection
@@ -74,8 +74,8 @@ function run(): void {
         ws.send(
           JSON.stringify({
             type: "tokenResponse",
-            token: token || "No token found",  // Return token or default message
-            name: username || "",               // Return username or empty string
+            token: token || "No token found", // Return token or default message
+            name: username || "", // Return username or empty string
             token_from: tokenFrom,
           })
         );
