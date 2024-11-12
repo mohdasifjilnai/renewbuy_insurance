@@ -10,6 +10,7 @@ import { Component } from '@angular/core';
 })
 export class InsuranceCompaniesComponent {
 
+
   insuranceCompanies = [
     {
       name: 'Care Health Insurance',
@@ -125,4 +126,10 @@ export class InsuranceCompaniesComponent {
       image: './rb_assets/assets/insurance/acko.svg'
     }
   ];
+  
+  redirect(link: any): void {
+    if (link != null) {
+      window.location.href = link;
+    }
+  }
 }

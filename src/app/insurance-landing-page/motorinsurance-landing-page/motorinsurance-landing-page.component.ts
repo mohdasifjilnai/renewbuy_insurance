@@ -178,6 +178,14 @@ export class MotorinsuranceLandingPageComponent {
       advisable.
     </p>` ,
     pageName:'motor',
+    addOnsHead:'Add-ons Under Motor Insurance',
+    addOnSubHead:`<p class="motor-description-text">
+      Additional motor insurance covers can be bought with the insurance policy
+      in order to extend the coverage benefits. We have a list of the most
+      popular <span class="motor-link-text">motor insurance add-ons</span> listed
+      below. Subject to availability.
+    </p>`,
+   
     addOnsPageCardData :  [
       {
         id: 1,
@@ -230,24 +238,28 @@ export class MotorinsuranceLandingPageComponent {
       label: 'Benefits of Buying Motor Insurance Online?',
       icon: '../../../../rb_assets/assets/insurance/navigator-icon.svg',
       altText: 'Home Icon',
+      link:"'https://www.renewbuy.com/"
     },
     {
       id: 2,
       label: 'Reasons to Buy Motor Insurance',
       icon: '../../../../rb_assets/assets/insurance/navigator-icon.svg',
       altText: 'Profile Icon',
+      link:"'https://www.renewbuy.com/"
     },
     {
       id: 3,
       label: 'Renewal Process of Motor Insurance Policy',
       icon: '../../../../rb_assets/assets/insurance/navigator-icon.svg',
       altText: 'Settings Icon',
+      link:"'https://www.renewbuy.com/"
     },
     {
       id: 4,
       label: 'Process for Filing the Claim Under Motor Insurance',
       icon: '../../../../rb_assets/assets/insurance/navigator-icon.svg',
       altText: 'Help Icon',
+      link:"'https://www.renewbuy.com/"
     },
   ];
   questionsList=[
