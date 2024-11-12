@@ -62,17 +62,18 @@
     }
   }
   .view-more {
-    width: 124px;
+    width: 125px;
     height: 44px;
     border-radius: 100px;
     background-color: #f5f8fe;
     font-size: 12px;
     font-weight: 600;
     color: #5384ea;
-    padding-left: 7px;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
     cursor: pointer;
-    .download {
-      margin-top: 6px;
-    }
+    padding: 0 7px; 
+    gap: 5%;
   }
 }

@@ -60,6 +60,7 @@ export class NewSignInComponent {
   getIntervalTime: any;
   isProfile: boolean = false;
   isClosePopup: boolean = false;
+  isClosePopUpExistUser:boolean = false;
   error: any;
   deviceInfo: any;
   location: any;
@@ -281,7 +282,7 @@ export class NewSignInComponent {
     const header = new HttpHeaders({
       Authorization: `Bearer ${this.cookieService.get('access_token')}`,
     });
-    if (isPlatformBrowser(this.platformId)) {
+    // if (isPlatformBrowser(this.platformId)) {
       this.apiService
         .getRequestedResponse(
           `${environment.unicornDomain}${ApiConstants.Get_user_details}`,
@@ -297,14 +298,14 @@ export class NewSignInComponent {
               res?.email
             ) {
               this.share.setCrossDomainCookie('username', res.first_name, 7);
-              setTimeout(() => {
-                window.location.href = environment['dashboardDomain'];
-              }, 100);
+              this.isClosePopUpExistUser = true;
+              // setTimeout(() => {
+              //   window.location.href = environment['dashboardDomain'];
+              // }, 100);
             } else {
               this.share.setCrossDomainCookie('username', res.first_name, 7);
               this.isSignUp = true;
               this.isProfile = true;
-              // this.isClosePopup = false;
             }
             this.share.triggerAction();
           },
@@ -312,7 +313,7 @@ export class NewSignInComponent {
             this.toastService.toastError(error?.error?.message, 'error');
           }
         );
-    }
+    // }
   }
   /**
    * Handles the user's request to change the mobile number.

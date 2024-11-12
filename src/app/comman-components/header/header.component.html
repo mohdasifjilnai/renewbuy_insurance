@@ -703,6 +703,7 @@
 
 <app-new-sign-in
   (isClosePopUp)="close($event)"
+  (isClosePopUpExistUser)="closePopUpForExistUser($event)"
   *ngIf="isSign"
   (closeEvent)="closeComponent()"
   [isNewSignInPopOpen]="isSign"
