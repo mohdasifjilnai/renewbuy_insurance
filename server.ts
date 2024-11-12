@@ -63,6 +63,7 @@ function run(): void {
   // Handle WebSocket connections
   wss.on("connection", (ws, req) => {
     // Parse cookies from request headers
+    console.log("Headers on connection:", req.headers);
 
     // const cookies = cookie.parse(req.headers.cookie || '');
     // const token = cookies['authToken']; // Replace 'authToken' with the actual token name
