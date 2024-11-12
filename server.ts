@@ -75,8 +75,7 @@ function run(): void {
     ws.on("message", (message) => {
       const data = JSON.parse(message.toString());
 
-      // console.log(data,"message_insurance");
-      // if (data.type === "tokenRequest") {
+      if (data.type === "tokenRequest") {
         // Respond with the token from cookies
         ws.send(
           JSON.stringify({
@@ -84,10 +83,9 @@ function run(): void {
             token: token || "No token found",
             name: name || "",
             token_fron: tokenfron,
-            data:data,
           })
         );
-      //}
+      }
     });
 
     // Log when a WebSocket connection is closed
