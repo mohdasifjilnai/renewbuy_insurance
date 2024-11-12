@@ -24,7 +24,7 @@
   <!-- Add on under motore insurence end -->
 
   <!-- Card Section start  -->
-  <div class="card-container">
+  <div [ngClass]="pageName === 'motor' ? 'card-container' : 'card-container three-coloum'">
     <div class="card-box" *ngFor="let card of cardData; let i = index">
       <div class="card-image-section">
         <img

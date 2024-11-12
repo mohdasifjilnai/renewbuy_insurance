@@ -15,8 +15,50 @@ export class HealthinsuranceLandingPageComponent {
     <p class="decsription-text">
       Policyholders need to pay a pre-determined amount (health insurance premium) to avail the coverage <span class="link-text">benefits of a health insurance</span> policy. A health insurance plan offers various coverage benefits such as pre and post-hospitalization, home hospitalization, coverage for daycare treatment, annual medical check-up, etc.
     </p>`,
+    pageName:'health',
+    addOnsPageCardData :  [
+      {
+        id: 1,
+        heading: 'Maternity Cover',
+        imageSrc: '../../../../rb_assets/assets/insurance/zero-depreciation.svg',
+        text: 'You can cover the expenses related to maternity, pre & post-natal expenses & newborn child under a maternity add-on rider.',
+      },
+      {
+        id: 2,
+        heading: 'Critical Illness',
+        imageSrc: '../../../../rb_assets/assets/insurance/assistance-road.svg',
+        text: 'A lump sum is paid upon diagnosis of a critical illness during the policy term, such as heart disease, kidney failure, or cancer.',
+      },
+      {
+        id: 3,
+        heading: 'Personal Accident',
+        imageSrc: '../../../../rb_assets/assets/insurance/engine.svg',
+        text: "You will receive the total amount if you become completely permanently disabled or partially disabled due to an accident.",
+      },
+      {
+        id: 4,
+        heading: 'Hospital Daily Cash',
+        imageSrc: '../../../../rb_assets/assets/insurance/ncb-cover.svg',
+        text: 'You will get a daily cash allowance to take care of additional expenses such as food, travel, etc. at the time of hospitalization.',
+      },
+      {
+        id: 5,
+        heading: 'Reduction of Waiting Period',
+        imageSrc:
+          '../../../../rb_assets/assets/insurance/key-replacement-cover.svg',
+        text: 'A lump sum is paid upon diagnosis of a critical illness during the policy term, such as heart disease, kidney failure, or cancer.',
+      },
+      {
+        id: 6,
+        heading: 'Room Rent Waiver',
+        imageSrc: '../../../../rb_assets/assets/insurance/pa-cover.svg',
+        text: 'This rider allows you to increase the sub-limit for hospital room rents or choose no sub-limit for greater flexibility and comfort.',
+      }
+    ]
     },
+    
   ];
+  
   inclusionsData = {
     pageHeader:
       "Ensure superior health insurance that delivers peace of mind with top-tier benefits.",
@@ -69,8 +111,8 @@ export class HealthinsuranceLandingPageComponent {
     icon: "../../../../rb_assets/assets/insurance/cross-shield.svg",
     backgroundImage:
       "../../../../rb_assets/assets/insurance/exclusions-background.svg",
-    backgroundHeight: "40rem",
-    marginTop: "10%",
+      backgroundHeight: "38rem",
+      marginTop: "7%",
     cards: [
       {
         cardHeader: "",
