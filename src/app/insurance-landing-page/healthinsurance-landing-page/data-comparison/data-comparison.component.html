@@ -22,7 +22,7 @@
             <span class="year">
               (2022-23)
               <img src="./rb_assets/assets/images/comparison.svg" alt="Sort"
-              (click)="sortBy('claimSettlementRatio')" />
+                (click)="sortBy('claimSettlementRatio')" />
             </span>
           </th>
           <th>
@@ -30,7 +30,7 @@
             <span class="year">
               (2022-23)
               <img src="./rb_assets/assets/images/comparison.svg" alt="Sort"
-              (click)="sortBy('incurredClaimRatio')" />
+                (click)="sortBy('incurredClaimRatio')" />
             </span>
           </th>
           <th>
@@ -46,14 +46,14 @@
             <span class="year">
               (2022-23)
               <img src="./rb_assets/assets/images/comparison.svg" alt="Sort"
-              (click)="sortBy('grossDirectPremium')" />
+                (click)="sortBy('grossDirectPremium')" />
             </span>
           </th>
           <th>Network Hospitals</th>
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let data of companiesData">
+        <tr *ngFor="let data of displayData">
           <td class="insurer-name">{{ data?.insurer }}</td>
           <td>{{ data?.claimSettlementRatio }}</td>
           <td>{{ data?.incurredClaimRatio }}</td>
@@ -68,9 +68,8 @@
   <div class="d-flex justify-content-center mt-3">
     <span class="view-more text-center" (click)="expandTable()">
       {{ isExpanded ? 'View less' : 'View more' }}
-      <img class="download" src="./rb_assets/assets/images/dwnld.svg" alt="Expand table" />
+      <img [src]="isExpanded ? '' : './rb_assets/assets/images/dwnld.svg'"
+      class="download" alt="" />
     </span>
   </div>
-  
-  
 </div>

@@ -14,7 +14,7 @@
         margin-top: 4rem;
     }
     .custom-card{
-        width: 400px;
+        width: auto;
         height: auto;
         background-color: #f8fafe;
         border-radius: 20px;
@@ -29,5 +29,9 @@
             font-weight: 400;
             line-height: 20px;
         }
+    }
+    .not-sure-img{
+        width: 86%;
+        height: 118%;
     }
 }
