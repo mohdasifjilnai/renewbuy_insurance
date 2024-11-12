@@ -201,7 +201,7 @@ export class MotorinsuranceLandingPageComponent {
         id: 4,
         heading: 'NCB Cover',
         imageSrc: '../../../../rb_assets/assets/insurance/ncb-cover.svg',
-        text: 'If your car keys get stolen, damaged, or lost, this add-on cover will help you cover the cost of the key.',
+        text: 'Insurance companies offer a discount for the following year if no claims were filed during the previous policy term.',
       },
       {
         id: 5,
