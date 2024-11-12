@@ -11,12 +11,16 @@ export class AddOnsInuranceComponent {
   pageHeader: any;
   pageDescriptions: any;
   pageName:any
+  addOnsHead:any;
+  addOnSubHead:any;
   constructor() {}
   ngOnChanges() {
     this.pageHeader = this.pageData[0]?.pageHeader;
     this.pageDescriptions = this.pageData[0]?.pageDescriptions;
     this.cardData = this.pageData[0]?.addOnsPageCardData;
     this.pageName = this.pageData[0]?.pageName;
+    this.addOnsHead = this.pageData[0]?.addOnsHead;
+    this.addOnSubHead = this.pageData[0]?.addOnSubHead;
   }
   // cardData = [
   //   {

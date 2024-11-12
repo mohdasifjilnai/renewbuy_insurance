@@ -13,13 +13,8 @@
   </div>
   <!-- Add on under motore insurence start -->
   <div class="add-ons-motor-header" >
-    <h2 class="add-ons-motor-heading-text">Add-ons Under Motor Insurance</h2>
-    <p class="motor-description-text">
-      Additional motor insurance covers can be bought with the insurance policy
-      in order to extend the coverage benefits. We have a list of the most
-      popular <span class="motor-link-text">motor insurance add-ons</span> listed
-      below. Subject to availability.
-    </p>
+    <h2 class="add-ons-motor-heading-text">{{addOnsHead}}</h2>
+    <div [innerHtml]="addOnSubHead"></div>
   </div>
   <!-- Add on under motore insurence end -->
 
@@ -46,7 +41,7 @@
   <!-- Card Section end  -->
 
   <!-- Types of coverage start -->
-   <div class="insurance-types-container">
+   <div class="insurance-types-container" *ngIf="pageName === 'motor'">
     <div class="add-ons-header">
       <h2 class="heading-text">Types of Coverage offered by Motor Insurance</h2>
     </div>

@@ -16,6 +16,10 @@ export class HealthinsuranceLandingPageComponent {
       Policyholders need to pay a pre-determined amount (health insurance premium) to avail the coverage <span class="link-text">benefits of a health insurance</span> policy. A health insurance plan offers various coverage benefits such as pre and post-hospitalization, home hospitalization, coverage for daycare treatment, annual medical check-up, etc.
     </p>`,
     pageName:'health',
+    addOnsHead:'Add-ons Under Health Insurance',
+    addOnSubHead:`<p class="motor-description-text">
+      Health insurance riders are used to enhance the basic coverage benefits by paying some extra premium amount. Below mentioned are some of the health insurance riders that you can consider before buying a health insurance plan
+    </p>`,
     addOnsPageCardData :  [
       {
         id: 1,
@@ -32,7 +36,7 @@ export class HealthinsuranceLandingPageComponent {
       {
         id: 3,
         heading: 'Personal Accident',
-        imageSrc: '../../../../rb_assets/assets/insurance/engine.svg',
+        imageSrc: '../../../../rb_assets/assets/insurance/pa-cover.svg',
         text: "You will receive the total amount if you become completely permanently disabled or partially disabled due to an accident.",
       },
       {
@@ -51,7 +55,7 @@ export class HealthinsuranceLandingPageComponent {
       {
         id: 6,
         heading: 'Room Rent Waiver',
-        imageSrc: '../../../../rb_assets/assets/insurance/pa-cover.svg',
+        imageSrc: '../../../../rb_assets/assets/insurance/engine.svg',
         text: 'This rider allows you to increase the sub-limit for hospital room rents or choose no sub-limit for greater flexibility and comfort.',
       }
     ]
@@ -270,24 +274,28 @@ export class HealthinsuranceLandingPageComponent {
       label: "Best Health Insurance plans in India",
       icon: "../../../../rb_assets/assets/insurance/navigator-icon.svg",
       altText: "Home Icon",
+      link:"'https://www.renewbuy.com/"
     },
     {
       id: 2,
       label: "Family Health Insurance",
       icon: "../../../../rb_assets/assets/insurance/navigator-icon.svg",
       altText: "Profile Icon",
+      link:"'https://www.renewbuy.com/"
     },
     {
       id: 3,
       label: "Compare Health Insurance plans",
       icon: "../../../../rb_assets/assets/insurance/navigator-icon.svg",
       altText: "Settings Icon",
+      link:"'https://www.renewbuy.com/"
     },
     {
       id: 4,
       label: "Find the Best Health Insurance Companies with RenewBuy",
       icon: "../../../../rb_assets/assets/insurance/navigator-icon.svg",
       altText: "Help Icon",
+      link:"'https://www.renewbuy.com/"
     },
   ];
   questionsList = [
