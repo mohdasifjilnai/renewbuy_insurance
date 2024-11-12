@@ -22,6 +22,7 @@ import { MotorCarInsuranceComponent } from '../insurance-landing-page/motorinsur
 import { AddOnsInuranceComponent } from '../insurance-landing-page/motorinsurance-landing-page/add-ons-inurance/add-ons-inurance.component';
 import { InclusionsComponent } from '../insurance-landing-page/motorinsurance-landing-page/inclusions/inclusions.component';
 import { FaqMotorComponent } from '../insurance-landing-page/motorinsurance-landing-page/faq-motor/faq-motor.component';
+import { NavigatorComponent } from '../insurance-landing-page/motorinsurance-landing-page/navigator/navigator.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { FaqMotorComponent } from '../insurance-landing-page/motorinsurance-land
     MotorCarInsuranceComponent,
     AddOnsInuranceComponent,
     InclusionsComponent,
-    FaqMotorComponent
+    FaqMotorComponent,
+    NavigatorComponent
   ],
   imports: [
     CommonModule,
@@ -70,7 +72,8 @@ import { FaqMotorComponent } from '../insurance-landing-page/motorinsurance-land
     MotorCarInsuranceComponent,
     AddOnsInuranceComponent,
     InclusionsComponent,
-    FaqMotorComponent
+    FaqMotorComponent,
+    NavigatorComponent,
   ],
 })
 export class CommanModuleModule {}

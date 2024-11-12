@@ -18,32 +18,36 @@
         <tr>
           <th>Insurer</th>
           <th>
-            Claim Settlement Ratio <br /><span class="year"
-              >(2022-23)
-              <img src="./rb_assets/assets/images/comparison.svg" alt=""
-              (click)="sort()"
-            /></span>
+            Claim Settlement Ratio <br />
+            <span class="year">
+              (2022-23)
+              <img src="./rb_assets/assets/images/comparison.svg" alt="Sort"
+              (click)="sortBy('claimSettlementRatio')" />
+            </span>
           </th>
           <th>
-            Incurred Claim Ratio <br /><span class="year"
-              >(2022-23)
-              <img src="./rb_assets/assets/images/comparison.svg" alt=""
-              (click)="sort()"
-            /></span>
+            Incurred Claim Ratio <br />
+            <span class="year">
+              (2022-23)
+              <img src="./rb_assets/assets/images/comparison.svg" alt="Sort"
+              (click)="sortBy('incurredClaimRatio')" />
+            </span>
           </th>
           <th>
-            Solvency Ratio <br /><span class="year"
-              >(2022-23)
-              <img src="./rb_assets/assets/images/comparison.svg" alt=""
-              (click)="sort()"
-            /></span>
+            Solvency Ratio <br />
+            <span class="year">
+              (2022-23)
+              <img src="./rb_assets/assets/images/comparison.svg" alt="Sort"
+                (click)="sortBy('solvencyRatio')" />
+            </span>
           </th>
           <th>
-            Gross Direct Premium <br /><span class="year"
-              >(2022-23)
-              <img src="./rb_assets/assets/images/comparison.svg" alt=""
-              (click)="sort()"
-            /></span>
+            Gross Direct Premium <br />
+            <span class="year">
+              (2022-23)
+              <img src="./rb_assets/assets/images/comparison.svg" alt="Sort"
+              (click)="sortBy('grossDirectPremium')" />
+            </span>
           </th>
           <th>Network Hospitals</th>
         </tr>
@@ -60,10 +64,13 @@
       </tbody>
     </table>
   </div>
+  
   <div class="d-flex justify-content-center mt-3">
-    <span class="view-more text-center"
-      >View more
-      <img class="download" src="./rb_assets/assets/images/dwnld.svg" alt=""
-    /></span>
+    <span class="view-more text-center" (click)="expandTable()">
+      {{ isExpanded ? 'View less' : 'View more' }}
+      <img class="download" src="./rb_assets/assets/images/dwnld.svg" alt="Expand table" />
+    </span>
   </div>
+  
+  
 </div>

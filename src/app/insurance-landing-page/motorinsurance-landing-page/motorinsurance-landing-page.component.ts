@@ -19,8 +19,9 @@ export class MotorinsuranceLandingPageComponent {
     icon: '../../../../rb_assets/assets/insurance/check-icon.svg',
     backgroundImage:'../../../../rb_assets/assets/insurance/inclusions-background.svg',
     backgroundImageMobileView:'../../../../rb_assets/assets/insurance/inclusions-background-sm.svg',
-    backgroundHeight:'35rem',
+    backgroundHeight:'37rem',
     backgroundPosition:'40rem 55rem',
+    marginClass:'mt-5',
     marginTop:'2%',
     cards: [
       {
@@ -61,9 +62,10 @@ export class MotorinsuranceLandingPageComponent {
     icon: '../../../../rb_assets/assets/insurance/cross-shield.svg',
     backgroundImage:'../../../../rb_assets/assets/insurance/exclusions-background.svg',
     backgroundImageMobileView:'../../../../rb_assets/assets/insurance/exclusion-background-sm.svg',
-    backgroundHeight:'30rem',
+    backgroundHeight:'32rem',
     backgroundPosition:'40rem 50rem',
     marginTop:'5%',
+    marginClass:'mt-5',
     cards: [
       {
         cardHeader: '',
@@ -100,6 +102,7 @@ export class MotorinsuranceLandingPageComponent {
     pageHeader: 'Benefits of Buying Motor Insurance Online',
     pageDescription: `Most <a class="active-text text-decoration-none cursor-pointer">motor insurance companies in India</a>  have taken their business online with advanced technology. The benefits of buying motor insurance online have perks, so let us look at them.`,
     icon: '../../../../rb_assets/assets/insurance/check-icon.svg',
+    marginClass:'mt-0',
     cards: [
       {
         cardHeader: '',
@@ -133,6 +136,7 @@ export class MotorinsuranceLandingPageComponent {
     pageDescription: `Accidents have become more common as traffic has increased, making it critical for everyone to have the best motor insurance policy that protects them from financial damages.`,
     icon: '../../../../rb_assets/assets/insurance/check-icon.svg',
     column_no:2,
+    marginClass:'mt-0',
     cards: [
       {
         cardHeader: '',
@@ -174,6 +178,32 @@ export class MotorinsuranceLandingPageComponent {
       advisable.
     </p>` 
   }]
+  navigatorTabsData = [
+    {
+      id: 1,
+      label: 'Benefits of Buying Motor Insurance Online?',
+      icon: '../../../../rb_assets/assets/insurance/navigator-icon.svg',
+      altText: 'Home Icon',
+    },
+    {
+      id: 2,
+      label: 'Reasons to Buy Motor Insurance',
+      icon: '../../../../rb_assets/assets/insurance/navigator-icon.svg',
+      altText: 'Profile Icon',
+    },
+    {
+      id: 3,
+      label: 'Renewal Process of Motor Insurance Policy',
+      icon: '../../../../rb_assets/assets/insurance/navigator-icon.svg',
+      altText: 'Settings Icon',
+    },
+    {
+      id: 4,
+      label: 'Process for Filing the Claim Under Motor Insurance',
+      icon: '../../../../rb_assets/assets/insurance/navigator-icon.svg',
+      altText: 'Help Icon',
+    },
+  ];
   questionsList=[
     {question:'How is Motor Insurance Premium calculated?', answer:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam natus, optio fugit alias ad veniam. At omnis accusantium reprehenderit suscipit qui sapiente earum, non nostrum quas similique minus, placeat ullam.'},
     {question:'What is the validity period of a Motor Insurance Policy?',answer:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam natus, optio fugit alias ad veniam. At omnis accusantium reprehenderit suscipit qui sapiente earum, non nostrum quas similique minus, placeat ullam.'},
