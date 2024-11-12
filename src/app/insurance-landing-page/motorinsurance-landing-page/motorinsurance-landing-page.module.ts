@@ -10,7 +10,6 @@ import { ExclusionsComponent } from "./exclusions/exclusions.component";
 import { SelectRightPolicyComponent } from "./select-right-policy/select-right-policy.component";
 import { TypeOfPolicyComponent } from "./type-of-policy/type-of-policy.component";
 // import { FaqMotorComponent } from './faq-motor/faq-motor.component';
-import { NavigatorComponent } from "./navigator/navigator.component";
 
 @NgModule({
   declarations: [
@@ -18,7 +17,6 @@ import { NavigatorComponent } from "./navigator/navigator.component";
     ExclusionsComponent,
     SelectRightPolicyComponent,
     TypeOfPolicyComponent,
-    NavigatorComponent,
   ],
   imports: [
     CommonModule,

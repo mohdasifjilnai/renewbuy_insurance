@@ -11,6 +11,8 @@ import { Component } from '@angular/core';
 export class DataComparisonComponent {
 
   isAscending = true;
+  isExpanded = false;
+
   companiesData = [
     {
       insurer: 'Care Health Insurance',
@@ -51,16 +53,31 @@ export class DataComparisonComponent {
       solvencyRatio: '1.96%',
       grossDirectPremium: '933.33',
       networkHospitals: '16,400+'
-    }
+    }    
   ];
+  expandedCompaniesData = Array(5).fill(this.companiesData).flat();
 
-  sort() {
+  get displayData() {
+    return this.isExpanded ? this.expandedCompaniesData : this.companiesData;
+  }
+
+  sortBy(column: keyof typeof this.companiesData[0]) {
     this.companiesData.sort((a, b) => {
-      const ratioA = parseFloat(a.claimSettlementRatio.replace('%', ''));
-      const ratioB = parseFloat(b.claimSettlementRatio.replace('%', ''));
-      return this.isAscending ? ratioA - ratioB : ratioB - ratioA;
+      const getValue = (item: any) => {
+        // Remove % or + and commas, then parse as float
+        const value = item[column].replace(/[%+,]/g, '');
+        return parseFloat(value);
+      };
+  
+      const valueA = getValue(a);
+      const valueB = getValue(b);
+      
+      return this.isAscending ? valueA - valueB : valueB - valueA;
     });
     this.isAscending = !this.isAscending;
   }
-  
+
+  expandTable() {
+    this.isExpanded = !this.isExpanded;
+  }
 }
