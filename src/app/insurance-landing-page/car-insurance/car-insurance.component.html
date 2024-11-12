@@ -179,10 +179,19 @@
                     type="date"
                     class="form-control p-3 input-box date-input"
                     formControlName="dob"
-                    data-placeholder="Select Date of Birth"
                     [min]="minDateString"
                     [max]="maxDateString"
+                    (focus)="onDateChange($event)"
                   />
+                  <label
+                    class="date-label d-block d-lg-none"
+                    [ngClass]="{
+                      'has-value': registrationForm.get('dob')?.value
+                    }"
+                    *ngIf="dateValue == null"
+                  >
+                    dd/mm/yyyy
+                  </label>
                   <div
                     class="error-message"
                     *ngIf="
@@ -303,7 +312,8 @@
               class="rounded mx-auto d-block"
               alt="..."
               [ngClass]="{
-                'image-position-bottom': selectedTab === 'Life' || selectedTab === 'Health'
+                'image-position-bottom':
+                  selectedTab === 'Life' || selectedTab === 'Health'
               }"
             />
           </div>
