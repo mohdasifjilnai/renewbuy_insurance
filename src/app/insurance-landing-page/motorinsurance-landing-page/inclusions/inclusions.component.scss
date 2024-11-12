@@ -60,9 +60,9 @@
 }
 @media (max-width: 768px) {
   .inclusions-container {
-    padding-top: 0 !important;
-    padding-bottom: 0 !important;
-    height: 55rem;
+    // padding-top: 0 !important;
+    // padding-bottom: 0 !important;
+    // height: 55rem;
     .image-background {
       .inclusions-header {
         .inclusions-page-heading {
@@ -99,5 +99,10 @@
     height: auto !important;
     // background-size: 40rem 55rem !important;
     // background-size: contain !important;
+  }
+  .custom-height{
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    height: 55rem;
   }
 }

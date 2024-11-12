@@ -6,7 +6,7 @@
       <div class="subtitle text-center text-md-start">
         <div [innerHtml]="subtitle"></div>
       </div>
-      <div class="row">
+      <div class="row motor-column-reverse">
         <div class="left-section col-lg-4">
           <div class="navigation-tab" *ngIf="isShowTab">
             <div class="nav-item">
@@ -203,7 +203,7 @@
           </div>
         </div>
         <div class="right-section col-lg-8" [ngClass]="{'custom-position': !isShowTab}">
-          <div class="d-none d-sm-flex">
+          <div class="d-sm-flex">
             <img
               src="../../../../rb_assets/assets/insurance/{{
                 selectedHeroImage

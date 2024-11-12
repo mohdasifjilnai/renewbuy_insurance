@@ -15,7 +15,7 @@
             [src]="isAnswerVisible(i) ?  '../../../rb_assets/assets/icons/up-arrow.svg' : '../../../rb_assets/assets/icons/down-arrow.svg'"
               alt=" img"
               srcset=""
-              class="down-arrow"
+              [ngClass]="isAnswerVisible(i) ? 'up-arrow': 'down-arrow'"
             />
           </div>
           <div *ngIf="isAnswerVisible(i)" class="answer">

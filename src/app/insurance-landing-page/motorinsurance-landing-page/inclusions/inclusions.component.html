@@ -4,10 +4,16 @@
   'background-position': 'backgroundPosition',
   'background-repeat': 'repeat-x',
   'height': pageData?.backgroundHeight,
-}" class="my-5 background-image-position">
+}" [ngClass]="{
+  'mt-0': pageData?.marginClass === 'mt-0', 
+  'mt-5': pageData?.marginClass === 'mt-5', 
+  'background-image-position': true
+}">
 <div
-  class="container inclusions-container py-5"
-  
+  class="container inclusions-container pt-5"
+  [ngClass]="{
+    'custom-height': pageData?.marginClass === 'mt-5', 
+  }"
 >
 <div class="image-background" [style]="{'margin-top': pageData?.marginTop}">
     <div class="inclusions-header">
@@ -28,8 +34,8 @@
               <img src="{{ pageData?.icon }}" />
             </div>
             <div class="descriptions">
-              <div class="descriptions-title">
-               <h5>
+              <div >
+               <h5 class="descriptions-title">
                 {{ inclusion?.title }}
                </h5> 
               </div>

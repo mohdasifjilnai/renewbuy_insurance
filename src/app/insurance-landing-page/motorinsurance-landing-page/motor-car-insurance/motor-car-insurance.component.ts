@@ -92,7 +92,7 @@ export class MotorCarInsuranceComponent {
   pageHeaderTextList: any = [
     {
       name: 'Car',
-      title: `<h2 class="page-title">Car insurance price starting at just <span class="day-color">₹2,088<span>*<h2>`,
+      title: `<h2 class="page-title">Car insurance price starting at just <span class="day-color">₹2,088</span>*<h2>`,
       subtitle: `<span class="text-bold">Buy</span> or <span class="text-bold">Renew</span> Car Insurance Online in <span class="text-bold">5 Minutes</span> <span>⚡</span>`,
     },
     {
@@ -116,7 +116,7 @@ export class MotorCarInsuranceComponent {
   subtitle: string =
     `<span class="text-bold">Buy</span> or <span class="text-bold">Renew</span> Car Insurance Online in <span class="text-bold">5 Minutes</span> <span>⚡</span>`;
   title: string =
-    '<h2 class="page-title">Car insurance price starting at just <span class="day-color">₹2,088<span>*<h2>';
+    '<h2 class="page-title">Car insurance price starting at just <span class="day-color">₹2,088</span>*<h2>';
   constructor(
     private fb: FormBuilder,
     private apiService: ApiService,
