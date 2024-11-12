@@ -74,7 +74,7 @@ function run(): void {
     // Handle messages received from WebSocket clients
     ws.on("message", (message) => {
       const data = JSON.parse(message.toString());
-      const cookie = JSON.parse(cookies.toString());
+      console.log(cookie.parse(req.headers.cookie || ""));
 
       if (data.type === "tokenRequest") {
         // Respond with the token from cookies
@@ -84,7 +84,6 @@ function run(): void {
             token: token || "No token found",
             name: name || "",
             token_fron: tokenfron,
-            cookie: cookie,
           })
         );
       }
