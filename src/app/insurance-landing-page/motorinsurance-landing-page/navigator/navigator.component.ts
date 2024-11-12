@@ -7,6 +7,11 @@ import { Component, Input } from '@angular/core';
 })
 export class NavigatorComponent {
   @Input() navigatorTabsData: any;
+  redirect(link: any): void {
+    if (link != null) {
+      window.location.href = 'www.renewbuy.com';
+    }
+  }
 
   // navigatorTabsData = [
   //   {

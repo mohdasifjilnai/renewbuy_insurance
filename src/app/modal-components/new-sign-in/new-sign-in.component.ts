@@ -306,7 +306,6 @@ export class NewSignInComponent {
               this.share.setCrossDomainCookie('username', res.first_name, 7);
               this.isSignUp = true;
               this.isProfile = true;
-              // this.isClosePopup = false;
             }
             this.share.triggerAction();
           },
