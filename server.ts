@@ -41,10 +41,12 @@ export function app(): express.Express {
       console.log("Current Cookies:", { token, name });
     };
 
+
     logCookies();
 
     // Set an interval to log cookies every 5 seconds
-    const cookieInterval = setInterval(logCookies, 5000);
+   // const cookieInterval = setInterval(logCookies, 5000);
+
 
     commonEngine
       .render({
@@ -80,27 +82,13 @@ function run(): void {
 
     // const cookies = cookie.parse(req.headers.cookie || '');
     // const token = cookies['authToken']; // Replace 'authToken' with the actual token name
-    // const cookies = cookie.parse(req.headers.cookie || "");
-    // const token = `${cookies["access_token"]}`;
-     const tokenfron = "renewbuy";
-    // const name = `${cookies["username"]}`;
-
-    let token = "";
-    let name = "";
-    const logCookies = () => {
-      const cookies = cookie.parse(req.headers.cookie || "");
-      token = cookies["access_token"] || "No token found";
-      name = cookies["username"] || "";
-      console.log("Current Cookies (WebSocket):", { token, name });
-    };
-
-    logCookies(); // Log cookies immediately on WebSocket connection
-
-    // Set an interval to log cookies every 5 seconds after WebSocket connection
-    const cookieInterval = setInterval(logCookies, 5000);
+    const cookies = cookie.parse(req.headers.cookie || "");
+    const token = `${cookies["access_token"]}`;
+    const tokenfron = "renewbuy";
+    const name = `${cookies["username"]}`;
 
     // Handle messages received from WebSocket clients
-    ws.on("message", (message) => {
+    wss.on("message", (message) => {
       const data = JSON.parse(message.toString());
       console.log(cookie.parse(req.headers.cookie || ""));
 
