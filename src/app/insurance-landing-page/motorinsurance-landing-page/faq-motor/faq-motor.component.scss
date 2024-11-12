@@ -14,12 +14,13 @@
       background-color: #ffffff;
       border-radius: 12px;
       padding: 10px 22px;
+      cursor: pointer;
       .question {
         display: flex;
         justify-content: space-between;
         align-items: center;
       }
-      .answer .answer-tab p{
+      .answer .answer-tab p {
         font-size: 12px;
         padding: 10px 0px;
         color: #24242480;
@@ -33,18 +34,31 @@
         text-align: left;
         color: #24242480;
       }
-      .active-question{
+      .active-question {
         @extend .label-text;
-        color: #0068CF;
-
+        color: #0068cf;
       }
-      img.down-arrow{
-        cursor: pointer;
-      }
-      img.rotated {
-        transform: rotate(180deg);
-        transition: transform 0.3s ease;
-        cursor: pointer;
+    }
+  }
+  @media (max-width: 768px) {
+    .faq-motor-header {
+      font-size: 18px;
+      font-weight: 500;
+      line-height: 27px;
+    }
+    .faq-list-container {
+      .question-tab {
+        img.down-arrow{
+          width: 14px;
+        }
+        img.up-arrow{
+          width: 11px;
+        }
+        .label-text {
+          font-size: 14px;
+          font-weight: 500;
+          line-height: 20px;
+        }
       }
     }
   }

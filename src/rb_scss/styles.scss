@@ -131,6 +131,8 @@ body.no-scroll {
   .car-insurance-container {
     .page-title {
       font-size: 24px;
+      color: #242424;
+
     }
     .subtitle .text-bold {
       font-size: 12px;
@@ -214,7 +216,7 @@ body.no-scroll {
 /** 
 * car insurance page scss start
 */
-.car-insurance-container {
+.car-insurance-container,.motor-car-insurance-container {
   .page-title {
     text-wrap: nowrap;
     font-weight: 500;
@@ -308,6 +310,13 @@ body.no-scroll {
     font-weight: 500;
     line-height: 20px;
     color: #24242480;
+    @media (max-width: 768px) {
+      & {
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 20px;
+      }
+    }
     .link-text {
       font-weight: 600;
       color: #5384ea;
