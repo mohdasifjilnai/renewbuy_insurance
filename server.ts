@@ -54,12 +54,19 @@ function run(): void {
   });
 
   const wss = new WebSocketServer({ server: httpServer });
+
+  // Handle WebSocket connections
   wss.on("connection", (ws, req) => {
-    console.log("Headers on connection:", req.headers);
+    // Log headers and cookies for debugging
+    console.log("Headers on WebSocket connection:", req.headers);
+
+    // Parse cookies from the WebSocket handshake
     const cookies = cookie.parse(req.headers.cookie || "");
-    const token = `${cookies["access_token"]}`;
-    const tokenfrom = "insurance";
-    const name = `${cookies["username"]}`;
+    const token = cookies["access_token"];
+    const tokenFrom = "insurance";  // A static value you had in the previous code
+    const username = cookies["username"];
+
+    // Send token data on WebSocket connection
     ws.on("message", (message) => {
       const data = JSON.parse(message.toString());
 
@@ -67,13 +74,15 @@ function run(): void {
         ws.send(
           JSON.stringify({
             type: "tokenResponse",
-            token: token || "No token found",
-            name: name || "",
-            token_fron: tokenfrom,
+            token: token || "No token found",  // Return token or default message
+            name: username || "",               // Return username or empty string
+            token_from: tokenFrom,
           })
         );
       }
     });
+
+    // Log WebSocket disconnection
     ws.on("close", () => {
       console.log("WebSocket client disconnected");
     });
