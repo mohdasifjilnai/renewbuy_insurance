@@ -1,1 +1,36 @@
 @import url('../../cashless-garages/cashless-garages.component.scss');
+
+  .select-pincode {
+    width: auto;
+    padding: 0px;
+  }
+  .filter-section {
+    gap: 20px;
+  }
+  .pincode-input {
+    border: 1px solid #eaeaea;
+    border-radius: 12px;
+    height: 45px;
+  }
+  .location-icon {
+    position: absolute;
+    right: 8px;
+    top: 55px;
+    transform: translateY(-50px);
+    cursor: pointer;
+    z-index: 1;
+  }
+  .input-group-append {
+    align-content: center;
+    .search-btn {
+      background: #ffffff;
+      color: #5384ea;
+      border-radius: 10px;
+      padding: 10px 15px;
+      font-size: 14px;
+      line-height: 20px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      border-color: #5384ea;
+    }
+  }

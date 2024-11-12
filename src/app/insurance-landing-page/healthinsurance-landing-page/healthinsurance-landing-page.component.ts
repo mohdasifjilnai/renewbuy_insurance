@@ -148,7 +148,8 @@ export class HealthinsuranceLandingPageComponent {
     ],
   };
   importanceOfMotorInsuranceData = {
-    pageHeader: "No claims for injuries caused during illegal activities or crimes.",
+    pageHeader:
+      "No claims for injuries caused during illegal activities or crimes.",
     pageDescription: `Below mentioned are the factors that can affect your health insurance premium amount:`,
     icon: "../../../../rb_assets/assets/insurance/check-icon.svg",
     column_no: 2,
@@ -184,37 +185,118 @@ export class HealthinsuranceLandingPageComponent {
       },
     ],
   };
+  keyOfHealthInsuranceData = {
+    pageHeader: "Key Health Insurance Jargons You Should Know",
+    pageDescription: `Understanding key health insurance jargons is essential for navigating coverage options effectively.`,
+    icon: "../../../../rb_assets/assets/insurance/check-icon.svg",
+    column_no: 2,
+    cards: [
+      {
+        cardHeader: "",
+        inclusionsData: [
+          {
+            title: "Premium",
+            text: "The amount you pay your insurance company for coverage. It is usually paid every month.",
+          },
+          {
+            title: "Restoration Benefit",
+            text: "Restoration benefit refills your sum insured amount if it gets exhausted in a single policy year.",
+          },
+          {
+            title: "AYUSH Treatment",
+            text: "It is a type of treatment related to Ayurveda, Yoga and naturopathy, Unani, Siddha & Homoeopathy.",
+          },
+          {
+            title: "Network Hospitals",
+            text: "The group of healthcare providers, hospitals, & facilities that have a contract with your health insurance company to provide cashless treatment.",
+          },
+          {
+            title: "Copayment (Copay)",
+            text: "A fixed amount you pay for a specific healthcare service, such as a doctor's visit or prescription medication. For ex:, you might have a copay of $20 for each doctor's visit.",
+          },
+          {
+            title: "Add-on Riders",
+            text: "Add-on riders or additional riders are the benefits that you can add to your health plan to enhance the coverage benefits by paying some additional premium amount.",
+          },
+        ],
+      },
+    ],
+  };
+  navigatorTabsData = [
+    {
+      id: 1,
+      label: "Best Health Insurance plans in India",
+      icon: "../../../../rb_assets/assets/insurance/navigator-icon.svg",
+      altText: "Home Icon",
+    },
+    {
+      id: 2,
+      label: "Family Health Insurance",
+      icon: "../../../../rb_assets/assets/insurance/navigator-icon.svg",
+      altText: "Profile Icon",
+    },
+    {
+      id: 3,
+      label: "Compare Health Insurance plans",
+      icon: "../../../../rb_assets/assets/insurance/navigator-icon.svg",
+      altText: "Settings Icon",
+    },
+    {
+      id: 4,
+      label: "Find the Best Health Insurance Companies with RenewBuy",
+      icon: "../../../../rb_assets/assets/insurance/navigator-icon.svg",
+      altText: "Help Icon",
+    },
+  ];
   questionsList = [
     {
-      question: "How is Motor Insurance Premium calculated?",
+      question: "How many standalone health insurance companies are in India?",
       answer:
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam natus, optio fugit alias ad veniam. At omnis accusantium reprehenderit suscipit qui sapiente earum, non nostrum quas similique minus, placeat ullam.",
     },
     {
-      question: "What is the validity period of a Motor Insurance Policy?",
-      answer:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam natus, optio fugit alias ad veniam. At omnis accusantium reprehenderit suscipit qui sapiente earum, non nostrum quas similique minus, placeat ullam.",
-    },
-    {
-      question: "What documents are needed to file a Motor Insurance Claim?",
+      question: "How many are health insurance companies available in India?",
       answer:
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam natus, optio fugit alias ad veniam. At omnis accusantium reprehenderit suscipit qui sapiente earum, non nostrum quas similique minus, placeat ullam.",
     },
     {
       question:
-        "If I lose my Vehicle Insurance Policy, can I get a duplicate one?",
+        "Is there any health insurance company that offers health insurance plans for diabetes?",
       answer:
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam natus, optio fugit alias ad veniam. At omnis accusantium reprehenderit suscipit qui sapiente earum, non nostrum quas similique minus, placeat ullam.",
     },
-    { question: "Is Motor Insurance Renewal possible online?" },
-    { question: "Is GST levied on Motor Insurance Premiums?" },
-    { question: "What is IDV (Insured Declared Value)?" },
-    { question: "Is GST levied on Motor Insurance Premiums?" },
     {
       question:
-        "How can I get a discount on my Motor Insurance Policy Premium?",
+        "Is there any health insurance company that offers health insurance plans for diabetes?",
+      answer:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam natus, optio fugit alias ad veniam. At omnis accusantium reprehenderit suscipit qui sapiente earum, non nostrum quas similique minus, placeat ullam.",
     },
-    { question: "Is it beneficial to buy Motor Insurance Online?" },
-    { question: "For how long is the NCB on a policy valid?" },
+    {
+      question:
+        "What are the top 5 health insurance companies basis on the latest claim settlement ratio?",
+    },
+    {
+      question:
+        "How many are public health insurance companies available in India?",
+    },
+    {
+      question:
+        "Is expensive health insurance equal to the best health insurance plan?",
+    },
+    {
+      question:
+        "Is there any health insurance company in India that covers dental treatment?",
+    },
+    {
+      question: "How to choose a top health insurance company in India?",
+    },
+    {
+      question:
+        "How many are private health insurance companies available in India?",
+    },
+    {
+      question:
+        "Can I port my health insurance plan from one health insurance company to another?",
+    },
   ];
 }

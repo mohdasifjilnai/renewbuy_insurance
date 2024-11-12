@@ -178,6 +178,32 @@ export class MotorinsuranceLandingPageComponent {
       advisable.
     </p>` 
   }]
+  navigatorTabsData = [
+    {
+      id: 1,
+      label: 'Benefits of Buying Motor Insurance Online?',
+      icon: '../../../../rb_assets/assets/insurance/navigator-icon.svg',
+      altText: 'Home Icon',
+    },
+    {
+      id: 2,
+      label: 'Reasons to Buy Motor Insurance',
+      icon: '../../../../rb_assets/assets/insurance/navigator-icon.svg',
+      altText: 'Profile Icon',
+    },
+    {
+      id: 3,
+      label: 'Renewal Process of Motor Insurance Policy',
+      icon: '../../../../rb_assets/assets/insurance/navigator-icon.svg',
+      altText: 'Settings Icon',
+    },
+    {
+      id: 4,
+      label: 'Process for Filing the Claim Under Motor Insurance',
+      icon: '../../../../rb_assets/assets/insurance/navigator-icon.svg',
+      altText: 'Help Icon',
+    },
+  ];
   questionsList=[
     {question:'How is Motor Insurance Premium calculated?', answer:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam natus, optio fugit alias ad veniam. At omnis accusantium reprehenderit suscipit qui sapiente earum, non nostrum quas similique minus, placeat ullam.'},
     {question:'What is the validity period of a Motor Insurance Policy?',answer:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam natus, optio fugit alias ad veniam. At omnis accusantium reprehenderit suscipit qui sapiente earum, non nostrum quas similique minus, placeat ullam.'},

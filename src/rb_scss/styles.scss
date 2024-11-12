@@ -118,16 +118,9 @@ body.no-scroll {
 }
 
 @media (min-width: 1296px) and (max-width: 1366px) {
-  // Regular desktops
-  // .main__container {
-  //   height: 70vh !important;
-  // }
   .title {
     bottom: 50% !important;
   }
-  // .main__container {
-  //   height: 40vh !important;
-  // }
 }
 
 // @media (max-width: 1024px) {
@@ -330,4 +323,17 @@ body.no-scroll {
       cursor: pointer;
     }
   }
+}
+.form-group {
+  position: relative;
+}
+
+.date-label {
+  position: absolute;
+  top: 50%;
+  left: 17px;
+  color: #999999;
+  pointer-events: none;
+  transition: 0.2s ease all;
+  transform: translateY(-50%);
 }

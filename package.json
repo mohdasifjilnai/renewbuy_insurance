@@ -24,6 +24,7 @@
     "@ng-select/ng-select": "^13.9.1",
     "@nguniversal/express-engine": "^7.0.2",
     "bootstrap": "^5.3.3",
+    "cookie": "^1.0.1",
     "express": "^4.18.2",
     "jquery": "^3.7.1",
     "lottie-web": "^5.12.2",
@@ -36,6 +37,7 @@
     "rxjs": "~7.8.0",
     "slick-carousel": "^1.8.1",
     "tslib": "^2.3.0",
+    "ws": "^8.18.0",
     "zone.js": "~0.14.3"
   },
   "devDependencies": {
