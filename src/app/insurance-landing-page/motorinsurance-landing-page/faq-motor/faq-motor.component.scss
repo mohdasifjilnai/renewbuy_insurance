@@ -14,6 +14,7 @@
       background-color: #ffffff;
       border-radius: 12px;
       padding: 10px 22px;
+      cursor: pointer;
       .question {
         display: flex;
         justify-content: space-between;
@@ -36,14 +37,6 @@
       .active-question {
         @extend .label-text;
         color: #0068cf;
-      }
-      img.down-arrow {
-        cursor: pointer;
-      }
-      img.rotated {
-        transform: rotate(180deg);
-        transition: transform 0.3s ease;
-        cursor: pointer;
       }
     }
   }
