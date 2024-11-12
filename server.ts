@@ -33,6 +33,21 @@ export function app(): express.Express {
   // All regular routes use the Angular engine
   server.get("*", (req, res, next) => {
     const { protocol, originalUrl, baseUrl, headers } = req;
+
+    const logCookies = () => {
+      const cookies = cookie.parse(req.headers.cookie || "");
+      const token = cookies["access_token"] || "No token found";
+      const name = cookies["username"] || "";
+      console.log("Current Cookies:", { token, name });
+    };
+
+
+    logCookies();
+
+    // Set an interval to log cookies every 5 seconds
+    const cookieInterval = setInterval(logCookies, 5000);
+
+
     commonEngine
       .render({
         bootstrap,
