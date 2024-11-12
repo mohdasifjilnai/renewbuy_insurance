@@ -19,10 +19,6 @@ export function app(): express.Express {
   server.set("view engine", "html");
   server.set("views", browserDistFolder);
 
-  // Example Express Rest API endpoints
-  // server.get('/api/**', (req, res) => { });
-
-  // Serve static files from /browser
   server.get(
     "*.*",
     express.static(browserDistFolder, {
@@ -30,7 +26,6 @@ export function app(): express.Express {
     })
   );
 
-  // All regular routes use the Angular engine
   server.get("*", (req, res, next) => {
     const { protocol, originalUrl, baseUrl, headers } = req;
     commonEngine
@@ -50,47 +45,44 @@ export function app(): express.Express {
 
 function run(): void {
   const port = process.env["PORT"] || 4001;
-
-  // Start up the Node server
   const server = app();
   const httpServer = server.listen(port, () => {
-    console.log(`Node Express server listening on http://localhost:${port}`);
+    console.log(
+      `Node Express server listening on http://localhost:${port}`,
+      server
+    );
   });
 
-  // Create WebSocket server on top of the HTTP server
   const wss = new WebSocketServer({ server: httpServer });
 
   // Handle WebSocket connections
   wss.on("connection", (ws, req) => {
-    // Parse cookies from request headers
-    console.log("Headers on connection:", req.headers);
+    // Log headers and cookies for debugging
+    console.log("Headers on WebSocket connection:", req.headers);
 
-    // const cookies = cookie.parse(req.headers.cookie || '');
-    // const token = cookies['authToken']; // Replace 'authToken' with the actual token name
+    // Parse cookies from the WebSocket handshake
     const cookies = cookie.parse(req.headers.cookie || "");
-    const token = `${cookies["access_token"]}`;
-    const tokenfron = "renewbuy";
-    const name = `${cookies["username"]}`;
+    const token = cookies["access_token"];
+    const tokenFrom = "insurance";  // A static value you had in the previous code
+    const username = cookies["username"];
 
-    // Handle messages received from WebSocket clients
+    // Send token data on WebSocket connection
     ws.on("message", (message) => {
       const data = JSON.parse(message.toString());
-      console.log(cookie.parse(req.headers.cookie || ""));
 
       if (data.type === "tokenRequest") {
-        // Respond with the token from cookies
         ws.send(
           JSON.stringify({
             type: "tokenResponse",
-            token: token || "No token found",
-            name: name || "",
-            token_fron: tokenfron,
+            token: token || "No token found",  // Return token or default message
+            name: username || "",               // Return username or empty string
+            token_from: tokenFrom,
           })
         );
       }
     });
 
-    // Log when a WebSocket connection is closed
+    // Log WebSocket disconnection
     ws.on("close", () => {
       console.log("WebSocket client disconnected");
     });

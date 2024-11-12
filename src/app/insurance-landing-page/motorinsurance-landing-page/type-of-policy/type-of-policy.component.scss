@@ -7,6 +7,7 @@
       font-size: 24px;
       font-weight: 500;
       line-height: 36px;
+      color: #242424;
     }
   }
   .types-of-policy-description {
@@ -28,7 +29,7 @@
       background-color: #ffffff;
       padding: 2rem;
       border-color: #ffffff;
-      height: 365px;
+      height: 330px;
       .card-image-box {
         display: flex;
         justify-content: center;
@@ -69,34 +70,70 @@
   }
 }
 @media (min-width: 1024px) and (max-width: 1295px) {
-  .types-of-policy-container{
-    .types-of-policy-card-container{
-      .card{
+  .types-of-policy-container {
+    .types-of-policy-card-container {
+      .card {
         padding: 1rem;
         height: 375px;
       }
     }
   }
 }
-@media (min-width: 1296px) and (max-width: 1366px){
-  .types-of-policy-container{
-    .types-of-policy-card-container{
-      .card{
+@media (min-width: 1296px) and (max-width: 1366px) {
+  .types-of-policy-container {
+    .types-of-policy-card-container {
+      .card {
         padding: 1rem;
         height: 355px;
       }
     }
   }
 }
-@media (max-width:768px) {
-  .types-of-policy-container{
-    .types-of-policy-card-container{
-      .card-container{
+@media (max-width: 768px) {
+  .types-of-policy-container {
+    .types-of-policy-header {
+      padding-bottom: 8px;
+      .heading-text {
+        font-size: 18px;
+        font-weight: 500;
+        line-height: 27px;
+        text-align: center;
+        color: #242424;
+      }
+    }
+    .types-of-policy-description {
+      padding-bottom: 18px;
+      .decsription-text {
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 20px;
+        color: #242424;
+        opacity: 50%;
+        text-align: center;
+      }
+    }
+    .types-of-policy-card-container {
+      .card-container {
         row-gap: 16px;
         .card {
           padding: 1.5rem;
-          .card-name{
+          .card-name {
             margin: 1rem 0;
+            line-height: 24px;
+          }
+          .card-description {
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 20px;
+            text-align: center;
+            .active-text {
+              font-size: 14px;
+              font-weight: 400;
+              line-height: 20px;
+              text-align: center;
+              color: #5384ea;
+              cursor: pointer;
+            }
           }
         }
       }
