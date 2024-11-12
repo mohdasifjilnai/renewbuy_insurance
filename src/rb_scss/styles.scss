@@ -118,7 +118,6 @@ body.no-scroll {
 }
 
 @media (min-width: 1296px) and (max-width: 1366px) {
- 
   .title {
     bottom: 50% !important;
   }
@@ -300,7 +299,7 @@ body.no-scroll {
 .ng-placeholder {
   color: #4d4d4d !important;
 }
-.cursor-pointer{
+.cursor-pointer {
   cursor: pointer;
 }
 .add-ons-description {
@@ -315,4 +314,17 @@ body.no-scroll {
       cursor: pointer;
     }
   }
+}
+.form-group {
+  position: relative;
+}
+
+.date-label {
+  position: absolute;
+  top: 50%;
+  left: 12px;
+  color: #999;
+  pointer-events: none;
+  transition: 0.2s ease all;
+  transform: translateY(-50%);
 }
