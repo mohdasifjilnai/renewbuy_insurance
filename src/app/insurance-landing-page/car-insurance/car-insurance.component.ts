@@ -362,6 +362,7 @@ export class CarInsuranceComponent {
         (el: { name: string }) => el.name == tab
       ).subtitle;
       this.resetForm();
+      this.dateValue = null;
     }
   }
 
@@ -465,6 +466,5 @@ export class CarInsuranceComponent {
 
   onDateChange(event: any) {
     this.dateValue = event.target.value;
-    console.log(this.dateValue,'this.dateValue')
   }
 }
