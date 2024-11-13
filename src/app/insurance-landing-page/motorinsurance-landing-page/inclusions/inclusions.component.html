@@ -1,54 +1,62 @@
-<div [style]="{ 
+<div
+  [style]="{ 
   'background-image': 'url(' + (backgroundImage || '') + ')',
   'background-size': 'cover', 
   'background-position': 'backgroundPosition',
   'background-repeat': 'repeat-x',
   'height': pageData?.backgroundHeight,
-}" [ngClass]="{
-  'mt-0': pageData?.marginClass === 'mt-0', 
-  'mt-5': pageData?.marginClass === 'mt-5', 
-  'background-image-position': true
-}">
-<div
-  class="container inclusions-container pt-5"
+}"
   [ngClass]="{
-    'custom-height': pageData?.marginClass === 'mt-5', 
+    'mt-0': pageData?.marginClass === 'mt-0',
+    'mt-5': pageData?.marginClass === 'mt-5',
+    'background-image-position': true
   }"
 >
-<div class="image-background" [style]="{'margin-top': pageData?.marginTop}">
-    <div class="inclusions-header">
-      <h2 class="inclusions-page-heading"> {{ pageData?.pageHeader }}</h2>
-      <p class="sub-heading" [innerHtml] ="pageData?.pageDescription">
-      </p>
-    </div>
-    <div class="inclusions-content">
-      @for(card of pageData?.cards; track card){
-      <div class="inclusions-content-title">
-        <h3 class="inclusions-content-text">{{ card?.cardHeader }}</h3>
+  <div
+    class="container inclusions-container pt-5"
+    [ngClass]="{
+    'custom-height': pageData?.marginClass === 'mt-5', 
+  }"
+  >
+    <div
+      class="image-background"
+      [style]="{ 'margin-top': pageData?.marginTop }"
+    >
+      <div class="inclusions-header">
+        <h2 class="inclusions-page-heading">{{ pageData?.pageHeader }}</h2>
+        <p class="sub-heading" [innerHtml]="pageData?.pageDescription"></p>
       </div>
-      <div class="row">
-        @for(inclusion of card?.inclusionsData; track inclusion){
-        <div class="col-12 col-sm-4" [ngClass]="{ 'col-6': pageData?.column_no }">
-          <div class="inclusions-details">
-            <div class="icon-sections">
-              <img src="{{ pageData?.icon }}" />
-            </div>
-            <div class="descriptions">
-              <div >
-               <h5 class="descriptions-title">
-                {{ inclusion?.title }}
-               </h5> 
+      <div class="inclusions-content">
+        @for(card of pageData?.cards; track card){
+        <div class="inclusions-content-title">
+          <h3 class="inclusions-content-text">{{ card?.cardHeader }}</h3>
+        </div>
+        <div class="row">
+          @for(inclusion of card?.inclusionsData; track inclusion){
+          <div
+            class="col-12 col-lg-4 col-sm-12"
+            [ngClass]="{ 'col-lg-6': pageData?.column_no }"
+          >
+            <div class="inclusions-details">
+              <div class="icon-sections">
+                <img src="{{ pageData?.icon }}" />
               </div>
-              <div class="description-text">
-                <p>{{ inclusion?.text }}</p>
+              <div class="descriptions">
+                <div>
+                  <h5 class="descriptions-title">
+                    {{ inclusion?.title }}
+                  </h5>
+                </div>
+                <div class="description-text">
+                  <p>{{ inclusion?.text }}</p>
+                </div>
               </div>
             </div>
           </div>
+          }
         </div>
         }
       </div>
-      }
     </div>
   </div>
-</div>
 </div>

@@ -128,11 +128,11 @@ body.no-scroll {
   .main__container {
     height: 35vh !important;
   }
-  .car-insurance-container, .motor-car-insurance-container {
+  .car-insurance-container,
+  .motor-car-insurance-container {
     .page-title {
       font-size: 24px;
       color: #242424;
-
     }
     .subtitle .text-bold {
       font-size: 12px;
@@ -216,7 +216,8 @@ body.no-scroll {
 /** 
 * car insurance page scss start
 */
-.car-insurance-container,.motor-car-insurance-container {
+.car-insurance-container,
+.motor-car-insurance-container {
   .page-title {
     text-wrap: nowrap;
     font-weight: 500;
@@ -336,4 +337,16 @@ body.no-scroll {
   pointer-events: none;
   transition: 0.2s ease all;
   transform: translateY(-50%);
+}
+.motor-description-text {
+  font-size: 16px;
+  line-height: 24px;
+  text-align: center;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+  color: #24242480;
+}
+.motor-link-text {
+  color: #5384ea;
+  font-weight: 600;
 }
