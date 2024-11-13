@@ -33,7 +33,7 @@ import { ToastService } from "../../utilis/service/toast.service";
 })
 export class HeaderComponent {
   @Output() isClosePopUp: EventEmitter<any> = new EventEmitter<any>();
-  @Output() isClosePopUpExistUser = new EventEmitter<boolean>(false);
+  //  @Output() isClosePopUpExistUser = new EventEmitter<boolean>(false);
   Header_links: any;
   activeCategory: string = "Motor Insurance";
   dropdownActive: boolean = false;
@@ -171,6 +171,7 @@ export class HeaderComponent {
     });
   }
   closePopUpForExistUser(event: any) {
+    console.log(event, "event");
     if (event) {
       this.isSign = false;
       // if (isPlatformBrowser(this.platformId)) {
