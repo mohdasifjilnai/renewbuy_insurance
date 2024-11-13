@@ -416,7 +416,7 @@ Health insurance riders let you boost your basic coverage by paying a bit more o
     });
     let url = `${environment["strapiDomain"]}${ApiConstants["HEALTH_INSURANCE"]}`;
     this.apiService.getRequestedResponse(url, header).subscribe((response) => {
-      console.log(response);
+      // console.log(response);
       this.meta.updateMeta(
         response?.data?.attributes?.seo?.metaTitle,
         response?.data?.attributes?.seo?.metaDescription,
