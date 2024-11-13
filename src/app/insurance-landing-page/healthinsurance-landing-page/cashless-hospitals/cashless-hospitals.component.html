@@ -3,12 +3,10 @@
     <div class="row">
       <!-- Header Section Start  -->
       <div class="header mb-4">
-        <div class="header-heading d-flex">
-          Cashless Hospitals Near You
-        </div>
+        <div class="header-heading d-flex">Cashless Hospitals Near You</div>
       </div>
 
-      <div class="position-relative select-pincode col-4 col-lg-4">
+      <!-- <div class="position-relative select-pincode col-4 col-lg-4">
         <input
           type="text"
           class="form-control input-box pincode-input"
@@ -22,8 +20,8 @@
             src="../../../../rb_assets/assets/insurance/location.svg"
             alt="Location Icon"
           />
-        </span>
-        <!-- <div
+        </span> -->
+      <!-- <div
           *ngIf="
             searchForm.get('pincode')?.invalid &&
             (searchForm.get('pincode')?.dirty ||
@@ -37,12 +35,12 @@
             Please enter a valid 6-digit pincode or city name.
           </div>
         </div> -->
-      </div>
-      <div class="input-group-append col-4 col-lg-4 col-sm-12 mb-3">
+      <!-- </div> -->
+      <!-- <div class="input-group-append col-4 col-lg-4 col-sm-12 mb-3">
         <button class="btn btn-light search-btn ml-1" type="submit">
           Search Hospital
         </button>
-      </div>
+      </div> -->
       <!-- <div class="col-4 col-lg-4 d-flex justify-content-end viewall">
         View All
       </div> -->
@@ -81,13 +79,13 @@
             </div>
           </div>
         </div>
-        <!-- <app-cashless-garage-popup
+        <app-cashless-garage-popup
           *ngIf="cashlessPopup"
           [insurar_data]="insurar_data"
           [card_list]="totalCardList"
           [list_type]="listType"
           (closePopup)="close()"
-        ></app-cashless-garage-popup> -->
+        ></app-cashless-garage-popup>
       </div>
       <!-- Card List Section Start  -->
       <!-- View All Section Start  -->

@@ -8,9 +8,9 @@
         <div class="col-12 mb-3" *ngFor="let question of questionList; let i = index">
           <div class="question-tab" (click)="toggleAnswer(i)">
             <div class="question">
-            <label class="label-text"
+            <h3 class="label-text"
             [ngClass]="{'active-question': isAnswerVisible(i)}"
-            >{{ question?.question }}</label>
+            >{{ question?.question }}</h3>
             <img
             [src]="isAnswerVisible(i) ?  '../../../rb_assets/assets/icons/up-arrow.svg' : '../../../rb_assets/assets/icons/down-arrow.svg'"
               alt=" img"
@@ -20,7 +20,7 @@
           </div>
           <div *ngIf="isAnswerVisible(i)" class="answer">
             <div  class="answer-tab">
-              <p>{{ question?.answer }}</p>
+              <p [innerHTML]="question?.answer"></p>
             </div>
           </div>
           </div>

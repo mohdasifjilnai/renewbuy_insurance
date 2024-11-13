@@ -1,43 +1,39 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-import { MainInuranceComponent } from './main-inurance.component';
-
+import { NgModule } from "@angular/core";
+import { RouterModule, Routes } from "@angular/router";
+import { MainInuranceComponent } from "./main-inurance.component";
 
 const routes: Routes = [
   {
-    path: '',
+    path: "",
     component: MainInuranceComponent,
     children: [
       {
-        path: '',
+        path: "",
         loadChildren: () =>
           import(
-            '../../app/insurance-landing-page/insurance-landing-page.module'
+            "../../app/insurance-landing-page/insurance-landing-page.module"
           ).then((m) => m.InsuranceLandingPageModule),
       },
       {
-        path:'motorinsurance',
+        path: "motor-insurance",
         loadChildren: () =>
           import(
-            '../../app/insurance-landing-page/motorinsurance-landing-page/motorinsurance-landing-page.module'
-          ).then((m) => m.MotorinsuranceLandingPageModule)
-        
+            "../../app/insurance-landing-page/motorinsurance-landing-page/motorinsurance-landing-page.module"
+          ).then((m) => m.MotorinsuranceLandingPageModule),
       },
       {
-        path:'healthinsurance',
+        path: "health-insurance",
         loadChildren: () =>
           import(
-            '../../app/insurance-landing-page/healthinsurance-landing-page/healthinsurance-landing-page.module'
-          ).then((m) => m.HealthinsuranceLandingPageModule)
-        
-      }
+            "../../app/insurance-landing-page/healthinsurance-landing-page/healthinsurance-landing-page.module"
+          ).then((m) => m.HealthinsuranceLandingPageModule),
+      },
     ],
   },
-  
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class MainInuranceRoutingModule { }
+export class MainInuranceRoutingModule {}

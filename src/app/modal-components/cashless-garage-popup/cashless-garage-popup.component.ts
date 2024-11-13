@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+import { CommonModule } from "@angular/common";
 import {
   Component,
   EventEmitter,
@@ -7,30 +7,30 @@ import {
   Output,
   Renderer2,
   SimpleChange,
-} from '@angular/core';
+} from "@angular/core";
 
 import {
   FormBuilder,
   FormGroup,
   FormsModule,
   Validators,
-} from '@angular/forms';
-import { ShareService } from '../../utilis/service/share.service';
-import { HttpHeaders } from '@angular/common/http';
-import { environment } from '../../../environments/environment';
-import { ApiConstants } from '../../utilis/api.constant';
-import { ApiService } from '../../utilis/service/api.service';
-import { NgxPaginationModule, PaginationInstance } from 'ngx-pagination';
-import { ReactiveFormsModule } from '@angular/forms';
+} from "@angular/forms";
+import { ShareService } from "../../utilis/service/share.service";
+import { HttpHeaders } from "@angular/common/http";
+import { environment } from "../../../environments/environment";
+import { ApiConstants } from "../../utilis/api.constant";
+import { ApiService } from "../../utilis/service/api.service";
+import { NgxPaginationModule, PaginationInstance } from "ngx-pagination";
+import { ReactiveFormsModule } from "@angular/forms";
 import {
   NgSelectModule,
   NgOption,
   NgSelectComponent,
-} from '@ng-select/ng-select';
-import { AcceptOnlyDigitDirective } from '../../utilis/directives/accept-only-digit.directive';
+} from "@ng-select/ng-select";
+import { AcceptOnlyDigitDirective } from "../../utilis/directives/accept-only-digit.directive";
 
 @Component({
-  selector: 'app-cashless-garage-popup',
+  selector: "app-cashless-garage-popup",
   standalone: true,
   imports: [
     CommonModule,
@@ -40,8 +40,8 @@ import { AcceptOnlyDigitDirective } from '../../utilis/directives/accept-only-di
     NgSelectModule,
     AcceptOnlyDigitDirective,
   ],
-  templateUrl: './cashless-garage-popup.component.html',
-  styleUrls: ['./cashless-garage-popup.component.scss'],
+  templateUrl: "./cashless-garage-popup.component.html",
+  styleUrls: ["./cashless-garage-popup.component.scss"],
 })
 export class CashlessGaragePopupComponent {
   @Input() isVisible: boolean = false;
@@ -58,49 +58,49 @@ export class CashlessGaragePopupComponent {
   garages: any[] = [];
   filteredGarages: any[] = [];
   filteredData: any[] = [];
-  searchQuery: string = '';
+  searchQuery: string = "";
   totalCount: number = 0;
   insurerId: any;
   isDropdownOpen = false;
   currentPage: number = 1;
   getMakes: any = [
     {
-      name: 'xya',
+      name: "xya",
       id: 1,
     },
     {
-      name: 'abc',
+      name: "abc",
       id: 2,
     },
   ];
   selectedCityId: any;
   carBrands = [
-    { id: 'MARUTI', name: 'MARUTI' },
-    { id: 'HYUNDAI', name: 'HYUNDAI' },
-    { id: 'VOLKSWAGEN', name: 'VOLKSWAGEN' },
-    { id: 'NISSAN', name: 'NISSAN' },
-    { id: 'KIA', name: 'KIA' },
-    { id: 'CHEVROLET', name: 'CHEVROLET' },
-    { id: 'FORD', name: 'FORD' },
-    { id: 'SKODA', name: 'SKODA' },
-    { id: 'RENAULT', name: 'RENAULT' },
-    { id: 'BAJAJ', name: 'BAJAJ' },
-    { id: 'FIAT', name: 'FIAT' },
-    { id: 'HONDA', name: 'HONDA' },
-    { id: 'TATA', name: 'TATA' },
-    { id: 'TOYOTA', name: 'TOYOTA' },
-    { id: 'MAHINDRA', name: 'MAHINDRA' },
-    { id: 'CITROEN', name: 'CITROEN' },
-    { id: 'DATSUN', name: 'DATSUN' },
-    { id: 'JEEP', name: 'JEEP' },
-    { id: 'MITSUBISHI', name: 'MITSUBISHI' },
-    { id: 'MAHINDRA RENAULT', name: 'MAHINDRA RENAULT' },
-    { id: 'OPEL', name: 'OPEL' },
-    { id: 'VOLVO', name: 'VOLVO' },
-    { id: 'MINI', name: 'MINI' },
+    { id: "MARUTI", name: "MARUTI" },
+    { id: "HYUNDAI", name: "HYUNDAI" },
+    { id: "VOLKSWAGEN", name: "VOLKSWAGEN" },
+    { id: "NISSAN", name: "NISSAN" },
+    { id: "KIA", name: "KIA" },
+    { id: "CHEVROLET", name: "CHEVROLET" },
+    { id: "FORD", name: "FORD" },
+    { id: "SKODA", name: "SKODA" },
+    { id: "RENAULT", name: "RENAULT" },
+    { id: "BAJAJ", name: "BAJAJ" },
+    { id: "FIAT", name: "FIAT" },
+    { id: "HONDA", name: "HONDA" },
+    { id: "TATA", name: "TATA" },
+    { id: "TOYOTA", name: "TOYOTA" },
+    { id: "MAHINDRA", name: "MAHINDRA" },
+    { id: "CITROEN", name: "CITROEN" },
+    { id: "DATSUN", name: "DATSUN" },
+    { id: "JEEP", name: "JEEP" },
+    { id: "MITSUBISHI", name: "MITSUBISHI" },
+    { id: "MAHINDRA RENAULT", name: "MAHINDRA RENAULT" },
+    { id: "OPEL", name: "OPEL" },
+    { id: "VOLVO", name: "VOLVO" },
+    { id: "MINI", name: "MINI" },
   ];
   public config: PaginationInstance = {
-    id: 'advanced',
+    id: "advanced",
     itemsPerPage: 10,
     currentPage: 1,
   };
@@ -117,7 +117,7 @@ export class CashlessGaragePopupComponent {
     this.logEvent(`pageChange(${number})`);
     this.config.currentPage = number;
     this.currentPage = number;
-    this.list_type == 'is_garages'
+    this.list_type == "is_garages"
       ? this.getCheshLessGarages(this.insurar_data?.id, this.currentPage)
       : this.getCheshLessHospital(this.insurar_data?.id, this.currentPage);
   }
@@ -127,7 +127,7 @@ export class CashlessGaragePopupComponent {
   createForm() {
     this.searchForm = this.fb.group({
       make: [null],
-      pincode: ['', [Validators.pattern('^[0-9]{6}$|^[a-zA-Z ]+$')]],
+      pincode: ["", [Validators.pattern("^[0-9]{6}$|^[a-zA-Z ]+$")]],
     });
   }
 
@@ -138,7 +138,7 @@ export class CashlessGaragePopupComponent {
   close(flag: boolean): void {
     this.isVisible = flag;
     this.closePopup.emit();
-    this.renderer.removeClass(document.body, 'no-scroll');
+    this.renderer.removeClass(document.body, "no-scroll");
   }
   openChangeLocationPopup(): void {
     this.isChangeLocationVisible = true;
@@ -149,12 +149,12 @@ export class CashlessGaragePopupComponent {
   }
   closeChangeLocationPopupWithInuraraCard(card: any) {
     this.insurar_data = card;
-    this.list_type == 'is_garages'
+    this.list_type == "is_garages"
       ? this.getCheshLessGarages(this.insurar_data?.id, this.currentPage)
       : this.getCheshLessHospital(this.insurar_data?.id, this.currentPage);
     this.isChangeLocationVisible = false;
     this.searchForm.reset();
-    this.searchQuery = '';
+    this.searchQuery = "";
   }
   filterGarages(is_garages: boolean) {
     const query = this.searchQuery.toLowerCase();
@@ -190,7 +190,7 @@ export class CashlessGaragePopupComponent {
   ngOnChanges(changes: SimpleChange) {
     if (this.insurar_data && this.insurar_data.id) {
       this.insurerId = this.insurar_data?.id;
-      this.list_type == 'is_garages'
+      this.list_type == "is_garages"
         ? this.getCheshLessGarages(this.insurar_data?.id, this.currentPage)
         : this.getCheshLessHospital(this.insurar_data?.id, this.currentPage);
     }
@@ -201,9 +201,9 @@ export class CashlessGaragePopupComponent {
   }
   resetPin() {
     if (
-      this.searchForm.get('pincode')?.value == '' &&
-      this.searchForm.get('make')?.value == null &&
-      this.list_type == 'is_garages'
+      this.searchForm.get("pincode")?.value == "" &&
+      this.searchForm.get("make")?.value == null &&
+      this.list_type == "is_garages"
     ) {
       this.getCheshLessGarages(
         this.insurar_data?.id,
@@ -212,51 +212,51 @@ export class CashlessGaragePopupComponent {
         null
       );
     } else if (
-      this.searchForm.get('pincode')?.value == '' &&
-      this.list_type !== 'is_garages'
+      this.searchForm.get("pincode")?.value == "" &&
+      this.list_type !== "is_garages"
     ) {
       this.getCheshLessHospital(this.insurar_data?.id, this.currentPage, null);
     }
   }
   onSubmitSearchForm() {
     if (
-      this.searchForm.get('pincode')?.value != '' &&
-      this.searchForm.get('make')?.value != null &&
-      this.list_type == 'is_garages'
+      this.searchForm.get("pincode")?.value != "" &&
+      this.searchForm.get("make")?.value != null &&
+      this.list_type == "is_garages"
     ) {
       this.getCheshLessGarages(
         this.insurar_data?.id,
         this.currentPage,
-        this.searchForm.get('pincode')?.value,
-        this.searchForm.get('make')?.value
+        this.searchForm.get("pincode")?.value,
+        this.searchForm.get("make")?.value
       );
     } else if (
-      this.searchForm.get('pincode')?.value != '' &&
-      this.list_type == 'is_garages'
+      this.searchForm.get("pincode")?.value != "" &&
+      this.list_type == "is_garages"
     ) {
       this.getCheshLessGarages(
         this.insurar_data?.id,
         this.currentPage,
-        this.searchForm.get('pincode')?.value
+        this.searchForm.get("pincode")?.value
       );
     } else if (
-      this.searchForm.get('make')?.value &&
-      this.list_type == 'is_garages'
+      this.searchForm.get("make")?.value &&
+      this.list_type == "is_garages"
     ) {
       this.getCheshLessGarages(
         this.insurar_data?.id,
         this.currentPage,
         null,
-        this.searchForm.get('make')?.value
+        this.searchForm.get("make")?.value
       );
     } else if (
-      this.searchForm.get('pincode')?.value != '' &&
-      this.list_type !== 'is_garages'
+      this.searchForm.get("pincode")?.value != "" &&
+      this.list_type !== "is_garages"
     ) {
       this.getCheshLessHospital(
         this.insurar_data?.id,
         this.currentPage,
-        this.searchForm.get('pincode')?.value
+        this.searchForm.get("pincode")?.value
       );
     }
   }
@@ -267,7 +267,7 @@ export class CashlessGaragePopupComponent {
     makers: any = null
   ) {
     const header = new HttpHeaders({
-      Authorization: `Bearer ${environment['bearerToken']}`,
+      Authorization: `Bearer ${environment["bearerToken"]}`,
     });
     let param = `?pagination[withCount]=true&pagination[page]=${currentPage}&populate[workshop_city][populate]=state_name&filters[workshop_insurers][id]=${insurerId}`;
     if (pincode != null && !isNaN(pincode)) {
@@ -278,7 +278,7 @@ export class CashlessGaragePopupComponent {
     if (makers != null) {
       param += `&filters[workshop_maker][$containsi] =${makers}`;
     }
-    let url = `${environment['strapiDomain']}${ApiConstants['CASHLESS_GARAGES']}${param}`;
+    let url = `${environment["strapiDomain"]}${ApiConstants["CASHLESS_GARAGES"]}${param}`;
     this.apiService.getRequestedResponse(url, header).subscribe((response) => {
       this.garages = response?.data;
       this.items = this.filteredGarages = [...this.garages];
@@ -289,7 +289,7 @@ export class CashlessGaragePopupComponent {
   }
   getCheshLessHospital(insurerId: any, currentPage: any, pincode: any = null) {
     const header = new HttpHeaders({
-      Authorization: `Bearer ${environment['bearerToken']}`,
+      Authorization: `Bearer ${environment["bearerToken"]}`,
     });
     let param = `?pagination[withCount]=true&pagination[page]=${currentPage}&populate[hospital_city][populate]=state_name&filters[hospital_insurers][id]=${insurerId}`;
     if (pincode != null && !isNaN(pincode)) {
@@ -297,7 +297,7 @@ export class CashlessGaragePopupComponent {
     } else if (pincode != null && isNaN(pincode)) {
       param += `&filters[hospital_city][$containsi]=${pincode}`;
     }
-    let url = `${environment['strapiDomain']}${ApiConstants['CASHLESS_HOSPITAL']}${param}`;
+    let url = `${environment["strapiDomain"]}${ApiConstants["CASHLESS_HOSPITAL"]}${param}`;
     this.apiService.getRequestedResponse(url, header).subscribe((response) => {
       this.garages = response?.data;
       this.items = this.filteredGarages = [...this.garages];
@@ -307,7 +307,7 @@ export class CashlessGaragePopupComponent {
     });
   }
   openPopup(): void {
-    document.querySelector('.popup-overlay-profile')?.classList.add('visible');
-    document.body.classList.add('no-scroll');
+    document.querySelector(".popup-overlay-profile")?.classList.add("visible");
+    document.body.classList.add("no-scroll");
   }
 }
