@@ -59,4 +59,14 @@
       </div>
     </div>
   </div>
+  <div class="d-flex justify-content-center mt-3 mb-5" *ngIf="pageName === 'health' ">
+    <span class="view-more text-center" (click)="expandTable()">
+      {{ isExpanded ? 'View less' : 'View more' }}
+      <img [src]=" './rb_assets/assets/images/dwnld.svg'"
+      [ngClass]="{'rotate-180': isExpanded}"
+      class="download" 
+      alt="Expand or collapse myths"
+      />
+    </span>
+  </div>
 </div>
