@@ -105,6 +105,7 @@ export class MotorinsuranceLandingPageComponent {
     pageDescription: `Buying motor insurance online offers convenience, transparency, and the ease of comparing multiple options in just a few clicks. Enjoy quick, hassle-free insurance purchases at your fingertips.`,
     icon: "../../../../rb_assets/assets/insurance/check-icon.svg",
     marginClass: "mt-0",
+    pageName: "motor",
     cards: [
       {
         cardHeader: "",
@@ -139,6 +140,7 @@ export class MotorinsuranceLandingPageComponent {
     icon: "../../../../rb_assets/assets/insurance/check-icon.svg",
     column_no: 2,
     marginClass: "mt-0",
+    pageName: "motor",
     cards: [
       {
         cardHeader: "",
@@ -317,8 +319,9 @@ export class MotorinsuranceLandingPageComponent {
     const header = new HttpHeaders({
       Authorization: `Bearer ${environment["bearerToken"]}`,
     });
-    let url = `${environment["strapiDomain"]}${ApiConstants["INSURANCE_HOME"]}`;
+    let url = `${environment["strapiDomain"]}${ApiConstants["MOTOR_INSURANCE"]}`;
     this.apiService.getRequestedResponse(url, header).subscribe((response) => {
+      // console.log(response);
       this.meta.updateMeta(
         response?.data?.attributes?.seo?.metaTitle,
         response?.data?.attributes?.seo?.metaDescription,

@@ -1,4 +1,9 @@
 import { Component } from "@angular/core";
+import { ApiService } from "../../utilis/service/api.service";
+import { HttpHeaders } from "@angular/common/http";
+import { environment } from "../../../environments/environment";
+import { ApiConstants } from "../../utilis/api.constant";
+import { MetaService } from "../../utilis/service/meta.service";
 
 @Component({
   selector: "app-healthinsurance-landing-page",
@@ -10,66 +15,64 @@ export class HealthinsuranceLandingPageComponent {
     {
       pageHeader: `What is Health Insurance?`,
       pageDescriptions: `<p class="decsription-text">
-      Health insurance is also known as medical insurance. A health insurance plan is a contract between the insurance company and the policyholder in which the health insurance company provides you with financial coverage against medical expenses incurred due to accident, critical illness, minor or major injuries, etc.
-    </p>
+Health insurance, also called medical insurance, is a plan that helps cover your healthcare costs. When you have health insurance, you enter into an agreement with an insurance company, which promises to help pay for medical expenses if you get injured, face a serious illness, or need treatment for an accident. It’s a way to ease the financial burden of healthcare, so you can focus on getting better without worrying as much about the cost.    </p>
     <p class="decsription-text">
-      Policyholders need to pay a pre-determined amount (health insurance premium) to avail the coverage <span class="link-text">benefits of a health insurance</span> policy. A health insurance plan offers various coverage benefits such as pre and post-hospitalization, home hospitalization, coverage for daycare treatment, annual medical check-up, etc.
-    </p>`,
-    pageName:'health',
-    addOnsHead:'Add-ons Under Health Insurance',
-    addOnSubHead:`<p class="motor-description-text">
-      Health insurance riders are used to enhance the basic coverage benefits by paying some extra premium amount. Below mentioned are some of the health insurance riders that you can consider before buying a health insurance plan
+To receive the benefits of a health insurance policy, policyholders pay a set amount called a premium. In return, the plan provides a range of coverage options, including expenses related to hospital stays before and after treatment, care at home if needed, coverage for daycare procedures, and even an annual medical check-up. This support can make healthcare more manageable and affordable.    </p>`,
+      pageName: "health",
+      addOnsHead: "Addons Under Health Insurance",
+      addOnSubHead: `<p class="motor-description-text">
+Health insurance riders let you boost your basic coverage by paying a bit more on your premium. Here are some popular riders you might want to explore before choosing a health insurance plan.
     </p>`,
     addOnsPageCardData :  [
       {
         id: 1,
         heading: 'Maternity Cover',
-        imageSrc: '../../../../rb_assets/assets/insurance/zero-depreciation.svg',
+        imageSrc: '../../../../rb_assets/assets/insurance/maternityCover.svg',
         text: 'You can cover the expenses related to maternity, pre & post-natal expenses & newborn child under a maternity add-on rider.',
       },
       {
         id: 2,
         heading: 'Critical Illness',
-        imageSrc: '../../../../rb_assets/assets/insurance/assistance-road.svg',
+        imageSrc: '../../../../rb_assets/assets/insurance/criticalIllness.svg',
         text: 'A lump sum is paid upon diagnosis of a critical illness during the policy term, such as heart disease, kidney failure, or cancer.',
       },
       {
         id: 3,
         heading: 'Personal Accident',
-        imageSrc: '../../../../rb_assets/assets/insurance/pa-cover.svg',
+        imageSrc: '../../../../rb_assets/assets/insurance/personalAccident.svg',
         text: "You will receive the total amount if you become completely permanently disabled or partially disabled due to an accident.",
       },
       {
         id: 4,
         heading: 'Hospital Daily Cash',
-        imageSrc: '../../../../rb_assets/assets/insurance/ncb-cover.svg',
+        imageSrc: '../../../../rb_assets/assets/insurance/hospitalDailyCash.svg',
         text: 'You will get a daily cash allowance to take care of additional expenses such as food, travel, etc. at the time of hospitalization.',
       },
       {
         id: 5,
         heading: 'Reduction of Waiting Period',
         imageSrc:
-          '../../../../rb_assets/assets/insurance/key-replacement-cover.svg',
+          '../../../../rb_assets/assets/insurance/reductionofWaitingPeriod.svg',
         text: 'A lump sum is paid upon diagnosis of a critical illness during the policy term, such as heart disease, kidney failure, or cancer.',
       },
       {
         id: 6,
         heading: 'Room Rent Waiver',
-        imageSrc: '../../../../rb_assets/assets/insurance/engine.svg',
+        imageSrc: '../../../../rb_assets/assets/insurance/roomRentWaiver.svg',
         text: 'This rider allows you to increase the sub-limit for hospital room rents or choose no sub-limit for greater flexibility and comfort.',
       }
     ]
     },
-    
   ];
-  
+
   inclusionsData = {
-    pageHeader:
-      "Ensure superior health insurance that delivers peace of mind with top-tier benefits.",
+    pageHeader: "Ensure Health Insurance that delivers.",
     pageDescription: `Below are the benefits of choosing the best health insurance from the best health insurer in India:`,
     icon: "../../../../rb_assets/assets/insurance/check-icon.svg",
     backgroundImage:
       "../../../../rb_assets/assets/insurance/inclusions-background.svg",
+    backgroundImageMobileView:
+      "../../../../rb_assets/assets/insurance/inclusions-background-sm.svg",
     backgroundHeight: "35rem",
     marginTop: "5%",
     cards: [
@@ -78,15 +81,15 @@ export class HealthinsuranceLandingPageComponent {
         inclusionsData: [
           {
             title: "Wide Range of Health Plans",
-            text: "Choose from a diverse range of health plans tailored to your needs and budget, ensuring comprehensive coverage & peace of mind.",
+            text: "Choose from a variety of health plans designed to fit your needs and budget, ensuring complete coverage and peace of mind.",
           },
           {
-            title: "Quick Grievance Redressalt",
-            text: "Experience swift grievance redressal processes that prioritise your concerns, ensuring efficient resolutions & customer satisfaction.",
+            title: "Quick Grievance Redressal",
+            text: "Experience quick grievance resolution processes that prioritize your concerns, ensuring efficient solutions and high customer satisfaction.",
           },
           {
             title: "Easy Claim Settlement Process",
-            text: "Benefit from a hassle-free claim settlement process designed for simplicity and speed, ensuring quick reimbursement & minimal paperwork.",
+            text: "Enjoy a hassle-free claim settlement process designed for simplicity and speed, ensuring quick reimbursements and minimal paperwork.",
           },
         ],
       },
@@ -94,16 +97,16 @@ export class HealthinsuranceLandingPageComponent {
         cardHeader: "",
         inclusionsData: [
           {
-            title: "Flexible Premium Payment Option",
-            text: "Enjoy the flexibility of premium payment options that suit your financial planning, making it easier to manage your health insurance expenses.",
+            title: "Flexible Payment Option",
+            text: "Take advantage of flexible premium payment options that align with your financial planning, making it easier to manage your health insurance costs.",
           },
           {
-            title: "Renewal Benefits",
-            text: "Access renewal benefits that reward your loyalty with enhanced coverage or discounts, ensuring continued protection & value.",
+            title: "Renewal Benefit Option",
+            text: " Enjoy renewal benefits that reward your loyalty with improved coverage or discounts, ensuring ongoing protection and added value.",
           },
           {
-            title: "Portability Option Available",
-            text: "Access renewal benefits that reward your loyalty with enhanced coverage or discounts, ensuring continued protection & value.",
+            title: "Profitability Option",
+            text: "Health insurance portability allows you to maintain your coverage benefits when switching providers, ensuring continuous care without losing protection.",
           },
         ],
       },
@@ -115,8 +118,10 @@ export class HealthinsuranceLandingPageComponent {
     icon: "../../../../rb_assets/assets/insurance/cross-shield.svg",
     backgroundImage:
       "../../../../rb_assets/assets/insurance/exclusions-background.svg",
-      backgroundHeight: "38rem",
-      marginTop: "7%",
+    backgroundImageMobileView:
+      "../../../../rb_assets/assets/insurance/exclusion-background-sm.svg",
+    backgroundHeight: "38rem",
+    marginTop: "7%",
     cards: [
       {
         cardHeader: "",
@@ -198,7 +203,7 @@ export class HealthinsuranceLandingPageComponent {
       "No claims for injuries caused during illegal activities or crimes.",
     pageDescription: `Below mentioned are the factors that can affect your health insurance premium amount:`,
     icon: "../../../../rb_assets/assets/insurance/check-icon.svg",
-    column_no: 2,
+    pageName:'health',
     cards: [
       {
         cardHeader: "",
@@ -227,6 +232,15 @@ export class HealthinsuranceLandingPageComponent {
             title: "Type of Health Plan",
             text: "Comprehensive health plans usually have higher premiums due to broader coverage options",
           },
+          {
+            title: "Additional Riders",
+            text: "Adding riders to a policy increases the overall premium and enhances coverage options.",
+          },
+          {
+            title: "Lifestyle of the Applicant",
+            text: "Unhealthy lifestyle choices, such as smoking, can increase insurance premium amounts significantly.",
+          },
+          
         ],
       },
     ],
@@ -235,7 +249,7 @@ export class HealthinsuranceLandingPageComponent {
     pageHeader: "Key Health Insurance Jargons You Should Know",
     pageDescription: `Understanding key health insurance jargons is essential for navigating coverage options effectively.`,
     icon: "../../../../rb_assets/assets/insurance/check-icon.svg",
-    column_no: 2,
+    pageName:'health',
     cards: [
       {
         cardHeader: "",
@@ -264,6 +278,26 @@ export class HealthinsuranceLandingPageComponent {
             title: "Add-on Riders",
             text: "Add-on riders or additional riders are the benefits that you can add to your health plan to enhance the coverage benefits by paying some additional premium amount.",
           },
+          {
+            title: "Domiciliary Treatment:",
+            text: "It is a type of treatment in which policyholders can receive treatment at home if they cannot reach the hospital or find medical facilities for a specific treatment under the supervision of a medical professional.",
+          },
+          {
+            title: "Deductible",
+            text: "The amount you must pay out of pocket before your insurance coverage starts. For example, if your deductible is INR 1K, you must pay the first INR 1K of covered expenses before your insurance begins to pay.",
+          },
+          {
+            title: "Preauthorization",
+            text: "The process of obtaining approval from your insurance company before receiving certain medical services or procedures. This is typically required for expensive or non-emergency procedures to ensure they are medically necessary.",
+          },
+          {
+            title: "Free Look Period",
+            text: "This is a period in which you can cancel or change your health insurance company without paying any penalty. Generally, it lasts for 15 days from the date of the policy.",
+          },
+          {
+            title: "Pre-existing condition",
+            text: "A health condition or illness you had before buying a health insurance plan.",
+          },
         ],
       },
     ],
@@ -271,82 +305,124 @@ export class HealthinsuranceLandingPageComponent {
   navigatorTabsData = [
     {
       id: 1,
-      label: "Best Health Insurance plans in India",
+      label: "Best Health Insurance Companies in India",
       icon: "../../../../rb_assets/assets/insurance/navigator-icon.svg",
       altText: "Home Icon",
-      link:"'https://www.renewbuy.com/"
+      link: "https://www.renewbuy.com/health-insurance/companies",
     },
     {
       id: 2,
-      label: "Family Health Insurance",
+      label: "Best Health Insurance Plans in India",
       icon: "../../../../rb_assets/assets/insurance/navigator-icon.svg",
       altText: "Profile Icon",
-      link:"'https://www.renewbuy.com/"
+      link: "' https://www.renewbuy.com/articles/health-insurance/best-health-insurance-plans-in-india",
     },
     {
       id: 3,
-      label: "Compare Health Insurance plans",
+      label: "Health Insurance Premium Calculator",
       icon: "../../../../rb_assets/assets/insurance/navigator-icon.svg",
       altText: "Settings Icon",
-      link:"'https://www.renewbuy.com/"
+      link: "https://www.renewbuy.com/health-insurance/premium-calculator",
     },
     {
       id: 4,
-      label: "Find the Best Health Insurance Companies with RenewBuy",
+      label: "Compare Health Insurance",
       icon: "../../../../rb_assets/assets/insurance/navigator-icon.svg",
       altText: "Help Icon",
-      link:"'https://www.renewbuy.com/"
+      link: "https://www.renewbuy.com/health-insurance/compare-health-insurance/",
     },
   ];
   questionsList = [
     {
-      question: "How many standalone health insurance companies are in India?",
+      question:
+        "What are the different health insurance policies available in India?",
       answer:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam natus, optio fugit alias ad veniam. At omnis accusantium reprehenderit suscipit qui sapiente earum, non nostrum quas similique minus, placeat ullam.",
+        "There are many types of health insurance policies available in India; these include individual plans, family floater plans, group health insurance plans, etc.",
     },
     {
-      question: "How many are health insurance companies available in India?",
+      question: "How much does health insurance cost in India?",
       answer:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam natus, optio fugit alias ad veniam. At omnis accusantium reprehenderit suscipit qui sapiente earum, non nostrum quas similique minus, placeat ullam.",
+        "There are many different policies that you can buy, and there are many conditions that affect a health insurance policy; these include age, gender, medical history, lifestyle, etc.",
     },
     {
-      question:
-        "Is there any health insurance company that offers health insurance plans for diabetes?",
+      question: "What is the right age to buy a health insurance policy?",
       answer:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam natus, optio fugit alias ad veniam. At omnis accusantium reprehenderit suscipit qui sapiente earum, non nostrum quas similique minus, placeat ullam.",
+        "There is no right age to buy a policy. But the earlier you buy the policy, the lesser the premium. The reason is that when you are young, there is a lesser risk of illness as compared to someone who is in their 50s or 60s.",
     },
     {
-      question:
-        "Is there any health insurance company that offers health insurance plans for diabetes?",
+      question: "What is a copayment?",
       answer:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam natus, optio fugit alias ad veniam. At omnis accusantium reprehenderit suscipit qui sapiente earum, non nostrum quas similique minus, placeat ullam.",
+        "Copayment is a certain percentage of the claim that the insured agrees to pay along with the insurance company. The insurer then pays the remaining claim amount.",
     },
     {
-      question:
-        "What are the top 5 health insurance companies basis on the latest claim settlement ratio?",
+      question: "Can I have more than one medical insurance policy?",
+      answer:
+        "Yes, you can have more than one medical insurance policy. For example, you can buy an individual plan and a family floater plan if you are covered under a group health insurance plan.",
     },
     {
-      question:
-        "How many are public health insurance companies available in India?",
+      question: "Is a medical test required to buy a health insurance plan?",
+      answer:
+        "Medical tests are not mandatory to buy health insurance. But most insurance companies in India have made medical tests mandatory for people over 45 years of age. This can vary depending upon the age of the insured.",
     },
     {
-      question:
-        "Is expensive health insurance equal to the best health insurance plan?",
+      question: "How many claims are allowed during the term of the policy?",
+      answer:
+        "The number of claims allowed differs from policy to policy. Some policies allow one or two claims per year, whereas other policies allow an unlimited number of claims.",
     },
     {
-      question:
-        "Is there any health insurance company in India that covers dental treatment?",
+      question: "What is the free look period in a health insurance policy?",
+      answer:
+        "A free look period is available up to 15 days up to the purchase of the policy. During this period, you can review the features, coverage and decide whether you want to keep the policy or not.",
     },
     {
-      question: "How to choose a top health insurance company in India?",
+      question: "What are network hospitals?",
+      answer:
+        "Network hospitals refer to the hospitals that are included in the panel of the insurance company. You can avail of cashless hospitalization in these hospitals. Non-network hospitals are general category hospitals where you can get treatment and then file for reimbursement later.",
     },
     {
-      question:
-        "How many are private health insurance companies available in India?",
+      question: "Is there any specific plan for cancer?",
+      answer:
+        "One can always opt for a standalone critical insurance plan to cover diseases like cancer. The buyer is advised to read the coverages of the plan before purchasing one.",
     },
     {
-      question:
-        "Can I port my health insurance plan from one health insurance company to another?",
+      question: "What is Copayment in health insurance?",
+      answer:
+        "Copayment in health insurance is a certain percentage of the claim that the insured agrees to pay along with the insurance company. The insurer then pays the remaining claim amount.",
+    },
+    {
+      question: "What are network hospitals in health insurance?",
+      answer:
+        "Network hospitals in health insurance refer to the hospitals that are included in the panel of the insurance company. You can avail of cashless hospitalization in these hospitals. Non-network hospitals are general category hospitals where you can get treatment and then file for reimbursement later.",
+    },
+    {
+      question: "Does Health Insurance covers mental health treatments?",
+      answer:
+        "Yes, health insurance plans offer coverage for mental health treatments but the coverage varies from plan to plan.",
+    },
+    {
+      question: "Can I have multiple health insurance plans at a time?",
+      answer:
+        "Yes, you can use multiple health insurance policy for the same medical expense. Some health insurance plan also covers partial treatment of the critical illness within the policy.",
+    },
+    {
+      question: "Does smoking affect health insurance premiums?",
+      answer:
+        "Yes, if you are a smoker then you will have to pay a higher health insurance premium than a non-smoker. Some health insurance plan also covers partial treatment of the critical illness within the policy.",
     },
   ];
+  constructor(private apiService: ApiService, private meta: MetaService) {
+    const header = new HttpHeaders({
+      Authorization: `Bearer ${environment["bearerToken"]}`,
+    });
+    let url = `${environment["strapiDomain"]}${ApiConstants["HEALTH_INSURANCE"]}`;
+    this.apiService.getRequestedResponse(url, header).subscribe((response) => {
+      // console.log(response);
+      this.meta.updateMeta(
+        response?.data?.attributes?.seo?.metaTitle,
+        response?.data?.attributes?.seo?.metaDescription,
+        response?.data?.attributes?.seo?.keywords,
+        response?.data?.attributes?.seo?.canonicalURL
+      );
+    });
+  }
 }

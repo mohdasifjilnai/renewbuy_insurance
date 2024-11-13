@@ -1,4 +1,5 @@
 .reduce-premium {
+    margin-bottom: 3rem;
     .heading {
       font-size: 24px;
       font-weight: 500;
@@ -19,12 +20,23 @@
     .card-gap{
         margin-top: 54px;
     }
+    .col-one{
+        margin-top: 1rem;
+    }
     .custom-card{
         width: 400px;
         height: 160px;
         background-color: #f8fafe;
         border-radius: 20px;
         border: none;
+        .row-one{
+            margin: 1rem;
+        }
+        .row-two{
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+            margin-left: 1rem;
+        }
         .card-heading{
             font-size: 16px;
             font-weight: 600;
@@ -36,7 +48,54 @@
             line-height: 20px;
         }
     }
-    .reduce-premium-img{
-        // margin-top: -3%;
+}
+@media only screen and (max-width: 768px) {
+    .reduce-premium{
+        margin-bottom: 0;
+
+        .heading {
+            font-size: 18px;
+            font-weight: 500;
+            line-height: 27px;
+            margin-top: 0;
+          }
+          .heading-para {
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 20px;
+          }
+        .custom-card{
+            height: auto;
+            .row-one{
+                margin: 0.2rem;
+            }
+            .row-two{
+                margin-top: 0.2rem;
+                margin-bottom: 0.2rem;
+                margin-left: 0.2rem;
+            }
+            .card-heading{
+                font-size: 15px;
+                font-weight: 600;
+                line-height: 20px;
+            }
+            .sub-heading{
+                font-size: 13px;
+                font-weight: 400;
+                line-height: 18px;
+            }
+        }
+        .card-gap{
+            margin-top: 1rem;
+        }
+        .col{
+            margin-top: 1rem;
+        }
+        .col-one{
+            margin-top: 1rem;
+        }
+        .col-two{
+            margin-top: 0;
+        }
     }
 }
