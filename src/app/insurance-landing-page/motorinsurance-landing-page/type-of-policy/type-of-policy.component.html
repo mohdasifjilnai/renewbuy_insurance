@@ -1,33 +1,34 @@
 <div class="types-of-policy-container py-5">
-<div class="container">
-  <div class="types-of-policy-header">
-    <h2 class="heading-text">Types of Motor Insurance Policy</h2>
-  </div>
-  <div class="types-of-policy-description">
-    <p class="decsription-text">
-      Motor Insurance can be broadly divided into three categories, and as per
-      your needs, You may choose the motor insurance online plan that best
-      matches your needs.
-    </p>
-  </div>
-  <div class="types-of-policy-card-container">
-    <div class="row card-container">
-      <div class="col-12 col-sm-4" *ngFor="let card of insuranceCardData">
-        <div class="card">
-          <div class="card-image-box">
-            <img
-              class="card-image"
-              src="{{card.imageUrl}}"
-              alt="{card.altText}"
-            />
+  <div class="container">
+    <div class="types-of-policy-header">
+      <h2 class="heading-text">Types of Motor Insurance Policy</h2>
+    </div>
+    <div class="types-of-policy-description">
+      <p class="decsription-text text-center">
+        You can choose from different types of motor insurance matching your
+        needs - from basic third-party cover to comprehensive plans. Understand
+        the options to choose the best fit for your vehicle.
+      </p>
+    </div>
+    <div class="types-of-policy-card-container">
+      <div class="row card-container">
+        <div class="col-12 col-sm-4" *ngFor="let card of insuranceCardData">
+          <div class="card">
+            <div class="card-image-box">
+              <img
+                class="card-image"
+                src="{{ card.imageUrl }}"
+                alt="{card.altText}"
+              />
+            </div>
+            <h2 class="card-name">{{ card?.title }}</h2>
+            <p class="card-description">
+              <a class="active-text text-decoration-none">{{ card.linkText }}</a
+              >{{ card?.description }}
+            </p>
           </div>
-          <h2 class="card-name">{{card?.title}}</h2>
-          <p class="card-description">
-            <a class="active-text text-decoration-none">{{card.linkText}}</a>{{card?.description}}
-          </p>
         </div>
       </div>
     </div>
   </div>
-</div>
 </div>

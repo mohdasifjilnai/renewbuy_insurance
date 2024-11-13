@@ -174,6 +174,7 @@ export class HeaderComponent {
     console.log(event, "event");
     if (event) {
       this.isSign = false;
+      this.userProfileComplete=false
       // if (isPlatformBrowser(this.platformId)) {
       //   window.location.href = environment['dashboardDomain'];
       //   this.isSign = false;
