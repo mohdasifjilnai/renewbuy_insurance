@@ -93,6 +93,6 @@ preprod-deploy:
     - echo "$SSH_PRIVATE_KEY" | tr -d '\r' > ~/.ssh/id_rsa
     - chmod 400 ~/.ssh/id_rsa
   script:
-    - ssh -o stricthostkeychecking=no ubuntu@${PROD_SERVER_IP} "sudo docker login -u clone_token -p "YANkxZ4_imRoBZSidzuL" registry.gitlab.renewbuy.in && cd /home/ubuntu/repos/renewbuy-insurance-preprod/renewbuy-insurance-preprod && sh deploy.sh "
+    - ssh -o stricthostkeychecking=no ubuntu@${PROD_SERVER_IP} "sudo docker login -u clone_token -p "YANkxZ4_imRoBZSidzuL" registry.gitlab.renewbuy.in && cd /home/ubuntu/repos/renewbuy-insurance-preprod/ && sh deploy.sh "
   only: 
     - preprod
