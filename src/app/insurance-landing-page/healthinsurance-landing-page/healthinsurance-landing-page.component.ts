@@ -203,7 +203,7 @@ Health insurance riders let you boost your basic coverage by paying a bit more o
       "No claims for injuries caused during illegal activities or crimes.",
     pageDescription: `Below mentioned are the factors that can affect your health insurance premium amount:`,
     icon: "../../../../rb_assets/assets/insurance/check-icon.svg",
-    column_no: 2,
+    pageName:'health',
     cards: [
       {
         cardHeader: "",
@@ -232,6 +232,15 @@ Health insurance riders let you boost your basic coverage by paying a bit more o
             title: "Type of Health Plan",
             text: "Comprehensive health plans usually have higher premiums due to broader coverage options",
           },
+          {
+            title: "Additional Riders",
+            text: "Adding riders to a policy increases the overall premium and enhances coverage options.",
+          },
+          {
+            title: "Lifestyle of the Applicant",
+            text: "Unhealthy lifestyle choices, such as smoking, can increase insurance premium amounts significantly.",
+          },
+          
         ],
       },
     ],
@@ -240,7 +249,7 @@ Health insurance riders let you boost your basic coverage by paying a bit more o
     pageHeader: "Key Health Insurance Jargons You Should Know",
     pageDescription: `Understanding key health insurance jargons is essential for navigating coverage options effectively.`,
     icon: "../../../../rb_assets/assets/insurance/check-icon.svg",
-    column_no: 2,
+    pageName:'health',
     cards: [
       {
         cardHeader: "",
@@ -268,6 +277,26 @@ Health insurance riders let you boost your basic coverage by paying a bit more o
           {
             title: "Add-on Riders",
             text: "Add-on riders or additional riders are the benefits that you can add to your health plan to enhance the coverage benefits by paying some additional premium amount.",
+          },
+          {
+            title: "Domiciliary Treatment:",
+            text: "It is a type of treatment in which policyholders can receive treatment at home if they cannot reach the hospital or find medical facilities for a specific treatment under the supervision of a medical professional.",
+          },
+          {
+            title: "Deductible",
+            text: "The amount you must pay out of pocket before your insurance coverage starts. For example, if your deductible is INR 1K, you must pay the first INR 1K of covered expenses before your insurance begins to pay.",
+          },
+          {
+            title: "Preauthorization",
+            text: "The process of obtaining approval from your insurance company before receiving certain medical services or procedures. This is typically required for expensive or non-emergency procedures to ensure they are medically necessary.",
+          },
+          {
+            title: "Free Look Period",
+            text: "This is a period in which you can cancel or change your health insurance company without paying any penalty. Generally, it lasts for 15 days from the date of the policy.",
+          },
+          {
+            title: "Pre-existing condition",
+            text: "A health condition or illness you had before buying a health insurance plan.",
           },
         ],
       },

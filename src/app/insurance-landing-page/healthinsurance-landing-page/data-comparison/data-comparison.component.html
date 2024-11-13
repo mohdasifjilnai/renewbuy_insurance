@@ -53,8 +53,8 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let data of displayData">
-          <td class="insurer-name">{{ data?.insurer }}</td>
+        <tr *ngFor="let data of (isExpanded ? companiesData : companiesData | slice:0:5)">
+          <td class="insurer-name">{{ data?.company }}</td>
           <td>{{ data?.claimSettlementRatio }}</td>
           <td>{{ data?.incurredClaimRatio }}</td>
           <td>{{ data?.solvencyRatio }}</td>
@@ -68,8 +68,11 @@
   <div class="d-flex justify-content-center mt-3">
     <span class="view-more text-center" (click)="expandTable()">
       {{ isExpanded ? 'View less' : 'View more' }}
-      <img [src]="isExpanded ? '' : './rb_assets/assets/images/dwnld.svg'"
-      class="download" alt="" />
+      <img [src]=" './rb_assets/assets/images/dwnld.svg'"
+      [ngClass]="{'rotate-180': isExpanded}"
+      class="download" 
+      alt="Expand or collapse myths"
+      />
     </span>
   </div>
 </div>
