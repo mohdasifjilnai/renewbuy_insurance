@@ -11,6 +11,7 @@
       </p>
     </div>
   </div>
+  <div class="d-none d-lg-block">
   <div class="row mt-5">
     <div class="col-2 col-lg-2"></div>
     <div class="col-4 col-lg-4 d-flex justify-content-center">
@@ -136,6 +137,20 @@
             </span>
           </div>
         </div>
+      </div>
+    </div>
+  </div>
+</div>
+  <div class="d-block d-lg-none">
+    <div class="card custom-res-card mb-3" *ngFor="let card of bestBenifitResCard">
+      <div class="card-body">
+          <div class="text-center">
+            <img [src]="card.image" alt="">
+            <div class="card-head">{{ card?.bestCoverageHead }}</div>
+            <span class="card-subHead"
+              >{{ card?.bestCoverageDescription }}</span
+            >
+          </div>
       </div>
     </div>
   </div>

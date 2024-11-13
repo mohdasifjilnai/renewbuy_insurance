@@ -53,3 +53,39 @@
     }
 
 }
+@media only screen and (max-width: 768px) {
+  .some-myths{
+    .heading {
+      font-size: 18px;
+      font-weight: 500;
+      line-height: 27px;
+      margin-top: 0;
+    }
+    .heading-para {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 20px;
+    }
+    .myths{
+      row-gap: 10px;
+      .myth-head{
+          font-size: 22px;
+          font-weight: 600;
+          line-height: 30px;
+          color: #6F6F6F;
+          .text{
+              font-size: 15px;
+              font-weight: 600;
+              line-height: 21px;
+          }
+      }
+      .myth-sub-head{
+          font-size: 12px;
+          font-weight: 400;
+          line-height: 18px;
+          color: #242424;
+          opacity: 50%;
+      }
+    }
+  }
+}
