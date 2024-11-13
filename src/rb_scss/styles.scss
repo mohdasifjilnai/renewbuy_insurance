@@ -292,6 +292,15 @@ body.no-scroll {
       }
     }
   }
+  @media (min-width: 1296px) and (max-width: 1366px){
+    .page-title {
+      font-size: 26px;
+      color: #242424;
+    }
+    .subtitle .text-bold {
+      font-size: 14px;
+    }
+  }
 }
 
 .ngx-pagination {
