@@ -1,15 +1,15 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input } from "@angular/core";
 
 @Component({
-  selector: 'app-navigator',
-  templateUrl: './navigator.component.html',
-  styleUrl: './navigator.component.scss',
+  selector: "app-navigator",
+  templateUrl: "./navigator.component.html",
+  styleUrl: "./navigator.component.scss",
 })
 export class NavigatorComponent {
   @Input() navigatorTabsData: any;
   redirect(link: any): void {
     if (link != null) {
-      window.location.href = 'www.renewbuy.com';
+      window.open(link, "_blank");
     }
   }
 

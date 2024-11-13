@@ -17,7 +17,7 @@ type SelectionOption = {
   styleUrl: "./cashless-hospitals.component.scss",
 })
 export class CashlessHospitalsComponent {
-  activeTab: string = "is_garages";
+  activeTab: string = "is_hospitals";
   cashlessPopup: boolean = false;
   listType: any = this.activeTab;
   maxVisibleCards: number = 3; // Number of initially visible cards
@@ -47,10 +47,8 @@ export class CashlessHospitalsComponent {
     private apiService: ApiService,
     private shareService: ShareService
   ) {
-    this.getHospitals('is_hospital');
+    this.getHospitals("is_hospital");
   }
-
- 
 
   viewAll(): void {
     this.maxVisibleCards =

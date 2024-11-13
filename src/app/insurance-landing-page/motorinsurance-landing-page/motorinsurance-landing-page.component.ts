@@ -236,28 +236,28 @@ export class MotorinsuranceLandingPageComponent {
       label: "Benefits of Buying Motor Insurance Online?",
       icon: "../../../../rb_assets/assets/insurance/navigator-icon.svg",
       altText: "Home Icon",
-      link: "'https://www.renewbuy.com/",
+      link: "https://www.renewbuy.com/motor-insurance/car-insurance/companies",
     },
     {
       id: 2,
       label: "Reasons to Buy Motor Insurance",
       icon: "../../../../rb_assets/assets/insurance/navigator-icon.svg",
       altText: "Profile Icon",
-      link: "'https://www.renewbuy.com/",
+      link: "https://www.renewbuy.com/motor-insurance/third-party-insurance",
     },
     {
       id: 3,
       label: "Renewal Process of Motor Insurance Policy",
       icon: "../../../../rb_assets/assets/insurance/navigator-icon.svg",
       altText: "Settings Icon",
-      link: "'https://www.renewbuy.com/",
+      link: "https://www.renewbuy.com/motor-insurance/car-insurance/renewal",
     },
     {
       id: 4,
       label: "Process for Filing the Claim Under Motor Insurance",
       icon: "../../../../rb_assets/assets/insurance/navigator-icon.svg",
       altText: "Help Icon",
-      link: "'https://www.renewbuy.com/",
+      link: "https://www.renewbuy.com/articles/motor-insurance/how-renew-motor-insurance-policy",
     },
   ];
   questionsList = [
