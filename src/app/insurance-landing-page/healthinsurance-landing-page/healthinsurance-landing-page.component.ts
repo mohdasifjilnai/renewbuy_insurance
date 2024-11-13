@@ -66,6 +66,7 @@ Health insurance riders let you boost your basic coverage by paying a bit more o
     icon: "../../../../rb_assets/assets/insurance/check-icon.svg",
     backgroundImage:
       "../../../../rb_assets/assets/insurance/inclusions-background.svg",
+    backgroundImageMobileView:'../../../../rb_assets/assets/insurance/inclusions-background-sm.svg',
     backgroundHeight: "35rem",
     marginTop: "5%",
     cards: [
@@ -111,8 +112,9 @@ Health insurance riders let you boost your basic coverage by paying a bit more o
     icon: "../../../../rb_assets/assets/insurance/cross-shield.svg",
     backgroundImage:
       "../../../../rb_assets/assets/insurance/exclusions-background.svg",
-    backgroundHeight: "38rem",
-    marginTop: "7%",
+      backgroundImageMobileView:'../../../../rb_assets/assets/insurance/exclusion-background-sm.svg',
+      backgroundHeight: "38rem",
+      marginTop: "7%",
     cards: [
       {
         cardHeader: "",
@@ -296,53 +298,80 @@ Health insurance riders let you boost your basic coverage by paying a bit more o
   ];
   questionsList = [
     {
-      question: "How many standalone health insurance companies are in India?",
+      question:
+        "What are the different health insurance policies available in India?",
       answer:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam natus, optio fugit alias ad veniam. At omnis accusantium reprehenderit suscipit qui sapiente earum, non nostrum quas similique minus, placeat ullam.",
+        "There are many types of health insurance policies available in India; these include individual plans, family floater plans, group health insurance plans, etc.",
     },
     {
-      question: "How many are health insurance companies available in India?",
+      question: "How much does health insurance cost in India?",
       answer:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam natus, optio fugit alias ad veniam. At omnis accusantium reprehenderit suscipit qui sapiente earum, non nostrum quas similique minus, placeat ullam.",
+        "There are many different policies that you can buy, and there are many conditions that affect a health insurance policy; these include age, gender, medical history, lifestyle, etc.",
     },
     {
-      question:
-        "Is there any health insurance company that offers health insurance plans for diabetes?",
+      question: "What is the right age to buy a health insurance policy?",
       answer:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam natus, optio fugit alias ad veniam. At omnis accusantium reprehenderit suscipit qui sapiente earum, non nostrum quas similique minus, placeat ullam.",
+        "There is no right age to buy a policy. But the earlier you buy the policy, the lesser the premium. The reason is that when you are young, there is a lesser risk of illness as compared to someone who is in their 50s or 60s.",
     },
     {
-      question:
-        "Is there any health insurance company that offers health insurance plans for diabetes?",
+      question: "What is a copayment?",
       answer:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam natus, optio fugit alias ad veniam. At omnis accusantium reprehenderit suscipit qui sapiente earum, non nostrum quas similique minus, placeat ullam.",
+        "Copayment is a certain percentage of the claim that the insured agrees to pay along with the insurance company. The insurer then pays the remaining claim amount.",
     },
     {
-      question:
-        "What are the top 5 health insurance companies basis on the latest claim settlement ratio?",
+      question: "Can I have more than one medical insurance policy?",
+      answer:
+        "Yes, you can have more than one medical insurance policy. For example, you can buy an individual plan and a family floater plan if you are covered under a group health insurance plan.",
     },
     {
-      question:
-        "How many are public health insurance companies available in India?",
+      question: "Is a medical test required to buy a health insurance plan?",
+      answer:
+        "Medical tests are not mandatory to buy health insurance. But most insurance companies in India have made medical tests mandatory for people over 45 years of age. This can vary depending upon the age of the insured.",
     },
     {
-      question:
-        "Is expensive health insurance equal to the best health insurance plan?",
+      question: "How many claims are allowed during the term of the policy?",
+      answer:
+        "The number of claims allowed differs from policy to policy. Some policies allow one or two claims per year, whereas other policies allow an unlimited number of claims.",
     },
     {
-      question:
-        "Is there any health insurance company in India that covers dental treatment?",
+      question: "What is the free look period in a health insurance policy?",
+      answer:
+        "A free look period is available up to 15 days up to the purchase of the policy. During this period, you can review the features, coverage and decide whether you want to keep the policy or not.",
     },
     {
-      question: "How to choose a top health insurance company in India?",
+      question: "What are network hospitals?",
+      answer:
+        "Network hospitals refer to the hospitals that are included in the panel of the insurance company. You can avail of cashless hospitalization in these hospitals. Non-network hospitals are general category hospitals where you can get treatment and then file for reimbursement later.",
     },
     {
-      question:
-        "How many are private health insurance companies available in India?",
+      question: "Is there any specific plan for cancer?",
+      answer:
+        "One can always opt for a standalone critical insurance plan to cover diseases like cancer. The buyer is advised to read the coverages of the plan before purchasing one.",
     },
     {
-      question:
-        "Can I port my health insurance plan from one health insurance company to another?",
+      question: "What is Copayment in health insurance?",
+      answer:
+        "Copayment in health insurance is a certain percentage of the claim that the insured agrees to pay along with the insurance company. The insurer then pays the remaining claim amount.",
+    },
+    {
+      question: "What are network hospitals in health insurance?",
+      answer:
+        "Network hospitals in health insurance refer to the hospitals that are included in the panel of the insurance company. You can avail of cashless hospitalization in these hospitals. Non-network hospitals are general category hospitals where you can get treatment and then file for reimbursement later.",
+    },
+    {
+      question: "Does Health Insurance covers mental health treatments?",
+      answer:
+        "Yes, health insurance plans offer coverage for mental health treatments but the coverage varies from plan to plan.",
+    },
+    {
+      question: "Can I have multiple health insurance plans at a time?",
+      answer:
+        "Yes, you can use multiple health insurance policy for the same medical expense. Some health insurance plan also covers partial treatment of the critical illness within the policy.",
+    },
+    {
+      question: "Does smoking affect health insurance premiums?",
+      answer:
+        "Yes, if you are a smoker then you will have to pay a higher health insurance premium than a non-smoker. Some health insurance plan also covers partial treatment of the critical illness within the policy.",
     },
   ];
 }
