@@ -14,7 +14,7 @@
   }
   .location-icon {
     position: absolute;
-    right: 8px;
+    right: 7%;
     top: 55px;
     transform: translateY(-50px);
     cursor: pointer;
@@ -33,4 +33,20 @@
       letter-spacing: 1px;
       border-color: #5384ea;
     }
+  }
+  @media only screen and (max-width: 768px) {
+    .input-group-append {
+      align-content: center;
+      margin-top: 1rem;
+      .search-btn {
+        width: 100%;
+      }
+    }
+    .select-pincode {
+      width: 100%;
+      padding: 0;
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+
   }

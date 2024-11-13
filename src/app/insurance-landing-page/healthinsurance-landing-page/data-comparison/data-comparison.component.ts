@@ -55,7 +55,7 @@ export class DataComparisonComponent {
       networkHospitals: '16,400+'
     }    
   ];
-  expandedCompaniesData = Array(5).fill(this.companiesData).flat();
+  expandedCompaniesData = Array(2).fill(this.companiesData).flat();
 
   get displayData() {
     return this.isExpanded ? this.expandedCompaniesData : this.companiesData;

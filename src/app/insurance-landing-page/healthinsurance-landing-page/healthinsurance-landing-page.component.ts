@@ -68,6 +68,7 @@ Health insurance riders let you boost your basic coverage by paying a bit more o
     icon: "../../../../rb_assets/assets/insurance/check-icon.svg",
     backgroundImage:
       "../../../../rb_assets/assets/insurance/inclusions-background.svg",
+    backgroundImageMobileView:'../../../../rb_assets/assets/insurance/inclusions-background-sm.svg',
     backgroundHeight: "35rem",
     marginTop: "5%",
     cards: [
@@ -113,8 +114,9 @@ Health insurance riders let you boost your basic coverage by paying a bit more o
     icon: "../../../../rb_assets/assets/insurance/cross-shield.svg",
     backgroundImage:
       "../../../../rb_assets/assets/insurance/exclusions-background.svg",
-    backgroundHeight: "38rem",
-    marginTop: "7%",
+      backgroundImageMobileView:'../../../../rb_assets/assets/insurance/exclusion-background-sm.svg',
+      backgroundHeight: "38rem",
+      marginTop: "7%",
     cards: [
       {
         cardHeader: "",
