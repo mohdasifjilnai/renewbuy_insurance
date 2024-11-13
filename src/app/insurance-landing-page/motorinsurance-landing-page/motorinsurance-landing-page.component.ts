@@ -70,7 +70,7 @@ export class MotorinsuranceLandingPageComponent {
     marginClass: "mt-5",
     cards: [
       {
-        cardHeader: "",
+        cardHeader: "Comprehensive Motor Insurance Policy",
         inclusionsData: [
           {
             title: "Alcohol/Drugs ",
@@ -134,7 +134,7 @@ export class MotorinsuranceLandingPageComponent {
     ],
   };
   importanceOfMotorInsuranceData = {
-    pageHeader: "Benefits of Buying Motor Insurance Online",
+    pageHeader: "Importance of Motor Insurance",
     pageDescription: `Motor insurance isn’t just a legal requirement. It’s essential to protect your finances against unexpected accidents, theft, and damages.`,
     icon: "../../../../rb_assets/assets/insurance/check-icon.svg",
     column_no: 2,
