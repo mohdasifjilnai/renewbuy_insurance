@@ -317,8 +317,9 @@ export class MotorinsuranceLandingPageComponent {
     const header = new HttpHeaders({
       Authorization: `Bearer ${environment["bearerToken"]}`,
     });
-    let url = `${environment["strapiDomain"]}${ApiConstants["INSURANCE_HOME"]}`;
+    let url = `${environment["strapiDomain"]}${ApiConstants["MOTOR_INSURANCE"]}`;
     this.apiService.getRequestedResponse(url, header).subscribe((response) => {
+      console.log(response);
       this.meta.updateMeta(
         response?.data?.attributes?.seo?.metaTitle,
         response?.data?.attributes?.seo?.metaDescription,

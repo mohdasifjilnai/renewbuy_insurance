@@ -1,4 +1,9 @@
 import { Component } from "@angular/core";
+import { ApiService } from "../../utilis/service/api.service";
+import { HttpHeaders } from "@angular/common/http";
+import { environment } from "../../../environments/environment";
+import { ApiConstants } from "../../utilis/api.constant";
+import { MetaService } from "../../utilis/service/meta.service";
 
 @Component({
   selector: "app-healthinsurance-landing-page",
@@ -68,7 +73,8 @@ Health insurance riders let you boost your basic coverage by paying a bit more o
     icon: "../../../../rb_assets/assets/insurance/check-icon.svg",
     backgroundImage:
       "../../../../rb_assets/assets/insurance/inclusions-background.svg",
-    backgroundImageMobileView:'../../../../rb_assets/assets/insurance/inclusions-background-sm.svg',
+    backgroundImageMobileView:
+      "../../../../rb_assets/assets/insurance/inclusions-background-sm.svg",
     backgroundHeight: "35rem",
     marginTop: "5%",
     cards: [
@@ -114,9 +120,10 @@ Health insurance riders let you boost your basic coverage by paying a bit more o
     icon: "../../../../rb_assets/assets/insurance/cross-shield.svg",
     backgroundImage:
       "../../../../rb_assets/assets/insurance/exclusions-background.svg",
-      backgroundImageMobileView:'../../../../rb_assets/assets/insurance/exclusion-background-sm.svg',
-      backgroundHeight: "38rem",
-      marginTop: "7%",
+    backgroundImageMobileView:
+      "../../../../rb_assets/assets/insurance/exclusion-background-sm.svg",
+    backgroundHeight: "38rem",
+    marginTop: "7%",
     cards: [
       {
         cardHeader: "",
@@ -271,31 +278,31 @@ Health insurance riders let you boost your basic coverage by paying a bit more o
   navigatorTabsData = [
     {
       id: 1,
-      label: "Best Health Insurance plans in India",
+      label: "Best Health Insurance Companies in India",
       icon: "../../../../rb_assets/assets/insurance/navigator-icon.svg",
       altText: "Home Icon",
-      link: "'https://www.renewbuy.com/",
+      link: "https://www.renewbuy.com/health-insurance/companies",
     },
     {
       id: 2,
-      label: "Family Health Insurance",
+      label: "Best Health Insurance Plans in India",
       icon: "../../../../rb_assets/assets/insurance/navigator-icon.svg",
       altText: "Profile Icon",
-      link: "'https://www.renewbuy.com/",
+      link: "' https://www.renewbuy.com/articles/health-insurance/best-health-insurance-plans-in-india",
     },
     {
       id: 3,
-      label: "Compare Health Insurance plans",
+      label: "Health Insurance Premium Calculator",
       icon: "../../../../rb_assets/assets/insurance/navigator-icon.svg",
       altText: "Settings Icon",
-      link: "'https://www.renewbuy.com/",
+      link: "https://www.renewbuy.com/health-insurance/premium-calculator",
     },
     {
       id: 4,
-      label: "Find the Best Health Insurance Companies with RenewBuy",
+      label: "Compare Health Insurance",
       icon: "../../../../rb_assets/assets/insurance/navigator-icon.svg",
       altText: "Help Icon",
-      link: "'https://www.renewbuy.com/",
+      link: "https://www.renewbuy.com/health-insurance/compare-health-insurance/",
     },
   ];
   questionsList = [
@@ -376,4 +383,19 @@ Health insurance riders let you boost your basic coverage by paying a bit more o
         "Yes, if you are a smoker then you will have to pay a higher health insurance premium than a non-smoker. Some health insurance plan also covers partial treatment of the critical illness within the policy.",
     },
   ];
+  constructor(private apiService: ApiService, private meta: MetaService) {
+    const header = new HttpHeaders({
+      Authorization: `Bearer ${environment["bearerToken"]}`,
+    });
+    let url = `${environment["strapiDomain"]}${ApiConstants["HEALTH_INSURANCE"]}`;
+    this.apiService.getRequestedResponse(url, header).subscribe((response) => {
+      console.log(response);
+      this.meta.updateMeta(
+        response?.data?.attributes?.seo?.metaTitle,
+        response?.data?.attributes?.seo?.metaDescription,
+        response?.data?.attributes?.seo?.keywords,
+        response?.data?.attributes?.seo?.canonicalURL
+      );
+    });
+  }
 }
