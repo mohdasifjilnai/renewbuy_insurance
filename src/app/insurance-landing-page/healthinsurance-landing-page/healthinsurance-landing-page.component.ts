@@ -18,47 +18,45 @@ To receive the benefits of a health insurance policy, policyholders pay a set am
       addOnSubHead: `<p class="motor-description-text">
 Health insurance riders let you boost your basic coverage by paying a bit more on your premium. Here are some popular riders you might want to explore before choosing a health insurance plan.
     </p>`,
-      addOnsPageCardData: [
-        {
-          id: 1,
-          heading: "Maternity Cove",
-          imageSrc:
-            "../../../../rb_assets/assets/insurance/zero-depreciation.svg",
-          text: ` A maternity add-on rider covers costs related to pregnancy, including prenatal and postnatal care, as well as expenses for your newborn.`,
-        },
-        {
-          id: 2,
-          heading: "Hospital Daily Cash",
-          imageSrc:
-            "../../../../rb_assets/assets/insurance/assistance-road.svg",
-          text: `With a daily cash allowance rider, you receive extra funds each day during a hospital stay to help cover additional expenses.`,
-        },
-        {
-          id: 3,
-          heading: "Critical Illness",
-          imageSrc: "../../../../rb_assets/assets/insurance/pa-cover.svg",
-          text: "A critical illness rider provides a lump-sum payout if you’re diagnosed with a serious illness like heart disease, kidney failure, or cancer, helping with treatment and other expenses.",
-        },
-        {
-          id: 4,
-          heading: "Reduction of Waiting Period",
-          imageSrc: "../../../../rb_assets/assets/insurance/ncb-cover.svg",
-          text: "If diagnosed with a serious illness like heart disease, kidney failure, or cancer, you'll receive a lump-sum payment to help with costs.",
-        },
-        {
-          id: 5,
-          heading: "Personal Accident",
-          imageSrc:
-            "../../../../rb_assets/assets/insurance/key-replacement-cover.svg",
-          text: "If you experience a permanent or partial disability from an accident, you’ll receive a full payout to support your needs.",
-        },
-        {
-          id: 6,
-          heading: "Room Rent Waiver",
-          imageSrc: "../../../../rb_assets/assets/insurance/engine.svg",
-          text: "This rider lets you raise the limit on hospital room costs—or even remove the limit—giving you more comfort and flexibility during a hospital stay.",
-        },
-      ],
+    addOnsPageCardData :  [
+      {
+        id: 1,
+        heading: 'Maternity Cover',
+        imageSrc: '../../../../rb_assets/assets/insurance/maternityCover.svg',
+        text: 'You can cover the expenses related to maternity, pre & post-natal expenses & newborn child under a maternity add-on rider.',
+      },
+      {
+        id: 2,
+        heading: 'Critical Illness',
+        imageSrc: '../../../../rb_assets/assets/insurance/criticalIllness.svg',
+        text: 'A lump sum is paid upon diagnosis of a critical illness during the policy term, such as heart disease, kidney failure, or cancer.',
+      },
+      {
+        id: 3,
+        heading: 'Personal Accident',
+        imageSrc: '../../../../rb_assets/assets/insurance/personalAccident.svg',
+        text: "You will receive the total amount if you become completely permanently disabled or partially disabled due to an accident.",
+      },
+      {
+        id: 4,
+        heading: 'Hospital Daily Cash',
+        imageSrc: '../../../../rb_assets/assets/insurance/hospitalDailyCash.svg',
+        text: 'You will get a daily cash allowance to take care of additional expenses such as food, travel, etc. at the time of hospitalization.',
+      },
+      {
+        id: 5,
+        heading: 'Reduction of Waiting Period',
+        imageSrc:
+          '../../../../rb_assets/assets/insurance/reductionofWaitingPeriod.svg',
+        text: 'A lump sum is paid upon diagnosis of a critical illness during the policy term, such as heart disease, kidney failure, or cancer.',
+      },
+      {
+        id: 6,
+        heading: 'Room Rent Waiver',
+        imageSrc: '../../../../rb_assets/assets/insurance/roomRentWaiver.svg',
+        text: 'This rider allows you to increase the sub-limit for hospital room rents or choose no sub-limit for greater flexibility and comfort.',
+      }
+    ]
     },
   ];
 
