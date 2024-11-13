@@ -10,62 +10,60 @@ export class HealthinsuranceLandingPageComponent {
     {
       pageHeader: `What is Health Insurance?`,
       pageDescriptions: `<p class="decsription-text">
-      Health insurance is also known as medical insurance. A health insurance plan is a contract between the insurance company and the policyholder in which the health insurance company provides you with financial coverage against medical expenses incurred due to accident, critical illness, minor or major injuries, etc.
-    </p>
+Health insurance, also called medical insurance, is a plan that helps cover your healthcare costs. When you have health insurance, you enter into an agreement with an insurance company, which promises to help pay for medical expenses if you get injured, face a serious illness, or need treatment for an accident. It’s a way to ease the financial burden of healthcare, so you can focus on getting better without worrying as much about the cost.    </p>
     <p class="decsription-text">
-      Policyholders need to pay a pre-determined amount (health insurance premium) to avail the coverage <span class="link-text">benefits of a health insurance</span> policy. A health insurance plan offers various coverage benefits such as pre and post-hospitalization, home hospitalization, coverage for daycare treatment, annual medical check-up, etc.
+To receive the benefits of a health insurance policy, policyholders pay a set amount called a premium. In return, the plan provides a range of coverage options, including expenses related to hospital stays before and after treatment, care at home if needed, coverage for daycare procedures, and even an annual medical check-up. This support can make healthcare more manageable and affordable.    </p>`,
+      pageName: "health",
+      addOnsHead: "Addons Under Health Insurance",
+      addOnSubHead: `<p class="motor-description-text">
+Health insurance riders let you boost your basic coverage by paying a bit more on your premium. Here are some popular riders you might want to explore before choosing a health insurance plan.
     </p>`,
-    pageName:'health',
-    addOnsHead:'Add-ons Under Health Insurance',
-    addOnSubHead:`<p class="motor-description-text">
-      Health insurance riders are used to enhance the basic coverage benefits by paying some extra premium amount. Below mentioned are some of the health insurance riders that you can consider before buying a health insurance plan
-    </p>`,
-    addOnsPageCardData :  [
-      {
-        id: 1,
-        heading: 'Maternity Cover',
-        imageSrc: '../../../../rb_assets/assets/insurance/zero-depreciation.svg',
-        text: 'You can cover the expenses related to maternity, pre & post-natal expenses & newborn child under a maternity add-on rider.',
-      },
-      {
-        id: 2,
-        heading: 'Critical Illness',
-        imageSrc: '../../../../rb_assets/assets/insurance/assistance-road.svg',
-        text: 'A lump sum is paid upon diagnosis of a critical illness during the policy term, such as heart disease, kidney failure, or cancer.',
-      },
-      {
-        id: 3,
-        heading: 'Personal Accident',
-        imageSrc: '../../../../rb_assets/assets/insurance/pa-cover.svg',
-        text: "You will receive the total amount if you become completely permanently disabled or partially disabled due to an accident.",
-      },
-      {
-        id: 4,
-        heading: 'Hospital Daily Cash',
-        imageSrc: '../../../../rb_assets/assets/insurance/ncb-cover.svg',
-        text: 'You will get a daily cash allowance to take care of additional expenses such as food, travel, etc. at the time of hospitalization.',
-      },
-      {
-        id: 5,
-        heading: 'Reduction of Waiting Period',
-        imageSrc:
-          '../../../../rb_assets/assets/insurance/key-replacement-cover.svg',
-        text: 'A lump sum is paid upon diagnosis of a critical illness during the policy term, such as heart disease, kidney failure, or cancer.',
-      },
-      {
-        id: 6,
-        heading: 'Room Rent Waiver',
-        imageSrc: '../../../../rb_assets/assets/insurance/engine.svg',
-        text: 'This rider allows you to increase the sub-limit for hospital room rents or choose no sub-limit for greater flexibility and comfort.',
-      }
-    ]
+      addOnsPageCardData: [
+        {
+          id: 1,
+          heading: "Maternity Cove",
+          imageSrc:
+            "../../../../rb_assets/assets/insurance/zero-depreciation.svg",
+          text: ` A maternity add-on rider covers costs related to pregnancy, including prenatal and postnatal care, as well as expenses for your newborn.`,
+        },
+        {
+          id: 2,
+          heading: "Hospital Daily Cash",
+          imageSrc:
+            "../../../../rb_assets/assets/insurance/assistance-road.svg",
+          text: `With a daily cash allowance rider, you receive extra funds each day during a hospital stay to help cover additional expenses.`,
+        },
+        {
+          id: 3,
+          heading: "Critical Illness",
+          imageSrc: "../../../../rb_assets/assets/insurance/pa-cover.svg",
+          text: "A critical illness rider provides a lump-sum payout if you’re diagnosed with a serious illness like heart disease, kidney failure, or cancer, helping with treatment and other expenses.",
+        },
+        {
+          id: 4,
+          heading: "Reduction of Waiting Period",
+          imageSrc: "../../../../rb_assets/assets/insurance/ncb-cover.svg",
+          text: "If diagnosed with a serious illness like heart disease, kidney failure, or cancer, you'll receive a lump-sum payment to help with costs.",
+        },
+        {
+          id: 5,
+          heading: "Personal Accident",
+          imageSrc:
+            "../../../../rb_assets/assets/insurance/key-replacement-cover.svg",
+          text: "If you experience a permanent or partial disability from an accident, you’ll receive a full payout to support your needs.",
+        },
+        {
+          id: 6,
+          heading: "Room Rent Waiver",
+          imageSrc: "../../../../rb_assets/assets/insurance/engine.svg",
+          text: "This rider lets you raise the limit on hospital room costs—or even remove the limit—giving you more comfort and flexibility during a hospital stay.",
+        },
+      ],
     },
-    
   ];
-  
+
   inclusionsData = {
-    pageHeader:
-      "Ensure superior health insurance that delivers peace of mind with top-tier benefits.",
+    pageHeader: "Ensure Health Insurance that delivers.",
     pageDescription: `Below are the benefits of choosing the best health insurance from the best health insurer in India:`,
     icon: "../../../../rb_assets/assets/insurance/check-icon.svg",
     backgroundImage:
@@ -78,15 +76,15 @@ export class HealthinsuranceLandingPageComponent {
         inclusionsData: [
           {
             title: "Wide Range of Health Plans",
-            text: "Choose from a diverse range of health plans tailored to your needs and budget, ensuring comprehensive coverage & peace of mind.",
+            text: "Choose from a variety of health plans designed to fit your needs and budget, ensuring complete coverage and peace of mind.",
           },
           {
-            title: "Quick Grievance Redressalt",
-            text: "Experience swift grievance redressal processes that prioritise your concerns, ensuring efficient resolutions & customer satisfaction.",
+            title: "Quick Grievance Redressal",
+            text: "Experience quick grievance resolution processes that prioritize your concerns, ensuring efficient solutions and high customer satisfaction.",
           },
           {
             title: "Easy Claim Settlement Process",
-            text: "Benefit from a hassle-free claim settlement process designed for simplicity and speed, ensuring quick reimbursement & minimal paperwork.",
+            text: "Enjoy a hassle-free claim settlement process designed for simplicity and speed, ensuring quick reimbursements and minimal paperwork.",
           },
         ],
       },
@@ -94,16 +92,16 @@ export class HealthinsuranceLandingPageComponent {
         cardHeader: "",
         inclusionsData: [
           {
-            title: "Flexible Premium Payment Option",
-            text: "Enjoy the flexibility of premium payment options that suit your financial planning, making it easier to manage your health insurance expenses.",
+            title: "Flexible Payment Option",
+            text: "Take advantage of flexible premium payment options that align with your financial planning, making it easier to manage your health insurance costs.",
           },
           {
-            title: "Renewal Benefits",
-            text: "Access renewal benefits that reward your loyalty with enhanced coverage or discounts, ensuring continued protection & value.",
+            title: "Renewal Benefit Option",
+            text: " Enjoy renewal benefits that reward your loyalty with improved coverage or discounts, ensuring ongoing protection and added value.",
           },
           {
-            title: "Portability Option Available",
-            text: "Access renewal benefits that reward your loyalty with enhanced coverage or discounts, ensuring continued protection & value.",
+            title: "Profitability Option",
+            text: "Health insurance portability allows you to maintain your coverage benefits when switching providers, ensuring continuous care without losing protection.",
           },
         ],
       },
@@ -115,8 +113,8 @@ export class HealthinsuranceLandingPageComponent {
     icon: "../../../../rb_assets/assets/insurance/cross-shield.svg",
     backgroundImage:
       "../../../../rb_assets/assets/insurance/exclusions-background.svg",
-      backgroundHeight: "38rem",
-      marginTop: "7%",
+    backgroundHeight: "38rem",
+    marginTop: "7%",
     cards: [
       {
         cardHeader: "",
@@ -274,28 +272,28 @@ export class HealthinsuranceLandingPageComponent {
       label: "Best Health Insurance plans in India",
       icon: "../../../../rb_assets/assets/insurance/navigator-icon.svg",
       altText: "Home Icon",
-      link:"'https://www.renewbuy.com/"
+      link: "'https://www.renewbuy.com/",
     },
     {
       id: 2,
       label: "Family Health Insurance",
       icon: "../../../../rb_assets/assets/insurance/navigator-icon.svg",
       altText: "Profile Icon",
-      link:"'https://www.renewbuy.com/"
+      link: "'https://www.renewbuy.com/",
     },
     {
       id: 3,
       label: "Compare Health Insurance plans",
       icon: "../../../../rb_assets/assets/insurance/navigator-icon.svg",
       altText: "Settings Icon",
-      link:"'https://www.renewbuy.com/"
+      link: "'https://www.renewbuy.com/",
     },
     {
       id: 4,
       label: "Find the Best Health Insurance Companies with RenewBuy",
       icon: "../../../../rb_assets/assets/insurance/navigator-icon.svg",
       altText: "Help Icon",
-      link:"'https://www.renewbuy.com/"
+      link: "'https://www.renewbuy.com/",
     },
   ];
   questionsList = [
