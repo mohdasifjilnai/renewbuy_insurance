@@ -1,10 +1,11 @@
-<div class="container motor-car-insurance-container">
+<div class="motor-car-insurance-container container">
   <div class="row">
     <!-- car-insurance-left-start -->
     <div class="col-12 col-lg-12 card-margin">
       <div class="title text-center text-md-start" [innerHtml]="title"></div>
       <div class="subtitle text-center text-md-start">
         <div [innerHtml]="subtitle"></div>
+        <div *ngIf="selectedTab === 'Health'" [innerHtml]="discount"></div>
       </div>
       <div class="row motor-column-reverse">
         <div class="left-section col-lg-4">

@@ -11,6 +11,7 @@ import { isPlatformBrowser } from "@angular/common";
   styleUrl: "./insurance-landing-page.component.scss",
 })
 export class InsuranceLandingPageComponent {
+  quickLinks: any = [];
   constructor(
     private apiService: ApiService,
     private meta: MetaService,
@@ -21,13 +22,13 @@ export class InsuranceLandingPageComponent {
     });
     let url = `${environment["strapiDomain"]}${ApiConstants["INSURANCE_HOME"]}`;
     this.apiService.getRequestedResponse(url, header).subscribe((response) => {
-      console.log(response, "response");
       this.meta.updateMeta(
         response?.data?.attributes?.seo?.metaTitle,
         response?.data?.attributes?.seo?.metaDescription,
         response?.data?.attributes?.seo?.keywords,
         response?.data?.attributes?.seo?.canonicalURL
       );
+      this.quickLinks = response?.data?.attributes?.quick_links;
     });
   }
 

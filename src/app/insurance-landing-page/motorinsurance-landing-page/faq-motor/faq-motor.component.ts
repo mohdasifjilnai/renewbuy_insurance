@@ -11,6 +11,7 @@ export class FaqMotorComponent {
   expandedQuestionIndex: number | null = null;
   constructor() {}
   ngOnChanges() {
+    // console.log(this.questionList, "questionList");
     this.expandedQuestions = this.questionList.map(() => false);
   }
   toggleAnswer(index: number): void {
