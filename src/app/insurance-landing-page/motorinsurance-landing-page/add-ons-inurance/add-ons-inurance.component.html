@@ -1,8 +1,12 @@
 <div class="container add-ons-insurance-container">
   <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
-      <li class="breadcrumb-item"><a href="#">Home</a></li>
-      <li class="breadcrumb-item"><a href="#">Insurance</a></li>
+      <li class="breadcrumb-item">
+        <a href="https://www.renewbuy.com/">Home</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="https://www.renewbuyinsurance.com/">Insurance</a>
+      </li>
       <li class="breadcrumb-item active" aria-current="page">
         {{ pageName === "motor" ? "Motor" : "Health" }} Insurance
       </li>
@@ -27,7 +31,7 @@
   >
     <div class="card-box" *ngFor="let card of cardData; let i = index">
       <div class="card-image-section">
-        <img src="{{ card.imageSrc }}" alt="{{card?.heading}}" />
+        <img src="{{ card.imageSrc }}" alt="{{ card?.heading }}" />
       </div>
       <div class="card-content">
         <div>
