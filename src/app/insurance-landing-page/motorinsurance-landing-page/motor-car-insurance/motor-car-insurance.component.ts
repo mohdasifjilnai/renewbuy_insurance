@@ -236,6 +236,14 @@ export class MotorCarInsuranceComponent {
           this.registrationForm.get("vehicleNumber")?.value;
         payload.insurance_type = 3;
         break;
+      case "Health":
+        payload["pincode"] = this.registrationForm.get("pincode")?.value;
+        payload.insurance_type = 4;
+        break;
+      case "Life":
+        payload["dob"] = this.registrationForm.get("dob")?.value;
+        payload.insurance_type = 5;
+        break;
       default:
         break;
     }
