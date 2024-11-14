@@ -61,7 +61,18 @@
           <td>{{ data?.grossDirectPremium }}</td>
           <td>{{ data?.networkHospitals }}</td>
         </tr>
+        <tr *ngIf="isExpanded" class="disclaimer-row">
+          <td colspan="6">
+            <div class="disclaimer mt-2">
+              <span class="disclaimer-text">*<i>Disclaimer: </i></span><span><i>RenewBuy does not endorse any specific insurance company or insurance product offered by any insurer, and this list is just an illustration of the plan offered by different health insurance companies available in India.</i></span><br>
+              <span class="disclaimer-text">**</span><i><span>The data of Solvency Ratio and Claim Settlement Ratio has been sourced from the <span class="disclaimer-text text-primary annual" (click)="annualreport()">annual report of IRDAI 2022-23</span></span></i><br>
+              <span class="disclaimer-text">***</span><i><span>The data of network hospitals have been sourced from the official website of the general and standalone health insurance companies</span></i>
+            </div>
+          </td>
+        </tr>
       </tbody>
+      
+      
     </table>
   </div>
   
@@ -73,6 +84,6 @@
       class="download" 
       alt="Expand or collapse myths"
       />
-    </span>
+    </span>    
   </div>
 </div>

@@ -260,4 +260,8 @@ export class DataComparisonComponent {
   expandTable() {
     this.isExpanded = !this.isExpanded;
   }
+
+  annualreport(){
+    window.open('https://irdai.gov.in/documents/37343/366637/%E0%A4%B5%E0%A4%BE%E0%A4%B0%E0%A5%8D%E0[…]13-da8c-c64364baf20f?version=1.0&t=1703656400415&download=true', '_blank');
+  }
 }
