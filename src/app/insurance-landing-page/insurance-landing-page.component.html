@@ -1,14 +1,12 @@
-
-
-  <app-car-insurance></app-car-insurance>
-  <app-quick-actions
-    (newItemEvent)="scrollToCashlessGarages($event)"
-  ></app-quick-actions>
-  <app-inurer-partner class="inurer-partner"></app-inurer-partner>
-  <app-choose-renewbuy></app-choose-renewbuy>
-  <app-advisor-connect></app-advisor-connect>
-  <app-cashless-garages></app-cashless-garages>
-  <app-claim-file></app-claim-file>
-  <app-curated-content></app-curated-content>
-  <app-faq></app-faq>
- 
+<app-car-insurance></app-car-insurance>
+<app-quick-actions
+  (newItemEvent)="scrollToCashlessGarages($event)"
+  [quick_links]="quickLinks"
+></app-quick-actions>
+<app-inurer-partner class="inurer-partner"></app-inurer-partner>
+<app-choose-renewbuy></app-choose-renewbuy>
+<app-advisor-connect></app-advisor-connect>
+<app-cashless-garages></app-cashless-garages>
+<app-claim-file></app-claim-file>
+<app-curated-content></app-curated-content>
+<app-faq></app-faq>

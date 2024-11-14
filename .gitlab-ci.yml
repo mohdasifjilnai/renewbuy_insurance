@@ -77,7 +77,7 @@ build-preprod:
   before_script:
     - docker login -u gitlab-ci-token -p $CI_BUILD_TOKEN $CI_REGISTRY
   script:
-    - docker build -f DockerfileProd -t $CI_REGISTRY_IMAGE:preprod .
+    - docker build -f DockerfilePreProd -t $CI_REGISTRY_IMAGE:preprod .
     - docker push $CI_REGISTRY_IMAGE:preprod
   only:
     - preprod

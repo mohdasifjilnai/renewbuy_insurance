@@ -23,45 +23,48 @@ To receive the benefits of a health insurance policy, policyholders pay a set am
       addOnSubHead: `<p class="motor-description-text">
 Health insurance riders let you boost your basic coverage by paying a bit more on your premium. Here are some popular riders you might want to explore before choosing a health insurance plan.
     </p>`,
-    addOnsPageCardData :  [
-      {
-        id: 1,
-        heading: 'Maternity Cover',
-        imageSrc: '../../../../rb_assets/assets/insurance/maternityCover.svg',
-        text: 'You can cover the expenses related to maternity, pre & post-natal expenses & newborn child under a maternity add-on rider.',
-      },
-      {
-        id: 2,
-        heading: 'Critical Illness',
-        imageSrc: '../../../../rb_assets/assets/insurance/criticalIllness.svg',
-        text: 'A lump sum is paid upon diagnosis of a critical illness during the policy term, such as heart disease, kidney failure, or cancer.',
-      },
-      {
-        id: 3,
-        heading: 'Personal Accident',
-        imageSrc: '../../../../rb_assets/assets/insurance/personalAccident.svg',
-        text: "You will receive the total amount if you become completely permanently disabled or partially disabled due to an accident.",
-      },
-      {
-        id: 4,
-        heading: 'Hospital Daily Cash',
-        imageSrc: '../../../../rb_assets/assets/insurance/hospitalDailyCash.svg',
-        text: 'You will get a daily cash allowance to take care of additional expenses such as food, travel, etc. at the time of hospitalization.',
-      },
-      {
-        id: 5,
-        heading: 'Reduction of Waiting Period',
-        imageSrc:
-          '../../../../rb_assets/assets/insurance/reductionofWaitingPeriod.svg',
-        text: 'A lump sum is paid upon diagnosis of a critical illness during the policy term, such as heart disease, kidney failure, or cancer.',
-      },
-      {
-        id: 6,
-        heading: 'Room Rent Waiver',
-        imageSrc: '../../../../rb_assets/assets/insurance/roomRentWaiver.svg',
-        text: 'This rider allows you to increase the sub-limit for hospital room rents or choose no sub-limit for greater flexibility and comfort.',
-      }
-    ]
+      addOnsPageCardData: [
+        {
+          id: 1,
+          heading: "Maternity Cover",
+          imageSrc: "../../../../rb_assets/assets/insurance/maternityCover.svg",
+          text: "You can cover the expenses related to maternity, pre & post-natal expenses & newborn child under a maternity add-on rider.",
+        },
+        {
+          id: 2,
+          heading: "Critical Illness",
+          imageSrc:
+            "../../../../rb_assets/assets/insurance/criticalIllness.svg",
+          text: "A lump sum is paid upon diagnosis of a critical illness during the policy term, such as heart disease, kidney failure, or cancer.",
+        },
+        {
+          id: 3,
+          heading: "Personal Accident",
+          imageSrc:
+            "../../../../rb_assets/assets/insurance/personalAccident.svg",
+          text: "You will receive the total amount if you become completely permanently disabled or partially disabled due to an accident.",
+        },
+        {
+          id: 4,
+          heading: "Hospital Daily Cash",
+          imageSrc:
+            "../../../../rb_assets/assets/insurance/hospitalDailyCash.svg",
+          text: "You will get a daily cash allowance to take care of additional expenses such as food, travel, etc. at the time of hospitalization.",
+        },
+        {
+          id: 5,
+          heading: "Reduction of Waiting Period",
+          imageSrc:
+            "../../../../rb_assets/assets/insurance/reductionofWaitingPeriod.svg",
+          text: "A lump sum is paid upon diagnosis of a critical illness during the policy term, such as heart disease, kidney failure, or cancer.",
+        },
+        {
+          id: 6,
+          heading: "Room Rent Waiver",
+          imageSrc: "../../../../rb_assets/assets/insurance/roomRentWaiver.svg",
+          text: "This rider allows you to increase the sub-limit for hospital room rents or choose no sub-limit for greater flexibility and comfort.",
+        },
+      ],
     },
   ];
 
@@ -73,8 +76,9 @@ Health insurance riders let you boost your basic coverage by paying a bit more o
       "../../../../rb_assets/assets/insurance/inclusions-background.svg",
     backgroundImageMobileView:
       "../../../../rb_assets/assets/insurance/inclusions-background-sm.svg",
-    backgroundHeight: "35rem",
+    backgroundHeight: "39rem",
     marginTop: "5%",
+    visibilityHidden: true,
     cards: [
       {
         cardHeader: "",
@@ -122,6 +126,7 @@ Health insurance riders let you boost your basic coverage by paying a bit more o
       "../../../../rb_assets/assets/insurance/exclusion-background-sm.svg",
     backgroundHeight: "38rem",
     marginTop: "7%",
+    visibilityHidden: true,
     cards: [
       {
         cardHeader: "",
@@ -170,6 +175,7 @@ Health insurance riders let you boost your basic coverage by paying a bit more o
     pageHeader: "Benefits of Buying Motor Insurance Online",
     pageDescription: `Most <a class="active-text text-decoration-none cursor-pointer">motor insurance companies in India</a>  have taken their business online with advanced technology. The benefits of buying motor insurance online have perks, so let us look at them.`,
     icon: "../../../../rb_assets/assets/insurance/check-icon.svg",
+    visibilityHidden: true,
     cards: [
       {
         cardHeader: "",
@@ -199,11 +205,12 @@ Health insurance riders let you boost your basic coverage by paying a bit more o
     ],
   };
   importanceOfMotorInsuranceData = {
-    pageHeader:
-      "No claims for injuries caused during illegal activities or crimes.",
+    pageHeader: "Key factors impacting Health Insurance Premiums",
     pageDescription: `Below mentioned are the factors that can affect your health insurance premium amount:`,
     icon: "../../../../rb_assets/assets/insurance/check-icon.svg",
-    pageName:'health',
+    pageName: "health",
+    isViewMore: true,
+    visibilityHidden: true,
     cards: [
       {
         cardHeader: "",
@@ -240,7 +247,6 @@ Health insurance riders let you boost your basic coverage by paying a bit more o
             title: "Lifestyle of the Applicant",
             text: "Unhealthy lifestyle choices, such as smoking, can increase insurance premium amounts significantly.",
           },
-          
         ],
       },
     ],
@@ -249,7 +255,9 @@ Health insurance riders let you boost your basic coverage by paying a bit more o
     pageHeader: "Key Health Insurance Jargons You Should Know",
     pageDescription: `Understanding key health insurance jargons is essential for navigating coverage options effectively.`,
     icon: "../../../../rb_assets/assets/insurance/check-icon.svg",
-    pageName:'health',
+    pageName: "health",
+    isViewMore: true,
+    visibilityHidden: true,
     cards: [
       {
         cardHeader: "",
@@ -302,127 +310,22 @@ Health insurance riders let you boost your basic coverage by paying a bit more o
       },
     ],
   };
-  navigatorTabsData = [
-    {
-      id: 1,
-      label: "Best Health Insurance Companies in India",
-      icon: "../../../../rb_assets/assets/insurance/navigator-icon.svg",
-      altText: "Home Icon",
-      link: "https://www.renewbuy.com/health-insurance/companies",
-    },
-    {
-      id: 2,
-      label: "Best Health Insurance Plans in India",
-      icon: "../../../../rb_assets/assets/insurance/navigator-icon.svg",
-      altText: "Profile Icon",
-      link: "' https://www.renewbuy.com/articles/health-insurance/best-health-insurance-plans-in-india",
-    },
-    {
-      id: 3,
-      label: "Health Insurance Premium Calculator",
-      icon: "../../../../rb_assets/assets/insurance/navigator-icon.svg",
-      altText: "Settings Icon",
-      link: "https://www.renewbuy.com/health-insurance/premium-calculator",
-    },
-    {
-      id: 4,
-      label: "Compare Health Insurance",
-      icon: "../../../../rb_assets/assets/insurance/navigator-icon.svg",
-      altText: "Help Icon",
-      link: "https://www.renewbuy.com/health-insurance/compare-health-insurance/",
-    },
-  ];
-  questionsList = [
-    {
-      question:
-        "What are the different health insurance policies available in India?",
-      answer:
-        "There are many types of health insurance policies available in India; these include individual plans, family floater plans, group health insurance plans, etc.",
-    },
-    {
-      question: "How much does health insurance cost in India?",
-      answer:
-        "There are many different policies that you can buy, and there are many conditions that affect a health insurance policy; these include age, gender, medical history, lifestyle, etc.",
-    },
-    {
-      question: "What is the right age to buy a health insurance policy?",
-      answer:
-        "There is no right age to buy a policy. But the earlier you buy the policy, the lesser the premium. The reason is that when you are young, there is a lesser risk of illness as compared to someone who is in their 50s or 60s.",
-    },
-    {
-      question: "What is a copayment?",
-      answer:
-        "Copayment is a certain percentage of the claim that the insured agrees to pay along with the insurance company. The insurer then pays the remaining claim amount.",
-    },
-    {
-      question: "Can I have more than one medical insurance policy?",
-      answer:
-        "Yes, you can have more than one medical insurance policy. For example, you can buy an individual plan and a family floater plan if you are covered under a group health insurance plan.",
-    },
-    {
-      question: "Is a medical test required to buy a health insurance plan?",
-      answer:
-        "Medical tests are not mandatory to buy health insurance. But most insurance companies in India have made medical tests mandatory for people over 45 years of age. This can vary depending upon the age of the insured.",
-    },
-    {
-      question: "How many claims are allowed during the term of the policy?",
-      answer:
-        "The number of claims allowed differs from policy to policy. Some policies allow one or two claims per year, whereas other policies allow an unlimited number of claims.",
-    },
-    {
-      question: "What is the free look period in a health insurance policy?",
-      answer:
-        "A free look period is available up to 15 days up to the purchase of the policy. During this period, you can review the features, coverage and decide whether you want to keep the policy or not.",
-    },
-    {
-      question: "What are network hospitals?",
-      answer:
-        "Network hospitals refer to the hospitals that are included in the panel of the insurance company. You can avail of cashless hospitalization in these hospitals. Non-network hospitals are general category hospitals where you can get treatment and then file for reimbursement later.",
-    },
-    {
-      question: "Is there any specific plan for cancer?",
-      answer:
-        "One can always opt for a standalone critical insurance plan to cover diseases like cancer. The buyer is advised to read the coverages of the plan before purchasing one.",
-    },
-    {
-      question: "What is Copayment in health insurance?",
-      answer:
-        "Copayment in health insurance is a certain percentage of the claim that the insured agrees to pay along with the insurance company. The insurer then pays the remaining claim amount.",
-    },
-    {
-      question: "What are network hospitals in health insurance?",
-      answer:
-        "Network hospitals in health insurance refer to the hospitals that are included in the panel of the insurance company. You can avail of cashless hospitalization in these hospitals. Non-network hospitals are general category hospitals where you can get treatment and then file for reimbursement later.",
-    },
-    {
-      question: "Does Health Insurance covers mental health treatments?",
-      answer:
-        "Yes, health insurance plans offer coverage for mental health treatments but the coverage varies from plan to plan.",
-    },
-    {
-      question: "Can I have multiple health insurance plans at a time?",
-      answer:
-        "Yes, you can use multiple health insurance policy for the same medical expense. Some health insurance plan also covers partial treatment of the critical illness within the policy.",
-    },
-    {
-      question: "Does smoking affect health insurance premiums?",
-      answer:
-        "Yes, if you are a smoker then you will have to pay a higher health insurance premium than a non-smoker. Some health insurance plan also covers partial treatment of the critical illness within the policy.",
-    },
-  ];
+  navigatorTabsData = [];
+  questionsList = [];
   constructor(private apiService: ApiService, private meta: MetaService) {
     const header = new HttpHeaders({
       Authorization: `Bearer ${environment["bearerToken"]}`,
     });
     let url = `${environment["strapiDomain"]}${ApiConstants["HEALTH_INSURANCE"]}`;
     this.apiService.getRequestedResponse(url, header).subscribe((response) => {
-      // console.log(response);
       this.meta.updateMeta(
         response?.data?.attributes?.seo?.metaTitle,
         response?.data?.attributes?.seo?.metaDescription,
         response?.data?.attributes?.seo?.keywords,
         response?.data?.attributes?.seo?.canonicalURL
       );
+      this.questionsList = response?.data?.attributes?.faqs?.data;
+      this.navigatorTabsData = response?.data?.attributes?.help_link;
     });
   }
 }
