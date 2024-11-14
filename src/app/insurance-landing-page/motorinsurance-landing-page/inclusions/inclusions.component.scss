@@ -86,6 +86,10 @@
             font-weight: 600;
             line-height: 20px;
           }
+          .visibility-hidden{
+            visibility: hidden;
+            line-height: 1px;
+          }
         }
         .inclusions-details {
           .descriptions {
@@ -101,8 +105,12 @@
   }
   .background-image-position {
     height: auto !important;
+    // padding: 2rem 0;
     // background-size: 40rem 55rem !important;
     // background-size: contain !important;
+  }
+  .background-padding{
+    padding: 2rem 0;
   }
   .custom-height{
     padding-top: 0 !important;
