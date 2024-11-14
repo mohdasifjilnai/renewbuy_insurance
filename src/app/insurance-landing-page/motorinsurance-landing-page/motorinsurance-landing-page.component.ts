@@ -235,28 +235,28 @@ export class MotorinsuranceLandingPageComponent {
   navigatorTabsData = [
     {
       id: 1,
-      label: "Benefits of Buying Motor Insurance Online?",
+      label: "Car Insurance Companies",
       icon: "../../../../rb_assets/assets/insurance/navigator-icon.svg",
       altText: "Home Icon",
       link: "https://www.renewbuy.com/motor-insurance/car-insurance/companies",
     },
     {
       id: 2,
-      label: "Reasons to Buy Motor Insurance",
+      label: "Third Party Insurance",
       icon: "../../../../rb_assets/assets/insurance/navigator-icon.svg",
       altText: "Profile Icon",
       link: "https://www.renewbuy.com/motor-insurance/third-party-insurance",
     },
     {
       id: 3,
-      label: "Renewal Process of Motor Insurance Policy",
+      label: "Car Insurance Renewal",
       icon: "../../../../rb_assets/assets/insurance/navigator-icon.svg",
       altText: "Settings Icon",
       link: "https://www.renewbuy.com/motor-insurance/car-insurance/renewal",
     },
     {
       id: 4,
-      label: "Process for Filing the Claim Under Motor Insurance",
+      label: "How To Renew Motor Insurance Policy",
       icon: "../../../../rb_assets/assets/insurance/navigator-icon.svg",
       altText: "Help Icon",
       link: "https://www.renewbuy.com/articles/motor-insurance/how-renew-motor-insurance-policy",
@@ -321,7 +321,7 @@ export class MotorinsuranceLandingPageComponent {
     });
     let url = `${environment["strapiDomain"]}${ApiConstants["MOTOR_INSURANCE"]}`;
     this.apiService.getRequestedResponse(url, header).subscribe((response) => {
-      // console.log(response);
+      console.log(response);
       this.meta.updateMeta(
         response?.data?.attributes?.seo?.metaTitle,
         response?.data?.attributes?.seo?.metaDescription,
