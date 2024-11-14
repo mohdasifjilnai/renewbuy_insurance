@@ -254,7 +254,6 @@ export class MotorCarInsuranceComponent {
     if (valid) {
       this.phoneNumber = this.registrationForm.get("contactNumber")?.value;
       this.isOtp = true;
-      
     }
   }
 
@@ -335,6 +334,26 @@ export class MotorCarInsuranceComponent {
           (res) => {
             if (res) {
               this.toastService.toastError(res, "success");
+              if (this.selectedTab == "Health") {
+                window.location.href =
+                  "https://health.renewbuyinsurance.com/health/basic-details";
+              } else if (this.selectedTab == "Life") {
+                this.registrationForm.reset();
+              } else if (this.selectedTab === "Bike") {
+                window.location.href = `https://apex.renewbuyinsurance.com/motor/?reg_no=${
+                  this.registrationForm.get("vehicleNumber")?.value
+                }&mobile_no=${
+                  this.registrationForm.get("contactNumber")?.value
+                }&vehicle=twoWheeler`;
+              } else if (this.selectedTab === "Car") {
+                window.location.href = `https://apex.renewbuyinsurance.com/motor/?reg_no=${
+                  this.registrationForm.get("vehicleNumber")?.value
+                }&mobile_no=${
+                  this.registrationForm.get("contactNumber")?.value
+                }&vehicle=fourWheeler`;
+              } else {
+                this.registrationForm.reset();
+              }
             }
           },
           (error) => {
