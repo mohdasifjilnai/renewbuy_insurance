@@ -62,6 +62,20 @@
       cursor: pointer;
     }
   }
+  .disclaimer-row {
+    border: none;
+  }
+  
+  .disclaimer-row td {
+    border: none;
+    padding: 0; /* Optional: Adjusts padding to align with the table */
+  }
+  .disclaimer-text{
+    font-weight: bold ;
+  }
+  .annual{
+    cursor: pointer;
+  }
 }
 
 @media only screen and (max-width: 768px) {
