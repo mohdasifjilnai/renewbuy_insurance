@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { Component } from '@angular/core';
 
 @Component({
@@ -259,9 +259,28 @@ export class DataComparisonComponent {
 
   expandTable() {
     this.isExpanded = !this.isExpanded;
+    if(!this.isExpanded){
+      this.scrollToCashlessGarages(true);
+    }
   }
 
   annualreport(){
     window.open('https://irdai.gov.in/documents/37343/366637/%E0%A4%B5%E0%A4%BE%E0%A4%B0%E0%A5%8D%E0[…]13-da8c-c64364baf20f?version=1.0&t=1703656400415&download=true', '_blank');
+  }
+
+  scrollToCashlessGarages(event: boolean) {
+      if (event) {
+        if (window.innerWidth <= 768) {
+          window.scrollTo({
+            top: document.body.scrollHeight / 2.4,
+            behavior: "smooth",
+          });
+        } else {
+          window.scrollTo({
+            top: document.body.scrollHeight / 2.3,
+            behavior: "smooth",
+          });
+        }
+      }
   }
 }
