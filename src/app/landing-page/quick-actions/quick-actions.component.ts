@@ -1,40 +1,41 @@
-import { Component } from '@angular/core';
-import { ShareService } from '../../utilis/service/share.service';
-import { CookieService } from 'ngx-cookie-service';
-import { ToastService } from '../../utilis/service/toast.service';
-import { Output, EventEmitter } from '@angular/core';
+import { Component, Input } from "@angular/core";
+import { ShareService } from "../../utilis/service/share.service";
+import { CookieService } from "ngx-cookie-service";
+import { ToastService } from "../../utilis/service/toast.service";
+import { Output, EventEmitter } from "@angular/core";
 
 @Component({
-  selector: 'app-quick-actions',
-  templateUrl: './quick-actions.component.html',
-  styleUrl: './quick-actions.component.scss',
+  selector: "app-quick-actions",
+  templateUrl: "./quick-actions.component.html",
+  styleUrl: "./quick-actions.component.scss",
 })
 export class QuickActionsComponent {
   quickLinks: any;
   @Output() newItemEvent = new EventEmitter<boolean>();
+  @Input() quick_links: any;
   constructor(
     private shareService: ShareService,
     private cookieService: CookieService,
     private toastService: ToastService
   ) {
-    this.shareService.getQuickActions$.subscribe((data) => {
-      this.quickLinks = data;
-    });
+    // this.shareService.getQuickActions$.subscribe((data) => {
+    // this.quickLinks = this.quick_links;
+    // });
   }
   navigationByLink(title: any, link: any) {
-    if (link != null && title != 'Manage Family') {
+    if (link != null && title != "Manage Family") {
       window.location.href = link;
-    } else if (title == 'Cashless Garage' || title == 'Cashless Hospital') {
+    } else if (title == "Cashless Garage" || title == "Cashless Hospital") {
       this.shareService.getTitle(title);
       this.newItemEvent.emit(true);
-    }else {
-      if (this.cookieService.get('access_token')) {
-        if( link != null && title == 'Manage Family'){
-          this.shareService.setCrossDomainCookie('isFamilyTab','true' ,7);
+    } else {
+      if (this.cookieService.get("access_token")) {
+        if (link != null && title == "Manage Family") {
+          this.shareService.setCrossDomainCookie("isFamilyTab", "true", 7);
           setTimeout(() => {
             window.location.href = link;
           }, 0);
-        } else{
+        } else {
           window.location.href = link;
         }
       } else {
@@ -42,4 +43,5 @@ export class QuickActionsComponent {
       }
     }
   }
+  ngOnChanges() {}
 }

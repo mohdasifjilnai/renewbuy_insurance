@@ -22,7 +22,7 @@
         <div
           class="col-8 col-lg-7.5 d-flex flex-wrap gap-2 ps-3 py-2 border-start align-items-center"
         >
-          @for(link of quickLinks; track link?.id){
+          @for(link of quick_links; track link?.id){
           <div
             class="d-flex align-items-center ps-2 py-2 hover-bg-primary-div"
             (click)="navigationByLink(link?.title, link?.link)"

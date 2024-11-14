@@ -4,6 +4,7 @@ import { MetaService } from "../../utilis/service/meta.service";
 import { HttpHeaders } from "@angular/common/http";
 import { environment } from "../../../environments/environment";
 import { ApiConstants } from "../../utilis/api.constant";
+import { ShareService } from "../../utilis/service/share.service";
 
 @Component({
   selector: "app-motorinsurance-landing-page",
@@ -236,94 +237,18 @@ export class MotorinsuranceLandingPageComponent {
       ],
     },
   ];
-  navigatorTabsData = [
-    {
-      id: 1,
-      label: "Benefits of Buying Motor Insurance Online?",
-      icon: "../../../../rb_assets/assets/insurance/navigator-icon.svg",
-      altText: "Home Icon",
-      link: "https://www.renewbuy.com/motor-insurance/car-insurance/companies",
-    },
-    {
-      id: 2,
-      label: "Reasons to Buy Motor Insurance",
-      icon: "../../../../rb_assets/assets/insurance/navigator-icon.svg",
-      altText: "Profile Icon",
-      link: "https://www.renewbuy.com/motor-insurance/third-party-insurance",
-    },
-    {
-      id: 3,
-      label: "Renewal Process of Motor Insurance Policy",
-      icon: "../../../../rb_assets/assets/insurance/navigator-icon.svg",
-      altText: "Settings Icon",
-      link: "https://www.renewbuy.com/motor-insurance/car-insurance/renewal",
-    },
-    {
-      id: 4,
-      label: "Process for Filing the Claim Under Motor Insurance",
-      icon: "../../../../rb_assets/assets/insurance/navigator-icon.svg",
-      altText: "Help Icon",
-      link: "https://www.renewbuy.com/articles/motor-insurance/how-renew-motor-insurance-policy",
-    },
-  ];
-  questionsList = [
-    {
-      question: "What is motor insurance, and why do I need it?",
-      answer:
-        "Motor insurance is a contract that provides financial protection against losses related to your vehicle, such as accidents, theft, or damage. You need this type of insurance policy to safeguard your finances when driving on public roads, besides the mandatory <span class='motor-link-text'> third-party insurance.</span> ",
-    },
-    {
-      question: "How do I choose the right motor insurance policy?",
-      answer:
-        "Choosing the right car or bike insurance policy involves assessing your needs, understanding the types of coverage available, and comparing quotes. Consider your vehicle's value, driving habits, and whether you need comprehensive or third-party coverage to find the best plan.",
-    },
-    {
-      question: "Which factors affect my motor insurance premium?",
-      answer:
-        "Your driving history, age, location, the type of vehicle, and how often you drive - all of these factors influence the motor insurance premium. Many Insurers also consider any previous claims you made before issuing or renewing a policy.",
-    },
-    {
-      question:
-        "What is the difference between third-party and comprehensive coverage?",
-      answer:
-        "Third-party insurance coverage only protects you against claims made by other parties in the event of an accident where you are at fault. Comprehensive motor insurance coverage, on the other hand, covers damages to your vehicle and third-party claims.",
-    },
-    {
-      question: "How do I file a claim after an accident?",
-      answer:
-        "Filing a claim is easy with RenewBuy Insurance. First, let your insurance company know about the accident as soon as possible. They’ll ask for details like when and where it happened, and they’ll guide you through what you need to do next. You can also check the steps given above. ",
-    },
-    {
-      question: "Can I customize my car insurance policy?",
-      answer:
-        "Most car insurance companies allow you to tailor your policy to fit your needs. This might include adding extra coverage or adjusting your deductible. Talk to us about what you want, and we’ll help you customize your policy.",
-    },
-    {
-      question: "What should I do if my vehicle is stolen or damaged?",
-      answer:
-        "If your car gets stolen or damaged, the first thing to do is report the incident to the police. They’ll provide a report you’ll need for your insurance claim. Then, contact us/your insurance company to let them know what happened and start the claims process.",
-    },
-    {
-      question: "How can I track the status of my claim?",
-      answer:
-        "You can track your claim through our website or app and see updates. If required, communicate directly with us or give us a call to check in and get the latest updates on your claim.",
-    },
-    {
-      question: "Are there any exclusions in my motor insurance policy?",
-      answer:
-        "Yes, there can be exclusions in your policy, which include damages from driving under the influence, using your car for business without coverage, or driving without a valid license. Always read your policy carefully to know what’s covered and what’s not.",
-    },
-    {
-      question: "What is a cashless garage, and how does it work?",
-      answer:
-        "A cashless garage allows you to get your car repaired without paying for the repair bills upfront. When you take your vehicle there, the garage deals with your insurance company for the costs. It makes the repair process a lot easier and saves you from worrying about payment right away. However, you would need to pay the deductible as defined in your policy.",
-    },
-  ];
-  constructor(private apiService: ApiService, private meta: MetaService) {
+  navigatorTabsData = [];
+  questionsList = [];
+  quickLinks = [];
+  constructor(
+    private apiService: ApiService,
+    private meta: MetaService,
+    private shareService: ShareService
+  ) {
     const header = new HttpHeaders({
       Authorization: `Bearer ${environment["bearerToken"]}`,
     });
-    let url = `${environment["strapiDomain"]}${ApiConstants["INSURANCE_HOME"]}`;
+    let url = `${environment["strapiDomain"]}${ApiConstants["MOTOR_INSURANCE"]}`;
     this.apiService.getRequestedResponse(url, header).subscribe((response) => {
       this.meta.updateMeta(
         response?.data?.attributes?.seo?.metaTitle,
@@ -331,6 +256,12 @@ export class MotorinsuranceLandingPageComponent {
         response?.data?.attributes?.seo?.keywords,
         response?.data?.attributes?.seo?.canonicalURL
       );
+      this.questionsList = response?.data?.attributes?.faqs?.data;
+      this.navigatorTabsData = response?.data?.attributes?.help_link;
+      this.quickLinks = response?.data?.attributes?.quick_links;
+      // this.shareService.quickActionsGetData(
+      //   response?.data?.attributes?.quick_links
+      // );
     });
   }
 }
