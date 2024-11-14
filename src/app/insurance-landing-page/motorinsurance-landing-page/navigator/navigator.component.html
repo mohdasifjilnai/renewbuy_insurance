@@ -1,0 +1,15 @@
+<div class="container navigator-container pt-4 pb-3">
+  <h2 class="page-header">Navigate smarter: Check out our helpful links</h2>
+  <div class="row navigator-tab-list">
+    <div class="col-12 col-sm-6 mb-3" *ngFor="let tab of navigatorTabsData">
+      <div class="navigator-tab" (click)="redirect(tab?.link)">
+        <label class="label-text">{{ tab?.title }}</label>
+        <img
+          class="navigation-icon"
+          src="../../../../rb_assets/assets/insurance/navigator-icon.svg"
+          alt="navigator-icon"
+        />
+      </div>
+    </div>
+  </div>
+</div>

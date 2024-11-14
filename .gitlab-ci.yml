@@ -3,6 +3,9 @@ stages:
   - dev-deploy
   - build-prod
   - prod-deploy
+  - build-preprod
+  - preprod-deploy
+
 
 build-dev:
   stage: build-dev
@@ -65,3 +68,31 @@ prod-deploy:
     - ssh -o stricthostkeychecking=no ubuntu@${PROD_SERVER_IP} "sudo docker login -u clone_token -p "YANkxZ4_imRoBZSidzuL" registry.gitlab.renewbuy.in && cd /home/ubuntu/repos/renewbuy_insurance && sh deploy.sh "
   only: 
     - tags
+
+build-preprod:
+  stage: build-preprod
+  image: docker:latest
+  services:
+    - name: docker:dind
+  before_script:
+    - docker login -u gitlab-ci-token -p $CI_BUILD_TOKEN $CI_REGISTRY
+  script:
+    - docker build -f DockerfilePreProd -t $CI_REGISTRY_IMAGE:preprod .
+    - docker push $CI_REGISTRY_IMAGE:preprod
+  only:
+    - preprod
+
+preprod-deploy:
+  stage: preprod-deploy
+  before_script:
+    - 'command -v ssh-agent >/dev/null || ( apt-get update -y && apt-get install openssh-client -y )'
+    - eval $(ssh-agent -s)
+    # ssh conf
+    - mkdir -p ~/.ssh
+    - chmod 700 ~/.ssh
+    - echo "$SSH_PRIVATE_KEY" | tr -d '\r' > ~/.ssh/id_rsa
+    - chmod 400 ~/.ssh/id_rsa
+  script:
+    - ssh -o stricthostkeychecking=no ubuntu@${PROD_SERVER_IP} "sudo docker login -u clone_token -p "YANkxZ4_imRoBZSidzuL" registry.gitlab.renewbuy.in && cd /home/ubuntu/repos/renewbuy-insurance-preprod/ && sh deploy.sh "
+  only: 
+    - preprod

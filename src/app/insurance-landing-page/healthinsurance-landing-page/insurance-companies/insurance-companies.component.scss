@@ -1,0 +1,194 @@
+.health-companies {
+  margin-top: 5rem;
+  .heading {
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 36px;
+    text-align: center;
+    color: #242424;
+  }
+  .heading-para {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 24px;
+    text-align: center;
+    color: #242424;
+    opacity: 50%;
+    width: 1059px;
+  }
+  .custom-cards {
+    background-color: #f8fafe;
+    border-radius: 20px;
+    border: none;
+    padding: 10px 20px;
+    .img-container {
+      display: inline-block;
+      .card-img {
+        margin-top: 1.5rem;
+        height: 50px;
+      }
+    }
+
+    .ribbon {
+      position: absolute;
+      font-size: 12px;
+      background-color: #def6eb;
+      color: #47be88;
+      font-weight: 600;
+      padding: 5px 10px;
+      border-radius: 0 0 10px 10px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+      width: auto;
+      height: auto;
+      text-align: center;
+      line-height: 12px;
+      z-index: 1;
+      top: -2.6px;
+    }
+    .half-circle-left,
+    .half-circle-right {
+      width: 15px;
+      height: 5px;
+      background-color: #def6eb;
+      border-radius: 100px 100px 0 0;
+      position: absolute;
+      top: -3px;
+    }
+
+    .half-circle-right {
+      right: 17%;
+    }
+
+    .half-circle-left {
+      left: 17%;
+    }
+  }
+  .details {
+    font-size: 16px;
+    font-weight: 600;
+  }
+  .details-point {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .details-point li {
+    position: relative;
+    padding-left: 20px;
+    margin-bottom: 10px;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 20px;
+    text-wrap: wrap;
+  }
+
+  .details-point li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 15px;
+    height: 14px;
+    background-image: url("/rb_assets/assets/insurance/check-list.svg");
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  .explore-cards {
+    background-color: #f8fafe;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    height: 254px;
+
+  }
+  .card-border {
+    border: none;
+  }
+  .explore-card-border {
+    border: none;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .row-wrapper {
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+
+  .multi-company {
+    flex-wrap: nowrap;
+  }
+
+  .multi-company > .card {
+    display: inline-block;
+    width: 80%;
+    background-color: #ffffff00;
+  }
+  .health-companies {
+    background-color: #5384ea0f;
+    padding-top: 8%;
+    padding-bottom: 8%;
+    .heading {
+      font-size: 18px;
+      font-weight: 500;
+      line-height: 27px;
+    }
+    .heading-para {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 20px;
+    }
+    .custom-cards {
+      background-color: #ffffff;
+      border-radius: 20px;
+      border: none;
+      padding: 10px 20px;
+      height: 300px;
+      .img-container {
+        display: inline-block;
+        .card-img {
+          margin-top: 1.5rem;
+          height: 50px;
+        }
+      }
+      .ribbon {
+        position: absolute;
+        font-size: 12px;
+        background-color: #def6eb;
+        color: #47be88;
+        font-weight: 600;
+        padding: 5px 10px;
+        border-radius: 0 0 10px 10px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+        width: auto;
+        height: auto;
+        text-align: center;
+        line-height: 12px;
+        z-index: 1;
+        top: -2.6px;
+      }
+      .half-circle-left,
+      .half-circle-right {
+        width: 15px;
+        height: 5px;
+        background-color: #def6eb;
+        border-radius: 100px 100px 0 0;
+        position: absolute;
+        top: -3px;
+      }
+
+      .half-circle-right {
+        right: 17%;
+      }
+
+      .half-circle-left {
+        left: 17%;
+      }
+    }
+    .explore-res {
+      color: #0068cf;
+      text-decoration: underline;
+    }
+  }
+}

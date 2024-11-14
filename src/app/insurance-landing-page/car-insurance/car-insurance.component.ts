@@ -98,28 +98,28 @@ export class CarInsuranceComponent {
   pageHeaderTextList: any = [
     {
       name: "Car",
-      title: `<h2 class="page-title">Car insurance price starting at just <span class="day-color">₹2,088<span>*<h2>`,
+      title: `<h1 class="page-title">Car insurance price starting at just <span class="day-color">₹2,088<span>*<h1>`,
       subtitle: `<span class="text-bold">Buy</span> or <span class="text-bold">Renew</span> Car Insurance Online in <span class="text-bold">5 Minutes</span> <span>⚡</span>`,
     },
     {
       name: "Bike",
-      title: `<h2 class="page-title">Buy Two Wheeler Insurance Online &#x40;<span class="day-color">
-                        &#8377;1.5/day</span></h2>`,
+      title: `<h1 class="page-title">Buy Two Wheeler Insurance Online &#x40;<span class="day-color">
+                        &#8377;1.5/day</span></h1>`,
       subtitle: `<div><span class="text-bold">Cover</span> up your <span class="text-bold">Bike</span> in <span class="text-bold"> 2 Minutes</span> <span>⚡</span></div>`,
     },
     {
       name: "CV",
-      title: `<h2 class="page-title">Secure your Commercial Vehicle & <span class="day-color">Save upto 65%*</span> on plans</h2>`,
+      title: `<h1 class="page-title">Secure your Commercial Vehicle & <span class="day-color">Save upto 65%*</span> on plans</h1>`,
       subtitle: `<span class="text-bold">Cover</span> up your <span class="text-bold">CV</span> in <span class="text-bold">5 Minutes</span> <span>⚡</span>`,
     },
     {
       name: "Health",
-      title: `<h2 class="page-title">Compare & buy customised Health Plans starting at just <span class="day-color">₹257/month</span>*</h2>`,
-      subtitle: `<span >Discover a range of <span class='text-bold'>coverage plans</span> designed to meet your <span class='text-bold'>specific requirements</span></span>`,
+      title: `<h1 class="page-title">Compare & buy customised Health Plans starting at just <span class="day-color">₹257/month</span>*</h1>`,
+      subtitle: `<span class='text-bold'>Discover a range of coverage plans designed to meet your specific requirements</span>`,
     },
     {
       name: "Life",
-      title: `<h2 class="page-title">Get <span class="day-color">₹1 Crore </span>Term Insurance plan starting from <span class="day-color">₹16/day</span>*</h2>`,
+      title: `<h1 class="page-title">Get <span class="day-color">₹1 Crore </span>Term Insurance plan starting from <span class="day-color">₹16/day</span>*</h1>`,
       subtitle: `<div><img class='percentage-icon' src='../../../../rb_assets/assets/insurance/percentageIcon.svg' alt='percentage icon' /><span class='text-bold'>Get online discount upto </span><span class='discount'>15% off</span>*</div>`,
     },
   ];
@@ -127,7 +127,7 @@ export class CarInsuranceComponent {
   subtitle: string =
     '<span class="text-bold">Buy</span> or <span class="text-bold">Renew</span> Car Insurance Online in <span class="text-bold">5 Minutes</span> <span>⚡</span>';
   title: string =
-    '<h2 class="page-title">Car insurance price starting at just <span class="day-color">₹2,088<span>*<h2>';
+    '<h1 class="page-title">Car insurance price starting at just <span class="day-color">₹2,088<span>*<h1>';
   constructor(
     private fb: FormBuilder,
     private apiService: ApiService,
@@ -362,6 +362,7 @@ export class CarInsuranceComponent {
         (el: { name: string }) => el.name == tab
       ).subtitle;
       this.resetForm();
+      this.dateValue = null;
     }
   }
 
@@ -392,15 +393,15 @@ export class CarInsuranceComponent {
         .subscribe(
           (res) => {
             if (res) {
-              if (this.selectedTab == 'Health') {
+              this.toastService.toastError(res, "success");
+              if (this.selectedTab == "Health") {
                 window.location.href =
                   "https://health.renewbuyinsurance.com/health/basic-details";
               } else if (this.selectedTab == "Life") {
                 // window.location.href =
                 //   'https://www.renewbuyinsurance.com/online-term-plan';
                 this.registrationForm.reset();
-                this.toastService.toastError(res, 'success');
-              } else if (this.selectedTab === 'Bike') {
+              } else if (this.selectedTab === "Bike") {
                 window.location.href = `https://apex.renewbuyinsurance.com/motor/?reg_no=${
                   this.registrationForm.get("vehicleNumber")?.value
                 }&mobile_no=${
@@ -414,7 +415,6 @@ export class CarInsuranceComponent {
                 }&vehicle=fourWheeler`;
               } else {
                 this.registrationForm.reset();
-                this.toastService.toastError(res, 'success');
               }
             }
           },
@@ -461,5 +461,10 @@ export class CarInsuranceComponent {
     if (this.registrationForm.valid) {
       this.onSubmitregistrationForm(this.registrationForm.valid);
     }
+  }
+  dateValue: string | null = null;
+
+  onDateChange(event: any) {
+    this.dateValue = event.target.value;
   }
 }

@@ -118,16 +118,9 @@ body.no-scroll {
 }
 
 @media (min-width: 1296px) and (max-width: 1366px) {
-  // Regular desktops
-  // .main__container {
-  //   height: 70vh !important;
-  // }
   .title {
     bottom: 50% !important;
   }
-  // .main__container {
-  //   height: 40vh !important;
-  // }
 }
 
 // @media (max-width: 1024px) {
@@ -135,14 +128,25 @@ body.no-scroll {
   .main__container {
     height: 35vh !important;
   }
-  .car-insurance-container {
-    .page-title {
-      font-size: 24px;
-    }
-    .subtitle .text-bold {
-      font-size: 12px;
-    }
-  }
+}
+.view-more {
+  width: 125px;
+  height: 44px;
+  border-radius: 100px;
+  background-color: #f5f8fe;
+  font-size: 12px;
+  font-weight: 600;
+  color: #5384ea;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  padding: 0 7px;
+  gap: 5%;
+}
+.rotate-180 {
+  transform: rotate(180deg);
+  transition: transform 0.3s ease;
 }
 
 @media only screen and (max-width: 768px) {
@@ -221,10 +225,12 @@ body.no-scroll {
 /** 
 * car insurance page scss start
 */
-.car-insurance-container {
+.car-insurance-container,
+.motor-car-insurance-container {
   .page-title {
     text-wrap: nowrap;
     font-weight: 500;
+    font-size: 32px;
     @media (max-width: 576px) {
       & {
         text-wrap: wrap;
@@ -277,6 +283,24 @@ body.no-scroll {
       }
     }
   }
+  @media (min-width: 1024px) and (max-width: 1295px) {
+    .page-title {
+      font-size: 24px;
+      color: #242424;
+    }
+    .subtitle .text-bold {
+      font-size: 12px;
+    }
+  }
+  @media (min-width: 1296px) and (max-width: 1366px) {
+    .page-title {
+      font-size: 26px;
+      color: #242424;
+    }
+    .subtitle .text-bold {
+      font-size: 14px;
+    }
+  }
 }
 
 .ngx-pagination {
@@ -305,4 +329,52 @@ body.no-scroll {
 }
 .ng-placeholder {
   color: #4d4d4d !important;
+}
+.cursor-pointer {
+  cursor: pointer;
+}
+.add-ons-description {
+  .decsription-text {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 20px;
+    color: #24242480;
+    @media (max-width: 768px) {
+      & {
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 20px;
+      }
+    }
+    .link-text {
+      font-weight: 600;
+      color: #5384ea;
+      cursor: pointer;
+    }
+  }
+}
+.form-group {
+  position: relative;
+}
+
+.date-label {
+  position: absolute;
+  top: 50%;
+  left: 17px;
+  color: #999999;
+  pointer-events: none;
+  transition: 0.2s ease all;
+  transform: translateY(-50%);
+}
+.motor-description-text {
+  font-size: 16px;
+  line-height: 24px;
+  text-align: center;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+  color: #24242480;
+}
+.motor-link-text {
+  color: #5384ea;
+  font-weight: 600;
 }

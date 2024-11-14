@@ -1,0 +1,206 @@
+.select-right-policy-container {
+  .select-right-policy-header {
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 36px;
+    text-align: center;
+    color: #242424;
+  }
+  .header-description {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 20px;
+    text-align: center;
+    color: #242424;
+    opacity: 50%;
+  }
+  .image-content {
+    width: 100%;
+    object-fit: contain;
+    margin-top: 15px;
+  }
+  @media (max-width: 768px) {
+    .select-right-policy-header {
+      font-size: 18px;
+      font-weight: 500;
+      line-height: 27px;
+      text-align: center;
+      color: #242424;
+    }
+    .header-description {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 20px;
+      text-align: center;
+      color: #242424;
+      opacity: 50%;
+    }
+    .overflow-scroll{
+      overflow-x: scroll;
+    }
+  }
+  // .process-lists {
+  //   // display: grid;
+  //   // grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  //   background-position-x: 68px;
+  //   background-position-y: top ;
+  //   /* Grid container */
+  //   .grid-container {
+  //     display: grid;
+  //     grid-template-columns: repeat(12, 1fr);
+  //     gap: 20px;
+  //   }
+
+  //   /* Step cards should span certain columns */
+  //   .step-card {
+  //     .step-heading {
+  //       font-size: 16px;
+  //       font-weight: 600;
+  //       line-height: 24px;
+  //       text-align: left;
+  //     }
+  //     .step-description {
+  //       font-size: 14px;
+  //       font-weight: 400;
+  //       line-height: 20px;
+  //       text-align: left;
+  //     }
+  //   }
+
+  //   /* Individual cards' grid span */
+  //   .grid-container > .step-card:nth-child(1) {
+  //     grid-column: 6 / span 3;
+  //   }
+
+  //   .grid-container > .step-card:nth-child(2) {
+  //     grid-column: 1 / span 2;
+  //   }
+
+  //   .grid-container > .step-card:nth-child(3) {
+  //     grid-column: 10 / span 3;
+  //   }
+
+  //   .grid-container > .step-card:nth-child(4) {
+  //     grid-column: 7 / span 2;
+  //   }
+
+  //   .grid-container > .step-card:nth-child(5) {
+  //     grid-column: 3 / span 3;
+  //   }
+
+  //   /* Example for making each step-card fit properly within the grid */
+  //   @media (max-width: 768px) {
+  //     .grid-container {
+  //       grid-template-columns: repeat(2, 1fr);
+  //     }
+
+  //     .grid-container > .step-card {
+  //       grid-column: span 2;
+  //     }
+  //   }
+  // }
+}
+// @media (min-width: 1296px) and (max-width: 1399px) {
+//   .select-right-policy-container {
+//     .process-lists {
+//       background-position-x: 16px;
+//       background-position-y: 37px;
+//       /* Individual cards' grid span */
+//       .grid-container > .step-card:nth-child(1) {
+//         grid-column: 6 / span 3;
+//       }
+
+//       .grid-container > .step-card:nth-child(2) {
+//         grid-column: 1 / span 2;
+//       }
+
+//       .grid-container > .step-card:nth-child(3) {
+//         grid-column: 11 / span 2;
+//       }
+
+//       .grid-container > .step-card:nth-child(4) {
+//         grid-column: 7 / span 3;
+//         margin-left: 2rem;
+//       }
+
+//       .grid-container > .step-card:nth-child(5) {
+//         grid-column: 3 / span 3;
+//       }
+//     }
+//   }
+// }
+
+// @media (min-width: 1200px) and (max-width: 1295px) {
+//   .select-right-policy-container {
+//     .process-lists {
+//       background-position-x: 16px;
+//       background-position-y: 37px;
+//       /* Individual cards' grid span */
+//       .grid-container > .step-card:nth-child(1) {
+//         grid-column: 6 / span 3;
+//       }
+
+//       .grid-container > .step-card:nth-child(2) {
+//         grid-column: 1 / span 2;
+//       }
+
+//       .grid-container > .step-card:nth-child(3) {
+//         grid-column: 11 / span 2;
+//       }
+
+//       .grid-container > .step-card:nth-child(4) {
+//         grid-column: 7 / span 3;
+//         margin-left: 2rem;
+//       }
+
+//       .grid-container > .step-card:nth-child(5) {
+//         grid-column: 3 / span 3;
+//       }
+//     }
+//   }
+// }
+// @media (min-width: 1024px) and (max-width: 1199px) {
+//   .select-right-policy-container {
+//     .process-lists {
+//       background-position-x: 32px;
+//       background-position-y: -18px;
+//       background-size: 50rem;
+//       /* Individual cards' grid span */
+//       .grid-container > .step-card:nth-child(1) {
+//         grid-column: 6 / span 3;
+//       }
+
+//       .grid-container > .step-card:nth-child(2) {
+//         grid-column: 1 / span 2;
+//       }
+
+//       .grid-container > .step-card:nth-child(3) {
+//         grid-column: 11 / span 2;
+//       }
+
+//       .grid-container > .step-card:nth-child(4) {
+//         grid-column: 7 / span 3;
+//         margin-left: 2rem;
+//       }
+
+//       .grid-container > .step-card:nth-child(5) {
+//         grid-column: 3 / span 3;
+//       }
+//       /* Step cards should span certain columns */
+//     .step-card {
+//       .step-heading {
+//         font-size: 12px;
+//         font-weight: 600;
+//         line-height: 16px;
+//         text-align: left;
+//       }
+//       .step-description {
+//         font-size: 10px;
+//         font-weight: 400;
+//         line-height: 12px;
+//         text-align: left;
+//       }
+//     }
+//     }
+//   }
+// }

@@ -1,0 +1,41 @@
+<div class="faq-motor-container pb-3">
+  <div class="container">
+    <header>
+      <h2 class="faq-motor-header">Frequently Asked Question (FAQ’s)</h2>
+    </header>
+    <div class="faq-list-container">
+      <div class="row">
+        <div
+          class="col-12 mb-3"
+          *ngFor="let question of questionList; let i = index"
+        >
+          <div class="question-tab" (click)="toggleAnswer(i)">
+            <div class="question">
+              <h3
+                class="label-text"
+                [ngClass]="{ 'active-question': isAnswerVisible(i) }"
+              >
+                {{ question?.attributes?.question }}
+              </h3>
+              <img
+                [src]="
+                  isAnswerVisible(i)
+                    ? '../../../rb_assets/assets/icons/up-arrow.svg'
+                    : '../../../rb_assets/assets/icons/down-arrow.svg'
+                "
+                alt=" img"
+                srcset=""
+                [ngClass]="isAnswerVisible(i) ? 'up-arrow' : 'down-arrow'"
+              />
+            </div>
+            <div *ngIf="isAnswerVisible(i)" class="answer">
+              <div class="answer-tab">
+                <p [innerHTML]="question?.attributes?.answer"></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

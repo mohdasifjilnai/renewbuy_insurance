@@ -1,0 +1,260 @@
+// Mixins for Reusable Styles
+@mixin heading-text($font-size, $font-weight, $line-height) {
+  font-size: $font-size;
+  font-weight: $font-weight;
+  line-height: $line-height;
+}
+
+@mixin card-text-style($font-size, $font-weight, $line-height, $color) {
+  font-size: $font-size;
+  font-weight: $font-weight;
+  line-height: $line-height;
+  color: $color;
+}
+
+@mixin card-container-style($background, $border-radius, $padding, $gap) {
+  background: $background;
+  border-radius: $border-radius;
+  padding: $padding;
+  display: flex;
+  align-items: center;
+  column-gap: $gap;
+}
+
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin grid-container($columns, $gap) {
+  display: grid;
+  grid-template-columns: $columns;
+  gap: $gap;
+}
+
+// Placeholder for common heading styles
+%heading {
+  font-weight: 500;
+  line-height: 36px;
+}
+
+// Base Styles
+.add-ons-insurance-container {
+  .breadcrumb a {
+    text-decoration: none;
+    color: #6c757d;
+  }
+
+  .breadcrumb a:hover {
+    text-decoration: underline;
+    color: #0056b3;
+  }
+
+  .breadcrumb .active {
+    color: #007bff;
+  }
+
+  .add-ons-header {
+    text-align: center;
+    padding-bottom: 1rem;
+    .heading-text {
+      @include heading-text(24px, 500, 36px);
+
+      @media (max-width: 768px) {
+        @include heading-text(20px, 500, 30px);
+      }
+    }
+  }
+
+  .add-ons-description {
+    .description-text {
+      @include card-text-style(16px, 500, 20px, #24242480);
+
+      .link-text {
+        font-weight: 600;
+        color: #5384ea;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .add-ons-motor-header {
+    // @include flex-center;
+    text-align: center;
+    padding-bottom: 1rem;
+    margin-top: 4.5rem;
+
+    .add-ons-motor-heading-text {
+      @include heading-text(24px, 500, 36px);
+      color: #242424;
+    }
+
+    .motor-description-text {
+      @include card-text-style(16px, 500, 24px, #24242480);
+      margin: 12px 6rem;
+      .motor-link-text {
+        font-weight: 600;
+        color: #5384ea;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .card-container {
+    @include grid-container(repeat(12, 1fr), 20px);
+
+    .card-box {
+      @include card-container-style(#5384ea0f, 24px, 1rem, 2rem);
+
+      .card-content {
+        .card-heading {
+          font-size: 16px;
+          font-weight: 600;
+          line-height: 20px;
+        }
+
+        .card-text p {
+          font-size: 14px;
+          font-weight: 400;
+          line-height: 20px;
+        }
+      }
+    }
+
+    .card-box:nth-child(1),
+    .card-box:nth-child(2) {
+      grid-column: span 6;
+    }
+
+    .card-box:nth-child(3),
+    .card-box:nth-child(4),
+    .card-box:nth-child(5) {
+      grid-column: span 4;
+    }
+
+    .card-box:nth-child(6),
+    .card-box:nth-child(7) {
+      grid-column: span 6;
+    }
+  }
+  .three-coloum{
+    @include grid-container(repeat(12, 1fr), 20px);
+    .card-box:nth-child(1),
+    .card-box:nth-child(2),
+    .card-box:nth-child(3),
+    .card-box:nth-child(4),
+    .card-box:nth-child(5),
+    .card-box:nth-child(6) {
+      grid-column: span 4;
+    }
+  }
+
+  .insurance-types-container {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+
+    .add-ons-header {
+      @extend .add-ons-header;
+    }
+
+    .add-ons-description {
+      @extend .add-ons-description;
+      line-height: 24px;
+      color: #24242480;
+    }
+
+    .card-container {
+      .card-box {
+        background: none;
+
+        .card-content {
+          .card-heading {
+            @extend %heading;
+            color: #6f6f6f;
+            line-height: 24px;
+          }
+
+          .card-text p {
+            @extend .card-text;
+            font-size: 14px;
+            font-weight: 500;
+            line-height: 24px;
+            color: #28282880;
+
+            span.active-text {
+              font-size: 14px;
+              font-weight: 600;
+              line-height: 24px;
+              color: #5384ea;
+              cursor: pointer;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// Mobile adjustments in a single block
+@media (max-width: 768px) {
+  .add-ons-insurance-container {
+    .card-container {
+      display: flex;
+      flex-direction: column;
+
+      .card-box {
+        flex-direction: column;
+
+        .card-content {
+          .card-heading {
+            text-align: center;
+            padding: 15px 0 5px 0;
+            line-height: 24px;
+          }
+        }
+      }
+      .type-of-coverage-offer {
+        display: flex;
+        align-items: flex-start;
+        row-gap: 10px;
+        .card-image-section{
+          display: flex;
+          align-items: flex-end;
+          column-gap: 16px;
+          .card-heading {
+            font-size: 14px;
+            font-weight: 600 !important;
+            line-height: 21px !important;
+            color: #6f6f6f !important;
+            text-align: start !important;
+            margin-bottom: 0px !important;
+          }
+        .type-of-coverage-offer-icon{
+          width: 44px;
+          object-fit: contain;
+        }}
+
+        .card-content {
+          .card-heading {
+            font-size: 14px;
+            font-weight: 600 !important;
+            line-height: 21px !important;
+            color: #6f6f6f !important;
+            text-align: start !important;
+          }
+        }
+      }
+    }
+
+    .add-ons-motor-header {
+      .add-ons-motor-heading-text {
+        @include heading-text(20px, 500, 30px);
+      }
+      .motor-description-text {
+        @include heading-text(14px, 400, 20px);
+        margin: 6px 0;
+      }
+    }
+  }
+}

@@ -1,0 +1,142 @@
+.types-of-policy-container {
+  background-color: #5384ea0f;
+  .types-of-policy-header {
+    text-align: center;
+    padding-bottom: 1rem;
+    .heading-text {
+      font-size: 24px;
+      font-weight: 500;
+      line-height: 36px;
+      color: #242424;
+    }
+  }
+  .types-of-policy-description {
+    .decsription-text {
+      font-size: 16px;
+      font-weight: 500;
+      line-height: 20px;
+      color: #24242480;
+      .sub-text {
+        font-weight: 600;
+        color: #5384ea;
+        cursor: pointer;
+      }
+    }
+  }
+  .types-of-policy-card-container {
+    .card {
+      border-radius: 24px;
+      background-color: #ffffff;
+      padding: 2rem;
+      border-color: #ffffff;
+      height: 330px;
+      .card-image-box {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .card-image {
+          width: 80px;
+          aspect-ratio: 1;
+          border: 1px solid #5384ea;
+          border-radius: 50%;
+          padding: 8px;
+          background: #5384ea0f;
+          object-fit: none;
+        }
+      }
+
+      .card-name {
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 20px;
+        text-align: center;
+        margin: 1.5rem 0;
+      }
+      .card-description {
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 24px;
+        text-align: center;
+        .active-text {
+          font-size: 14px;
+          font-weight: 400;
+          line-height: 24px;
+          text-align: center;
+          color: #5384ea;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
+@media (min-width: 1024px) and (max-width: 1295px) {
+  .types-of-policy-container {
+    .types-of-policy-card-container {
+      .card {
+        padding: 1rem;
+        height: 375px;
+      }
+    }
+  }
+}
+@media (min-width: 1296px) and (max-width: 1366px) {
+  .types-of-policy-container {
+    .types-of-policy-card-container {
+      .card {
+        padding: 1rem;
+        height: 355px;
+      }
+    }
+  }
+}
+@media (max-width: 768px) {
+  .types-of-policy-container {
+    .types-of-policy-header {
+      padding-bottom: 8px;
+      .heading-text {
+        font-size: 18px;
+        font-weight: 500;
+        line-height: 27px;
+        text-align: center;
+        color: #242424;
+      }
+    }
+    .types-of-policy-description {
+      padding-bottom: 18px;
+      .decsription-text {
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 20px;
+        color: #242424;
+        opacity: 50%;
+        text-align: center;
+      }
+    }
+    .types-of-policy-card-container {
+      .card-container {
+        row-gap: 16px;
+        .card {
+          padding: 1.5rem;
+          .card-name {
+            margin: 1rem 0;
+            line-height: 24px;
+          }
+          .card-description {
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 20px;
+            text-align: center;
+            .active-text {
+              font-size: 14px;
+              font-weight: 400;
+              line-height: 20px;
+              text-align: center;
+              color: #5384ea;
+              cursor: pointer;
+            }
+          }
+        }
+      }
+    }
+  }
+}

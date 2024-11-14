@@ -1,0 +1,157 @@
+<div class="container choose-best-health-insurance-container">
+  <div class="header-section">
+    <h2 class="choose-best-health-insurance-heading">
+      How to choose the Best Health Insurance Companies in India?
+    </h2>
+    <div class="d-flex justify-content-center">
+      <p class="choose-best-health-insurance-heading-para">
+        To choose the best health insurance company in India from the 28
+        available options, consider the following factors and match them with
+        your personal needs and preferences:
+      </p>
+    </div>
+  </div>
+  <div class="d-none d-lg-block">
+  <div class="row mt-5">
+    <div class="col-2 col-lg-2"></div>
+    <div class="col-4 col-lg-4 d-flex justify-content-center">
+      <div>
+        <img
+          src="./rb_assets/assets/images/curve-2.svg"
+          alt=""
+          width="164"
+          height="214"
+        />
+        <div class="benefit-head">
+          <div class="benefit">
+            <div class="benefit-main">Network Hospitals</div>
+            <span class="benefit-subhead"
+              >Discover our affordable insurance plans that provide extensive
+              coverage and robust protection, tailored to your needs for peace
+              of mind and financial security.</span
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-1"></div>
+    <div class="col-4 col-lg-4 d-flex justify-content-center">
+      <div>
+        <img src="./rb_assets/assets/images/curve-4.svg" alt="" />
+
+        <div class="benefit-head">
+          <div class="benefit">
+            <div class="benefit-main">Online Services</div>
+            <span class="benefit-subhead"
+              >Benefit from a wide hospital network with our cost-effective
+              plans, offering comprehensive coverage and financial security
+              without compromising on quality.</span
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- <div class="col-12 mt-4 benefit-img">
+      <img src="./rb_assets/assets/images/best-benefit.svg" alt="" />
+    </div> -->
+    <!-- <div class="col-4 col-lg-4 mt-4">
+      <div class="d-flex justify-content-center position-relative">
+        <img
+          class="position-absolute"
+          src="./rb_assets/assets/images/curve-1.svg"
+          alt=""
+        />
+        <div class="benefit-head-down mt-3">
+          <div class="benefit">
+            <div class="benefit-main">Wider Coverage at Low Premiums</div>
+            <span class="benefit-subhead"
+              >Explore our cost-effective insurance plans with extensive
+              coverage and affordable premiums, offering robust protection
+              tailored to your needs for peace of mind & financial
+              security.</span
+            >
+          </div>
+        </div>
+      </div>
+    </div> -->
+    <!-- <div class="col-1"></div> -->
+    <!-- <div class="col-6 col-lg-6 mt-4">
+      <div class="d-flex justify-content-center position-relative">
+        <img
+          class="position-absolute curve"
+          src="./rb_assets/assets/images/curve-3.svg"
+          alt=""
+        />
+        <div class="benefit-4 mt-3">
+          <div class="benefit">
+            <div class="benefit-main">Customer Care Support</div>
+            <span class="benefit-subhead"
+              >Get reliable customer care with our affordable plans, providing
+              comprehensive assistance and convenience within your budget.</span
+            >
+          </div>
+        </div>
+      </div>
+    </div> -->
+    <!-- <div class="col-4 col-lg-4"></div> -->
+  </div>
+  <div class="row second">
+    <div class="col-12 mt-4 benefit-img">
+      <img src="./rb_assets/assets/images/best-benefit.svg" alt="" />
+    </div>
+  </div>
+  <div class="row third">
+    <div class="col-4 col-lg-4 mt-4">
+      <div class="d-flex position-relative">
+        <img
+          class="position-absolute"
+          src="./rb_assets/assets/images/curve-1.svg"
+          alt=""
+        />
+        <div class="benefit-head-down mt-3">
+          <div class="benefit">
+            <div class="benefit-main">Wider Coverage at Low Premiums</div>
+            <span class="benefit-subhead"
+              >Enjoy reliable customer care with our affordable plans, ensuring
+              comprehensive assistance and convenience within your budget.
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-2"></div>
+    <div class="col-6 col-lg-6 mt-4">
+      <div class="d-flex position-relative">
+        <img
+          class="position-absolute curve"
+          src="./rb_assets/assets/images/curve-3.svg"
+          alt=""
+        />
+        <div class="benefit-4 mt-3">
+          <div class="benefit">
+            <div class="benefit-main">Customer Care Support</div>
+            <span class="benefit-subhead"
+              >Take advantage of our extensive online services with affordable
+              plans, offering comprehensive coverage and convenience without
+              breaking your budget.
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+  <div class="d-block d-lg-none">
+    <div class="card custom-res-card mb-3" *ngFor="let card of bestBenifitResCard">
+      <div class="card-body">
+          <div class="text-center">
+            <img [src]="card.image" alt="">
+            <div class="card-head">{{ card?.bestCoverageHead }}</div>
+            <span class="card-subHead"
+              >{{ card?.bestCoverageDescription }}</span
+            >
+          </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,4 +1,4 @@
-import { CommonModule, DOCUMENT, isPlatformBrowser } from '@angular/common';
+import { CommonModule, DOCUMENT, isPlatformBrowser } from "@angular/common";
 import {
   Component,
   ElementRef,
@@ -8,30 +8,30 @@ import {
   Output,
   PLATFORM_ID,
   ViewChild,
-} from '@angular/core';
+} from "@angular/core";
 import {
   FormBuilder,
   FormGroup,
   ReactiveFormsModule,
   Validators,
-} from '@angular/forms';
-import { ProfilePageComponent } from '../profile-page/profile-page.component';
-import { ToastModalComponent } from '../toast-modal/toast-modal.component';
-import { AcceptOnlyDigitDirective } from '../../utilis/directives/accept-only-digit.directive';
-import { ToastService } from '../../utilis/service/toast.service';
-import { ApiService } from '../../utilis/service/api.service';
-import { CookieService } from 'ngx-cookie-service';
-import { ShareService } from '../../utilis/service/share.service';
-import { DeviceDetectorService } from 'ngx-device-detector';
-import { environment } from '../../../environments/environment';
-import { ApiConstants } from '../../utilis/api.constant';
-import { HttpHeaders } from '@angular/common/http';
-import { IframeCommunicationService } from '../../utilis/service/iframe-communication.service.ts.service';
+} from "@angular/forms";
+import { ProfilePageComponent } from "../profile-page/profile-page.component";
+import { ToastModalComponent } from "../toast-modal/toast-modal.component";
+import { AcceptOnlyDigitDirective } from "../../utilis/directives/accept-only-digit.directive";
+import { ToastService } from "../../utilis/service/toast.service";
+import { ApiService } from "../../utilis/service/api.service";
+import { CookieService } from "ngx-cookie-service";
+import { ShareService } from "../../utilis/service/share.service";
+import { DeviceDetectorService } from "ngx-device-detector";
+import { environment } from "../../../environments/environment";
+import { ApiConstants } from "../../utilis/api.constant";
+import { HttpHeaders } from "@angular/common/http";
+import { IframeCommunicationService } from "../../utilis/service/iframe-communication.service.ts.service";
 
 declare var bootstrap: any;
 
 @Component({
-  selector: 'app-new-sign-in',
+  selector: "app-new-sign-in",
   standalone: true,
   imports: [
     CommonModule,
@@ -40,18 +40,19 @@ declare var bootstrap: any;
     ToastModalComponent,
     AcceptOnlyDigitDirective,
   ],
-  templateUrl: './new-sign-in.component.html',
-  styleUrl: './new-sign-in.component.scss',
+  templateUrl: "./new-sign-in.component.html",
+  styleUrl: "./new-sign-in.component.scss",
 })
 export class NewSignInComponent {
   @Output() isClosePopUp: EventEmitter<any> = new EventEmitter<any>();
+  @Output() isClosePopUpExistUser = new EventEmitter<boolean>(false);
   @Output() isCloseOTPPopUp: EventEmitter<any> = new EventEmitter<any>();
   @Output() closeEvent = new EventEmitter<void>();
   @Output() isVerifyOtp = new EventEmitter<boolean>();
   @Input() isSignUp: boolean = false;
   @Input() isRenewbuyInsurance: boolean = false;
   @Input() mobileNumber: number | any;
-  @ViewChild('newSignIn') newSignInModal!: ElementRef;
+  @ViewChild("newSignIn") newSignInModal!: ElementRef;
   signUpForm!: FormGroup;
   otpForm!: FormGroup;
   // isSignUp: boolean = false;
@@ -60,6 +61,7 @@ export class NewSignInComponent {
   getIntervalTime: any;
   isProfile: boolean = false;
   isClosePopup: boolean = false;
+  // isClosePopUpExistUser:boolean = false;
   error: any;
   deviceInfo: any;
   location: any;
@@ -75,23 +77,23 @@ export class NewSignInComponent {
     private toastService: ToastService,
     private cookieService: CookieService,
     private share: ShareService,
-    private deviceService: DeviceDetectorService,
+    private deviceService: DeviceDetectorService
   ) {
     this.signUpForm = this.formBuilder.group({
       mobile_number: [
-        '',
+        "",
         [
           Validators.required,
           Validators.minLength(10),
           Validators.maxLength(10),
-          Validators.pattern(new RegExp('^[6-9]{1}[0-9]{9}$')),
+          Validators.pattern(new RegExp("^[6-9]{1}[0-9]{9}$")),
         ],
       ],
       terms_conditions: [true, Validators.required],
     });
     this.otpForm = this.formBuilder.group({
       otp: [
-        '',
+        "",
         [Validators.required, Validators.minLength(6), Validators.maxLength(6)],
       ],
     });
@@ -150,8 +152,8 @@ export class NewSignInComponent {
   submitForm(valid: boolean, event: any) {
     if (valid) {
       let body = {
-        mobile: this.signUpForm.get('mobile_number')?.value,
-        cta_consent: this.signUpForm.get('terms_conditions')?.value,
+        mobile: this.signUpForm.get("mobile_number")?.value,
+        cta_consent: this.signUpForm.get("terms_conditions")?.value,
         otp_event_type: 1,
       };
       // this.onSubmitOrder(event);
@@ -164,7 +166,7 @@ export class NewSignInComponent {
       .getpostRequest(
         `${environment.unicornDomain}${ApiConstants.Generate_otp}`,
         body,
-        ''
+        ""
       )
       .subscribe(
         (res) => {
@@ -175,8 +177,8 @@ export class NewSignInComponent {
         },
         (error) => {
           this.apiWaiting = false;
-          this.error = 'Failed to generate OTP!';
-          this.toastService.toastError(error?.error?.message, 'error');
+          this.error = "Failed to generate OTP!";
+          this.toastService.toastError(error?.error?.message, "error");
         }
       );
   }
@@ -187,23 +189,23 @@ export class NewSignInComponent {
   submitOtpForm(valid: boolean) {
     if (valid && !this.isRenewbuyInsurance) {
       this.deviceInfo = this.deviceService.getDeviceInfo();
-      if (this.deviceInfo?.deviceType == 'desktop') {
+      if (this.deviceInfo?.deviceType == "desktop") {
         this.getDeviceType = 3;
       } else {
-        if (this.deviceInfo?.os == 'iOS') {
+        if (this.deviceInfo?.os == "iOS") {
           this.getDeviceType = 1;
-        } else if (this.deviceInfo?.os == 'Android') {
+        } else if (this.deviceInfo?.os == "Android") {
           this.getDeviceType = 2;
         } else {
           this.getDeviceType = 3;
         }
       }
-      const userLocationString = sessionStorage.getItem('location');
+      const userLocationString = sessionStorage.getItem("location");
       let body = {
         mobile:
-          this.signUpForm.get('mobile_number')?.value || this.mobileNumber,
-        otp: this.otpForm.get('otp')?.value,
-        cta_consent: this.signUpForm.get('terms_conditions')?.value,
+          this.signUpForm.get("mobile_number")?.value || this.mobileNumber,
+        otp: this.otpForm.get("otp")?.value,
+        cta_consent: this.signUpForm.get("terms_conditions")?.value,
         user_location: userLocationString
           ? JSON.parse(userLocationString)
           : null,
@@ -214,14 +216,14 @@ export class NewSignInComponent {
         .getpostRequest(
           `${environment.unicornDomain}${ApiConstants.verify_otp}`,
           body,
-          ''
+          ""
         )
         .subscribe(
           (res: any) => {
             if (res) {
               this.apiWaiting = false;
               this.share.setCrossDomainCookie(
-                'access_token',
+                "access_token",
                 res?.access_token,
                 7
               );
@@ -238,23 +240,23 @@ export class NewSignInComponent {
           (error) => {
             this.isVerifyOtp.emit(false);
             this.apiWaiting = false;
-            this.error = 'Invalid OTP! Enter correct OTP';
-            this.toastService.toastError(error?.error?.message, 'error');
+            this.error = "Invalid OTP! Enter correct OTP";
+            this.toastService.toastError(error?.error?.message, "error");
           }
         );
     } else if (valid && this.isRenewbuyInsurance) {
       const formData = new FormData();
       formData.append(
-        'mobile',
-        this.signUpForm.get('mobile_number')?.value || this.mobileNumber
+        "mobile",
+        this.signUpForm.get("mobile_number")?.value || this.mobileNumber
       );
-      formData.append('otp', this.otpForm.get('otp')?.value);
+      formData.append("otp", this.otpForm.get("otp")?.value);
       this.apiWaiting = true;
       this.apiService
         .getpostRequest(
           `${environment.unicornDomain}${ApiConstants.Verfy_family_number}`,
           formData,
-          ''
+          ""
         )
         .subscribe(
           (res: any) => {
@@ -268,8 +270,8 @@ export class NewSignInComponent {
           (error) => {
             this.isVerifyOtp.emit(false);
             this.apiWaiting = false;
-            this.error = 'Invalid OTP! Enter correct OTP';
-            this.toastService.toastError(error?.error?.message, 'error');
+            this.error = "Invalid OTP! Enter correct OTP";
+            this.toastService.toastError(error?.error?.message, "error");
           }
         );
     }
@@ -279,40 +281,34 @@ export class NewSignInComponent {
    */
   getUserDetail() {
     const header = new HttpHeaders({
-      Authorization: `Bearer ${this.cookieService.get('access_token')}`,
+      Authorization: `Bearer ${this.cookieService.get("access_token")}`,
     });
-    if (isPlatformBrowser(this.platformId)) {
-      this.apiService
-        .getRequestedResponse(
-          `${environment.unicornDomain}${ApiConstants.Get_user_details}`,
-          header
-        )
-        .subscribe(
-          (res: any): void => {
-            if (
-              res &&
-              res?.first_name &&
-              res?.gender &&
-              res?.dob &&
-              res?.email
-            ) {
-              this.share.setCrossDomainCookie('username', res.first_name, 7);
-              setTimeout(() => {
-                window.location.href = environment['dashboardDomain'];
-              }, 100);
-            } else {
-              this.share.setCrossDomainCookie('username', res.first_name, 7);
-              this.isSignUp = true;
-              this.isProfile = true;
-              // this.isClosePopup = false;
-            }
-            this.share.triggerAction();
-          },
-          (error: any): void => {
-            this.toastService.toastError(error?.error?.message, 'error');
+    // if (isPlatformBrowser(this.platformId)) {
+    this.apiService
+      .getRequestedResponse(
+        `${environment.unicornDomain}${ApiConstants.Get_user_details}`,
+        header
+      )
+      .subscribe(
+        (res: any): void => {
+          if (res && res?.first_name && res?.gender && res?.dob && res?.email) {
+            this.share.setCrossDomainCookie("username", res.first_name, 7);
+            this.isClosePopUpExistUser.emit(true);
+            // setTimeout(() => {
+            //   window.location.href = environment['dashboardDomain'];
+            // }, 100);
+          } else {
+            this.share.setCrossDomainCookie("username", res.first_name, 7);
+            this.isSignUp = true;
+            this.isProfile = true;
           }
-        );
-    }
+          this.share.triggerAction();
+        },
+        (error: any): void => {
+          this.toastService.toastError(error?.error?.message, "error");
+        }
+      );
+    // }
   }
   /**
    * Handles the user's request to change the mobile number.

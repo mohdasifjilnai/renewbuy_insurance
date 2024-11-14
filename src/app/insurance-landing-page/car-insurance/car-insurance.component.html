@@ -179,10 +179,16 @@
                     type="date"
                     class="form-control p-3 input-box date-input"
                     formControlName="dob"
-                    data-placeholder="Select Date of Birth"
                     [min]="minDateString"
                     [max]="maxDateString"
+                    (focus)="onDateChange($event)"
                   />
+                  <label
+                    class="date-label d-block d-lg-none"
+                    *ngIf="dateValue == null"
+                  >
+                    dd/mm/yyyy
+                  </label>
                   <div
                     class="error-message"
                     *ngIf="
@@ -303,7 +309,8 @@
               class="rounded mx-auto d-block"
               alt="..."
               [ngClass]="{
-                'image-position-bottom': selectedTab === 'Life' || selectedTab === 'Health'
+                'image-position-bottom':
+                  selectedTab === 'Life' || selectedTab === 'Health'
               }"
             />
           </div>
@@ -351,6 +358,15 @@
     <!-- car-insurance-right-end -->
   </div>
 </div>
+<!-- <app-car-insurance></app-car-insurance>
+<app-quick-actions></app-quick-actions>
+<app-inurer-partner class="inurer-partner"></app-inurer-partner>
+<app-choose-renewbuy></app-choose-renewbuy>
+<app-advisor-connect></app-advisor-connect>
+<app-cashless-garages></app-cashless-garages>
+<app-claim-file></app-claim-file>
+<app-curated-content></app-curated-content>
+<app-faq></app-faq> -->
 <sign-in
   *ngIf="isOtp"
   (isCloseOTPPopUp)="closeOTPPopUp($event)"

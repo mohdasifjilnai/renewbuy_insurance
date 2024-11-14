@@ -1,0 +1,135 @@
+.choose-best-health-insurance-container {
+  margin-bottom: 10rem;
+  margin-top: 5rem;
+  .header-section {
+    text-align: center;
+    .choose-best-health-insurance-heading {
+      font-size: 24px;
+      font-weight: 500;
+      line-height: 36px;
+      color: #242424;
+    }
+    .choose-best-health-insurance-heading-para {
+      font-size: 16px;
+      font-weight: 500;
+      line-height: 24px;
+      color: #242424;
+      opacity: 50%;
+      width: 1059px;
+    }
+  }
+  .benefit-head {
+    padding-left: 12%;
+    .benefit-num {
+      font-size: 65px;
+      font-weight: 600;
+      color: #5384ea;
+      line-height: 105px;
+    }
+    .benefit {
+      width: 328px;
+      margin-top: -34%;
+      .benefit-main {
+        font-size: 16px;
+        font-weight: 600;
+        color: #6f6f6f;
+        line-height: 24px;
+      }
+      .benefit-subhead {
+        font-size: 12px;
+        font-weight: 500;
+        color: #24242480;
+        line-height: 20px;
+      }
+    }
+  }
+  .benefit-head-down {
+    // padding-left: 60%;
+
+    .benefit-num {
+      font-size: 65px;
+      font-weight: 600;
+      color: #5384ea;
+      line-height: 105px;
+    }
+    .benefit {
+      width: 431px;
+      padding-left: 10%;
+      .benefit-main {
+        font-size: 16px;
+        font-weight: 600;
+        color: #6f6f6f;
+        line-height: 24px;
+      }
+      .benefit-subhead {
+        font-size: 12px;
+        font-weight: 500;
+        color: #24242480;
+        line-height: 20px;
+      }
+    }
+  }
+  .benefit-4 {
+    .benefit-num {
+      font-size: 65px;
+      font-weight: 600;
+      color: #5384ea;
+      line-height: 105px;
+    }
+    .benefit {
+      width: 410px;
+      padding-left: 12%;
+      .benefit-main {
+        font-size: 16px;
+        font-weight: 600;
+        color: #6f6f6f;
+        line-height: 24px;
+      }
+      .benefit-subhead {
+        font-size: 12px;
+        font-weight: 500;
+        color: #24242480;
+        line-height: 20px;
+      }
+    }
+  }
+  .curve {
+    margin-right: 12%;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .choose-best-health-insurance-container {
+    margin-bottom: 5rem;
+    .header-section {
+    .choose-best-health-insurance-heading {
+      font-size: 18px;
+      font-weight: 500;
+      line-height: 17px;
+      color: #242424;
+    }
+    .choose-best-health-insurance-heading-para {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 20px;
+    }
+  }
+    .custom-res-card {
+      background-color: #5384ea0f;
+      border: none;
+      border-radius: 20px;
+    }
+    .card-head {
+      font-size: 15px;
+      font-weight: 600;
+      color: #6F6F6F;
+      line-height: 21px;
+    }
+    .card-subHead{
+      font-size: 13px;
+      font-weight: 500;
+      line-height: 20px;
+      color: #24242480;
+    }
+  }
+}

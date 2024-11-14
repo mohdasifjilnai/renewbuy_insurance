@@ -1,0 +1,89 @@
+<div class="container companies-comaparison">
+  <div class="">
+    <h1 class="heading">
+      Health Insurance companies data comparison in India 2024
+    </h1>
+    <div class="d-flex justify-content-center">
+      <p class="heading-para">
+        There are 28 health insurance companies available in India, and all have
+        unique features. In the table below, RenewBuy has listed all the health
+        insurance companies available in India and their claim settlement ratio,
+        solvency ratio, and network hospitals.
+      </p>
+    </div>
+  </div>
+  <div class="">
+    <table class="custom-table mt-4">
+      <thead>
+        <tr>
+          <th>Insurer</th>
+          <th>
+            Claim Settlement Ratio <br />
+            <span class="year">
+              (2022-23)
+              <img src="./rb_assets/assets/images/comparison.svg" alt="Sort"
+                (click)="sortBy('claimSettlementRatio')" />
+            </span>
+          </th>
+          <th>
+            Incurred Claim Ratio <br />
+            <span class="year">
+              (2022-23)
+              <img src="./rb_assets/assets/images/comparison.svg" alt="Sort"
+                (click)="sortBy('incurredClaimRatio')" />
+            </span>
+          </th>
+          <th>
+            Solvency Ratio <br />
+            <span class="year">
+              (2022-23)
+              <img src="./rb_assets/assets/images/comparison.svg" alt="Sort"
+                (click)="sortBy('solvencyRatio')" />
+            </span>
+          </th>
+          <th>
+            Gross Direct Premium <br />
+            <span class="year">
+              (2022-23)
+              <img src="./rb_assets/assets/images/comparison.svg" alt="Sort"
+                (click)="sortBy('grossDirectPremium')" />
+            </span>
+          </th>
+          <th>Network Hospitals</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let data of (isExpanded ? companiesData : companiesData | slice:0:5)">
+          <td class="insurer-name">{{ data?.company }}</td>
+          <td>{{ data?.claimSettlementRatio }}</td>
+          <td>{{ data?.incurredClaimRatio }}</td>
+          <td>{{ data?.solvencyRatio }}</td>
+          <td>{{ data?.grossDirectPremium }}</td>
+          <td>{{ data?.networkHospitals }}</td>
+        </tr>
+        <tr *ngIf="isExpanded" class="disclaimer-row">
+          <td colspan="6">
+            <div class="disclaimer mt-2">
+              <span class="disclaimer-text">*<i>Disclaimer: </i></span><span><i>RenewBuy does not endorse any specific insurance company or insurance product offered by any insurer, and this list is just an illustration of the plan offered by different health insurance companies available in India.</i></span><br>
+              <span class="disclaimer-text">**</span><i><span>The data of Solvency Ratio and Claim Settlement Ratio has been sourced from the <span class="disclaimer-text text-primary annual" (click)="annualreport()">annual report of IRDAI 2022-23</span></span></i><br>
+              <span class="disclaimer-text">***</span><i><span>The data of network hospitals have been sourced from the official website of the general and standalone health insurance companies</span></i>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+      
+      
+    </table>
+  </div>
+  
+  <div class="d-flex justify-content-center mt-3">
+    <span class="view-more text-center" (click)="expandTable()">
+      {{ isExpanded ? 'View less' : 'View more' }}
+      <img [src]=" './rb_assets/assets/images/dwnld.svg'"
+      [ngClass]="{'rotate-180': isExpanded}"
+      class="download" 
+      alt="Expand or collapse myths"
+      />
+    </span>    
+  </div>
+</div>

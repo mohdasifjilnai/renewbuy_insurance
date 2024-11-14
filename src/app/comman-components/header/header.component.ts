@@ -5,22 +5,22 @@ import {
   Output,
   PLATFORM_ID,
   EventEmitter,
-} from '@angular/core';
-import { CommonModule, isPlatformBrowser } from '@angular/common';
-import { SignInComponent } from '../../modal-components/sign-in/sign-in.component';
-import { Router } from '@angular/router';
-import { ShareService } from '../../utilis/service/share.service';
-import { ProfilePageComponent } from '../../modal-components/profile-page/profile-page.component';
-import { ApiService } from '../../utilis/service/api.service';
-import { HttpHeaders } from '@angular/common/http';
-import { environment } from '../../../environments/environment';
-import { ApiConstants } from '../../utilis/api.constant';
-import { CookieService } from 'ngx-cookie-service';
-import { Renderer2, ElementRef } from '@angular/core';
-import { NewSignInComponent } from '../../modal-components/new-sign-in/new-sign-in.component';
-import { ToastService } from '../../utilis/service/toast.service';
+} from "@angular/core";
+import { CommonModule, isPlatformBrowser } from "@angular/common";
+import { SignInComponent } from "../../modal-components/sign-in/sign-in.component";
+import { Router } from "@angular/router";
+import { ShareService } from "../../utilis/service/share.service";
+import { ProfilePageComponent } from "../../modal-components/profile-page/profile-page.component";
+import { ApiService } from "../../utilis/service/api.service";
+import { HttpHeaders } from "@angular/common/http";
+import { environment } from "../../../environments/environment";
+import { ApiConstants } from "../../utilis/api.constant";
+import { CookieService } from "ngx-cookie-service";
+import { Renderer2, ElementRef } from "@angular/core";
+import { NewSignInComponent } from "../../modal-components/new-sign-in/new-sign-in.component";
+import { ToastService } from "../../utilis/service/toast.service";
 @Component({
-  selector: 'app-header',
+  selector: "app-header",
   standalone: true,
   imports: [
     CommonModule,
@@ -28,14 +28,14 @@ import { ToastService } from '../../utilis/service/toast.service';
     ProfilePageComponent,
     NewSignInComponent,
   ],
-  templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss'],
+  templateUrl: "./header.component.html",
+  styleUrls: ["./header.component.scss"],
 })
 export class HeaderComponent {
   @Output() isClosePopUp: EventEmitter<any> = new EventEmitter<any>();
-
+  //  @Output() isClosePopUpExistUser = new EventEmitter<boolean>(false);
   Header_links: any;
-  activeCategory: string = 'Motor Insurance';
+  activeCategory: string = "Motor Insurance";
   dropdownActive: boolean = false;
   overlayActive: boolean = false;
   isSign: boolean = false;
@@ -61,7 +61,7 @@ export class HeaderComponent {
   isScrolled = false;
   isProfileOpen = false;
   // Listen for scroll events
-  @HostListener('window:scroll', [])
+  @HostListener("window:scroll", [])
   onWindowScroll() {
     // Check if the page has been scrolled down
     this.isScrolled = window.scrollY > 0;
@@ -74,19 +74,19 @@ export class HeaderComponent {
     private apiService: ApiService,
     private sharedService: ShareService,
     private cookieService: CookieService,
-    private toastService:ToastService
+    private toastService: ToastService
   ) {
     this.checkViewport();
     this.getHeaderLink(this.activeCategory);
     this.getTokenAndUsername();
     this.router.events.subscribe(() => {
-      this.isHomePage = this.router.url === '/';
+      this.isHomePage = this.router.url === "/";
     });
     this.sharedService.openSignUpPopUpAction$.subscribe((res) => {
       this.isSign = res;
     });
   }
-  @HostListener('window:resize', ['$event'])
+  @HostListener("window:resize", ["$event"])
   onResize() {
     this.checkViewport();
   }
@@ -132,7 +132,7 @@ export class HeaderComponent {
 
   goToUserProfile(goToUserProfile: boolean, page: any) {
     if (!goToUserProfile) {
-      window.location.href = environment['dashboardDomain'] + '/' + page;
+      window.location.href = environment["dashboardDomain"] + "/" + page;
     } else {
       this.isProfileOpen = false;
       setTimeout(() => {
@@ -143,7 +143,7 @@ export class HeaderComponent {
 
   goToPolicies(isProfileComplete: boolean, page: any) {
     if (!isProfileComplete) {
-      window.location.href = environment['dashboardDomain'] + '/' + page;
+      window.location.href = environment["dashboardDomain"] + "/" + page;
     } else {
       this.isProfileOpen = false;
       setTimeout(() => {
@@ -166,13 +166,19 @@ export class HeaderComponent {
   close(event: any) {
     this.isSign = event;
     this.isUserLogin = event ? false : true;
-    if (
-      localStorage.getItem('username') == null ||
-      localStorage.getItem('username') == undefined
-    ) {
-      this.sharedService.username$.subscribe((username) => {
-        this.username = username;
-      });
+    this.sharedService.username$.subscribe((username) => {
+      this.username = username;
+    });
+  }
+  closePopUpForExistUser(event: any) {
+    console.log(event, "event");
+    if (event) {
+      this.isSign = false;
+      this.userProfileComplete=false
+      // if (isPlatformBrowser(this.platformId)) {
+      //   window.location.href = environment['dashboardDomain'];
+      //   this.isSign = false;
+      // }
     }
   }
   // logout() {
@@ -186,23 +192,30 @@ export class HeaderComponent {
     this.isUserLogin = false;
     this.overlayActive = false;
     const header = new HttpHeaders({
-      Authorization: `Bearer ${this.cookieService.get('access_token')}`,
+      Authorization: `Bearer ${this.cookieService.get("access_token")}`,
     });
     this.apiService
       .getpostRequest(
-        `${environment['unicornDomain']}${ApiConstants.LOGOUT}`,
-        '',
+        `${environment["unicornDomain"]}${ApiConstants.LOGOUT}`,
+        "",
         header
       )
-      .subscribe((response) => {
-        if(response){
-        this.cookieService.deleteAll('/', environment['subDomain']);
-        this.cookieService.delete('username', '/', window.location.hostname);
-        window.location.href = environment['mainDomain'];
+      .subscribe(
+        (response) => {
+          if (response) {
+            this.cookieService.deleteAll("/", environment["subDomain"]);
+            this.cookieService.delete(
+              "username",
+              "/",
+              window.location.hostname
+            );
+            window.location.href = environment["mainDomain"];
+          }
+        },
+        (error: any) => {
+          this.toastService.toastError(error?.statusText, "error");
         }
-      } ,(error: any) => {
-        this.toastService.toastError(error?.statusText, 'error');
-      });
+      );
   }
   closeComponent() {
     this.isSign = false;
@@ -218,9 +231,9 @@ export class HeaderComponent {
     this.carInsurance = [];
     this.notShowSubMenu = [];
     const Header = new HttpHeaders({
-      Authorization: `Bearer ${environment['bearerToken']}`,
+      Authorization: `Bearer ${environment["bearerToken"]}`,
     });
-    let url = `${environment['strapiDomain']}${ApiConstants['Header']}`;
+    let url = `${environment["strapiDomain"]}${ApiConstants["Header"]}`;
     this.apiService.getRequestedResponse(url, Header).subscribe((response) => {
       this.Header_links = response?.data;
       for (let header_head of response?.data) {
@@ -247,10 +260,10 @@ export class HeaderComponent {
   }
   getTokenAndUsername() {
     if (isPlatformBrowser(this.platformId)) {
-      if (this.cookieService.get('access_token')) {
+      if (this.cookieService.get("access_token")) {
         this.isUserLogin = true;
         this.isProfileOpen = true;
-        this.username = this.cookieService.get('username');
+        this.username = this.cookieService.get("username");
         this.getUserDetail();
       }
     }
@@ -258,16 +271,16 @@ export class HeaderComponent {
 
   resetAccordion(): void {
     const collapseElements = this.el.nativeElement.querySelectorAll(
-      '.accordion-collapse'
+      ".accordion-collapse"
     );
     collapseElements.forEach((collapse: HTMLElement) => {
-      this.renderer.removeClass(collapse, 'show'); // Ensure no items are shown
+      this.renderer.removeClass(collapse, "show"); // Ensure no items are shown
     });
   }
 
   redirectToHome() {
     if (isPlatformBrowser(this.platformId)) {
-      window.location.href = environment['mainDomain'];
+      window.location.href = environment["mainDomain"];
     }
     // this.router.navigate(['/']);
   }
@@ -276,7 +289,7 @@ export class HeaderComponent {
    */
   getUserDetail() {
     const header = new HttpHeaders({
-      Authorization: `Bearer ${this.cookieService.get('access_token')}`,
+      Authorization: `Bearer ${this.cookieService.get("access_token")}`,
     });
     if (isPlatformBrowser(this.platformId)) {
       this.apiService
@@ -295,7 +308,7 @@ export class HeaderComponent {
             ) {
               this.username = res?.first_name;
               this.sharedService.setCrossDomainCookie(
-                'username',
+                "username",
                 this.username,
                 7
               );
@@ -314,9 +327,9 @@ export class HeaderComponent {
   ngAfterViewChecked() {
     if (isPlatformBrowser(this.platformId)) {
       if (this.overlayActive) {
-        document.body.style.overflow = 'hidden';
+        document.body.style.overflow = "hidden";
       } else {
-        document.body.style.overflow = '';
+        document.body.style.overflow = "";
       }
     }
   }

@@ -14,7 +14,22 @@ import { RegistraionNumberDirective } from '../utilis/directives/registraion-num
 import { AcceptOnlyDigitDirective } from '../utilis/directives/accept-only-digit.directive';
 
 @NgModule({
-  declarations: [InsuranceLandingPageComponent, CarInsuranceComponent, AdvisorConnectComponent, ClaimFileComponent, CashlessGaragesComponent, RegistraionNumberDirective],
-  imports: [CommonModule,FormsModule,ReactiveFormsModule, CommanModuleModule,InsuranceLandingPageRoutingModule,AcceptOnlyDigitDirective],
+  declarations: [
+    InsuranceLandingPageComponent,
+    CarInsuranceComponent,
+    AdvisorConnectComponent,
+    ClaimFileComponent,
+    CashlessGaragesComponent,
+  ],
+  imports: [
+    CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
+    CommanModuleModule,
+    InsuranceLandingPageRoutingModule,
+    AcceptOnlyDigitDirective,
+  ],
 })
-export class InsuranceLandingPageModule {}
+export class InsuranceLandingPageModule {
+
+}

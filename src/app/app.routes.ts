@@ -1,13 +1,12 @@
-import { Routes } from '@angular/router';
-import { authGuard } from './utilis/guard/auth.guard';
+import { Routes } from "@angular/router";
 export const routes: Routes = [
   {
-    path: '',
+    path: "",
     loadChildren: () =>
-      import('./insurance-landing-page/insurance-landing-page.module').then(
-        (r) => r.InsuranceLandingPageModule
+      import("../app/main-inurance/main-inurance.module").then(
+        (r) => r.MainInuranceModule
       ),
   },
 
-  { path: '**', redirectTo: '' },
+  { path: "**", redirectTo: "" },
 ];

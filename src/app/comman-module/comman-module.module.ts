@@ -17,6 +17,12 @@ import { CashlessGaragePopupComponent } from '../modal-components/cashless-garag
 import { AutoLoadPopupComponent } from '../modal-components/auto-load-popup/auto-load-popup.component';
 import { ThankYouPopupComponent } from '../modal-components/thank-you-popup/thank-you-popup.component';
 import { OtpPopupComponent } from '../modal-components/otp-popup/otp-popup.component';
+import { RegistraionNumberDirective } from '../utilis/directives/registraion-number.directive';
+import { MotorCarInsuranceComponent } from '../insurance-landing-page/motorinsurance-landing-page/motor-car-insurance/motor-car-insurance.component';
+import { AddOnsInuranceComponent } from '../insurance-landing-page/motorinsurance-landing-page/add-ons-inurance/add-ons-inurance.component';
+import { InclusionsComponent } from '../insurance-landing-page/motorinsurance-landing-page/inclusions/inclusions.component';
+import { FaqMotorComponent } from '../insurance-landing-page/motorinsurance-landing-page/faq-motor/faq-motor.component';
+import { NavigatorComponent } from '../insurance-landing-page/motorinsurance-landing-page/navigator/navigator.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +33,12 @@ import { OtpPopupComponent } from '../modal-components/otp-popup/otp-popup.compo
     CuratedContentComponent,
     InurerPartnerComponent,
     QuickActionsComponent,
+    RegistraionNumberDirective,
+    MotorCarInsuranceComponent,
+    AddOnsInuranceComponent,
+    InclusionsComponent,
+    FaqMotorComponent,
+    NavigatorComponent
   ],
   imports: [
     CommonModule,
@@ -40,7 +52,7 @@ import { OtpPopupComponent } from '../modal-components/otp-popup/otp-popup.compo
     CookieConsentComponent,
     AutoLoadPopupComponent,
     ThankYouPopupComponent,
-    OtpPopupComponent
+    OtpPopupComponent,
   ],
   exports: [
     InsurarComponent,
@@ -55,8 +67,13 @@ import { OtpPopupComponent } from '../modal-components/otp-popup/otp-popup.compo
     InurerPartnerComponent,
     QuickActionsComponent,
     CashlessGaragePopupComponent,
-    CookieConsentComponent
-    
+    CookieConsentComponent,
+    RegistraionNumberDirective,
+    MotorCarInsuranceComponent,
+    AddOnsInuranceComponent,
+    InclusionsComponent,
+    FaqMotorComponent,
+    NavigatorComponent,
   ],
 })
 export class CommanModuleModule {}

@@ -332,7 +332,7 @@
               class="nav-item nav-item-space"
               (click)="redirect('https://www.renewbuy.com/become-an-advisor/')"
             >
-              <a class="nav-link item-text" href="#">Become an Advisor</a>
+              <a class="nav-link item-text">Become an Advisor</a>
             </li>
           </ul>
         </nav>
@@ -689,7 +689,7 @@
       </div>
     </div>
   </div>
-  <!-- <sign-in
+  <!--   <sign-in
     (isClosePopUp)="close($event)"
     *ngIf="isSign"
     (closeEvent)="closeComponent()"
@@ -703,6 +703,7 @@
 
 <app-new-sign-in
   (isClosePopUp)="close($event)"
+  (isClosePopUpExistUser)="closePopUpForExistUser($event)"
   *ngIf="isSign"
   (closeEvent)="closeComponent()"
   [isNewSignInPopOpen]="isSign"

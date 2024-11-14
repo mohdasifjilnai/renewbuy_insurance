@@ -1,0 +1,79 @@
+<div
+  [style]="{ 
+  'background-image': 'url(' + (backgroundImage || '') + ')',
+  'background-size': 'cover', 
+  'background-position': 'backgroundPosition',
+  'background-repeat': 'repeat-x',
+  'height': pageData?.backgroundHeight,
+}"
+  [ngClass]="{
+    'mt-0': pageData?.marginClass === 'mt-0',
+    'mt-5': pageData?.marginClass === 'mt-5',
+    'background-image-position': true,
+    'background-padding': pageData?.backgroundHeight
+  }"
+>
+  <div
+    class="container inclusions-container pt-5"
+    [ngClass]="{
+    'custom-height': pageData?.marginClass === 'mt-5', 
+  }"
+  >
+    <div
+      class="image-background"
+      [style]="{ 'margin-top': pageData?.marginTop }"
+    >
+      <div class="inclusions-header">
+        <h2 class="inclusions-page-heading">{{ pageData?.pageHeader }}</h2>
+        <p class="sub-heading" [innerHtml]="pageData?.pageDescription"></p>
+      </div>
+      <div class="inclusions-content">
+        @for(card of pageData?.cards; track card){
+        <div class="inclusions-content-title">
+          <h3 class="inclusions-content-text" [ngClass]="{'visibility-hidden' : pageData?.visibilityHidden}">
+           {{pageData?.visibilityHidden?pageData?.pageHeader: card?.cardHeader}}
+          </h3>
+        </div>
+        <div class="row">
+          @for(inclusion of card?.inclusionsData; track inclusion){
+          <div
+            class="col-12 col-lg-4 col-sm-12"
+            [ngClass]="{ 'col-lg-6': pageData?.column_no }"
+          >
+            <div class="inclusions-details">
+              <div class="icon-sections">
+                <img src="{{ pageData?.icon }}" />
+              </div>
+              <div class="descriptions">
+                <div>
+                  <h4 class="descriptions-title">
+                    {{ inclusion?.title }}
+                  </h4>
+                </div>
+                <div class="description-text">
+                  <p>{{ inclusion?.text }}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          }
+        </div>
+        }
+      </div>
+    </div>
+  </div>
+  <div
+    class="d-flex justify-content-center mt-3 mb-5"
+    *ngIf="pageName === 'health'"
+  >
+    <span class="view-more text-center" (click)="expandTable()">
+      {{ isExpanded ? "View less" : "View more" }}
+      <img
+        [src]="'./rb_assets/assets/images/dwnld.svg'"
+        [ngClass]="{ 'rotate-180': isExpanded }"
+        class="download"
+        alt="Expand or collapse myths"
+      />
+    </span>
+  </div>
+</div>

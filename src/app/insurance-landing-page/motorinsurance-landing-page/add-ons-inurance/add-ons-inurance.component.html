@@ -1,0 +1,145 @@
+<div class="container add-ons-insurance-container">
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="#">Home</a></li>
+      <li class="breadcrumb-item"><a href="#">Insurance</a></li>
+      <li class="breadcrumb-item active" aria-current="page">
+        {{ pageName === "motor" ? "Motor" : "Health" }} Insurance
+      </li>
+    </ol>
+  </nav>
+  <div class="add-ons-header">
+    <h2 class="heading-text">{{ pageHeader }}</h2>
+  </div>
+  <div class="add-ons-description" [innerHtml]="pageDescriptions"></div>
+  <!-- Add on under motore insurence start -->
+  <div class="add-ons-motor-header">
+    <h2 class="add-ons-motor-heading-text">{{ addOnsHead }}</h2>
+    <div [innerHtml]="addOnSubHead"></div>
+  </div>
+  <!-- Add on under motore insurence end -->
+
+  <!-- Card Section start  -->
+  <div
+    [ngClass]="
+      pageName === 'motor' ? 'card-container' : 'card-container three-coloum'
+    "
+  >
+    <div class="card-box" *ngFor="let card of cardData; let i = index">
+      <div class="card-image-section">
+        <img src="{{ card.imageSrc }}" alt="{{card?.heading}}" />
+      </div>
+      <div class="card-content">
+        <div>
+          <h3 class="card-heading">{{ card?.heading }}</h3>
+        </div>
+        <div class="card-text">
+          <p>
+            {{ card?.text }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Card Section end  -->
+
+  <!-- Types of coverage start -->
+  <div class="insurance-types-container" *ngIf="pageName === 'motor'">
+    <div class="add-ons-header">
+      <h2 class="heading-text">Types of Coverage offered by Motor Insurance</h2>
+    </div>
+    <div class="add-ons-description">
+      <p class="decsription-text text-center">
+        Explore different types of motor insurance plans to find the coverage
+        that suits your needs.
+      </p>
+    </div>
+    <div class="card-container">
+      <div class="card-box d-none d-sm-flex">
+        <div class="card-image-section">
+          <img src="../../../../rb_assets/assets/insurance/Comprehensive.svg" />
+        </div>
+        <div class="card-content">
+          <div>
+            <h3 class="card-heading">Comprehensive Insurance Plan</h3>
+          </div>
+          <div class="card-text">
+            <p>
+              Enjoy complete protection with a plan that covers your vehicle and
+              third-party liabilities. This plan ensures you're fully covered on
+              the road, whether it is about accidental damages, theft, or other
+              unfortunate events.
+
+              <!-- You will be entirely covered in the case of any loss or damage
+              when talking about
+              <span class="active-text">comprehensive motor insurance</span>. It
+              is evident that comprehensive is the superior choice. -->
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="card-box d-none d-sm-flex">
+        <div class="card-image-section">
+          <img
+            src="../../../../rb_assets/assets/insurance/third-party-insurance.svg"
+          />
+        </div>
+        <div class="card-content">
+          <div>
+            <h3 class="card-heading">Third-Party Insurance Plan</h3>
+          </div>
+          <div class="card-text">
+            <p>
+              Protect yourself from legal liabilities with a plan that covers
+              damages caused to others. While it doesn’t cover your vehicle,
+              it’s a cost-effective choice for those seeking basic coverage.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="card-box type-of-coverage-offer d-flex d-sm-none">
+        <div class="card-image-section">
+          <img
+            src="../../../../rb_assets/assets/insurance/Comprehensive.svg"
+            class="type-of-coverage-offer-icon"
+          />
+          <div>
+            <h3 class="card-heading">Comprehensive Insurance Plan</h3>
+          </div>
+        </div>
+        <div class="card-content">
+          <div class="card-text">
+            <p>
+              You will be entirely covered in the case of any loss or damage
+              when talking about
+              <span class="active-text">comprehensive motor insurance</span>. It
+              is evident that comprehensive is the superior choice.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="card-box type-of-coverage-offer d-flex d-sm-none">
+        <div class="card-image-section">
+          <img
+            src="../../../../rb_assets/assets/insurance/third-party-insurance.svg"
+            class="type-of-coverage-offer-icon"
+          />
+          <div>
+            <h6 class="card-heading">Third-Party Insurance Plan</h6>
+          </div>
+        </div>
+        <div class="card-content">
+          <div class="card-text">
+            <p>
+              An individual is shielded from financial damages by a third-party
+              car insurance policy if their covered vehicle is involved in an
+              accident resulting in property damage, bodily harm, or death to a
+              third party.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Types of coverage end -->
+</div>
