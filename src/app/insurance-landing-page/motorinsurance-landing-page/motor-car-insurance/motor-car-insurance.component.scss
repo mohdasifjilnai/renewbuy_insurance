@@ -1,8 +1,10 @@
 .motor-car-insurance-container {
-  margin-top: 84px;
+  margin-top: 60px;
   margin-bottom: 30px;
+  // background-color: rgba(83, 132, 234, 0.0588235294);
+  // padding-left: 13%;
   .card-margin {
-    margin-top: 0.25rem;
+    margin-top: 3rem;
     .right-section {
       display: flex;
       align-items: center;
@@ -215,7 +217,7 @@
     }
   }
   .custom-width {
-    width: 80%;
+    width: 100%;
   }
 
   .slide {

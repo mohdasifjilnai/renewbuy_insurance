@@ -1,5 +1,6 @@
 .choose-best-health-insurance-container {
-  margin-bottom: 12%;
+  margin-bottom: 10rem;
+  margin-top: 5rem;
   .header-section {
     text-align: center;
     .choose-best-health-insurance-heading {
@@ -99,7 +100,7 @@
 
 @media only screen and (max-width: 768px) {
   .choose-best-health-insurance-container {
-    margin-bottom: 0;
+    margin-bottom: 5rem;
     .header-section {
     .choose-best-health-insurance-heading {
       font-size: 18px;

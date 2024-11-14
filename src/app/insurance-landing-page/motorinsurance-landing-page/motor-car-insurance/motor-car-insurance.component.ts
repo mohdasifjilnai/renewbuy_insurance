@@ -110,6 +110,7 @@ export class MotorCarInsuranceComponent {
       name: 'Health',
       title: `<h1 class="page-title">Compare & buy customised Health Plans starting at just <span class="day-color">₹257/month</span>*</h1>`,
       subtitle: `<span class='text-bold'>Discover a range of coverage plans designed to meet your specific requirements</span>`,
+      discount:`<span class='text-bold'><img src="./rb_assets/assets/images/health-discount.svg" /> Get online discount upto 15% off*</span>`
     },
   ];
 
@@ -117,6 +118,7 @@ export class MotorCarInsuranceComponent {
     `<span class="text-bold">Buy</span> or <span class="text-bold">Renew</span> Car Insurance Online in <span class="text-bold">5 Minutes</span> <span>⚡</span>`;
   title: string =
     '<h1 class="page-title">Car insurance price starting at just <span class="day-color">₹2,088</span>*<h1>';
+  discount:string = '';
   constructor(
     private fb: FormBuilder,
     private apiService: ApiService,
@@ -159,7 +161,8 @@ export class MotorCarInsuranceComponent {
       this.selectedTab = 'Health';
       this.selectedHeroImage = 'healthinsurance.svg';
       this.title = `<h1 class="page-title">Compare & buy customised Health Plans starting at just <span class="day-color">₹257/month</span>*</h1>`;
-      this.subtitle = `<span>Discover a range of <span class='text-bold'>coverage plans</span> designed to meet your <span class='text-bold'>specific requirements</span></span>`;
+      this.subtitle = `<span class='text-bold'>Discover a range of coverage plan designed to meet your specific requirements</span>`;
+      this.discount = `<span class='text-bold'><img src="./rb_assets/assets/images/health-discount.svg" /> Get online discount upto 15% off*</span>`;
       this.tabList = this.tabList.find((el: { name: string; }) => el.name == 'Health');
       this.resetForm();
     }else{
