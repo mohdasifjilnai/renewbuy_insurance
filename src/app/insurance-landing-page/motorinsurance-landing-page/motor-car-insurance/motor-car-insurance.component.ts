@@ -254,24 +254,7 @@ export class MotorCarInsuranceComponent {
     if (valid) {
       this.phoneNumber = this.registrationForm.get("contactNumber")?.value;
       this.isOtp = true;
-      // this.apiService
-      //   .getRequestwithHeader(
-      //     `${environment.unicornDomain}${ApiConstants.FETCH_LEADS}?mobile=${this.phoneNumber}&insurance_type=${this.insuranceType}`
-      //   )
-      //   .subscribe(
-      //     (response) => {
-      //       if (response) {
-      //         this.isWait = false;
-      //         this.toastService.toastError('Lead already exists !', 'error');
-      //       }
-      //     },
-      //     (err) => {
-      //       if ((err.error.message = 'Lead not found')) {
-      //         this.isWait = false;
-      //         this.isOtp = true;
-      //       }
-      //     }
-      //   );
+      
     }
   }
 
