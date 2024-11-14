@@ -204,7 +204,7 @@ Health insurance riders let you boost your basic coverage by paying a bit more o
   };
   importanceOfMotorInsuranceData = {
     pageHeader:
-      "No claims for injuries caused during illegal activities or crimes.",
+      "Key factors impacting Health Insurance Premiums",
     pageDescription: `Below mentioned are the factors that can affect your health insurance premium amount:`,
     icon: "../../../../rb_assets/assets/insurance/check-icon.svg",
     pageName:'health',
