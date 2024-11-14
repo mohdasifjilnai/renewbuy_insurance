@@ -1,6 +1,5 @@
 import { CommonModule, isPlatformBrowser } from '@angular/common';
-import { Component, Inject, PLATFORM_ID } from '@angular/core';
-import { log } from 'console';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-data-comparison',
@@ -13,11 +12,6 @@ export class DataComparisonComponent {
 
   isAscending = true;
   isExpanded = false;
-  @Inject(PLATFORM_ID) private platformId: any
-
-  constructor(){
-
-  }
 
   companiesData = 
   [
@@ -275,7 +269,6 @@ export class DataComparisonComponent {
   }
 
   scrollToCashlessGarages(event: boolean) {
-    // if (isPlatformBrowser(this.platformId)) {
       if (event) {
         if (window.innerWidth <= 768) {
           window.scrollTo({
@@ -289,6 +282,5 @@ export class DataComparisonComponent {
           });
         }
       }
-    // }
   }
 }
