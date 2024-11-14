@@ -4,21 +4,21 @@ import {
   Validators,
   FormControl,
   AbstractControl,
-} from '@angular/forms';
+} from "@angular/forms";
 import {
   Component,
   Inject,
   Input,
   PLATFORM_ID,
   SimpleChanges,
-} from '@angular/core';
-import { ApiService } from '../../../utilis/service/api.service';
-import { ShareService } from '../../../utilis/service/share.service';
-import { ToastService } from '../../../utilis/service/toast.service';
-import { isPlatformBrowser } from '@angular/common';
-import { HttpHeaders } from '@angular/common/http';
-import { environment } from '../../../../environments/environment';
-import { ApiConstants } from '../../../utilis/api.constant';
+} from "@angular/core";
+import { ApiService } from "../../../utilis/service/api.service";
+import { ShareService } from "../../../utilis/service/share.service";
+import { ToastService } from "../../../utilis/service/toast.service";
+import { isPlatformBrowser } from "@angular/common";
+import { HttpHeaders } from "@angular/common/http";
+import { environment } from "../../../../environments/environment";
+import { ApiConstants } from "../../../utilis/api.constant";
 
 interface Payload {
   mobile: string;
@@ -30,9 +30,9 @@ interface Payload {
 }
 
 @Component({
-  selector: 'app-motor-car-insurance',
-  templateUrl: './motor-car-insurance.component.html',
-  styleUrl: './motor-car-insurance.component.scss',
+  selector: "app-motor-car-insurance",
+  templateUrl: "./motor-car-insurance.component.html",
+  styleUrl: "./motor-car-insurance.component.scss",
 })
 export class MotorCarInsuranceComponent {
   [x: string]: any;
@@ -56,69 +56,68 @@ export class MotorCarInsuranceComponent {
   webBanner: any = [];
   mobileBanner: any = [];
   registrationForm!: FormGroup;
-  selectedTab: string = 'Car';
+  selectedTab: string = "Car";
   showCalendar: boolean = true;
   minDateString: any;
   maxDateString: any;
-  selectedHeroImage: string = 'motor-insurance.svg';
+  selectedHeroImage: string = "motor-insurance.svg";
   isWait: boolean = false;
   @Input() isShowTab: boolean = true;
   tabList: any = [
     {
-      name: 'Car',
-      image: '../../../../rb_assets/assets/insurance/car.svg',
-      heroImage: 'motor-insurance.svg',
-      activeIcon: '../../../../rb_assets/assets/insurance/activeCar.svg',
+      name: "Car",
+      image: "../../../../rb_assets/assets/insurance/car.svg",
+      heroImage: "motor-insurance.svg",
+      activeIcon: "../../../../rb_assets/assets/insurance/activeCar.svg",
     },
     {
-      name: 'Bike',
-      image: '../../../../rb_assets/assets/insurance/bike.svg',
-      heroImage: 'BikeHero.svg',
-      activeIcon: '../../../../rb_assets/assets/insurance/activeBike.svg',
+      name: "Bike",
+      image: "../../../../rb_assets/assets/insurance/bike.svg",
+      heroImage: "BikeHero.svg",
+      activeIcon: "../../../../rb_assets/assets/insurance/activeBike.svg",
     },
     {
-      name: 'CV',
-      image: '../../../../rb_assets/assets/insurance/cv.svg',
-      heroImage: 'CvHero.svg',
-      activeIcon: '../../../../rb_assets/assets/insurance/activeCv.svg',
+      name: "CV",
+      image: "../../../../rb_assets/assets/insurance/cv.svg",
+      heroImage: "CvHero.svg",
+      activeIcon: "../../../../rb_assets/assets/insurance/activeCv.svg",
     },
     {
-      name: 'Health',
-      image: '../../../../rb_assets/assets/insurance/health.svg',
-      heroImage: 'healthinsurance.svg',
-      activeIcon: '../../../../rb_assets/assets/insurance/activeHealth.svg',
+      name: "Health",
+      image: "../../../../rb_assets/assets/insurance/health.svg",
+      heroImage: "healthinsurance.svg",
+      activeIcon: "../../../../rb_assets/assets/insurance/activeHealth.svg",
     },
   ];
   pageHeaderTextList: any = [
     {
-      name: 'Car',
+      name: "Car",
       title: `<h1 class="page-title">Car insurance price starting at just <span class="day-color">₹2,088</span>*<h1>`,
       subtitle: `<span class="text-bold">Buy</span> or <span class="text-bold">Renew</span> Car Insurance Online in <span class="text-bold">5 Minutes</span> <span>⚡</span>`,
     },
     {
-      name: 'Bike',
+      name: "Bike",
       title: `<h1 class="page-title">Buy Two Wheeler Insurance Online &#x40;<span class="day-color">
                         &#8377;1.5/day</span></h1>`,
       subtitle: `<div><span class="text-bold">Cover</span> up your <span class="text-bold">Bike</span> in <span class="text-bold"> 2 Minutes</span> <span>⚡</span></div>`,
     },
     {
-      name: 'CV',
+      name: "CV",
       title: `<h1 class="page-title">Secure your Commercial Vehicle & <span class="day-color">Save upto 65%*</span> on plans</h1>`,
       subtitle: `<span class="text-bold">Cover</span> up your <span class="text-bold">CV</span> in <span class="text-bold">5 Minutes</span> <span>⚡</span>`,
     },
     {
-      name: 'Health',
+      name: "Health",
       title: `<h1 class="page-title">Compare & buy customised Health Plans starting at just <span class="day-color">₹257/month</span>*</h1>`,
       subtitle: `<span class='text-bold'>Discover a range of coverage plans designed to meet your specific requirements</span>`,
-      discount:`<span class='text-bold'><img src="./rb_assets/assets/images/health-discount.svg" /> Get online discount upto 15% off*</span>`
+      discount: `<span class='text-bold'><img src="./rb_assets/assets/images/health-discount.svg" /> Get online discount upto 15% off*</span>`,
     },
   ];
 
-  subtitle: string =
-    `<span class="text-bold">Buy</span> or <span class="text-bold">Renew</span> Car Insurance Online in <span class="text-bold">5 Minutes</span> <span>⚡</span>`;
+  subtitle: string = `<span class="text-bold">Buy</span> or <span class="text-bold">Renew</span> Car Insurance Online in <span class="text-bold">5 Minutes</span> <span>⚡</span>`;
   title: string =
     '<h1 class="page-title">Car insurance price starting at just <span class="day-color">₹2,088</span>*<h1>';
-  discount:string = '';
+  discount: string = "";
   constructor(
     private fb: FormBuilder,
     private apiService: ApiService,
@@ -129,9 +128,9 @@ export class MotorCarInsuranceComponent {
     this.isBrowser = isPlatformBrowser(platformId);
 
     const header = new HttpHeaders({
-      Authorization: `Bearer ${environment['bearerToken']}`,
+      Authorization: `Bearer ${environment["bearerToken"]}`,
     });
-    let url = `${environment['strapiDomain']}${ApiConstants['INSURANCE_HOME']}`;
+    let url = `${environment["strapiDomain"]}${ApiConstants["INSURANCE_HOME"]}`;
     this.apiService.getRequestedResponse(url, header).subscribe((response) => {
       this.banners = response?.data?.attributes?.banner;
       this.mobileBanner = response?.data?.attributes?.mobile_banner;
@@ -158,22 +157,26 @@ export class MotorCarInsuranceComponent {
   }
   ngOnChanges(changes: SimpleChanges) {
     if (!this.isShowTab) {
-      this.selectedTab = 'Health';
-      this.selectedHeroImage = 'healthinsurance.svg';
+      this.selectedTab = "Health";
+      this.selectedHeroImage = "healthinsurance.svg";
       this.title = `<h1 class="page-title">Compare & buy customised Health Plans starting at just <span class="day-color">₹257/month</span>*</h1>`;
       this.subtitle = `<span class='text-bold'>Discover a range of coverage plan designed to meet your specific requirements</span>`;
       this.discount = `<span class='text-bold'><img src="./rb_assets/assets/images/health-discount.svg" /> Get online discount upto 15% off*</span>`;
-      this.tabList = this.tabList.find((el: { name: string; }) => el.name == 'Health');
+      this.tabList = this.tabList.find(
+        (el: { name: string }) => el.name == "Health"
+      );
       this.resetForm();
-    }else{
-      this.tabList = this.tabList.filter((el: { name: string; }) => el.name != 'Health');
+    } else {
+      this.tabList = this.tabList.filter(
+        (el: { name: string }) => el.name != "Health"
+      );
     }
   }
 
   createForm() {
     this.registrationForm = this.fb.group({
       vehicleNumber: [
-        '',
+        "",
         [
           Validators.required,
           Validators.maxLength(14),
@@ -181,12 +184,12 @@ export class MotorCarInsuranceComponent {
         ],
       ],
       contactNumber: [
-        '',
+        "",
         [
           Validators.required,
           Validators.maxLength(10),
           Validators.minLength(10),
-          Validators.pattern(new RegExp('^[6-9]{1}[0-9]{9}$')),
+          Validators.pattern(new RegExp("^[6-9]{1}[0-9]{9}$")),
         ],
       ],
     });
@@ -214,23 +217,23 @@ export class MotorCarInsuranceComponent {
 
   payLoadMapping() {
     let payload: Payload = {
-      mobile: this.registrationForm.get('contactNumber')?.value,
+      mobile: this.registrationForm.get("contactNumber")?.value,
       is_mobile_verified: this.otpVerfied,
     };
     switch (this.selectedTab) {
-      case 'Car':
-        payload['registration_number'] =
-          this.registrationForm.get('vehicleNumber')?.value;
+      case "Car":
+        payload["registration_number"] =
+          this.registrationForm.get("vehicleNumber")?.value;
         payload.insurance_type = 1;
         break;
-      case 'Bike':
-        payload['registration_number'] =
-          this.registrationForm.get('vehicleNumber')?.value;
+      case "Bike":
+        payload["registration_number"] =
+          this.registrationForm.get("vehicleNumber")?.value;
         payload.insurance_type = 2;
         break;
-      case 'CV':
-        payload['registration_number'] =
-          this.registrationForm.get('vehicleNumber')?.value;
+      case "CV":
+        payload["registration_number"] =
+          this.registrationForm.get("vehicleNumber")?.value;
         payload.insurance_type = 3;
         break;
       default:
@@ -241,26 +244,26 @@ export class MotorCarInsuranceComponent {
 
   onSubmitregistrationForm(valid: boolean) {
     if (valid) {
-      this.phoneNumber = this.registrationForm.get('contactNumber')?.value;
-      this.isWait = true;
-      this.apiService
-        .getRequestwithHeader(
-          `${environment.unicornDomain}${ApiConstants.FETCH_LEADS}?mobile=${this.phoneNumber}`
-        )
-        .subscribe(
-          (response) => {
-            if (response) {
-              this.isWait = false;
-              this.toastService.toastError('Lead already exists !', 'error');
-            }
-          },
-          (err) => {
-            if ((err.error.message = 'Lead not found')) {
-              this.isWait = false;
-              this.isOtp = true;
-            }
-          }
-        );
+      this.phoneNumber = this.registrationForm.get("contactNumber")?.value;
+      this.isOtp = true;
+      // this.apiService
+      //   .getRequestwithHeader(
+      //     `${environment.unicornDomain}${ApiConstants.FETCH_LEADS}?mobile=${this.phoneNumber}&insurance_type=${this.insuranceType}`
+      //   )
+      //   .subscribe(
+      //     (response) => {
+      //       if (response) {
+      //         this.isWait = false;
+      //         this.toastService.toastError('Lead already exists !', 'error');
+      //       }
+      //     },
+      //     (err) => {
+      //       if ((err.error.message = 'Lead not found')) {
+      //         this.isWait = false;
+      //         this.isOtp = true;
+      //       }
+      //     }
+      //   );
     }
   }
 
@@ -271,20 +274,20 @@ export class MotorCarInsuranceComponent {
     this.registrationForm.reset();
     this.otpVerfied = false;
     if (this.isSharedForm(this.selectedTab)) {
-      this.registrationForm.removeControl('pincode');
+      this.registrationForm.removeControl("pincode");
       this.registrationForm.addControl(
-        'vehicleNumber',
-        this.fb.control('', [
+        "vehicleNumber",
+        this.fb.control("", [
           Validators.required,
           Validators.maxLength(14),
           Validators.minLength(10),
         ])
       );
-    } else if (this.selectedTab === 'Health') {
-      this.registrationForm.removeControl('vehicleNumber');
+    } else if (this.selectedTab === "Health") {
+      this.registrationForm.removeControl("vehicleNumber");
       this.registrationForm.addControl(
-        'pincode',
-        this.fb.control('', [
+        "pincode",
+        this.fb.control("", [
           Validators.required,
           Validators.pattern(/^[1-9]\d{5}$/),
           Validators.maxLength(6),
@@ -314,7 +317,7 @@ export class MotorCarInsuranceComponent {
   }
 
   isSharedForm(tab: string): boolean {
-    return ['CV', 'Bike', 'Car'].includes(tab);
+    return ["CV", "Bike", "Car"].includes(tab);
   }
 
   navigationByLink(link: any) {
@@ -323,7 +326,7 @@ export class MotorCarInsuranceComponent {
     }
   }
   closeOTPPopUp(event: any) {
-    this.toastService.toastError('Lead was not generated', 'error');
+    this.toastService.toastError("Lead was not generated", "error");
     this.isOtp = event;
   }
   isOtpVerified(event: boolean) {
@@ -340,11 +343,11 @@ export class MotorCarInsuranceComponent {
         .subscribe(
           (res) => {
             if (res) {
-              this.toastService.toastError(res, 'success');
+              this.toastService.toastError(res, "success");
             }
           },
           (error) => {
-            this.toastService.toastError(error?.error?.message, 'error');
+            this.toastService.toastError(error?.error?.message, "error");
           }
         );
     }
