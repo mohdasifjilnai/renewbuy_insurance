@@ -74,10 +74,10 @@ Health insurance riders let you boost your basic coverage by paying a bit more o
     icon: "../../../../rb_assets/assets/insurance/check-icon.svg",
     backgroundImage:
       "../../../../rb_assets/assets/insurance/inclusions-background.svg",
-    backgroundImageMobileView:
-      "../../../../rb_assets/assets/insurance/inclusions-background-sm.svg",
-    backgroundHeight: "35rem",
+    backgroundImageMobileView:'../../../../rb_assets/assets/insurance/inclusions-background-sm.svg',
+    backgroundHeight: "39rem",
     marginTop: "5%",
+    visibilityHidden:true,
     cards: [
       {
         cardHeader: "",
@@ -121,10 +121,10 @@ Health insurance riders let you boost your basic coverage by paying a bit more o
     icon: "../../../../rb_assets/assets/insurance/cross-shield.svg",
     backgroundImage:
       "../../../../rb_assets/assets/insurance/exclusions-background.svg",
-    backgroundImageMobileView:
-      "../../../../rb_assets/assets/insurance/exclusion-background-sm.svg",
-    backgroundHeight: "38rem",
-    marginTop: "7%",
+      backgroundImageMobileView:'../../../../rb_assets/assets/insurance/exclusion-background-sm.svg',
+      backgroundHeight: "38rem",
+      marginTop: "7%",
+      visibilityHidden:true,
     cards: [
       {
         cardHeader: "",
@@ -173,6 +173,7 @@ Health insurance riders let you boost your basic coverage by paying a bit more o
     pageHeader: "Benefits of Buying Motor Insurance Online",
     pageDescription: `Most <a class="active-text text-decoration-none cursor-pointer">motor insurance companies in India</a>  have taken their business online with advanced technology. The benefits of buying motor insurance online have perks, so let us look at them.`,
     icon: "../../../../rb_assets/assets/insurance/check-icon.svg",
+    visibilityHidden:true,
     cards: [
       {
         cardHeader: "",
@@ -206,7 +207,9 @@ Health insurance riders let you boost your basic coverage by paying a bit more o
       "No claims for injuries caused during illegal activities or crimes.",
     pageDescription: `Below mentioned are the factors that can affect your health insurance premium amount:`,
     icon: "../../../../rb_assets/assets/insurance/check-icon.svg",
-    pageName: "health",
+    pageName:'health',
+    isViewMore:true,
+    visibilityHidden:true,
     cards: [
       {
         cardHeader: "",
@@ -251,7 +254,9 @@ Health insurance riders let you boost your basic coverage by paying a bit more o
     pageHeader: "Key Health Insurance Jargons You Should Know",
     pageDescription: `Understanding key health insurance jargons is essential for navigating coverage options effectively.`,
     icon: "../../../../rb_assets/assets/insurance/check-icon.svg",
-    pageName: "health",
+    pageName:'health',
+    isViewMore:true,
+    visibilityHidden:true,
     cards: [
       {
         cardHeader: "",

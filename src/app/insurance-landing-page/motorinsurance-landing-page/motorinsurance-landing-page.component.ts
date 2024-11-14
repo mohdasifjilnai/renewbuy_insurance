@@ -24,6 +24,7 @@ export class MotorinsuranceLandingPageComponent {
     backgroundPosition: "40rem 55rem",
     marginClass: "mt-5",
     marginTop: "2%",
+    visibilityHidden:false,
     cards: [
       {
         cardHeader: "Comprehensive Motor Insurance Policy ",
@@ -65,10 +66,11 @@ export class MotorinsuranceLandingPageComponent {
       "../../../../rb_assets/assets/insurance/exclusions-background.svg",
     backgroundImageMobileView:
       "../../../../rb_assets/assets/insurance/exclusion-background-sm.svg",
-    backgroundHeight: "32rem",
+    backgroundHeight: "37rem",
     backgroundPosition: "40rem 50rem",
-    marginTop: "5%",
+    marginTop: "6%",
     marginClass: "mt-5",
+    visibilityHidden:true,
     cards: [
       {
         cardHeader: "Comprehensive Motor Insurance Policy",
@@ -106,7 +108,8 @@ export class MotorinsuranceLandingPageComponent {
     pageDescription: `Buying motor insurance online offers convenience, transparency, and the ease of comparing multiple options in just a few clicks. Enjoy quick, hassle-free insurance purchases at your fingertips.`,
     icon: "../../../../rb_assets/assets/insurance/check-icon.svg",
     marginClass: "mt-0",
-    pageName: "motor",
+    pageName:'motor',
+    visibilityHidden:true,
     cards: [
       {
         cardHeader: "",
@@ -141,7 +144,8 @@ export class MotorinsuranceLandingPageComponent {
     icon: "../../../../rb_assets/assets/insurance/check-icon.svg",
     column_no: 2,
     marginClass: "mt-0",
-    pageName: "motor",
+    pageName:'motor',
+    visibilityHidden:true,
     cards: [
       {
         cardHeader: "",
