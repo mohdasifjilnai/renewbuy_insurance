@@ -67,8 +67,9 @@ Health insurance riders let you boost your basic coverage by paying a bit more o
     backgroundImage:
       "../../../../rb_assets/assets/insurance/inclusions-background.svg",
     backgroundImageMobileView:'../../../../rb_assets/assets/insurance/inclusions-background-sm.svg',
-    backgroundHeight: "35rem",
+    backgroundHeight: "39rem",
     marginTop: "5%",
+    visibilityHidden:true,
     cards: [
       {
         cardHeader: "",
@@ -115,6 +116,7 @@ Health insurance riders let you boost your basic coverage by paying a bit more o
       backgroundImageMobileView:'../../../../rb_assets/assets/insurance/exclusion-background-sm.svg',
       backgroundHeight: "38rem",
       marginTop: "7%",
+      visibilityHidden:true,
     cards: [
       {
         cardHeader: "",
@@ -163,6 +165,7 @@ Health insurance riders let you boost your basic coverage by paying a bit more o
     pageHeader: "Benefits of Buying Motor Insurance Online",
     pageDescription: `Most <a class="active-text text-decoration-none cursor-pointer">motor insurance companies in India</a>  have taken their business online with advanced technology. The benefits of buying motor insurance online have perks, so let us look at them.`,
     icon: "../../../../rb_assets/assets/insurance/check-icon.svg",
+    visibilityHidden:true,
     cards: [
       {
         cardHeader: "",
@@ -197,6 +200,8 @@ Health insurance riders let you boost your basic coverage by paying a bit more o
     pageDescription: `Below mentioned are the factors that can affect your health insurance premium amount:`,
     icon: "../../../../rb_assets/assets/insurance/check-icon.svg",
     pageName:'health',
+    isViewMore:true,
+    visibilityHidden:true,
     cards: [
       {
         cardHeader: "",
@@ -243,6 +248,8 @@ Health insurance riders let you boost your basic coverage by paying a bit more o
     pageDescription: `Understanding key health insurance jargons is essential for navigating coverage options effectively.`,
     icon: "../../../../rb_assets/assets/insurance/check-icon.svg",
     pageName:'health',
+    isViewMore:true,
+    visibilityHidden:true,
     cards: [
       {
         cardHeader: "",

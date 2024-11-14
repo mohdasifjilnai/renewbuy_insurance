@@ -29,7 +29,9 @@
       <div class="inclusions-content">
         @for(card of pageData?.cards; track card){
         <div class="inclusions-content-title">
-          <h3 class="inclusions-content-text">{{ card?.cardHeader }}</h3>
+          <h3 class="inclusions-content-text" [ngClass]="{'visibility-hidden' : pageData?.visibilityHidden}">
+           {{pageData?.visibilityHidden?pageData?.pageHeader: card?.cardHeader}}
+          </h3>
         </div>
         <div class="row">
           @for(inclusion of card?.inclusionsData; track inclusion){
@@ -59,13 +61,17 @@
       </div>
     </div>
   </div>
-  <div class="d-flex justify-content-center mt-3 mb-5" *ngIf="pageName === 'health' ">
+  <div
+    class="d-flex justify-content-center mt-3 mb-5"
+    *ngIf="pageName === 'health'"
+  >
     <span class="view-more text-center" (click)="expandTable()">
-      {{ isExpanded ? 'View less' : 'View more' }}
-      <img [src]=" './rb_assets/assets/images/dwnld.svg'"
-      [ngClass]="{'rotate-180': isExpanded}"
-      class="download" 
-      alt="Expand or collapse myths"
+      {{ isExpanded ? "View less" : "View more" }}
+      <img
+        [src]="'./rb_assets/assets/images/dwnld.svg'"
+        [ngClass]="{ 'rotate-180': isExpanded }"
+        class="download"
+        alt="Expand or collapse myths"
       />
     </span>
   </div>

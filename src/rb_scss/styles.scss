@@ -128,16 +128,6 @@ body.no-scroll {
   .main__container {
     height: 35vh !important;
   }
-  .car-insurance-container,
-  .motor-car-insurance-container {
-    .page-title {
-      font-size: 24px;
-      color: #242424;
-    }
-    .subtitle .text-bold {
-      font-size: 12px;
-    }
-  }
 }
 .view-more {
   width: 125px;
@@ -149,9 +139,9 @@ body.no-scroll {
   color: #5384ea;
   display: flex;
   justify-content: center;
-  align-items: center; 
+  align-items: center;
   cursor: pointer;
-  padding: 0 7px; 
+  padding: 0 7px;
   gap: 5%;
 }
 .rotate-180 {
@@ -240,6 +230,7 @@ body.no-scroll {
   .page-title {
     text-wrap: nowrap;
     font-weight: 500;
+    font-size: 32px;
     @media (max-width: 576px) {
       & {
         text-wrap: wrap;
@@ -292,7 +283,16 @@ body.no-scroll {
       }
     }
   }
-  @media (min-width: 1296px) and (max-width: 1366px){
+  @media (min-width: 1024px) and (max-width: 1295px) {
+    .page-title {
+      font-size: 24px;
+      color: #242424;
+    }
+    .subtitle .text-bold {
+      font-size: 12px;
+    }
+  }
+  @media (min-width: 1296px) and (max-width: 1366px) {
     .page-title {
       font-size: 26px;
       color: #242424;
