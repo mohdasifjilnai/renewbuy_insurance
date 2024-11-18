@@ -1,12 +1,8 @@
 <div class="container add-ons-insurance-container">
   <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
-      <li class="breadcrumb-item">
-        <a href="https://www.renewbuy.com/">Home</a>
-      </li>
-      <li class="breadcrumb-item">
-        <a href="https://www.renewbuyinsurance.com/">Insurance</a>
-      </li>
+      <li class="breadcrumb-item"><a [href]="homePageRoute">Home</a></li>
+      <li class="breadcrumb-item"><a [href]="insuranceLink">Insurance</a></li>
       <li class="breadcrumb-item active" aria-current="page">
         {{ pageName === "motor" ? "Motor" : "Health" }} Insurance
       </li>
