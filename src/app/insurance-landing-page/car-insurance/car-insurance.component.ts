@@ -171,6 +171,9 @@ export class CarInsuranceComponent {
       }
     });
     this.createForm();
+    if (this.cookieService.get("access_token")) {
+      this.getUserDetail();
+    }
   }
   ngOnInit() {
     // if (isPlatformBrowser(this.platformId)) {
@@ -259,7 +262,7 @@ export class CarInsuranceComponent {
   onSubmitregistrationForm(valid: boolean) {
     if (valid) {
       this.phoneNumber = this.registrationForm.get("contactNumber")?.value;
-      this.isOtpVerified(true)
+      this.isOtpVerified(true);
       // this.isOtp = true;
       // this.apiService
       //   .getRequestwithHeader(
@@ -297,7 +300,10 @@ export class CarInsuranceComponent {
    * Reset form values based on selected menu
    */
   resetForm() {
-    this.registrationForm.reset();
+    this.registrationForm.get("vehicleNumber")?.reset();
+    if (!this.cookieService.get("access_token")) {
+      this.registrationForm.get("contactNumber")?.reset();
+    }
     this.otpVerfied = false;
     if (this.isSharedForm(this.selectedTab)) {
       this.registrationForm.removeControl("pincode");
@@ -467,5 +473,21 @@ export class CarInsuranceComponent {
 
   onDateChange(event: any) {
     this.dateValue = event.target.value;
+  }
+  getUserDetail() {
+    const header = new HttpHeaders({
+      Authorization: `Bearer   ${this.cookieService.get("access_token")}`,
+    });
+    this.apiService
+      .getRequestedResponse(
+        `${environment.unicornDomain}${ApiConstants.Get_user_details}`,
+        header
+      )
+      .subscribe((res: any): void => {
+        this.registrationForm.patchValue({
+          contactNumber: res.mobile,
+        });
+        this.registrationForm.get("contactNumber")?.disable();
+      });
   }
 }
