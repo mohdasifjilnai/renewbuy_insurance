@@ -253,7 +253,8 @@ export class MotorCarInsuranceComponent {
   onSubmitregistrationForm(valid: boolean) {
     if (valid) {
       this.phoneNumber = this.registrationForm.get("contactNumber")?.value;
-      this.isOtp = true;
+      this.isOtpVerified(true)
+      // this.isOtp = true;
     }
   }
 

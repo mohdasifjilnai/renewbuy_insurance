@@ -259,7 +259,8 @@ export class CarInsuranceComponent {
   onSubmitregistrationForm(valid: boolean) {
     if (valid) {
       this.phoneNumber = this.registrationForm.get("contactNumber")?.value;
-      this.isOtp = true;
+      this.isOtpVerified(true)
+      // this.isOtp = true;
       // this.apiService
       //   .getRequestwithHeader(
       //     `${environment.unicornDomain}${ApiConstants.FETCH_LEADS}?mobile=${this.phoneNumber}&insurance_type=${this.insuranceType}`
