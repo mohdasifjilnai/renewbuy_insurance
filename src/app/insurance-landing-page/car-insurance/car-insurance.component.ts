@@ -136,9 +136,9 @@ export class CarInsuranceComponent {
     @Inject(PLATFORM_ID) private platformId: Object,
     private cookieService: CookieService
   ) {
-    if (this.cookieService.get("insurar_type")) {
-      this.selectedTab = this.cookieService.get("insurar_type");
-    }
+    // if (this.cookieService.get("insurar_type")) {
+    //   this.selectedTab = this.cookieService.get("insurar_type");
+    // }
     this.isBrowser = isPlatformBrowser(platformId);
 
     const header = new HttpHeaders({
