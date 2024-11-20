@@ -1,4 +1,5 @@
 import { Component, Input, SimpleChange } from '@angular/core';
+import { environment } from '../../../../environments/environment';
 
 @Component({
   selector: 'app-add-ons-inurance',
@@ -13,6 +14,9 @@ export class AddOnsInuranceComponent {
   pageName:any
   addOnsHead:any;
   addOnSubHead:any;
+  insuranceLink = environment.renewbuyInsuranceDomain;
+  homePageRoute = environment.mainDomain;
+
   constructor() {}
   ngOnChanges() {
     this.pageHeader = this.pageData[0]?.pageHeader;

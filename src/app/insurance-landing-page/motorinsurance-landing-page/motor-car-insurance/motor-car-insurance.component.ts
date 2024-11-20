@@ -19,6 +19,7 @@ import { isPlatformBrowser } from "@angular/common";
 import { HttpHeaders } from "@angular/common/http";
 import { environment } from "../../../../environments/environment";
 import { ApiConstants } from "../../../utilis/api.constant";
+import { CookieService } from "ngx-cookie-service";
 
 interface Payload {
   mobile: string;
@@ -123,7 +124,8 @@ export class MotorCarInsuranceComponent {
     private apiService: ApiService,
     private sharedService: ShareService,
     private toastService: ToastService,
-    @Inject(PLATFORM_ID) private platformId: Object
+    @Inject(PLATFORM_ID) private platformId: Object,
+    private cookieService: CookieService
   ) {
     this.isBrowser = isPlatformBrowser(platformId);
 
@@ -154,6 +156,9 @@ export class MotorCarInsuranceComponent {
       );
     });
     this.createForm();
+    if (this.cookieService.get("access_token")) {
+      this.getUserDetail();
+    }
   }
   ngOnChanges(changes: SimpleChanges) {
     if (!this.isShowTab) {
@@ -253,7 +258,8 @@ export class MotorCarInsuranceComponent {
   onSubmitregistrationForm(valid: boolean) {
     if (valid) {
       this.phoneNumber = this.registrationForm.get("contactNumber")?.value;
-      this.isOtp = true;
+      this.isOtpVerified(true);
+      // this.isOtp = true;
     }
   }
 
@@ -261,7 +267,11 @@ export class MotorCarInsuranceComponent {
    * Reset form values based on selected menu
    */
   resetForm() {
-    this.registrationForm.reset();
+    // this.registrationForm.reset();
+    this.registrationForm.get("vehicleNumber")?.reset();
+    if (!this.cookieService.get("access_token")) {
+      this.registrationForm.get("contactNumber")?.reset();
+    }
     this.otpVerfied = false;
     if (this.isSharedForm(this.selectedTab)) {
       this.registrationForm.removeControl("pincode");
@@ -367,5 +377,21 @@ export class MotorCarInsuranceComponent {
     if (this.registrationForm.valid) {
       this.onSubmitregistrationForm(this.registrationForm.valid);
     }
+  }
+  getUserDetail() {
+    const header = new HttpHeaders({
+      Authorization: `Bearer   ${this.cookieService.get("access_token")}`,
+    });
+    this.apiService
+      .getRequestedResponse(
+        `${environment.unicornDomain}${ApiConstants.Get_user_details}`,
+        header
+      )
+      .subscribe((res: any): void => {
+        this.registrationForm.patchValue({
+          contactNumber: res.mobile,
+        });
+        this.registrationForm.get("contactNumber")?.disable();
+      });
   }
 }
