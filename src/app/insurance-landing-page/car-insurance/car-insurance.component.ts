@@ -316,7 +316,6 @@ export class CarInsuranceComponent {
           Validators.minLength(10),
         ])
       );
-      // Validators.pattern('^[A-Z]{2}\\s\\d{2}\\s[A-Z]{2}\\s\\d{4}$'),
     } else if (this.selectedTab === "Health") {
       this.registrationForm.removeControl("vehicleNumber");
       this.registrationForm.removeControl("dob");
