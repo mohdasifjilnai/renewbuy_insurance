@@ -136,9 +136,7 @@ export class CarInsuranceComponent {
     @Inject(PLATFORM_ID) private platformId: Object,
     private cookieService: CookieService
   ) {
-    // if (this.cookieService.get("insurar_type")) {
-    //   this.selectedTab = this.cookieService.get("insurar_type");
-    // }
+   
     this.isBrowser = isPlatformBrowser(platformId);
 
     const header = new HttpHeaders({
@@ -171,6 +169,13 @@ export class CarInsuranceComponent {
       }
     });
     this.createForm();
+    if (this.cookieService.get("insurar_type")) {
+      this.selectedTab = this.cookieService.get("insurar_type");
+      let type = this.tabList.find(
+        (el: { name: string }) => el.name == this.selectedTab
+      ).type;
+      this.onTabClick(this.selectedTab, type);
+    }
     if (this.cookieService.get("access_token")) {
       this.getUserDetail();
     }
@@ -357,7 +362,7 @@ export class CarInsuranceComponent {
    */
   onTabClick(tab: string, type: any): void {
     this.insuranceType = type;
-    if (tab !== this.selectedTab) {
+    // if (tab !== this.selectedTab) {
       this.selectedTab = tab;
       this.selectedHeroImage = this.tabList.find(
         (el: { name: string }) => el.name == tab
@@ -370,7 +375,7 @@ export class CarInsuranceComponent {
       ).subtitle;
       this.resetForm();
       this.dateValue = null;
-    }
+    // }
   }
 
   isSharedForm(tab: string): boolean {
