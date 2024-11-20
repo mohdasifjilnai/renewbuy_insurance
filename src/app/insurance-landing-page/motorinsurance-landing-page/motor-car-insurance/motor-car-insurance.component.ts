@@ -343,11 +343,11 @@ export class MotorCarInsuranceComponent {
         .subscribe(
           (res) => {
             if (res) {
-              this.toastService.toastError(res, "success");
               if (this.selectedTab == "Health") {
                 window.location.href =
                   "https://health.renewbuyinsurance.com/health/basic-details";
               } else if (this.selectedTab == "Life") {
+                this.toastService.toastError(res, "success");
                 this.registrationForm.reset();
               } else if (this.selectedTab === "Bike") {
                 window.location.href = `https://apex.renewbuyinsurance.com/motor/?reg_no=${
@@ -361,6 +361,9 @@ export class MotorCarInsuranceComponent {
                 }&mobile_no=${
                   this.registrationForm.get("contactNumber")?.value
                 }&vehicle=fourWheeler`;
+              }else if(this.selectedTab === "CV"){
+                this.toastService.toastError(res, "success");
+                this.registrationForm.reset();
               } else {
                 this.registrationForm.reset();
               }

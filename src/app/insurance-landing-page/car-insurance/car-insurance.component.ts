@@ -136,9 +136,9 @@ export class CarInsuranceComponent {
     @Inject(PLATFORM_ID) private platformId: Object,
     private cookieService: CookieService
   ) {
-    if (this.cookieService.get("insurar_type")) {
-      this.selectedTab = this.cookieService.get("insurar_type");
-    }
+    // if (this.cookieService.get("insurar_type")) {
+    //   this.selectedTab = this.cookieService.get("insurar_type");
+    // }
     this.isBrowser = isPlatformBrowser(platformId);
 
     const header = new HttpHeaders({
@@ -316,7 +316,6 @@ export class CarInsuranceComponent {
           Validators.minLength(10),
         ])
       );
-      // Validators.pattern('^[A-Z]{2}\\s\\d{2}\\s[A-Z]{2}\\s\\d{4}$'),
     } else if (this.selectedTab === "Health") {
       this.registrationForm.removeControl("vehicleNumber");
       this.registrationForm.removeControl("dob");
@@ -400,13 +399,13 @@ export class CarInsuranceComponent {
         .subscribe(
           (res) => {
             if (res) {
-              this.toastService.toastError(res, "success");
               if (this.selectedTab == "Health") {
                 window.location.href =
                   "https://health.renewbuyinsurance.com/health/basic-details";
               } else if (this.selectedTab == "Life") {
                 // window.location.href =
                 //   'https://www.renewbuyinsurance.com/online-term-plan';
+                this.toastService.toastError(res, "success");
                 this.registrationForm.reset();
               } else if (this.selectedTab === "Bike") {
                 window.location.href = `https://apex.renewbuyinsurance.com/motor/?reg_no=${
@@ -420,6 +419,9 @@ export class CarInsuranceComponent {
                 }&mobile_no=${
                   this.registrationForm.get("contactNumber")?.value
                 }&vehicle=fourWheeler`;
+              } else if (this.selectedTab === "CV") {
+                this.toastService.toastError(res, "success");
+                this.registrationForm.reset();
               } else {
                 this.registrationForm.reset();
               }
