@@ -51,7 +51,8 @@ export class CarInsuranceComponent {
   webBanner: any = [];
   mobileBanner: any = [];
   registrationForm!: FormGroup;
-  selectedTab: any ;
+  selectedTab: any;
+  isMotor:boolean =true
   showCalendar: boolean = true;
   minDateString: any;
   maxDateString: any;
@@ -136,7 +137,6 @@ export class CarInsuranceComponent {
     @Inject(PLATFORM_ID) private platformId: Object,
     private cookieService: CookieService
   ) {
-   
     this.isBrowser = isPlatformBrowser(platformId);
 
     const header = new HttpHeaders({
@@ -171,11 +171,11 @@ export class CarInsuranceComponent {
     this.createForm();
     if (this.cookieService.get("insurar_type")) {
       this.selectedTab = this.cookieService.get("insurar_type");
-      let type = this.tabList.find(
-        (el: { name: string }) => el.name == this.selectedTab
-      ).type;
-      this.onTabClick(this.selectedTab, type);
-    }else{
+      // let type = this.tabList.find(
+      //   (el: { name: string }) => el.name == this.selectedTab
+      // ).type;
+      // this.onTabClick(this.selectedTab, type);
+    } else {
       this.selectedTab = "Car";
     }
     if (this.cookieService.get("access_token")) {
@@ -313,6 +313,7 @@ export class CarInsuranceComponent {
     }
     this.otpVerfied = false;
     if (this.isSharedForm(this.selectedTab)) {
+      this.isMotor=true
       this.registrationForm.removeControl("pincode");
       this.registrationForm.removeControl("dob");
       this.registrationForm.addControl(
@@ -324,6 +325,7 @@ export class CarInsuranceComponent {
         ])
       );
     } else if (this.selectedTab === "Health") {
+      this.isMotor=false
       this.registrationForm.removeControl("vehicleNumber");
       this.registrationForm.removeControl("dob");
       this.registrationForm.addControl(
@@ -336,6 +338,7 @@ export class CarInsuranceComponent {
         ])
       );
     } else if (this.selectedTab === "Life") {
+      this.isMotor=false
       const currentDate = new Date();
       const minDate = new Date(
         currentDate.getFullYear() - 100,
@@ -364,18 +367,18 @@ export class CarInsuranceComponent {
   onTabClick(tab: string, type: any): void {
     this.insuranceType = type;
     // if (tab !== this.selectedTab) {
-      this.selectedTab = tab;
-      this.selectedHeroImage = this.tabList.find(
-        (el: { name: string }) => el.name == tab
-      ).heroImage;
-      this.title = this.pageHeaderTextList.find(
-        (el: { name: string }) => el.name == tab
-      ).title;
-      this.subtitle = this.pageHeaderTextList.find(
-        (el: { name: string }) => el.name == tab
-      ).subtitle;
-      this.resetForm();
-      this.dateValue = null;
+    this.selectedTab = tab;
+    this.selectedHeroImage = this.tabList.find(
+      (el: { name: string }) => el.name == tab
+    ).heroImage;
+    this.title = this.pageHeaderTextList.find(
+      (el: { name: string }) => el.name == tab
+    ).title;
+    this.subtitle = this.pageHeaderTextList.find(
+      (el: { name: string }) => el.name == tab
+    ).subtitle;
+    this.resetForm();
+    this.dateValue = null;
     // }
   }
 

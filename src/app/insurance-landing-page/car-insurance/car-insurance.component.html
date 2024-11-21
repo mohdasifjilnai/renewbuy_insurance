@@ -133,9 +133,8 @@
                   </div>
                 </div>
               </div>
-              }
-
-              <div *ngIf="selectedTab === 'Health'">
+              } @else if(selectedTab === 'Health'){
+              <div>
                 <div class="mb-3 position-relative">
                   <input
                     type="text"
@@ -172,8 +171,8 @@
                   </div>
                 </div>
               </div>
-
-              <div *ngIf="selectedTab === 'Life'">
+              } @else if(selectedTab === 'Life'){
+              <div>
                 <div class="mb-3 position-relative">
                   <input
                     type="date"
@@ -216,6 +215,7 @@
                   </div>
                 </div>
               </div>
+              }
 
               <div class="mb-3">
                 <input
