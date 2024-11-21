@@ -51,7 +51,7 @@ export class CarInsuranceComponent {
   webBanner: any = [];
   mobileBanner: any = [];
   registrationForm!: FormGroup;
-  selectedTab: any = "Car";
+  selectedTab: any ;
   showCalendar: boolean = true;
   minDateString: any;
   maxDateString: any;
@@ -175,6 +175,8 @@ export class CarInsuranceComponent {
         (el: { name: string }) => el.name == this.selectedTab
       ).type;
       this.onTabClick(this.selectedTab, type);
+    }else{
+      this.selectedTab = "Car";
     }
     if (this.cookieService.get("access_token")) {
       this.getUserDetail();
