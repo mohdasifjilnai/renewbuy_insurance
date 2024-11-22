@@ -42,7 +42,7 @@ export class AppComponent implements OnInit {
     //     }
     //   });
     // }
-    if (this.cookieService.get("location")) {
+    if (!this.cookieService.get("location")) {
       setTimeout(() => {
         this.shareService
           .getUserLocation()
