@@ -68,6 +68,7 @@ export class HeaderComponent {
   sub_domain: any; //environment['redirect_subdomain'];
   access_token: any;
   productName: any;
+  location:any
   @ViewChild("renewbuyinsurance_form")
   renewbuyinsuranceform!: ElementRef<HTMLFormElement>;
   @HostListener("window:scroll", [])
@@ -149,6 +150,7 @@ export class HeaderComponent {
       this.redirect_uri = environment["dashboardDomain"] + page;
       this.parent_uri = environment["renewbuyInsuranceDomain"];
       this.sub_domain = this.getDomainOnly(environment["dashboardDomain"]);
+      this.location=this.cookieService.get('location')
       setTimeout(() => {
         this.renewbuyinsuranceform.nativeElement.submit();
       }, 0);
@@ -167,6 +169,7 @@ export class HeaderComponent {
       this.redirect_uri = environment["dashboardDomain"] + page;
       this.parent_uri = environment["renewbuyInsuranceDomain"];
       this.sub_domain = this.getDomainOnly(environment["dashboardDomain"]);
+      this.location=this.cookieService.get('location')
       setTimeout(() => {
         this.renewbuyinsuranceform.nativeElement.submit();
       }, 0);
@@ -323,6 +326,7 @@ export class HeaderComponent {
     this.redirect_uri = environment["mainDomain"];
     this.parent_uri = environment["renewbuyInsuranceDomain"];
     this.sub_domain = this.getDomainOnly(environment["mainDomain"]);
+    this.location=this.cookieService.get('location')
     setTimeout(() => {
       this.renewbuyinsuranceform.nativeElement.submit();
     }, 0);

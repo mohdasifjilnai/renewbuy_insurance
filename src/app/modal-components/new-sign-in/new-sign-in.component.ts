@@ -200,7 +200,10 @@ export class NewSignInComponent {
           this.getDeviceType = 3;
         }
       }
-      const userLocationString = sessionStorage.getItem("location");
+      let userLocationString
+      if(this.cookieService.get('location') && this.cookieService.get('location')!='block'){
+      userLocationString =this.cookieService.get('location');
+      }
       let body = {
         mobile:
           this.signUpForm.get("mobile_number")?.value || this.mobileNumber,
