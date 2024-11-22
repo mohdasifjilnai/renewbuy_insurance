@@ -11,23 +11,23 @@ export class WebSocketService {
   private tokenSubject = new Subject<any>(); // Use this subject to handle WebSocket messages
   
   constructor(@Inject(PLATFORM_ID) private platformId: Object) {
-    if (isPlatformBrowser(this.platformId)) {
-      this.socket$ = new WebSocketSubject('wss://react.rbstaging.in');
-      this.socket$.subscribe(
-        (message) => this.tokenSubject.next(message),
-        (error) => console.error('WebSocket error:', error),
-        () => console.warn('WebSocket connection closed')
-      );
-    }
+    // if (isPlatformBrowser(this.platformId)) {
+    //   this.socket$ = new WebSocketSubject('wss://react.rbstaging.in');
+    //   this.socket$.subscribe(
+    //     (message) => this.tokenSubject.next(message),
+    //     (error) => console.error('WebSocket error:', error),
+    //     () => console.warn('WebSocket connection closed')
+    //   );
+    // }
   }
 
-  requestToken(): void {
-    if (this.socket$) {
-      this.socket$.next({ type: 'tokenRequest' });
-    }
-  }
+  // requestToken(): void {
+  //   if (this.socket$) {
+  //     this.socket$.next({ type: 'tokenRequest' });
+  //   }
+  // }
 
-  listenForToken(): Observable<any> {
-    return this.tokenSubject.asObservable();
-  }
+  // listenForToken(): Observable<any> {
+  //   return this.tokenSubject.asObservable();
+  // }
 }

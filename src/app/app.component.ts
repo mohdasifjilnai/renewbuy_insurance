@@ -7,13 +7,13 @@ import { ApiService } from './utilis/service/api.service';
 import { ShareService } from './utilis/service/share.service';
 import { MetaService } from './utilis/service/meta.service';
 import { SetHeaderService } from './utilis/service/set-header.service';
-import { WebSocketService } from './web-socket.service';
+// import { WebSocketService } from './web-socket.service';
 
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [RouterOutlet, CommonModule, HttpClientModule],
-  providers: [ApiService, ShareService, MetaService, WebSocketService],
+  providers: [ApiService, ShareService, MetaService],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
@@ -24,21 +24,20 @@ export class AppComponent implements OnInit {
   constructor(
     @Inject(PLATFORM_ID) private platformId: Object,
     private setHeader: SetHeaderService,
-    private webSocketService: WebSocketService
   ) {}
 
   ngOnInit(): void {
     // Ensure WebSocket only works on the client side
-    if (isPlatformBrowser(this.platformId)) {
-      this.webSocketService.requestToken();
+    // if (isPlatformBrowser(this.platformId)) {
+    //   this.webSocketService.requestToken();
 
-      this.webSocketService.listenForToken().subscribe((message) => {
-        console.log(message,"insurance page")
-        if (message.type === 'tokenResponse') {
-          this.token = message.token;
-          console.log('Token received from WebSocket server:', this.token);
-        }
-      });
-    }
+    //   this.webSocketService.listenForToken().subscribe((message) => {
+    //     console.log(message,"insurance page")
+    //     if (message.type === 'tokenResponse') {
+    //       this.token = message.token;
+    //       console.log('Token received from WebSocket server:', this.token);
+    //     }
+    //   });
+    // }
   }
 }
