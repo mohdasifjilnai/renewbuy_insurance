@@ -24,6 +24,7 @@ export class AppComponent implements OnInit {
   constructor(
     @Inject(PLATFORM_ID) private platformId: Object,
     private setHeader: SetHeaderService,
+    private shareService: ShareService
   ) {}
 
   ngOnInit(): void {
@@ -39,5 +40,15 @@ export class AppComponent implements OnInit {
     //     }
     //   });
     // }
+    setTimeout(() => {
+      this.shareService
+        .getUserLocation()
+        .then((location) => {
+          if (isPlatformBrowser(this.platformId)) {
+            sessionStorage.setItem('location', JSON.stringify(location));
+          }
+        })
+        .catch((error) => console.error(error));
+    }, 3000);
   }
 }
