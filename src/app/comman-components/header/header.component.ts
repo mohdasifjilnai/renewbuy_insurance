@@ -146,7 +146,7 @@ export class HeaderComponent {
   goToUserProfile(goToUserProfile: boolean, page: any) {
     if (!goToUserProfile) {
       this.actionUrl= `${environment["dashboardDomain"]}${ApiConstants['REDIRECT']}`;
-      this.redirect_uri = environment["dashboardDomain"] + "/" + page;
+      this.redirect_uri = environment["dashboardDomain"]+page;
       this.parent_uri = environment['renewbuyInsuranceDomain'];
       this.sub_domain = this.getDomainOnly(environment["dashboardDomain"]);
       setTimeout(() => {
@@ -164,7 +164,7 @@ export class HeaderComponent {
     if (!isProfileComplete) {
       // window.location.href = environment["dashboardDomain"] + "/" + page;
       this.actionUrl= `${environment["dashboardDomain"]}${ApiConstants['REDIRECT']}`;
-      this.redirect_uri = environment["dashboardDomain"] + "/" + page;
+      this.redirect_uri = environment["dashboardDomain"]+page;
       this.parent_uri = environment['renewbuyInsuranceDomain'];
       this.sub_domain = this.getDomainOnly(environment["dashboardDomain"]);
       setTimeout(() => {
