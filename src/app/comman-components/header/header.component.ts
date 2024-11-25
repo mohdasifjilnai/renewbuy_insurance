@@ -197,6 +197,15 @@ export class HeaderComponent {
     this.isUserLogin = event ? false : true;
     this.sharedService.username$.subscribe((username) => {
       this.username = username;
+      this.access_token = this.cookieService.get('access_token');
+      this.username = this.username;
+      if (this.cookieService.get('location')) {
+        this.location = this.cookieService.get('location');
+      }
+      this.redirect_uri = environment['renewbuyInsuranceDomain'];
+      setTimeout(() => {
+        this.renewbuyinsuranceform.nativeElement.submit();
+      }, 0);
     });
   }
   closePopUpForExistUser(event: any) {
