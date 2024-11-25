@@ -11,7 +11,7 @@ export class ApiService {
   getRequestedResponse(url: string, headers: any) {
     return this.getRequestwithHeader(url, headers).pipe(
       map((response: any) => response),
-      catchError((err) => JSON.stringify(err))
+      catchError(this.handleError)
     );
   }
   getRequestwithHeader(

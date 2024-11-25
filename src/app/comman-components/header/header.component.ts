@@ -369,15 +369,16 @@ export class HeaderComponent {
             }
           },
           (error: any): void => {
-            console.log(error, "error");
-            this.cookieService.deleteAll("/", environment["subDomain"]);
-            this.cookieService.delete(
-              "username",
-              "/",
-              window.location.hostname
-            );
-            window.location.href = environment["mainDomain"];
-            this.isUserLogin = false;
+            if (error.status == 588) {
+              this.cookieService.deleteAll('/', environment['subDomain']);
+              this.cookieService.delete(
+                'username',
+                '/',
+                window.location.hostname
+              );
+              window.location.href = environment['renewbuyInsuranceDomain'];
+              this.isUserLogin = false;
+            }
           }
         );
     }
