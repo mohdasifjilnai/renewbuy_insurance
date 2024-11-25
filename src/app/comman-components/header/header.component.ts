@@ -197,8 +197,11 @@ export class HeaderComponent {
     this.isUserLogin = event ? false : true;
     this.sharedService.username$.subscribe((username) => {
       this.username = username;
-      this.actionUrl = `${environment["dashboardDomain"]}${ApiConstants["REDIRECT"]}`;
+      this.actionUrl = `${environment["mainDomain"]}${ApiConstants["REDIRECT"]}`;
       this.access_token = this.cookieService.get("access_token");
+      this.sub_domain = this.getDomainOnly(environment["mainDomain"]);
+      this.parent_uri = environment["renewbuyInsuranceDomain"];
+      this.redirect_uri = environment["mainDomain"];
       this.username = this.username;
       if (this.cookieService.get("location")) {
         this.location = this.cookieService.get("location");
@@ -406,8 +409,12 @@ export class HeaderComponent {
     this.isClosePopUp.emit(event);
     this.userProfileComplete = false;
     this.isProfileComplete = false;
+    this.actionUrl = `${environment["mainDomain"]}${ApiConstants["REDIRECT"]}`;
     this.access_token = this.cookieService.get("access_token");
-    this.username = this.cookieService.get("username");
+    this.sub_domain = this.getDomainOnly(environment["mainDomain"]);
+    this.parent_uri = environment["renewbuyInsuranceDomain"];
+    this.redirect_uri = environment["mainDomain"];
+    this.username = this.username;
     if (this.cookieService.get("location")) {
       this.location = this.cookieService.get("location");
     }
