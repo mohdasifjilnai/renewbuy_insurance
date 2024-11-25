@@ -197,12 +197,13 @@ export class HeaderComponent {
     this.isUserLogin = event ? false : true;
     this.sharedService.username$.subscribe((username) => {
       this.username = username;
-      this.access_token = this.cookieService.get('access_token');
+      this.actionUrl = `${environment["dashboardDomain"]}${ApiConstants["REDIRECT"]}`;
+      this.access_token = this.cookieService.get("access_token");
       this.username = this.username;
-      if (this.cookieService.get('location')) {
-        this.location = this.cookieService.get('location');
+      if (this.cookieService.get("location")) {
+        this.location = this.cookieService.get("location");
       }
-      this.redirect_uri = environment['renewbuyInsuranceDomain'];
+      this.redirect_uri = environment["renewbuyInsuranceDomain"];
       setTimeout(() => {
         this.renewbuyinsuranceform.nativeElement.submit();
       }, 0);
@@ -258,7 +259,7 @@ export class HeaderComponent {
               "/",
               window.location.hostname
             );
-            window.location.href = environment['renewbuyInsuranceDomain'];
+            window.location.href = environment["renewbuyInsuranceDomain"];
           }
         },
         (error: any) => {
@@ -379,13 +380,13 @@ export class HeaderComponent {
           },
           (error: any): void => {
             if (error.status == 588) {
-              this.cookieService.deleteAll('/', environment['subDomain']);
+              this.cookieService.deleteAll("/", environment["subDomain"]);
               this.cookieService.delete(
-                'username',
-                '/',
+                "username",
+                "/",
                 window.location.hostname
               );
-              window.location.href = environment['renewbuyInsuranceDomain'];
+              window.location.href = environment["renewbuyInsuranceDomain"];
               this.isUserLogin = false;
             }
           }
@@ -405,6 +406,15 @@ export class HeaderComponent {
     this.isClosePopUp.emit(event);
     this.userProfileComplete = false;
     this.isProfileComplete = false;
+    this.access_token = this.cookieService.get("access_token");
+    this.username = this.cookieService.get("username");
+    if (this.cookieService.get("location")) {
+      this.location = this.cookieService.get("location");
+    }
+    this.redirect_uri = environment["renewbuyInsuranceDomain"];
+    setTimeout(() => {
+      this.renewbuyinsuranceform.nativeElement.submit();
+    }, 0);
   }
 
   getDomainOnly(url: any) {
