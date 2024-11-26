@@ -201,7 +201,7 @@ export class HeaderComponent {
       this.access_token = this.cookieService.get("access_token");
       this.sub_domain = this.getDomainOnly(environment["mainDomain"]);
       this.parent_uri = environment["renewbuyInsuranceDomain"];
-      this.redirect_uri = environment["mainDomain"];
+      this.redirect_uri = window.location.href;
       this.username = this.username;
       if (this.cookieService.get("location")) {
         this.location = this.cookieService.get("location");
@@ -414,12 +414,11 @@ export class HeaderComponent {
     this.access_token = this.cookieService.get("access_token");
     this.sub_domain = this.getDomainOnly(environment["mainDomain"]);
     this.parent_uri = environment["renewbuyInsuranceDomain"];
-    this.redirect_uri = environment["mainDomain"];
+    this.redirect_uri = window.location.href;
     this.username = this.username;
     if (this.cookieService.get("location")) {
       this.location = this.cookieService.get("location");
     }
-    this.redirect_uri = environment["renewbuyInsuranceDomain"];
     setTimeout(() => {
       this.renewbuyinsuranceform.nativeElement.submit();
     }, 0);
