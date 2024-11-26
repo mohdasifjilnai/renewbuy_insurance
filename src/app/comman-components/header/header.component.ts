@@ -71,6 +71,7 @@ export class HeaderComponent {
   location: any;
   @ViewChild("renewbuyinsurance_form")
   renewbuyinsuranceform!: ElementRef<HTMLFormElement>;
+  projectName:any= 'renewbuyinsurance'
   @HostListener("window:scroll", [])
   onWindowScroll() {
     // Check if the page has been scrolled down
@@ -222,7 +223,10 @@ export class HeaderComponent {
       this.userProfileComplete = false;
       // window.location.href = environment["dashboardDomain"] + "/" + page;
       this.actionUrl = `${environment["dashboardDomain"]}${ApiConstants["REDIRECT"]}`;
-      this.redirect_uri = (window.location.pathname=='/')?environment["dashboardDomain"]:window.location.href;
+      this.redirect_uri =
+        window.location.pathname == "/"
+          ? environment["dashboardDomain"]
+          : window.location.href;
       this.parent_uri = environment["renewbuyInsuranceDomain"];
       this.sub_domain = this.getDomainOnly(environment["dashboardDomain"]);
       setTimeout(() => {
@@ -262,7 +266,7 @@ export class HeaderComponent {
               "/",
               window.location.hostname
             );
-
+            window.location.reload();
             // window.location.href = environment["renewbuyInsuranceDomain"];
           }
         },
