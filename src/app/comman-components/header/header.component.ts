@@ -222,7 +222,7 @@ export class HeaderComponent {
       this.userProfileComplete = false;
       // window.location.href = environment["dashboardDomain"] + "/" + page;
       this.actionUrl = `${environment["dashboardDomain"]}${ApiConstants["REDIRECT"]}`;
-      this.redirect_uri = environment["dashboardDomain"];
+      this.redirect_uri = (window.location.pathname=='/')?environment["dashboardDomain"]:window.location.href;
       this.parent_uri = environment["renewbuyInsuranceDomain"];
       this.sub_domain = this.getDomainOnly(environment["dashboardDomain"]);
       setTimeout(() => {
