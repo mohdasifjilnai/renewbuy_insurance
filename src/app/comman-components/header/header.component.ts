@@ -71,7 +71,7 @@ export class HeaderComponent {
   location: any;
   @ViewChild("renewbuyinsurance_form")
   renewbuyinsuranceform!: ElementRef<HTMLFormElement>;
-  projectName:any= 'renewbuyinsurance'
+  projectName:any
   @HostListener("window:scroll", [])
   onWindowScroll() {
     // Check if the page has been scrolled down
@@ -99,6 +99,9 @@ export class HeaderComponent {
     if (this.cookieService.get("access_token")) {
       this.access_token = this.cookieService.get("access_token");
       this.username = this.cookieService.get("username");
+    }
+    if(this.cookieService.get("project_name")){
+      this.projectName=this.cookieService.get("project_name")
     }
   }
   @HostListener("window:resize", ["$event"])
@@ -204,6 +207,7 @@ export class HeaderComponent {
       this.parent_uri = environment["renewbuyInsuranceDomain"];
       this.redirect_uri = window.location.href;
       this.username = this.username;
+      this.projectName=window.location.href
       if (this.cookieService.get("location")) {
         this.location = this.cookieService.get("location");
       }
@@ -229,6 +233,7 @@ export class HeaderComponent {
           : window.location.href;
       this.parent_uri = environment["renewbuyInsuranceDomain"];
       this.sub_domain = this.getDomainOnly(environment["dashboardDomain"]);
+      this.projectName=window.location.href
       setTimeout(() => {
         this.renewbuyinsuranceform.nativeElement.submit();
       }, 0);
@@ -420,6 +425,7 @@ export class HeaderComponent {
     this.parent_uri = environment["renewbuyInsuranceDomain"];
     this.redirect_uri = window.location.href;
     this.username = this.username;
+    this.projectName=window.location.href
     if (this.cookieService.get("location")) {
       this.location = this.cookieService.get("location");
     }
