@@ -262,7 +262,8 @@ export class HeaderComponent {
               "/",
               window.location.hostname
             );
-            window.location.href = environment["renewbuyInsuranceDomain"];
+
+            // window.location.href = environment["renewbuyInsuranceDomain"];
           }
         },
         (error: any) => {
