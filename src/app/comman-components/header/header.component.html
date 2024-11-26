@@ -707,13 +707,19 @@
 >
 </app-new-sign-in>
 
-<form id="renewbuyinsuranceform" method="POST" action="{{ actionUrl }}" #renewbuyinsurance_form>
+<form
+  id="renewbuyinsuranceform"
+  method="POST"
+  action="{{ actionUrl }}"
+  #renewbuyinsurance_form
+>
   <input type="hidden" name="token" value="{{ access_token }}" />
   <input type="hidden" name="redirect_uri" value="{{ redirect_uri }}" />
   <input type="hidden" name="parent_uri" value="{{ parent_uri }}" />
   <input type="hidden" name="username" value="{{ username }}" />
   <input type="hidden" name="redirection_domain" value="{{ sub_domain }}" />
-  <input type="hidden" name="insurar_type" value="{{productName}}" />
-  <input type="hidden" name="location" value="{{location}}" />
+  <input type="hidden" name="insurar_type" value="{{ productName }}" />
+  <input type="hidden" name="location" value="{{ location }}" />
+  <input type="hidden" name="project_name" value="{{ projectName }}" />
   <button type="submit" style="display: none">submit</button>
 </form>
