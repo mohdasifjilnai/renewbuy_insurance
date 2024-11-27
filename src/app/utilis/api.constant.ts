@@ -11,7 +11,6 @@ export class ApiConstants {
     "/api/header-menus?populate[menu_icon]=*&populate[menu_items][populate]=sub_menu&sort=id:asc";
 
   public static FAQ_tags: string = "/api/faq-tags?populate=*";
-  // Api for Generate Otp
   public static Generate_otp: string = "/api/v1/unicorn/auth/otp/generate-otp";
 
   // api for Verify otp
