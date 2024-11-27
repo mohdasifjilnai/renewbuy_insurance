@@ -53,6 +53,6 @@ export class ApiConstants {
   public static CASHLESS_HOSPITAL: string = `/api/cashless-hospitals`;
   public static LOGOUT: string = `/api/v1/auth/user/logout`;
 
-  public static REDIRECT: string = `api/v1/redirect/`;
+  public static REDIRECT: string = `api/v1/unicorn/redirect/`;
 
 }
