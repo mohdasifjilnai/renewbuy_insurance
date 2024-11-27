@@ -346,24 +346,24 @@ export class HeaderComponent {
   }
 
   redirectToHome() {
-    // if (isPlatformBrowser(this.platformId)) {
-    //   window.location.href = environment["mainDomain"];
-    // }
-    if (this.cookieService.get("access_token")) {
-      this.access_token = this.cookieService.get("access_token");
-      this.username = this.cookieService.get("username");
+    if (isPlatformBrowser(this.platformId)) {
+      window.location.href = environment["mainDomain"];
     }
-    this.actionUrl = `${environment["mainDomain"]}${ApiConstants["REDIRECT"]}`;
-    this.redirect_uri = environment["mainDomain"];
-    this.parent_uri = environment["renewbuyInsuranceDomain"];
-    this.sub_domain = this.getDomainOnly(environment["mainDomain"]);
-    this.location = this.cookieService.get("location")
-      ? this.cookieService.get("location")
-      : "";
-    this.projectName = "renewbuyinsurance";
-    setTimeout(() => {
-      this.renewbuyinsuranceform.nativeElement.submit();
-    }, 0);
+    // if (this.cookieService.get("access_token")) {
+    //   this.access_token = this.cookieService.get("access_token");
+    //   this.username = this.cookieService.get("username");
+    // }
+    // this.actionUrl = `${environment["mainDomain"]}${ApiConstants["REDIRECT"]}`;
+    // this.redirect_uri = environment["mainDomain"];
+    // this.parent_uri = environment["renewbuyInsuranceDomain"];
+    // this.sub_domain = this.getDomainOnly(environment["mainDomain"]);
+    // this.location = this.cookieService.get("location")
+    //   ? this.cookieService.get("location")
+    //   : "";
+    // this.projectName = "renewbuyinsurance";
+    // setTimeout(() => {
+    //   this.renewbuyinsuranceform.nativeElement.submit();
+    // }, 0);
     // this.router.navigate(['/']);
   }
   /**
