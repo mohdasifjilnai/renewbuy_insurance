@@ -3,7 +3,7 @@ export const environment = {
   strapiDomain: 'https://cms.renewbuy.com',
   subDomain: '.renewbuy.com',
   unicornDomain: 'https://www.renewbuy.com',
-  dashboardDomain: 'https://myaccount.renewbuy.com',
+  dashboardDomain: 'https://myaccount.renewbuy.com/',
   renewbuyInsuranceDomain: 'https://www.renewbuyinsurance.com/',
   mainDomain: 'https://www.renewbuy.com',
   bearerToken:
