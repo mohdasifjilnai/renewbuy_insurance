@@ -395,8 +395,7 @@ export class HeaderComponent {
               console.log(res, "get user details");
               if (
                 res?.is_new_user == true &&
-                this.cookieService.get("isProfileComplete") &&
-                this.cookieService.get("isProfileComplete") != "false"
+                !this.cookieService.get("isProfileComplete")
               ) {
                 this.sharedService.setCrossDomainCookie(
                   "isProfileComplete",
