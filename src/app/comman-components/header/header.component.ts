@@ -385,8 +385,19 @@ export class HeaderComponent {
                 this.username,
                 7
               );
+              this.sharedService.setCrossDomainCookie(
+                "isProfileComplete",
+                "true",
+                7
+              );
               this.isProfileComplete = false;
             } else {
+              console.log(res, "get user details");
+              this.sharedService.setCrossDomainCookie(
+                "isProfileComplete",
+                "false",
+                7
+              );
               this.isUserLogin = true;
               this.isProfileComplete = true;
             }
