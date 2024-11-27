@@ -157,9 +157,9 @@ export class HeaderComponent {
       // this.sub_domain = this.getDomainOnly(environment["dashboardDomain"]);
       // this.location = this.cookieService.get("location");
       // this.projectName = "renewbuyinsurance";
-      setTimeout(() => {
-        this.renewbuyinsuranceform.nativeElement.submit();
-      }, 0);
+      // setTimeout(() => {
+      //   this.renewbuyinsuranceform.nativeElement.submit();
+      // }, 0);
     } else {
       this.isProfileOpen = false;
       setTimeout(() => {
@@ -171,16 +171,16 @@ export class HeaderComponent {
   goToPolicies(isProfileComplete: boolean, page: any) {
     if (!isProfileComplete) {
       // window.location.href = environment["dashboardDomain"] + "/" + page;
-       window.location.href = environment["dashboardDomain"] + page;
+      window.location.href = environment["dashboardDomain"] + page;
       // this.actionUrl = `${environment["dashboardDomain"]}${ApiConstants["REDIRECT"]}`;
       // this.redirect_uri = environment["dashboardDomain"] + page;
       // this.parent_uri = environment["renewbuyInsuranceDomain"];
       // this.sub_domain = this.getDomainOnly(environment["dashboardDomain"]);
       // this.location = this.cookieService.get("location");
       // this.projectName = "renewbuyinsurance";
-      setTimeout(() => {
-        this.renewbuyinsuranceform.nativeElement.submit();
-      }, 0);
+      // setTimeout(() => {
+      //   this.renewbuyinsuranceform.nativeElement.submit();
+      // }, 0);
     } else {
       this.isProfileOpen = false;
       setTimeout(() => {
