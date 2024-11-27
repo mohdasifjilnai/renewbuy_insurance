@@ -12,46 +12,46 @@ export class ApiConstants {
 
   public static FAQ_tags: string = "/api/faq-tags?populate=*";
   // Api for Generate Otp
-  public static Generate_otp: string = "/api/v1/auth/otp/generate-otp";
+  public static Generate_otp: string = "/api/v1/unicorn/auth/otp/generate-otp";
 
   // api for Verify otp
-  public static verify_otp: string = "/api/v1/auth/otp/verify-otp";
+  public static verify_otp: string = "/api/v1/unicorn/auth/otp/verify-otp";
 
   //get user profile Details api
-  public static Get_user_details: string = "/api/v1/auth/user/user-details";
+  public static Get_user_details: string = "/api/v1/unicorn/auth/user/user-details";
 
   //patch user profile details api
-  public static Update_user_details: string = "/api/v1/auth/user/user-details";
+  public static Update_user_details: string = "/api/v1/unicorn/auth/user/user-details";
 
   //post api of family details
-  public static Post_family_details: string = "/api/v1/customer/family-details";
+  public static Post_family_details: string = "/api/v1/unicorn/customer/family-details";
 
   //get family details api
-  public static Get_family_details: string = "/api/v1/customer/family-details";
+  public static Get_family_details: string = "/api/v1/unicorn/customer/family-details";
 
-  public static Get_cities: string = "/api/v1/search/city/?term=";
+  public static Get_cities: string = "/api/v1/unicorn/search/city/?term=";
 
   public static Delete_Family_member: string =
-    "/api/v1/customer/family-details/";
+    "/api/v1/unicorn/customer/family-details/";
 
-  public static GET_POLICIES: string = "/api/v1/customer/policies/";
+  public static GET_POLICIES: string = "/api/v1/unicorn/customer/policies/";
 
   public static Upload_policy: string =
-    "/api/v1/customer/policies/upload_policy";
+    "/api/v1/unicorn/customer/policies/upload_policy";
 
-  public static GET_CITY: string = "api/v1/search/city";
+  public static GET_CITY: string = "api/v1/unicorn/search/city";
 
-  public static subscribe_email: string = "/api/v1/newsletter/";
+  public static subscribe_email: string = "/api/v1/unicorn/newsletter/";
 
-  public static POST_COSTOMER_LEAD: string = "/api/v1/customer/leads";
-  public static Verfy_family_number: string = "/api/v1/auth/otp/verify-mobile";
+  public static POST_COSTOMER_LEAD: string = "/api/v1/unicorn/customer/leads";
+  public static Verfy_family_number: string = "/api/v1/unicorn/auth/otp/verify-mobile";
 
-  public static FETCH_LEADS: string = "/api/v1/customer/leads";
+  public static FETCH_LEADS: string = "/api/v1/unicorn/customer/leads";
   public static INSURER_LOGO: string = "/api/insurers?populate=insurer_logo.*";
   public static CASHLESS_GARAGES: string = `/api/cashless-garages`;
 
   public static CASHLESS_HOSPITAL: string = `/api/cashless-hospitals`;
-  public static LOGOUT: string = `/api/v1/auth/user/logout`;
+  public static LOGOUT: string = `/api/v1/unicorn/auth/user/logout`;
 
   public static REDIRECT: string = `api/v1/unicorn/redirect/`;
 
