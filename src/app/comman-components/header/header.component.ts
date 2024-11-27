@@ -393,11 +393,23 @@ export class HeaderComponent {
               this.isProfileComplete = false;
             } else {
               console.log(res, "get user details");
-              this.sharedService.setCrossDomainCookie(
-                "isProfileComplete",
-                "false",
-                7
-              );
+              if (!this.cookieService.get("isProfileComplete")) {
+                this.actionUrl = `${environment["mainDomain"]}${ApiConstants["REDIRECT"]}`;
+                this.redirect_uri = environment["renewbuyInsuranceDomain"];
+                this.parent_uri = environment["renewbuyInsuranceDomain"];
+                this.sub_domain = this.getDomainOnly(environment["mainDomain"]);
+                this.location = this.cookieService.get("location")
+                  ? this.cookieService.get("location")
+                  : "";
+                setTimeout(() => {
+                  this.sharedService.setCrossDomainCookie(
+                    "isProfileComplete",
+                    "false",
+                    7
+                  );
+                  this.renewbuyinsuranceform.nativeElement.submit();
+                }, 0);
+              }
               this.isUserLogin = true;
               this.isProfileComplete = true;
             }
