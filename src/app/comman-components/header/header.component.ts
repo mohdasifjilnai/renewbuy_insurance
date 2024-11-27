@@ -150,11 +150,13 @@ export class HeaderComponent {
 
   goToUserProfile(goToUserProfile: boolean, page: any) {
     if (!goToUserProfile) {
-      this.actionUrl = `${environment["dashboardDomain"]}${ApiConstants["REDIRECT"]}`;
-      this.redirect_uri = environment["dashboardDomain"] + page;
-      this.parent_uri = environment["renewbuyInsuranceDomain"];
-      this.sub_domain = this.getDomainOnly(environment["dashboardDomain"]);
-      this.location = this.cookieService.get("location");
+      window.location.href = environment["dashboardDomain"] + page;
+      // this.actionUrl = `${environment["dashboardDomain"]}${ApiConstants["REDIRECT"]}`;
+      // this.redirect_uri = environment["dashboardDomain"] + page;
+      // this.parent_uri = environment["renewbuyInsuranceDomain"];
+      // this.sub_domain = this.getDomainOnly(environment["dashboardDomain"]);
+      // this.location = this.cookieService.get("location");
+      // this.projectName = "renewbuyinsurance";
       setTimeout(() => {
         this.renewbuyinsuranceform.nativeElement.submit();
       }, 0);
@@ -169,11 +171,13 @@ export class HeaderComponent {
   goToPolicies(isProfileComplete: boolean, page: any) {
     if (!isProfileComplete) {
       // window.location.href = environment["dashboardDomain"] + "/" + page;
-      this.actionUrl = `${environment["dashboardDomain"]}${ApiConstants["REDIRECT"]}`;
-      this.redirect_uri = environment["dashboardDomain"] + page;
-      this.parent_uri = environment["renewbuyInsuranceDomain"];
-      this.sub_domain = this.getDomainOnly(environment["dashboardDomain"]);
-      this.location = this.cookieService.get("location");
+       window.location.href = environment["dashboardDomain"] + page;
+      // this.actionUrl = `${environment["dashboardDomain"]}${ApiConstants["REDIRECT"]}`;
+      // this.redirect_uri = environment["dashboardDomain"] + page;
+      // this.parent_uri = environment["renewbuyInsuranceDomain"];
+      // this.sub_domain = this.getDomainOnly(environment["dashboardDomain"]);
+      // this.location = this.cookieService.get("location");
+      // this.projectName = "renewbuyinsurance";
       setTimeout(() => {
         this.renewbuyinsuranceform.nativeElement.submit();
       }, 0);
@@ -352,7 +356,7 @@ export class HeaderComponent {
     this.location = this.cookieService.get("location")
       ? this.cookieService.get("location")
       : "";
-      this.projectName = "renewbuyinsurance";
+    this.projectName = "renewbuyinsurance";
     setTimeout(() => {
       this.renewbuyinsuranceform.nativeElement.submit();
     }, 0);
@@ -409,7 +413,7 @@ export class HeaderComponent {
                 this.location = this.cookieService.get("location")
                   ? this.cookieService.get("location")
                   : "";
-                  this.projectName = "renewbuyinsurance";
+                this.projectName = "renewbuyinsurance";
                 setTimeout(() => {
                   this.renewbuyinsuranceform.nativeElement.submit();
                 }, 0);
