@@ -352,6 +352,7 @@ export class HeaderComponent {
     this.location = this.cookieService.get("location")
       ? this.cookieService.get("location")
       : "";
+      this.projectName = "renewbuyinsurance";
     setTimeout(() => {
       this.renewbuyinsuranceform.nativeElement.submit();
     }, 0);
@@ -392,7 +393,6 @@ export class HeaderComponent {
               );
               this.isProfileComplete = false;
             } else {
-              console.log(res, "get user details");
               if (
                 res?.is_new_user == true &&
                 !this.cookieService.get("isProfileComplete")
@@ -409,6 +409,7 @@ export class HeaderComponent {
                 this.location = this.cookieService.get("location")
                   ? this.cookieService.get("location")
                   : "";
+                  this.projectName = "renewbuyinsurance";
                 setTimeout(() => {
                   this.renewbuyinsuranceform.nativeElement.submit();
                 }, 0);
