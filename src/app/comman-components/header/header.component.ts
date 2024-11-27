@@ -318,7 +318,7 @@ export class HeaderComponent {
   ngOnInit(): void {
     this.resetAccordion();
     this.subscription = this.sharedService.triggerAction$.subscribe(() => {
-      this.getTokenAndUsername();
+      // this.getTokenAndUsername();
     });
   }
   getTokenAndUsername() {
@@ -393,7 +393,16 @@ export class HeaderComponent {
               this.isProfileComplete = false;
             } else {
               console.log(res, "get user details");
-              if (!this.cookieService.get("isProfileComplete")) {
+              if (
+                res?.is_new_user == true &&
+                this.cookieService.get("isProfileComplete") &&
+                this.cookieService.get("isProfileComplete") != "false"
+              ) {
+                this.sharedService.setCrossDomainCookie(
+                  "isProfileComplete",
+                  "false",
+                  7
+                );
                 this.actionUrl = `${environment["mainDomain"]}${ApiConstants["REDIRECT"]}`;
                 this.redirect_uri = environment["renewbuyInsuranceDomain"];
                 this.parent_uri = environment["renewbuyInsuranceDomain"];
@@ -402,11 +411,6 @@ export class HeaderComponent {
                   ? this.cookieService.get("location")
                   : "";
                 setTimeout(() => {
-                  this.sharedService.setCrossDomainCookie(
-                    "isProfileComplete",
-                    "false",
-                    7
-                  );
                   this.renewbuyinsuranceform.nativeElement.submit();
                 }, 0);
               }
