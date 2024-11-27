@@ -349,6 +349,10 @@ export class HeaderComponent {
     // if (isPlatformBrowser(this.platformId)) {
     //   window.location.href = environment["mainDomain"];
     // }
+    if (this.cookieService.get("access_token")) {
+      this.access_token = this.cookieService.get("access_token");
+      this.username = this.cookieService.get("username");
+    }
     this.actionUrl = `${environment["mainDomain"]}${ApiConstants["REDIRECT"]}`;
     this.redirect_uri = environment["mainDomain"];
     this.parent_uri = environment["renewbuyInsuranceDomain"];
@@ -406,6 +410,9 @@ export class HeaderComponent {
                   "false",
                   7
                 );
+                if (this.cookieService.get("access_token")) {
+                  this.access_token = this.cookieService.get("access_token");
+                }
                 this.actionUrl = `${environment["mainDomain"]}${ApiConstants["REDIRECT"]}`;
                 this.redirect_uri = environment["renewbuyInsuranceDomain"];
                 this.parent_uri = environment["renewbuyInsuranceDomain"];
