@@ -29,39 +29,31 @@ const routes: Routes = [
           ).then((m) => m.HealthinsuranceLandingPageModule),
       },
       {
-        path: 'privacy-policy',
+        path: "privacy-policy",
         loadChildren: () =>
           import(
-            '../../app/insurance-landing-page/privacy-policy/privacy-policy.module'
+            "../../app/insurance-landing-page/privacy-policy/privacy-policy.module"
           ).then((m) => m.PrivacyPolicyModule),
       },
       {
-        path: 'terms-conditions',
+        path: "terms-conditions",
         loadChildren: () =>
           import(
-            '../../app/insurance-landing-page/terms-conditions/terms-conditions.module'
+            "../../app/insurance-landing-page/terms-conditions/terms-conditions.module"
           ).then((m) => m.TermsConditionsModule),
       },
       {
-        path: 'disclaimer',
-        loadChildren: () =>
-          import('../../app/insurance-landing-page/disclaimer/disclaimer.module').then(
-            (m) => m.DisclaimerModule
-          ),
-      },
-
-      {
-        path: 'about-us',
-        loadChildren: () =>
-          import('../../app/insurance-landing-page/about-us/about-us.module').then(
-            (m) => m.AboutUsModule
-          ),
-      },
-      {
-        path: 'grievance-redressal',
+        path: "disclaimer",
         loadChildren: () =>
           import(
-            '../../app/insurance-landing-page/grievance-redressal/grievance-redressal.module'
+            "../../app/insurance-landing-page/disclaimer/disclaimer.module"
+          ).then((m) => m.DisclaimerModule),
+      },
+      {
+        path: "grievance-redressal",
+        loadChildren: () =>
+          import(
+            "../../app/insurance-landing-page/grievance-redressal/grievance-redressal.module"
           ).then((m) => m.GrievanceRedressalModule),
       },
     ],

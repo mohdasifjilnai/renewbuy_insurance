@@ -54,7 +54,7 @@
                         minlength="10"
                         class="form-control p-3 input-box"
                         formControlName="vehicleNumber"
-                        placeholder="Enter Registraion Number"
+                        placeholder="Enter Registration Number"
                       />
                       <div
                         *ngIf="
@@ -67,7 +67,7 @@
                         <div
                           *ngIf="registrationForm.get('vehicleNumber')?.errors?.['required']"
                         >
-                          Registraion number field is required.
+                        Registration number field is required.
                         </div>
                         <div
                           *ngIf="registrationForm.get('vehicleNumber')?.errors?.['minlength']"
