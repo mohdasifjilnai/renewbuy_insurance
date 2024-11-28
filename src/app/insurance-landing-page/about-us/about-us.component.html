@@ -1,0 +1,205 @@
+<div class="about-us-background">
+  <div class="container about-us">
+    <div class="row">
+      <div class="col-7 col-md-4 right-section">
+        <img class="about-us-image" src="./rb_assets/assets/images/about-us.svg" alt="About_us" />
+      </div>
+      <div class="col-1"></div>
+      <div class="col-4 col-md-7 left-section">
+        <h1 class="heading">About Us</h1>
+        <div class="d-none d-sm-block">
+          <span class="sub-heading"
+            >RenewBuy is one of the fastest-growing online distribution
+            platforms, which offers a wide choice of life and general insurance
+            policies, together with other financial products.</span
+          ><br />
+          <span class="sub-heading">
+            With RenewBuy, get the best advice on insurance and financial
+            products. Understand the products, save time as we simplify the
+            process, and choose the product most suitable from the our
+            marketplace.</span
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="d-block d-sm-none">
+    <span class="sub-heading">
+      RenewBuy is one of the fastest-growing online distribution
+      platforms, which offers a wide choice of life and general insurance
+      policies, together with other financial products. With RenewBuy, get the best advice on insurance and financial
+      products. Understand the products, save time as we simplify the
+      process, and choose the product most suitable from the our
+      marketplace.
+    </span>
+  </div>
+</div>
+<div class="bottom container">
+  <div class="row our-mission-and-vision">
+    <div class="col-md-5 col-lg-5 d-flex justify-content-center flex-wrap">
+      <img
+        class="missionImage"
+        src="./rb_assets/assets/images/mission.svg"
+        alt=""
+      />
+    </div>
+    <div class="col-md-7 col-lg-7">
+      <div class="card custom-card mb-4">
+        <div class="card-body">
+          <div class="row card-content">
+            <div class="col-3 d-flex justify-content-center flex-wrap">
+              <img src="./rb_assets/assets/images/our-mission.svg" alt="" />
+            </div>
+            <div class="col-9">
+              <h6 class="card-head">Our Mission</h6>
+              <span class="card-subHead"
+                >Deliver Superior Customer Experience through an Empowered POS
+                for every 10000 Customers</span
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card custom-card">
+        <div class="card-body">
+          <div class="row card-content">
+            <div class="col-3 col-lg-3 d-flex justify-content-center flex-wrap">
+              <img src="./rb_assets/assets/images/our-vision.svg" alt="" />
+            </div>
+            <div class="col-9 col-lg-9">
+              <h6 class="card-head">Our Vision</h6>
+              <span class="card-subHead"
+                >Deliver Superior Customer Experience through an Empowered
+                Distribution across the InsurTech Value Chain</span
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-12">
+      <div class="card custom-values">
+        <div class="card-body">
+          <div class="row values-box">
+            <div class="col-2"></div>
+            <div class="col-10 text-heading-center">
+              <h6 class="card-head">Our Values</h6>
+            </div>
+            <div class="col-2 d-flex justify-content-center flex-wrap mb-3 mb-sm-5">
+              <img src="./rb_assets/assets/images/values.svg" alt="" />
+            </div>
+            <div class="col-md-4">
+              <p class="values-content">
+                <span class="card-sub">Empowerment</span><br />
+                <span class="card-subHead"
+                  >Empowered & Collaborative Workforce</span
+                >
+              </p>
+              <p class="values-content">
+                <span class="card-sub">People Orientation</span><br />
+                <span class="card-subHead"
+                  >Investing in People, Reaping Success</span
+                >
+              </p>
+            </div>
+            <div class="col-md-6">
+              <p class="values-content">
+                <span class="card-sub">Customer Obsession</span><br />
+                <span class="card-subHead"
+                  >Putting Customers at the Heart of Everything to do</span
+                >
+              </p>
+              <p class="values-content">
+                <span class="card-sub">Reliability</span><br />
+                <span class="card-subHead"
+                  >Dependable Solutions & responsive Services across the value
+                  chain</span
+                >
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="how-we mb-5">
+  <div class="container">
+    <h6 class="heading">How we do this?</h6>
+    <p class="sub-head">
+      In the fast-paced world of tech, having an insurance and financial advisor
+      to guide you through complicated buying processes, renewals, and
+      underwriting is crucial to simplifying the product. We at RenewBuy provide
+      a 360-degree view of insurance & financial products in your dialect to buy
+      from the wide choice of life and general policies, together with other
+      financial products.
+    </p>
+    <p class="sub-head">
+      Our digitally enabled advisor understands the importance of conducting a
+      deep dive to evaluate and uncover potential pitfalls of insurance and
+      financial products to empower you to choose the most suitable plan.
+    </p>
+  </div>
+</div>
+<div class="container business-leader mb-5">
+  <h6 class="heading">Meet Our Business Leaders</h6>
+  <div class="row">
+    <div class="col-md-4">
+      <img
+        class="leaderImage"
+        src="./rb_assets/assets/images/business-leader.svg"
+        alt=""
+      />
+    </div>
+    <div class="col-1"></div>
+    <div class="col-md-7">
+      <div class="row">
+        <div class="col-6 col-md-4 mb-5" *ngFor="let leaders of businessLeader">
+          <div class="image-container">
+            <img class="image leader-image" [src]="leaders.image" alt="Leaders" />
+            <span class="read-more" (click)="readMore(leaders)">Read More</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="our-presence container">
+  <div class="row">
+    <div class="col-md-7 col-lg-7 content">
+      <h6 class="heading">Our Presence</h6>
+      <p class="para">
+        With a strong network of over
+        <span class="text-bold">1,00,000+ advisors,</span> RenewBuy has marked
+        its presence in over <span class="text-bold">750+ cities</span> across
+        India.
+      </p>
+      <p class="para mt-4">
+        From the remotest town of Andaman & Nicobar Islands to the beautiful
+        peaks of Kashmir, we extend our support to all our advisors every day.
+      </p>
+      <p class="para mt-4">
+        With our <span class="text-bold">corporate office,</span> based out of
+        <span class="text-bold">Gurugram, Haryana,</span> and over
+        <span class="text-bold">60+ branch</span> offices in
+        <span class="text-bold">PAN India,</span> we are growing by leaps and
+        bounds to ensure that customers can buy insurance & financial products
+        even in the remotest parts of India.
+      </p>
+    </div>
+    <div class="col-md-5 col-lg-5 d-flex justify-content-end">
+      <img class="india-map-image" src="./rb_assets/assets/images/map.svg" alt="" />
+    </div>
+  </div>
+</div>
+<app-read-more
+  *ngIf="readMoreDetails"
+  [leaderImage]="selectedLeader?.image"
+  [leaderName]="selectedLeader?.name"
+  [leaderPosition]="selectedLeader?.position"
+  [leaderDescription]="selectedLeader?.description"
+  [leaderDescription2]="selectedLeader?.description2"
+  (closeEvent)="closeReadMore()"
+></app-read-more>

@@ -1,0 +1,140 @@
+<div class="container service-provider-container">
+  <div class="service-provider-content">
+    <p class="address-content">
+      The Vendor (hereinafter referred to as <strong>Service Provider</strong> )
+      agrees to the terms and conditions mentioned herein below for the services
+      to be rendered to D2C Consulting Services Private Limited (CIN -
+      U74900DL2012PTC246820), a company incorporated under the provisions of the
+      Companies Act, 1956, , having its registered office at 5B/14, 2nd Floor,
+      Tilak Nagar, New Delhi-110018 and corporate office at Plot 94, 2nd Floor,
+      Sector-32, Gurugram-122001, Haryana (hereinafter referred to as “Company”,
+      which expression shall, unless be repugnant to the context or meaning
+      thereof, shall be deemed to mean its successors and permitted assigns).
+    </p>
+    <p class="address-content">
+      Company and Service Provider shall be collectively referred to as<strong>
+        “Parties”</strong
+      >
+      and individually as <strong>“Party”</strong>.
+    </p>
+    <strong class="fw-bold heading-text">Whereas:</strong>
+    <ol class="custom-list">
+      <li class="list-item">
+        The Service Provider is inter-alia engaged in the business of providing
+        marketing and advertisement services and has the necessary experience,
+        expertise, manpower and infrastructure to provide the requisite services
+        to the Company.
+      </li>
+      <li class="list-item">
+        Based on the representations of the Service Provider, the Company
+        desires to appoint the Service Provider to provide various services, on
+        the terms and conditions set forth
+      </li>
+    </ol>
+    <p class="heading-text">
+      Now therefore, in consideration of the mutual covenants contained herein,
+      the receipt & sufficiency of which the parties hereby acknowledge, the
+      parties here to agrees as follows:
+    </p>
+    <strong class="fw-bold heading-text">Appointment</strong>
+    <p class="address-content">
+      On and from the execution of the Vendor Registration Form (<strong
+        >“Effective Date”</strong
+      >), the Company appoints the Service Provider and the Service Provider
+      hereby accepts its appointment to provide the Company advertisement
+      marketing and related services and other allied services other allied
+      services.
+    </p>
+    <strong class="fw-bold heading-text">Service fee</strong>
+    <p class="address-content">
+      In consideration of the Services to be rendered hereunder by the Service
+      Provider, the Company shall pay service fees upon such terms and
+      conditions as agreed between the Parties, in writing.
+    </p>
+    <strong class="fw-bold heading-text">Service Provider's Covenants</strong>
+    <ol class="custom-list">
+      @for(item of serviceProviderConenantsList; track item){
+      <li class="list-item">
+        {{ item }}
+      </li>
+      }
+    </ol>
+    <strong class="fw-bold heading-text">Company's Covenants</strong>
+    <ol class="custom-list">
+      @for(item of companyCovenants; track item){
+      <li class="list-item">
+        {{ item }}
+      </li>
+      }
+    </ol>
+    <strong class="fw-bold heading-text">Representations & Warranties</strong>
+    <p class="address-content">
+      Each Party hereby warrants and represents to the other Party that:
+    </p>
+    <ol class="custom-list">
+      @for(item of warranties; track item){
+      <li class="list-item">
+        {{ item }}
+      </li>
+      }
+    </ol>
+    <strong class="heading-text">Indemnity</strong>
+    <p class="address-content">
+      Service Provider shall indemnify and hold the Company and its officers and
+      employees harmless from all expenses, costs, causes of action, claims,
+      demands, liabilities and damages, including reasonable attorney's fees,
+      resulting from or growing out of any unauthorized act or transaction or
+      any negligent act, omission or transaction by Service Provider or
+      employees of Service Provider.
+    </p>
+    <strong class="fw-bold heading-text"
+      >Termination & Consequences of Termination</strong
+    >
+    <ol class="custom-list-number">
+      <li class="list-item" *ngFor="let item of list">
+        {{ item.name }}{{ item?.content }}
+        <ul *ngIf="item?.subItems" class="custom-list-number">
+          <li class="list-item" *ngFor="let subItem of item?.subItems">
+            {{ subItem.name }}{{ subItem?.content }}
+          </li>
+        </ul>
+      </li>
+    </ol>
+    <strong class="heading-text">Confidentiality</strong>
+    <p class="address-content">
+      Service Provider shall utilize the Confidential Information only for the
+      purposes of rendering the Services hereunder. Upon expiration/termination
+      of services , or at any time at the request of the Disclosing Party, the
+      Receiving Party shall return to the Disclosing Party all Confidential
+      Information in its possession and, if so requested by the Disclosing
+      Party, delete irretrievably any Confidential Information that it may have
+      stored on any magnetic or optical disk or memory or otherwise in
+      electronic/physical form in its possession or control. If requested,
+      Receiving Party shall give written confirmation to the Disclosing Party
+      that all Confidential Information in its possession or control has been
+      duly returned or destroyed in its entirety.
+    </p>
+    <strong class="heading-text">Intellectual Property</strong>
+    <ol class="custom-list">
+      @for(item of IntellectualPropertyList; track item){
+      <li class="list-item">
+        {{ item }}
+      </li>
+      }
+    </ol>
+    <strong class="heading-text">Governing Law & Jurisdiction</strong>
+    <p class="address-content">
+      The construction and enforcement of terms and the interpretation of the
+      rights and duties of the Parties hereto shall be governed by the laws of
+      India and shall be subject to the jurisdiction of courts in Gurugram,
+      Haryana, India.
+    </p>
+    <strong class="heading-text">Miscellaneous</strong>
+    <p class="address-content">
+      Independent Contractor: The Service Provider agrees that all Services will
+      be rendered by it as an independent contractor and that acceptance of the
+      terms and conditions does not create an employer-employee/joint-venture
+      relationship between the Service Provider and the Company.
+    </p>
+  </div>
+</div>

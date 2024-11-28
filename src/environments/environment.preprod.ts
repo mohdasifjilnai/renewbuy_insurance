@@ -1,9 +1,9 @@
 export const environment = {
     production: false,
     strapiDomain: 'https://cms.renewbuy.com',
-    subDomain: '.renewbuy.com',
+    subDomain: '.renewbuyinsurance.com',
     unicornDomain: 'https://www.renewbuy.com',
-    dashboardDomain: 'https://myaccount.renewbuy.com',
+    dashboardDomain: 'https://myaccount.renewbuy.com/',
     renewbuyInsuranceDomain: 'https://b2cinsurance.renewbuy.com/',
     mainDomain: 'https://b2c.renewbuy.com',
     bearerToken:
