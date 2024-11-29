@@ -42,7 +42,7 @@ export class ApiConstants {
   public static Upload_policy: string =
     "/api/v1/unicorn/customer/policies/upload_policy";
 
-  public static GET_CITY: string = "api/v1/unicorn/search/city";
+  public static GET_CITY: string = "api/v1/search/city";
 
   public static subscribe_email: string = "/api/v1/unicorn/newsletter/";
 
