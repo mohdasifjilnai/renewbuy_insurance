@@ -169,12 +169,12 @@ export class CarInsuranceComponent {
       }
     });
     this.createForm();
-    console.log(this.cookieService.get("insurar_type"));
+    console.log(this.cookieService.get("insurer_type"));
     if (
-      this.cookieService.get("insurar_type") &&
-      this.cookieService.get("insurar_type") !== "None"
+      this.cookieService.get("insurer_type") &&
+      this.cookieService.get("insurer_type") !== "None"
     ) {
-      this.selectedTab = this.cookieService.get("insurar_type");
+      this.selectedTab = this.cookieService.get("insurer_type");
       // let type = this.tabList.find(
       //   (el: { name: string }) => el.name == this.selectedTab
       // ).type;
