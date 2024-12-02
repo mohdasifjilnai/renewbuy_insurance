@@ -169,7 +169,6 @@ export class CarInsuranceComponent {
       }
     });
     this.createForm();
-    console.log(this.cookieService.get("insurer_type"));
     if (
       this.cookieService.get("insurer_type") &&
       this.cookieService.get("insurer_type") !== "None"
