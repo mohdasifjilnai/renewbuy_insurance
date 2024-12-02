@@ -52,7 +52,7 @@ export class CarInsuranceComponent {
   mobileBanner: any = [];
   registrationForm!: FormGroup;
   selectedTab: any;
-  isMotor:boolean =true
+  isMotor: boolean = true;
   showCalendar: boolean = true;
   minDateString: any;
   maxDateString: any;
@@ -169,7 +169,10 @@ export class CarInsuranceComponent {
       }
     });
     this.createForm();
-    if (this.cookieService.get("insurar_type")) {
+    if (
+      this.cookieService.get("insurar_type") &&
+      this.cookieService.get("insurar_type") !== "None"
+    ) {
       this.selectedTab = this.cookieService.get("insurar_type");
       // let type = this.tabList.find(
       //   (el: { name: string }) => el.name == this.selectedTab
@@ -178,7 +181,10 @@ export class CarInsuranceComponent {
     } else {
       this.selectedTab = "Car";
     }
-    if (this.cookieService.get("access_token")) {
+    if (
+      this.cookieService.get("access_token") &&
+      this.cookieService.get("access_token") !== "None"
+    ) {
       this.getUserDetail();
     }
   }
@@ -313,7 +319,7 @@ export class CarInsuranceComponent {
     }
     this.otpVerfied = false;
     if (this.isSharedForm(this.selectedTab)) {
-      this.isMotor=true
+      this.isMotor = true;
       this.registrationForm.removeControl("pincode");
       this.registrationForm.removeControl("dob");
       this.registrationForm.addControl(
@@ -325,7 +331,7 @@ export class CarInsuranceComponent {
         ])
       );
     } else if (this.selectedTab === "Health") {
-      this.isMotor=false
+      this.isMotor = false;
       this.registrationForm.removeControl("vehicleNumber");
       this.registrationForm.removeControl("dob");
       this.registrationForm.addControl(
@@ -338,7 +344,7 @@ export class CarInsuranceComponent {
         ])
       );
     } else if (this.selectedTab === "Life") {
-      this.isMotor=false
+      this.isMotor = false;
       const currentDate = new Date();
       const minDate = new Date(
         currentDate.getFullYear() - 100,
