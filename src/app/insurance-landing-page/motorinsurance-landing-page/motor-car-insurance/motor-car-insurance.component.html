@@ -1,229 +1,264 @@
-<div class="motor-car-background" >
-<div class="motor-car-insurance-container container">
-  <div class="row">
-    <!-- car-insurance-left-start -->
-    <div class="col-12 col-lg-12 card-margin">
-      <div class="title text-center text-md-start" [innerHtml]="title"></div>
-      <div class="subtitle text-center text-md-start">
-        <div [innerHtml]="subtitle"></div>
-        <div *ngIf="selectedTab === 'Health'" [innerHtml]="discount"></div>
-      </div>
-      <div class="row motor-column-reverse">
-        <div class="left-section col-lg-4">
-          <div class="navigation-tab" *ngIf="isShowTab">
-            <div class="nav-item">
-              <a
-                class="item"
-                *ngFor="let tab of tabList"
-                (click)="onTabClick(tab.name)"
-              >
-                <div
-                  class="image-container"
-                  [ngClass]="{ 'active-tab': selectedTab == tab.name }"
+<div class="motor-car-background">
+  <div class="motor-car-insurance-container container">
+    <div class="row">
+      <!-- car-insurance-left-start -->
+      <div class="col-12 col-lg-12 card-margin">
+        <div class="title text-center text-md-start" [innerHtml]="title"></div>
+        <div class="subtitle text-center text-md-start">
+          <div [innerHtml]="subtitle"></div>
+          <div
+            *ngIf="selectedTab === 'Health' || selectedTab === 'Life'"
+            [innerHtml]="discount"
+          ></div>
+        </div>
+        <div class="row motor-column-reverse">
+          <div class="left-section col-lg-4">
+            <div class="navigation-tab" *ngIf="isShowTab">
+              <div class="nav-item">
+                <a
+                  class="item"
+                  *ngFor="let tab of tabList"
+                  (click)="onTabClick(tab.name)"
                 >
-                  <img
-                    class="icon"
-                    [src]="selectedTab == tab.name ? tab.activeIcon : tab.image"
-                    [alt]="tab.name"
-                  />
-                </div>
-                <p
-                  class="nav-text"
-                  [ngClass]="{ 'active-text': selectedTab == tab.name }"
-                >
-                  {{ tab.name }}
-                </p>
-              </a>
+                  <div
+                    class="image-container"
+                    [ngClass]="{ 'active-tab': selectedTab == tab.name }"
+                  >
+                    <img
+                      class="icon"
+                      [src]="
+                        selectedTab == tab.name ? tab.activeIcon : tab.image
+                      "
+                      [alt]="tab.name"
+                    />
+                  </div>
+                  <p
+                    class="nav-text"
+                    [ngClass]="{ 'active-text': selectedTab == tab.name }"
+                  >
+                    {{ tab.name }}
+                  </p>
+                </a>
+              </div>
             </div>
-          </div>
-          <div class="card">
-            <div class="row align-items-center p-3">
-              <div class="col-12">
-                <form
-                  class="form-container"
-                  [formGroup]="registrationForm"
-                  (ngSubmit)="onSubmitregistrationForm(registrationForm.valid)"
-                  (keydown.enter)="submitOnEnterRegistrationForm()"
-                >
-                  <div *ngIf="isSharedForm(selectedTab)">
+            <div class="card">
+              <div class="row align-items-center p-3">
+                <div class="col-12">
+                  <form
+                    class="form-container"
+                    [formGroup]="registrationForm"
+                    (ngSubmit)="
+                      onSubmitregistrationForm(registrationForm.valid)
+                    "
+                    (keydown.enter)="submitOnEnterRegistrationForm()"
+                  >
+                    <div *ngIf="isSharedForm(selectedTab)">
+                      <div class="mb-3">
+                        <input
+                          appRegistraionNumber
+                          type="text"
+                          maxlength="14"
+                          minlength="10"
+                          class="form-control p-3 input-box"
+                          formControlName="vehicleNumber"
+                          placeholder="Enter Registration Number"
+                        />
+                        <div
+                          *ngIf="
+                            registrationForm.get('vehicleNumber')?.invalid &&
+                            (registrationForm.get('vehicleNumber')?.dirty ||
+                              registrationForm.get('vehicleNumber')?.touched)
+                          "
+                          class="error-message"
+                        >
+                          <div
+                            *ngIf="registrationForm.get('vehicleNumber')?.errors?.['required']"
+                          >
+                            Registration number field is required.
+                          </div>
+                          <div
+                            *ngIf="registrationForm.get('vehicleNumber')?.errors?.['minlength']"
+                          >
+                            Min. 10 character required
+                          </div>
+                          <div
+                            *ngIf="registrationForm.get('vehicleNumber')?.errors?.['maxlength']"
+                          >
+                            Max. 14 character required
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div *ngIf="selectedTab === 'Health'">
+                      <div class="mb-3 position-relative">
+                        <input
+                          type="text"
+                          class="form-control p-3 input-box pincode-input"
+                          formControlName="pincode"
+                          appAcceptOnlyDigit
+                          maxlength="6"
+                          placeholder="Enter Pincode"
+                        />
+                        <span class="location-icon">
+                          <img
+                            src="../../../../rb_assets/assets/insurance/location.svg"
+                            alt="Location Icon"
+                          />
+                        </span>
+                        <div
+                          *ngIf="
+                            registrationForm.get('pincode')?.invalid &&
+                            (registrationForm.get('pincode')?.dirty ||
+                              registrationForm.get('pincode')?.touched)
+                          "
+                          class="error-message"
+                        >
+                          <div
+                            *ngIf="registrationForm.get('pincode')?.errors?.['required']"
+                          >
+                            Pincode number field is required.
+                          </div>
+                          <div
+                            *ngIf="registrationForm.get('pincode')?.errors?.['pattern']||registrationForm.get('pincode')?.errors?.['maxlength']||registrationForm.get('pincode')?.errors?.['minlength']"
+                          >
+                            Please enter a valid Pincode number.
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div *ngIf="selectedTab === 'Life'">
+                      <div class="mb-3 position-relative">
+                        <input
+                          type="date"
+                          class="form-control p-3 input-box name-input date-input"
+                          formControlName="dob"
+                          [max]="maxDateString"
+                          [min]="minDateString"
+                          id="date-input"
+                          placeholder="Select Date of Birth"
+                        />
+                        <div
+                          *ngIf="
+                            registrationForm.get('dob')?.invalid &&
+                            (registrationForm.get('dob')?.dirty ||
+                              registrationForm.get('dob')?.touched)
+                          "
+                          class="error-message"
+                        >
+                          <div
+                            *ngIf="registrationForm.get('dob')?.errors?.['required']"
+                          >
+                            Dob number field is required.
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
                     <div class="mb-3">
                       <input
-                        appRegistraionNumber
                         type="text"
-                        maxlength="14"
-                        minlength="10"
                         class="form-control p-3 input-box"
-                        formControlName="vehicleNumber"
-                        placeholder="Enter Registration Number"
-                      />
-                      <div
-                        *ngIf="
-                          registrationForm.get('vehicleNumber')?.invalid &&
-                          (registrationForm.get('vehicleNumber')?.dirty ||
-                            registrationForm.get('vehicleNumber')?.touched)
-                        "
-                        class="error-message"
-                      >
-                        <div
-                          *ngIf="registrationForm.get('vehicleNumber')?.errors?.['required']"
-                        >
-                        Registration number field is required.
-                        </div>
-                        <div
-                          *ngIf="registrationForm.get('vehicleNumber')?.errors?.['minlength']"
-                        >
-                          Min. 10 character required
-                        </div>
-                        <div
-                          *ngIf="registrationForm.get('vehicleNumber')?.errors?.['maxlength']"
-                        >
-                          Max. 14 character required
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div *ngIf="selectedTab === 'Health'">
-                    <div class="mb-3 position-relative">
-                      <input
-                        type="text"
-                        class="form-control p-3 input-box pincode-input"
-                        formControlName="pincode"
+                        formControlName="contactNumber"
+                        id="contactNumber"
+                        maxlength="10"
                         appAcceptOnlyDigit
-                        maxlength="6"
-                        placeholder="Enter Pincode"
+                        placeholder="Enter Contact Number"
                       />
-                      <span class="location-icon">
-                        <img
-                          src="../../../../rb_assets/assets/insurance/location.svg"
-                          alt="Location Icon"
-                        />
-                      </span>
+                      <!-- Error start  -->
                       <div
                         *ngIf="
-                          registrationForm.get('pincode')?.invalid &&
-                          (registrationForm.get('pincode')?.dirty ||
-                            registrationForm.get('pincode')?.touched)
+                          registrationForm.get('contactNumber')?.invalid &&
+                          (registrationForm.get('contactNumber')?.dirty ||
+                            registrationForm.get('contactNumber')?.touched)
                         "
                         class="error-message"
                       >
                         <div
-                          *ngIf="registrationForm.get('pincode')?.errors?.['required']"
+                          *ngIf="registrationForm.get('contactNumber')?.errors?.['required']"
                         >
-                          Pincode number field is required.
+                          Mobile number field is required.
                         </div>
                         <div
-                          *ngIf="registrationForm.get('pincode')?.errors?.['pattern']||registrationForm.get('pincode')?.errors?.['maxlength']||registrationForm.get('pincode')?.errors?.['minlength']"
+                          *ngIf="registrationForm.get('contactNumber')?.errors?.['pattern']||registrationForm.get('contactNumber')?.errors?.['maxlength']||registrationForm.get('mobile_number')?.errors?.['minlength']"
                         >
-                          Please enter a valid Pincode number.
+                          Please enter a valid mobile number.
                         </div>
                       </div>
+                      <!-- Error end  -->
                     </div>
-                  </div>
 
-                  <div class="mb-3">
-                    <input
-                      type="text"
-                      class="form-control p-3 input-box"
-                      formControlName="contactNumber"
-                      id="contactNumber"
-                      maxlength="10"
-                      appAcceptOnlyDigit
-                      placeholder="Enter Contact Number"
-                    />
-                    <!-- Error start  -->
-                    <div
-                      *ngIf="
-                        registrationForm.get('contactNumber')?.invalid &&
-                        (registrationForm.get('contactNumber')?.dirty ||
-                          registrationForm.get('contactNumber')?.touched)
-                      "
-                      class="error-message"
-                    >
-                      <div
-                        *ngIf="registrationForm.get('contactNumber')?.errors?.['required']"
+                    <div class="row mx-0 mb-3">
+                      @if(!isWait){
+                      <button
+                        class="btn btn-primary button-radius"
+                        type="submit"
+                        [disabled]="registrationForm.invalid"
                       >
-                        Mobile number field is required.
-                      </div>
-                      <div
-                        *ngIf="registrationForm.get('contactNumber')?.errors?.['pattern']||registrationForm.get('contactNumber')?.errors?.['maxlength']||registrationForm.get('mobile_number')?.errors?.['minlength']"
+                        Get Quotes
+                      </button>
+                      }@else{
+                      <button
+                        type="submit"
+                        class="submit-disabled-btn btn button-radius"
                       >
-                        Please enter a valid mobile number.
-                      </div>
+                        <span
+                          class="spinner-border spinner-border-sm"
+                          role="status"
+                          aria-hidden="true"
+                        ></span>
+                        Processing....
+                      </button>
+                      }
                     </div>
-                    <!-- Error end  -->
-                  </div>
 
-                  <div class="row mx-0 mb-3">
-                    @if(!isWait){
-                    <button
-                      class="btn btn-primary button-radius"
-                      type="submit"
-                      [disabled]="registrationForm.invalid"
-                    >
-                      Get Quotes
-                    </button>
-                    }@else{
-                    <button
-                      type="submit"
-                      class="submit-disabled-btn btn button-radius"
-                    >
-                      <span
-                        class="spinner-border spinner-border-sm"
-                        role="status"
-                        aria-hidden="true"
-                      ></span>
-                      Processing....
-                    </button>
-                    }
-                  </div>
-
-                  <label class="form-check-label" for="invalidCheck2">
-                    <small class="mt-4 term-and-conditions">
-                      By clicking, I Agree to
-                      <span class="text-primary">
-                        <a
-                          class="text-decoration-none"
-                          href=" https://www.renewbuyinsurance.com/terms-conditions"
-                          target="_blank"
-                          >T&C</a
-                        >
-                      </span>
-                      and
-                      <span class="text-primary"
-                        ><a
-                          class="text-decoration-none"
-                          href="https://www.renewbuyinsurance.com/privacy-policy"
-                          target="_blank"
-                          >Privacy Policy</a
-                        ></span
-                      ></small
-                    >
-                  </label>
-                </form>
+                    <label class="form-check-label" for="invalidCheck2">
+                      <small class="mt-4 term-and-conditions">
+                        By clicking, I Agree to
+                        <span class="text-primary">
+                          <a
+                            class="text-decoration-none"
+                            href=" https://www.renewbuyinsurance.com/terms-conditions"
+                            target="_blank"
+                            >T&C</a
+                          >
+                        </span>
+                        and
+                        <span class="text-primary"
+                          ><a
+                            class="text-decoration-none"
+                            href="https://www.renewbuyinsurance.com/privacy-policy"
+                            target="_blank"
+                            >Privacy Policy</a
+                          ></span
+                        ></small
+                      >
+                    </label>
+                  </form>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-        <div
-          class="right-section col-lg-8"
-          [ngClass]="{ 'custom-position': !isShowTab }"
-        >
-          <div class="d-sm-flex">
-            <img
-              src="../../../../rb_assets/assets/insurance/{{
-                selectedHeroImage
-              }}"
-              class="rounded mx-auto d-block padding-left"
-              [ngClass]="{ 'custom-width': !isShowTab }"
-              alt="..."
-            />
+          <div
+            class="right-section col-lg-8"
+            [ngClass]="{ 'custom-position': !isShowTab }"
+          >
+            <div class="d-sm-flex">
+              <img
+                src="../../../../rb_assets/assets/insurance/{{
+                  selectedHeroImage
+                }}"
+                class="rounded mx-auto d-block padding-left"
+                [ngClass]="{ 'custom-width': !isShowTab }"
+                alt="..."
+              />
+            </div>
           </div>
         </div>
       </div>
+      <!-- car-insurance-left-end -->
     </div>
-    <!-- car-insurance-left-end -->
   </div>
-</div>
 </div>
 <!-- <sign-in
   *ngIf="isOtp"

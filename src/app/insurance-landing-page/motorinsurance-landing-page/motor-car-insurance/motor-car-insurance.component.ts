@@ -64,6 +64,8 @@ export class MotorCarInsuranceComponent {
   selectedHeroImage: string = "motor-insurance.svg";
   isWait: boolean = false;
   @Input() isShowTab: boolean = true;
+  @Input() page: any;
+
   tabList: any = [
     {
       name: "Car",
@@ -89,6 +91,12 @@ export class MotorCarInsuranceComponent {
       heroImage: "healthinsurance.svg",
       activeIcon: "../../../../rb_assets/assets/insurance/activeHealth.svg",
     },
+    {
+      name: "Life",
+      image: "../../../../rb_assets/assets/insurance/life.svg",
+      heroImage: "lifeinsurance.svg",
+      activeIcon: "../../../../rb_assets/assets/insurance/activeLife.svg",
+    },
   ];
   pageHeaderTextList: any = [
     {
@@ -113,6 +121,11 @@ export class MotorCarInsuranceComponent {
       subtitle: `<span class='text-bold'>Discover a range of coverage plans designed to meet your specific requirements</span>`,
       discount: `<span class='text-bold'><img src="./rb_assets/assets/images/health-discount.svg" /> Get online discount upto 15% off*</span>`,
     },
+    {
+      name: "Life",
+      title: `<h1 class="page-title">Get <span class="day-color">₹1 Crore</span>Term Insurance plan starting from <span>₹16/day</span>*</h1>`,
+      subtitle: `<span class='text-bold'>Discover a range of coverage plans designed to meet your specific requirements</span>`,
+    },
   ];
 
   subtitle: string = `<span class="text-bold">Buy</span> or <span class="text-bold">Renew</span> Car Insurance Online in <span class="text-bold">5 Minutes</span> <span>⚡</span>`;
@@ -127,6 +140,20 @@ export class MotorCarInsuranceComponent {
     @Inject(PLATFORM_ID) private platformId: Object,
     private cookieService: CookieService
   ) {
+    const currentDate = new Date();
+    const minDate = new Date(
+      currentDate.getFullYear() - 100,
+      currentDate.getMonth(),
+      currentDate.getDate()
+    );
+    const maxDate = new Date(
+      currentDate.getFullYear() - 18,
+      currentDate.getMonth(),
+      currentDate.getDate()
+    );
+    this.minDateString = minDate.toISOString().split('T')[0]; 
+    this.maxDateString = maxDate.toISOString().split('T')[0];
+
     this.isBrowser = isPlatformBrowser(platformId);
 
     const header = new HttpHeaders({
@@ -162,6 +189,7 @@ export class MotorCarInsuranceComponent {
   }
   ngOnChanges(changes: SimpleChanges) {
     if (!this.isShowTab) {
+      if(this.page?.pageType === 'Health'){
       this.selectedTab = "Health";
       this.selectedHeroImage = "healthinsurance.svg";
       this.title = `<h1 class="page-title">Compare & buy customised Health Plans starting at just <span class="day-color">₹257/month</span>*</h1>`;
@@ -171,7 +199,18 @@ export class MotorCarInsuranceComponent {
         (el: { name: string }) => el.name == "Health"
       );
       this.resetForm();
-    } else {
+    }else if(this.page?.pageType == 'Life'){
+      this.selectedTab = "Life";
+      this.selectedHeroImage = "lifeinsurance.svg";
+      this.title = `<h1 class="page-title">Get <span class="day-color">₹1 Crore</span>Term Insurance plan starting from <span class="day-color">₹16/day</span>*</h1>`;
+      this.subtitle = `<span class='text-bold'>Discover a range of coverage plans designed to meet your specific requirements</span>`;
+      this.discount = `<span class='text-bold'><img src="./rb_assets/assets/images/health-discount.svg" /> Get online discount upto 15% off*</span>`;
+      this.tabList = this.tabList.find(
+        (el: { name: string }) => el.name == "Life"
+      );
+    }
+  }
+     else {
       this.tabList = this.tabList.filter(
         (el: { name: string }) => el.name != "Health"
       );
