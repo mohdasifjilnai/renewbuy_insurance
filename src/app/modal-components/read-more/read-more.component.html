@@ -1,0 +1,26 @@
+<div class="popup-overlay" id="popupOverlay">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="popup" id="popup">
+        <span class="btn-close" id="closePopup" (click)="close(false)"></span>
+
+        <div class="row">
+          <div class="col-md-3 pop-leader-image-container">
+            <img [src]="leaderImage" alt="" />
+          </div>
+          <div class="col-md-9">
+            <span class="heading">{{leaderName}}</span><br>
+            <p class="desingnation">{{leaderPosition}}</p>
+            <p class="para">
+              {{leaderDescription}}
+            </p>
+            <p class="para">
+              {{leaderDescription2}}
+            </p>
+          </div>
+          <button type="button" (click)="close(false)" class="d-block d-md-none btn btn-close-modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

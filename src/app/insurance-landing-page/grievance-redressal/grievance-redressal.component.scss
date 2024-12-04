@@ -1,0 +1,146 @@
+.grievance-redersal-background {
+  background: #5384ea0f;
+  padding-top: 60px;
+  margin-bottom: 30px;
+  .grievance-redersal {
+    .grievance-hero-cotainer {
+      .right-section {
+        padding: 20px 0;
+        .grievance-redersal-image {
+          object-fit: contain;
+          width: auto;
+          margin-top: 3%;
+        }
+      }
+      .left-section {
+        display: grid;
+        place-content: center;
+        .heading {
+          font-size: 28px;
+          font-weight: 600;
+          line-height: 42px;
+          color: #0068cf;
+        }
+        .sub-heading {
+          font-size: 16px;
+          font-weight: 500;
+          line-height: 24px;
+          color: #242424;
+        }
+      }
+    }
+  }
+  @media (max-width: 768px) {
+    margin-bottom: 23px;
+    .grievance-redersal {
+      .grievance-hero-cotainer {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        .left-section {
+          .heading {
+            font-size: 16px;
+            line-height: 24px;
+          }
+          .sub-heading {
+            font-size: 12px;
+            line-height: 18px;
+          }
+        }
+      }
+    }
+  }
+}
+.bottom {
+  background-color: #fff;
+  .heading {
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 24px;
+  }
+  .sub-heading {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 21px;
+    color: #242424;
+  }
+  .email {
+    color: #0068cf;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 21px;
+  }
+  .custom-card {
+    background-color: #f8fafe;
+    width: auto;
+    height: 74px;
+    border-radius: 20px;
+    border: none;
+  }
+  .more-info {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    .text-bold {
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 24px;
+    }
+    .click {
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 24px;
+      color: #0068cf;
+      cursor: pointer;
+    }
+  }
+  @media (max-width: 768px) {
+    .heading {
+      font-size: 14px;
+      line-height: 21px;
+      margin-bottom: 12px !important;
+    }
+    .sub-heading {
+      font-size: 12px;
+      line-height: 18px;
+    }
+    .email {
+      font-size: 12px;
+      line-height: 18px;
+    }
+    .more-info {
+      font-size: 14px;
+      line-height: 21px;
+      .text-bold {
+        font-size: 14px;
+        line-height: 21px;
+      }
+      .click {
+        font-size: 14px;
+        line-height: 21px;
+      }
+    }
+  }
+}
+@media  (max-width: 1199px) {
+  .grievance-redersal-background {
+    .grievance-redersal {
+      .grievance-hero-cotainer {
+        .right-section {
+          .grievance-redersal-image {
+            width: 100%;
+          }
+        }
+        .left-section {
+          margin-top: 5%;
+        }
+      }
+    }
+  }
+  .bottom {
+    .custom-card {
+      width: auto;
+      height: auto;
+    }
+  }
+}
