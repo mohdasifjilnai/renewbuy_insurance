@@ -32,6 +32,7 @@
     font-size: 14px;
     color: rgba(45, 65, 102, 1);
     font-weight: 600;
+    cursor: pointer;
   }
   // .nav-item-space {
   //   margin-right: 20px;
@@ -510,8 +511,8 @@
     .user-container {
       position: relative;
       // display: inline-block;
-      background-color: #0B75DD;
-      border: 1px solid #0B75DD;
+      background-color: #0b75dd;
+      border: 1px solid #0b75dd;
       border-radius: 12px;
       color: #ffff;
       padding: 3px;
