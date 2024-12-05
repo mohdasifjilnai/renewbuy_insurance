@@ -9,7 +9,7 @@ type SelectionOption = {
   name: string;
   id: number;
   item_id: number;
-  item: any; // Consider using a more specific type if possible
+  item: any; 
 };
 @Component({
   selector: "app-cashless-hospitals",
