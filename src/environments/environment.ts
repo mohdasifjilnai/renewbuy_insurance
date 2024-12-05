@@ -7,5 +7,5 @@ export const environment = {
   renewbuyInsuranceDomain: 'https://react.renewbuyinsurance.in',
   mainDomain: 'https://react.rbstaging.in/',
   bearerToken:
-    'f6a2d2b73f039fde7392534baf41f45b6feeb66188b2c30b950fb2adbd314505f5335bba4eda747b49e21afeea2b1a8c955fe60d46a3e73a86bc2dd018fbc9140d8359ea7ad4db7919c80eab1a5c20dfcd0ec4047c3e061997e1667884b3212f00a64ff122d0e2639a59d3fb7a10156a5e64c89eb6c4b3fa97496b9f4ac8ce3f',
+    'a85cf4c337b5e41691b41c492bb8a11b05e4c632c3bf90f8ec216eaabce091ce67379d12ba8d8afe13ebb12d76e5dfe84b573f90e04c7957f7d0c2bd37e638bc2cbc0b9eb7b7460749d5c7fd861cad16801994a9d23caa677f2fe90dfc0056a0310860ab865a1a1cfb8f7d556e0c433cd5e946a533bf9f20c197c9484f35be3c',
 };
