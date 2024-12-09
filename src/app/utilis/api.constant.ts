@@ -3,6 +3,7 @@ export class ApiConstants {
   public static INSURANCE_HOME: string = "/api/insurance-home";
   public static MOTOR_INSURANCE: string = "/api/motor-insurance";
   public static HEALTH_INSURANCE: string = "/api/health-insurance";
+  public static LIFE_INSURANCE:string='/api/life-insurance';
   public static Curated_tags: string =
     "/api/tags?populate=blogs.thumbnail,blogs.mobile_thumbnail&sort=id:asc";
   public static Footer: string = "/api/footers";
