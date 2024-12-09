@@ -44,7 +44,8 @@ import { TypeOfPolicyComponent } from '../insurance-landing-page/motorinsurance-
     FaqMotorComponent,
     NavigatorComponent,
     ReduceInsurancePremiumComponent,
-    TypeOfPolicyComponent
+    TypeOfPolicyComponent,
+    ThankYouPopupComponent
   ],
   imports: [
     CommonModule,
@@ -57,7 +58,6 @@ import { TypeOfPolicyComponent } from '../insurance-landing-page/motorinsurance-
     CashlessGaragePopupComponent,
     CookieConsentComponent,
     AutoLoadPopupComponent,
-    ThankYouPopupComponent,
     OtpPopupComponent,
     TermsConditionHeroComponent,
     ServiceProviderComponent
@@ -85,7 +85,8 @@ import { TypeOfPolicyComponent } from '../insurance-landing-page/motorinsurance-
     NavigatorComponent,
     TermsConditionHeroComponent,
     ServiceProviderComponent,
-    TypeOfPolicyComponent
+    TypeOfPolicyComponent,
+    ThankYouPopupComponent
   ],
 })
 export class CommanModuleModule {}

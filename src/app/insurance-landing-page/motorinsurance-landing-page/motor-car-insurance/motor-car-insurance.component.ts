@@ -66,7 +66,7 @@ export class MotorCarInsuranceComponent {
   @Input() isShowTab: boolean = true;
   @Input() page: any;
   dateValue: string | null = null;
-  selectedDate: string | null = null;
+  dob: string | null = null;
 
   tabList: any = [
     {
@@ -403,6 +403,7 @@ export class MotorCarInsuranceComponent {
               } else if (this.selectedTab == "Life") {
                 this.toastService.toastError(res, "success");
                 this.registrationForm.reset();
+                this.dob = null;
               } else if (this.selectedTab === "Bike") {
                 window.location.href = `https://apex.renewbuyinsurance.com/motor/?reg_no=${
                   this.registrationForm.get("vehicleNumber")?.value
@@ -438,7 +439,7 @@ export class MotorCarInsuranceComponent {
 
   onDateChange(event: Event): void {
     const input = event.target as HTMLInputElement;
-    this.selectedDate = input.value;
+    this.dob = input.value;
   }
   getUserDetail() {
     const header = new HttpHeaders({
