@@ -16,7 +16,6 @@ import { TypeOfPolicyComponent } from "./type-of-policy/type-of-policy.component
     MotorinsuranceLandingPageComponent,
     ExclusionsComponent,
     SelectRightPolicyComponent,
-    TypeOfPolicyComponent,
   ],
   imports: [
     CommonModule,
