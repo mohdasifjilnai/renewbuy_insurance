@@ -1,28 +1,25 @@
 <div class="container reduce-premium">
   <div class="">
-    <h1 class="heading">How to reduce Health Insurance Premiums?</h1>
+    <h1 class="heading">{{heading}}</h1>
     <div class="d-flex justify-content-center">
       <p class="heading-para">
-        Reducing health insurance premiums can improve your financial health.
-        Though strategies vary by location and insurer, here are some general
-        tips to lower premiums:
+        {{ subHeading}}
       </p>
     </div>
   </div>
   <div class="row mt-5">
     <div class="col-12 col-sm-12 d-block d-lg-none text-center"> 
       <img
-      src="./rb_assets/assets/images/reduce-premium-res.svg"
+      [src]="imageRes"
       alt=""
     />
     </div>
     <div class="col-12 col-lg-5 col-12 d-flex justify-content-end">
       <div class="card custom-card">
         <div class="card-body custom-card-body row-one">
-          <h6 class="card-heading text-start">Compare Health Plans</h6>
+          <h6 class="card-heading text-start">{{card1Heading}}</h6>
           <span class="sub-heading text-start">
-            Compare plans from various insurers for the best coverage at the
-            lowest premium. Use online tools or RenewBuy for help.
+            {{card1SubHeading}}
           </span>
         </div>
       </div>
@@ -31,11 +28,9 @@
     <div class="col-12 col-lg-5 col-sm-12 d-flex justify-content-start col">
       <div class="card custom-card">
         <div class="card-body custom-card-body row-two">
-          <h6 class="card-heading text-start">Choose a Higher Deductible</h6>
+          <h6 class="card-heading text-start">{{card2Heading}}</h6>
           <span class="sub-heading text-start">
-            The deductible is what you pay before insurance starts. Higher
-            deductibles lower premiums. Choose based on your health and
-            finances.
+            {{card2SubHeading}}
           </span>
         </div>
       </div>
@@ -44,18 +39,16 @@
     <div class="col-12 col-lg-4 col-sm-12 d-flex justify-content-start card-gap">
       <div class="card custom-card">
         <div class="card-body custom-card-body row-two">
-          <h6 class="card-heading text-start">Access Preventive Care</h6>
+          <h6 class="card-heading text-start">{{card3Heading}}</h6>
           <span class="sub-heading text-start">
-            Many plans offer free preventive services like vaccinations &
-            checkups, helping to identify health issues early & lower future
-            treatment costs.
+            {{card3SubHeading}}
           </span>
         </div>
       </div>
     </div>
     <div class="col-4 col-lg-4  d-none d-lg-block text-center reduce-premium-img">
       <img
-        src="./rb_assets/assets/images/reduce-premium.svg"
+        [src]="image"
         alt=""
         width="263"
         height="242"
@@ -64,36 +57,62 @@
     <div class="col-12 col-lg-4 col-sm-12 d-flex justify-content-end card-gap">
       <div class="card custom-card">
         <div class="card-body custom-card-body row-two">
-          <h6 class="card-heading text-start">Assess your Coverage Needs</h6>
+          <h6 class="card-heading text-start">{{card4Heading}}</h6>
           <span class="sub-heading text-start">
-            Assess your healthcare needs and select a suitable health plan. If
-            you seldom visit the doctor, basic coverage may be more
-            cost-effective.
+            {{card4SubHeading}}
           </span>
         </div>
       </div>
     </div>
 
-    <div class="col-12 col-lg-5 col-sm-12 d-flex justify-content-end col-one">
+    <div class="col-12 col-lg-5 col-sm-12 d-flex justify-content-end col-one" *ngIf="this.page?.pageType =='Health'">
       <div class="card custom-card">
         <div class="card-body custom-card-body row-one">
-          <h6 class="card-heading text-start">Maintain a Healthy Lifestyle</h6>
+          <h6 class="card-heading text-start">{{card5Heading}}</h6>
           <span class="sub-heading text-start">
-            A healthy lifestyle lowers chronic condition risks. Insurers often
-            offer discounts for exercise, non-smoking, and healthy weight.
+            {{card5SubHeading}}
           </span>
         </div>
       </div>
     </div>
-    <div class="col-2 mt-3"></div>
-    <div class="col-12 col-lg-5 col-sm-12 d-flex justify-content-start col-two">
+    <div class="col-12 col-lg-2 col-sm-12 d-flex justify-content-start col-two mt-3" *ngIf="this.page?.pageType =='Health'">
+    </div>
+    <div class="col-12 col-lg-5 col-sm-12 d-flex justify-content-start col-two" *ngIf="this.page?.pageType =='Health'">
       <div class="card custom-card">
         <div class="card-body custom-card-body row-one">
-          <h6 class="card-heading text-start">Review Your Plan Annually</h6>
+          <h6 class="card-heading text-start">{{card6Heading}}</h6>
           <span class="sub-heading text-start">
-            Review your health insurance plan regularly, as offers and prices
-            can change yearly. Compare during open enrollment to find better
-            options.
+            {{card6SubHeading}}
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-lg-4 col-sm-12 d-flex justify-content-start col-one" *ngIf="this.page?.pageType =='Life'">
+      <div class="card custom-card">
+        <div class="card-body custom-card-body row-one">
+          <h6 class="card-heading text-start">{{card5Heading}}</h6>
+          <span class="sub-heading text-start">
+            {{card5SubHeading}}
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-lg-4 col-sm-12 d-flex justify-content-center col-two mt-3" *ngIf="this.page?.pageType =='Life'">
+      <div class="card custom-card">
+        <div class="card-body custom-card-body row-one">
+          <h6 class="card-heading text-start">{{card7Heading}}</h6>
+          <span class="sub-heading text-start">
+            {{card7SubHeading}}
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-lg-4 col-sm-12 d-flex justify-content-end col-two mt-3" *ngIf="this.page?.pageType =='Life'">
+      <div class="card custom-card">
+        <div class="card-body custom-card-body row-one">
+          <h6 class="card-heading text-start">{{card6Heading}}</h6>
+          <span class="sub-heading text-start">
+            {{card6SubHeading}}
           </span>
         </div>
       </div>

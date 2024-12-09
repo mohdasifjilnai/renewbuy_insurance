@@ -28,7 +28,6 @@ import { BenefitsCoveredComponent } from './benefits-covered/benefits-covered.co
     ChooseBestHealthInsuranceComponent,
     NotSurePlansComponent,
     SomeMythsComponent,
-    ReduceInsurancePremiumComponent,
     BenefitsCoveredComponent
   ]
 })
