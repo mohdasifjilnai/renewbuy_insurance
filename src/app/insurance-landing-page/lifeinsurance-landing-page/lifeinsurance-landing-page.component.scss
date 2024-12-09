@@ -1,0 +1,11 @@
+.insclusion{
+    position: relative;
+    bottom: 3rem;
+}
+
+@media (max-width: 768px) {
+    .insclusion{
+        position: relative;
+        bottom: 1rem;
+    }
+}

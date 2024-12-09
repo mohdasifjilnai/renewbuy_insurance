@@ -115,9 +115,9 @@
                             class="category-menu px-4"
                             [class.activeMenu]="i == activeIndex"
                             (mouseenter)="getsubmenu(menu, i)"
+                            (click)="redirect(menu?.attributes?.menu_link)"
                           >
-                            <span
-                              (click)="redirect(menu?.attributes?.menu_link)"
+                            <span   
                               >{{ menu?.attributes?.menu_name }}</span
                             >
 
