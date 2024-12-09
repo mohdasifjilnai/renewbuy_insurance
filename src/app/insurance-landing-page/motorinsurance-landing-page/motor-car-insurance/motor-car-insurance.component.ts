@@ -67,6 +67,7 @@ export class MotorCarInsuranceComponent {
   @Input() page: any;
   dateValue: string | null = null;
   dob: string | null = null;
+  isThankyouPopup: boolean = false;
 
   tabList: any = [
     {
@@ -401,7 +402,8 @@ export class MotorCarInsuranceComponent {
                 window.location.href =
                   "https://health.renewbuyinsurance.com/health/basic-details";
               } else if (this.selectedTab == "Life") {
-                this.toastService.toastError(res, "success");
+                this.isThankyouPopup = true;
+                // this.toastService.toastError(res, "success");
                 this.registrationForm.reset();
                 this.dob = null;
               } else if (this.selectedTab === "Bike") {
@@ -456,5 +458,9 @@ export class MotorCarInsuranceComponent {
         });
         this.registrationForm.get("contactNumber")?.disable();
       });
+  }
+
+  closeThankYouModal(event: boolean) {
+    this.isThankyouPopup = false;
   }
 }
