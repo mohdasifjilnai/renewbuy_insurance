@@ -133,11 +133,11 @@
                             type="date"
                             id="dateInput"
                             class="custom-form-control form-control p-3 input-box"
-                            [(ngModel)]="selectedDate"
+                            formControlName="dob"
                             (change)="onDateChange($event)"
-                            [class.placeholder]="!selectedDate"
+                            [class.placeholder]="!dob"
                           />
-                          <span *ngIf="!selectedDate" class="placeholder-text">Select Date of Birth</span>
+                          <span *ngIf="!dob" class="placeholder-text">Select Date of Birth</span>
                         <div
                           *ngIf="
                             registrationForm.get('dob')?.invalid &&
