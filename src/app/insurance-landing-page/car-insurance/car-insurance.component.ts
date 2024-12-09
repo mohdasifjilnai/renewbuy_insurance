@@ -174,10 +174,10 @@ export class CarInsuranceComponent {
       this.cookieService.get("insurer_type") !== "None"
     ) {
       this.selectedTab = this.cookieService.get("insurer_type");
-      // let type = this.tabList.find(
-      //   (el: { name: string }) => el.name == this.selectedTab
-      // ).type;
-      // this.onTabClick(this.selectedTab, type);
+      let type = this.tabList.find(
+        (el: { name: string }) => el.name == this.selectedTab
+      ).type;
+      this.onTabClick(this.selectedTab, type);
     } else {
       this.selectedTab = "Car";
     }
