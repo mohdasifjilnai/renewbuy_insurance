@@ -149,7 +149,7 @@ export class LifeinsuranceLandingPageComponent {
     const header = new HttpHeaders({
       Authorization: `Bearer ${environment["bearerToken"]}`,
     });
-    let url = `${environment["strapiDomain"]}${ApiConstants["HEALTH_INSURANCE"]}`;
+    let url = `${environment["strapiDomain"]}${ApiConstants["LIFE_INSURANCE"]}`;
     this.apiService.getRequestedResponse(url, header).subscribe((response) => {
       this.meta.updateMeta(
         response?.data?.attributes?.seo?.metaTitle,
