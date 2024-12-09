@@ -375,3 +375,8 @@
   [isRenewbuyInsurance]="true"
   [mobileNumber]="phoneNumber"
 ></sign-in> -->
+<app-thank-you-popup 
+*ngIf="isThankyouPopup" 
+[isThankyouPopOpen]="isThankyouPopup"
+(closeThankYouPopUp)="closeThankYouModal($event)">
+</app-thank-you-popup>

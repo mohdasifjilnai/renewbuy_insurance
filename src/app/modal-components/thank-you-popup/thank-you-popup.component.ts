@@ -15,8 +15,6 @@ import { CommonModule, isPlatformBrowser } from '@angular/common';
 declare var bootstrap: any;
 @Component({
   selector: 'app-thank-you-popup',
-  standalone: true,
-  imports: [],
   templateUrl: './thank-you-popup.component.html',
   styleUrl: './thank-you-popup.component.scss',
 })

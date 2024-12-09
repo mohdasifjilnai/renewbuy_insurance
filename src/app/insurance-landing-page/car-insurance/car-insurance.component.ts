@@ -59,6 +59,7 @@ export class CarInsuranceComponent {
   selectedHeroImage: string = "bigcar.svg";
   isWait: boolean = false;
   insuranceType: any = 1;
+  isThankyouPopup: boolean = false;
   tabList: any = [
     {
       name: "Car",
@@ -419,9 +420,10 @@ export class CarInsuranceComponent {
                 window.location.href =
                   "https://health.renewbuyinsurance.com/health/basic-details";
               } else if (this.selectedTab == "Life") {
+                this.isThankyouPopup = true;
                 // window.location.href =
                 //   'https://www.renewbuyinsurance.com/online-term-plan';
-                this.toastService.toastError(res, "success");
+                // this.toastService.toastError(res, "success");
                 this.registrationForm.reset();
               } else if (this.selectedTab === "Bike") {
                 window.location.href = `https://apex.renewbuyinsurance.com/motor/?reg_no=${
@@ -436,7 +438,8 @@ export class CarInsuranceComponent {
                   this.registrationForm.get("contactNumber")?.value
                 }&vehicle=fourWheeler`;
               } else if (this.selectedTab === "CV") {
-                this.toastService.toastError(res, "success");
+                this.isThankyouPopup = true;
+                // this.toastService.toastError(res, "success");
                 this.registrationForm.reset();
               } else {
                 this.registrationForm.reset();
@@ -507,5 +510,8 @@ export class CarInsuranceComponent {
         });
         this.registrationForm.get("contactNumber")?.disable();
       });
+  }
+  closeThankYouModal(event: boolean) {
+    this.isThankyouPopup = false;
   }
 }
