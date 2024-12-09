@@ -129,15 +129,15 @@
 
                     <div *ngIf="selectedTab === 'Life'">
                       <div class="mb-3 position-relative">
-                        <input
-                          type="date"
-                          class="form-control p-3 input-box name-input date-input"
-                          formControlName="dob"
-                          [max]="maxDateString"
-                          [min]="minDateString"
-                          id="date-input"
-                          placeholder="Select Date of Birth"
-                        />
+                          <input
+                            type="date"
+                            id="dateInput"
+                            class="custom-form-control form-control p-3 input-box"
+                            [(ngModel)]="selectedDate"
+                            (change)="onDateChange($event)"
+                            [class.placeholder]="!selectedDate"
+                          />
+                          <span *ngIf="!selectedDate" class="placeholder-text">Select Date of Birth</span>
                         <div
                           *ngIf="
                             registrationForm.get('dob')?.invalid &&

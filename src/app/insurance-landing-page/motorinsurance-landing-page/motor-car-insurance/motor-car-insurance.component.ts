@@ -65,6 +65,8 @@ export class MotorCarInsuranceComponent {
   isWait: boolean = false;
   @Input() isShowTab: boolean = true;
   @Input() page: any;
+  dateValue: string | null = null;
+  selectedDate: string | null = null;
 
   tabList: any = [
     {
@@ -208,6 +210,8 @@ export class MotorCarInsuranceComponent {
       this.tabList = this.tabList.find(
         (el: { name: string }) => el.name == "Life"
       );
+      this.resetForm();
+
     }
   }
      else {
@@ -314,6 +318,7 @@ export class MotorCarInsuranceComponent {
     this.otpVerfied = false;
     if (this.isSharedForm(this.selectedTab)) {
       this.registrationForm.removeControl("pincode");
+      this.registrationForm.removeControl("dob");
       this.registrationForm.addControl(
         "vehicleNumber",
         this.fb.control("", [
@@ -331,6 +336,15 @@ export class MotorCarInsuranceComponent {
           Validators.pattern(/^[1-9]\d{5}$/),
           Validators.maxLength(6),
           Validators.minLength(6),
+        ])
+      );
+    } else if (this.selectedTab === "Life") {
+      this.registrationForm.removeControl("vehicleNumber");
+      this.registrationForm.removeControl("pincode");
+      this.registrationForm.addControl(
+        "dob",
+        this.fb.control("", [
+          Validators.required,
         ])
       );
     }
@@ -352,6 +366,7 @@ export class MotorCarInsuranceComponent {
         (el: { name: string }) => el.name == tab
       ).subtitle;
       this.resetForm();
+      this.dateValue = null;
     }
   }
 
@@ -419,6 +434,11 @@ export class MotorCarInsuranceComponent {
     if (this.registrationForm.valid) {
       this.onSubmitregistrationForm(this.registrationForm.valid);
     }
+  }
+
+  onDateChange(event: Event): void {
+    const input = event.target as HTMLInputElement;
+    this.selectedDate = input.value;
   }
   getUserDetail() {
     const header = new HttpHeaders({

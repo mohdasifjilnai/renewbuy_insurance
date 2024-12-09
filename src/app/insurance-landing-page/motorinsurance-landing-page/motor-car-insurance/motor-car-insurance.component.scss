@@ -26,28 +26,35 @@
       line-height: 30px;
       margin: 10px 0 20px 0;
     }
-    .name-input {
-      border: none;
-      outline: none;
-      font-size: 17px;
-      flex-grow: 1;
-      padding: 5px;
-
+    .custom-form-control {
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      background-color: #fff;
+      color: #000;
+      cursor: pointer;
     }
-    .date-input {
-      color: #ccc;
+    
+    .custom-form-control.placeholder {
+      color: transparent;
     }
-
-    .date-input.ng-dirty {
-      color: black;
+    
+    .placeholder-text {
+      position: absolute;
+      top: 27%;
+      left: 5%;
+      color: #aaa;
+      pointer-events: none;
+      font-size: 18px;
+      transition: all 0.3s;
     }
-
-    .date-input.ng-valid {
-      color: black;
+    
+    .custom-form-control:focus + .placeholder-text,
+    .custom-form-control:not(.placeholder):valid + .placeholder-text {
+      visibility: hidden;
+      opacity: 0;
     }
-    .name-input::placeholder {
-      color: #999;
-    }
+    
     .navigation-tab {
       .nav-item {
         padding: 16px;
@@ -186,19 +193,6 @@
           margin-right: 2px;
           opacity: 1;
         }
-
-        .date-input {
-          color: hsl(0, 1%, 71%);
-        }
-
-        .date-input.ng-dirty {
-          color: black;
-        }
-
-        .date-input.ng-valid {
-          color: black;
-        }
-
         /* Placeholder text styling */
         .name-input::placeholder {
           color: hsl(0, 1%, 71%);
@@ -287,6 +281,15 @@
             }
           }
         }
+      }    
+      .placeholder-text {
+        position: absolute;
+        top: 33%;
+        left: 5%;
+        color: #aaa;
+        pointer-events: none;
+        font-size: 15px;
+        transition: all 0.3s;
       }
       .card {
         .form-container {
