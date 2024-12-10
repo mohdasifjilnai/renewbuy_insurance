@@ -37,11 +37,16 @@
     
     .custom-form-control.placeholder {
       color: transparent;
+      transition: color 0.3s ease-in-out; 
+    }
+    
+    .custom-form-control:focus.placeholder {
+      color: #000; 
     }
     
     .placeholder-text {
       position: absolute;
-      top: 27%;
+      top: 1rem;
       left: 5%;
       color: #aaa;
       pointer-events: none;
