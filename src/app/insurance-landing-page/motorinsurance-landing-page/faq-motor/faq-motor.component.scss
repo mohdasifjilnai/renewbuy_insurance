@@ -26,13 +26,12 @@
         color: #24242480;
       }
       .label-text {
-        font-family: Poppins;
         font-size: 16px;
         font-weight: 600;
         line-height: 24px;
         letter-spacing: 0.04em;
         text-align: left;
-        color: #24242480;
+        color: #6F6F6F;
       }
       .active-question {
         @extend .label-text;
