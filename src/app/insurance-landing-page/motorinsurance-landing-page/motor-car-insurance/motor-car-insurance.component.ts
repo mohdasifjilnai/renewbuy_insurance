@@ -135,6 +135,7 @@ export class MotorCarInsuranceComponent {
   title: string =
     '<h1 class="page-title">Car insurance price starting at just <span class="day-color">₹2,088</span>*<h1>';
   discount: string = "";
+
   constructor(
     private fb: FormBuilder,
     private apiService: ApiService,
@@ -212,12 +213,10 @@ export class MotorCarInsuranceComponent {
         (el: { name: string }) => el.name == "Life"
       );
       this.resetForm();
-
     }
-  }
-     else {
+  } else {
       this.tabList = this.tabList.filter(
-        (el: { name: string }) => el.name != "Health"
+        (el: { name: string }) => el.name != "Health" && el.name !== "Life"
       );
     }
   }
@@ -403,6 +402,7 @@ export class MotorCarInsuranceComponent {
                   "https://health.renewbuyinsurance.com/health/basic-details";
               } else if (this.selectedTab == "Life") {
                 this.isThankyouPopup = true;
+                this.dob = null;
                 // this.toastService.toastError(res, "success");
                 this.registrationForm.reset();
                 this.dob = null;
@@ -419,7 +419,8 @@ export class MotorCarInsuranceComponent {
                   this.registrationForm.get("contactNumber")?.value
                 }&vehicle=fourWheeler`;
               }else if(this.selectedTab === "CV"){
-                this.toastService.toastError(res, "success");
+                this.isThankyouPopup = true;
+                // this.toastService.toastError(res, "success");
                 this.registrationForm.reset();
               } else {
                 this.registrationForm.reset();
@@ -463,4 +464,5 @@ export class MotorCarInsuranceComponent {
   closeThankYouModal(event: boolean) {
     this.isThankyouPopup = false;
   }
+  
 }

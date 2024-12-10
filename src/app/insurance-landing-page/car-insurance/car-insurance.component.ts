@@ -60,6 +60,7 @@ export class CarInsuranceComponent {
   isWait: boolean = false;
   insuranceType: any = 1;
   isThankyouPopup: boolean = false;
+  dob: string | null = null;
   tabList: any = [
     {
       name: "Car",
@@ -421,6 +422,7 @@ export class CarInsuranceComponent {
                   "https://health.renewbuyinsurance.com/health/basic-details";
               } else if (this.selectedTab == "Life") {
                 this.isThankyouPopup = true;
+                this.dob = null;
                 // window.location.href =
                 //   'https://www.renewbuyinsurance.com/online-term-plan';
                 // this.toastService.toastError(res, "success");
@@ -492,8 +494,9 @@ export class CarInsuranceComponent {
   }
   dateValue: string | null = null;
 
-  onDateChange(event: any) {
-    this.dateValue = event.target.value;
+  onDateChange(event: Event): void {
+    const input = event.target as HTMLInputElement;
+    this.dob = input.value;
   }
   getUserDetail() {
     const header = new HttpHeaders({

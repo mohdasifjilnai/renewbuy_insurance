@@ -176,18 +176,20 @@
                 <div class="mb-3 position-relative">
                   <input
                     type="date"
-                    class="form-control p-3 input-box date-input"
+                    class="custom-form-control form-control p-3 input-box"
                     formControlName="dob"
                     [min]="minDateString"
                     [max]="maxDateString"
-                    (focus)="onDateChange($event)"
+                    (change)="onDateChange($event)"
+                    [class.placeholder]="!dob"
                   />
-                  <label
+                  <span *ngIf="!dob" class="placeholder-text">Select Date of Birth</span>
+                  <!-- <label
                     class="date-label d-block d-lg-none"
                     *ngIf="dateValue == null"
                   >
                     dd/mm/yyyy
-                  </label>
+                  </label> -->
                   <div
                     class="error-message"
                     *ngIf="
