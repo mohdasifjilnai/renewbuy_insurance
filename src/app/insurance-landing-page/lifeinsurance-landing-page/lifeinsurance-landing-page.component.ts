@@ -29,7 +29,7 @@ export class LifeinsuranceLandingPageComponent {
           {
             id: 1,
             heading: "Accidental Death Benefit Rider",
-            imageSrc: "../../../../rb_assets/assets/insurance/maternityCover.svg",
+            imageSrc: "../../../../rb_assets/assets/insurance/accident.svg",
             text: "It gives an additional payout to your nominee if you pass away in an accident",
           },
           {
@@ -41,7 +41,7 @@ export class LifeinsuranceLandingPageComponent {
           },
           {
             id: 3,
-            heading: "Waiver of Premium Rider",
+            heading: "Waiver of Premium",
             imageSrc:
               "../../../../rb_assets/assets/insurance/personalAccident.svg",
             text: "If you become disabled or critically ill, this rider waives off future premiums while keeping your policy active.",
