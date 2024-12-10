@@ -129,15 +129,17 @@
 
                     <div *ngIf="selectedTab === 'Life'">
                       <div class="mb-3 position-relative">
-                          <input
-                            type="date"
-                            id="dateInput"
-                            class="custom-form-control form-control p-3 input-box"
-                            formControlName="dob"
-                            (change)="onDateChange($event)"
-                            [class.placeholder]="!dob"
-                          />
-                          <span *ngIf="!dob" class="placeholder-text">Select Date of Birth</span>
+                        <input
+                          type="date"
+                          id="dateInput"
+                          class="custom-form-control form-control p-3 input-box"
+                          formControlName="dob"
+                          (change)="onDateChange($event)"
+                          [class.placeholder]="!dob"
+                        />
+                        <span *ngIf="!dob" class="placeholder-text"
+                          >Select Date of Birth</span
+                        >
                         <div
                           *ngIf="
                             registrationForm.get('dob')?.invalid &&
@@ -149,7 +151,7 @@
                           <div
                             *ngIf="registrationForm.get('dob')?.errors?.['required']"
                           >
-                            Dob number field is required.
+                            Date of birth is required.
                           </div>
                         </div>
                       </div>
@@ -268,8 +270,9 @@
   [isRenewbuyInsurance]="true"
   [mobileNumber]="phoneNumber"
 ></sign-in> -->
-<app-thank-you-popup 
-*ngIf="isThankyouPopup" 
-[isThankyouPopOpen]="isThankyouPopup"
-(closeThankYouPopUp)="closeThankYouModal($event)">
+<app-thank-you-popup
+  *ngIf="isThankyouPopup"
+  [isThankyouPopOpen]="isThankyouPopup"
+  (closeThankYouPopUp)="closeThankYouModal($event)"
+>
 </app-thank-you-popup>
