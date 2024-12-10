@@ -208,7 +208,7 @@ export class MotorCarInsuranceComponent {
       this.selectedHeroImage = "lifeinsurance.svg";
       this.title = `<h1 class="page-title">Get <span class="day-color">₹1 Crore </span> Term Insurance plan starting from <span class="day-color">₹16/day</span>*</h1>`;
       this.subtitle = `<span class='text-bold'>Discover a range of coverage plans designed to meet your specific requirements</span>`;
-      this.discount = `<span class='text-bold'><img src="./rb_assets/assets/images/health-discount.svg" /> Get online discount upto 15% off*</span>`;
+      this.discount = `<span class='text-bold'><img src="./rb_assets/assets/images/health-discount.svg" /> Get online discount upto <span class="discount">15% off</span>*</span>`;
       this.tabList = this.tabList.find(
         (el: { name: string }) => el.name == "Life"
       );
