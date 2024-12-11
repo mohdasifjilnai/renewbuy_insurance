@@ -122,7 +122,7 @@ export class CarInsuranceComponent {
     },
     {
       name: "Life",
-      title: `<h1 class="page-title">Get <span class="day-color">₹1 Crore </span>Term Insurance plan starting from <span class="day-color">₹16/day</span>*</h1>`,
+      title: `<h1 class="page-title-life">Get <span class="day-color">₹1 Crore </span>Term Insurance plan starting from <span class="day-color">₹16/day</span>*</h1>`,
       subtitle: `<div><img class='percentage-icon' src='../../../../rb_assets/assets/insurance/percentageIcon.svg' alt='percentage icon' /><span class='text-bold'>Get online discount upto </span><span class='discount'>15% off</span>*</div>`,
     },
   ];
@@ -405,6 +405,7 @@ export class CarInsuranceComponent {
   }
   isOtpVerified(event: boolean) {
     this.otpVerfied = event;
+    this.isWait = true;
     if (event) {
       let body = this.payLoadMapping();
 
@@ -417,6 +418,7 @@ export class CarInsuranceComponent {
         .subscribe(
           (res) => {
             if (res) {
+              this.isWait = false;
               if (this.selectedTab == "Health") {
                 window.location.href =
                   "https://health.renewbuyinsurance.com/health/basic-details";
