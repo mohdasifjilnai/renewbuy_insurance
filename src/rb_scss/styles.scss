@@ -237,6 +237,16 @@ body.no-scroll {
       }
     }
   }
+  .page-title-life{
+    text-wrap: nowrap;
+    font-weight: 600;
+    font-size: 32px;
+    @media (max-width: 576px) {
+      & {
+        text-wrap: wrap;
+      }
+    }
+  }
 
   .day-color {
     color: #47be88;
@@ -480,4 +490,7 @@ body.no-scroll {
 }
 .style-hide {
   text-decoration: none;
+}
+.placeholder{
+  background-color: #ffff !important;
 }

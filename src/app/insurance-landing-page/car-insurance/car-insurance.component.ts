@@ -59,6 +59,8 @@ export class CarInsuranceComponent {
   selectedHeroImage: string = "bigcar.svg";
   isWait: boolean = false;
   insuranceType: any = 1;
+  isThankyouPopup: boolean = false;
+  dob: string | null = null;
   tabList: any = [
     {
       name: "Car",
@@ -120,7 +122,7 @@ export class CarInsuranceComponent {
     },
     {
       name: "Life",
-      title: `<h1 class="page-title">Get <span class="day-color">₹1 Crore </span>Term Insurance plan starting from <span class="day-color">₹16/day</span>*</h1>`,
+      title: `<h1 class="page-title-life">Get <span class="day-color">₹1 Crore </span>Term Insurance plan starting from <span class="day-color">₹16/day</span>*</h1>`,
       subtitle: `<div><img class='percentage-icon' src='../../../../rb_assets/assets/insurance/percentageIcon.svg' alt='percentage icon' /><span class='text-bold'>Get online discount upto </span><span class='discount'>15% off</span>*</div>`,
     },
   ];
@@ -403,6 +405,7 @@ export class CarInsuranceComponent {
   }
   isOtpVerified(event: boolean) {
     this.otpVerfied = event;
+    this.isWait = true;
     if (event) {
       let body = this.payLoadMapping();
 
@@ -415,13 +418,16 @@ export class CarInsuranceComponent {
         .subscribe(
           (res) => {
             if (res) {
+              this.isWait = false;
               if (this.selectedTab == "Health") {
                 window.location.href =
                   "https://health.renewbuyinsurance.com/health/basic-details";
               } else if (this.selectedTab == "Life") {
+                this.isThankyouPopup = true;
+                this.dob = null;
                 // window.location.href =
                 //   'https://www.renewbuyinsurance.com/online-term-plan';
-                this.toastService.toastError(res, "success");
+                // this.toastService.toastError(res, "success");
                 this.registrationForm.reset();
               } else if (this.selectedTab === "Bike") {
                 window.location.href = `https://apex.renewbuyinsurance.com/motor/?reg_no=${
@@ -436,7 +442,8 @@ export class CarInsuranceComponent {
                   this.registrationForm.get("contactNumber")?.value
                 }&vehicle=fourWheeler`;
               } else if (this.selectedTab === "CV") {
-                this.toastService.toastError(res, "success");
+                this.isThankyouPopup = true;
+                // this.toastService.toastError(res, "success");
                 this.registrationForm.reset();
               } else {
                 this.registrationForm.reset();
@@ -489,8 +496,9 @@ export class CarInsuranceComponent {
   }
   dateValue: string | null = null;
 
-  onDateChange(event: any) {
-    this.dateValue = event.target.value;
+  onDateChange(event: Event): void {
+    const input = event.target as HTMLInputElement;
+    this.dob = input.value;
   }
   getUserDetail() {
     const header = new HttpHeaders({
@@ -507,5 +515,8 @@ export class CarInsuranceComponent {
         });
         this.registrationForm.get("contactNumber")?.disable();
       });
+  }
+  closeThankYouModal(event: boolean) {
+    this.isThankyouPopup = false;
   }
 }

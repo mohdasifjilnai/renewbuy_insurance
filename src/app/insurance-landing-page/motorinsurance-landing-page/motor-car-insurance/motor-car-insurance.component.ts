@@ -64,6 +64,11 @@ export class MotorCarInsuranceComponent {
   selectedHeroImage: string = "motor-insurance.svg";
   isWait: boolean = false;
   @Input() isShowTab: boolean = true;
+  @Input() page: any;
+  dateValue: string | null = null;
+  dob: string | null = null;
+  isThankyouPopup: boolean = false;
+
   tabList: any = [
     {
       name: "Car",
@@ -89,6 +94,12 @@ export class MotorCarInsuranceComponent {
       heroImage: "healthinsurance.svg",
       activeIcon: "../../../../rb_assets/assets/insurance/activeHealth.svg",
     },
+    {
+      name: "Life",
+      image: "../../../../rb_assets/assets/insurance/life.svg",
+      heroImage: "lifeinsurance.svg",
+      activeIcon: "../../../../rb_assets/assets/insurance/activeLife.svg",
+    },
   ];
   pageHeaderTextList: any = [
     {
@@ -113,12 +124,18 @@ export class MotorCarInsuranceComponent {
       subtitle: `<span class='text-bold'>Discover a range of coverage plans designed to meet your specific requirements</span>`,
       discount: `<span class='text-bold'><img src="./rb_assets/assets/images/health-discount.svg" /> Get online discount upto 15% off*</span>`,
     },
+    {
+      name: "Life",
+      title: `<h1 class="page-title-life">Get <span class="day-color">₹1 Crore </span> Term Insurance plan starting from <span>₹16/day</span>*</h1>`,
+      subtitle: `<span class='text-bold'>Discover a range of coverage plans designed to meet your specific requirements</span>`,
+    },
   ];
 
   subtitle: string = `<span class="text-bold">Buy</span> or <span class="text-bold">Renew</span> Car Insurance Online in <span class="text-bold">5 Minutes</span> <span>⚡</span>`;
   title: string =
     '<h1 class="page-title">Car insurance price starting at just <span class="day-color">₹2,088</span>*<h1>';
   discount: string = "";
+
   constructor(
     private fb: FormBuilder,
     private apiService: ApiService,
@@ -127,6 +144,20 @@ export class MotorCarInsuranceComponent {
     @Inject(PLATFORM_ID) private platformId: Object,
     private cookieService: CookieService
   ) {
+    const currentDate = new Date();
+    const minDate = new Date(
+      currentDate.getFullYear() - 100,
+      currentDate.getMonth(),
+      currentDate.getDate()
+    );
+    const maxDate = new Date(
+      currentDate.getFullYear() - 18,
+      currentDate.getMonth(),
+      currentDate.getDate()
+    );
+    this.minDateString = minDate.toISOString().split('T')[0]; 
+    this.maxDateString = maxDate.toISOString().split('T')[0];
+
     this.isBrowser = isPlatformBrowser(platformId);
 
     const header = new HttpHeaders({
@@ -162,6 +193,7 @@ export class MotorCarInsuranceComponent {
   }
   ngOnChanges(changes: SimpleChanges) {
     if (!this.isShowTab) {
+      if(this.page?.pageType === 'Health'){
       this.selectedTab = "Health";
       this.selectedHeroImage = "healthinsurance.svg";
       this.title = `<h1 class="page-title">Compare & buy customised Health Plans starting at just <span class="day-color">₹257/month</span>*</h1>`;
@@ -171,9 +203,20 @@ export class MotorCarInsuranceComponent {
         (el: { name: string }) => el.name == "Health"
       );
       this.resetForm();
-    } else {
+    }else if(this.page?.pageType == 'Life'){
+      this.selectedTab = "Life";
+      this.selectedHeroImage = "lifeinsurance.svg";
+      this.title = `<h1 class="page-title-life">Get <span class="day-color">₹1 Crore </span> Term Insurance plan starting from <span class="day-color">₹16/day</span>*</h1>`;
+      this.subtitle = `<span class='text-bold'>Discover a range of coverage plans designed to meet your specific requirements</span>`;
+      this.discount = `<span class='text-bold'><img src="./rb_assets/assets/images/health-discount.svg" /> Get online discount upto <span class="discount">15% off</span>*</span>`;
+      this.tabList = this.tabList.find(
+        (el: { name: string }) => el.name == "Life"
+      );
+      this.resetForm();
+    }
+  } else {
       this.tabList = this.tabList.filter(
-        (el: { name: string }) => el.name != "Health"
+        (el: { name: string }) => el.name != "Health" && el.name !== "Life"
       );
     }
   }
@@ -275,6 +318,7 @@ export class MotorCarInsuranceComponent {
     this.otpVerfied = false;
     if (this.isSharedForm(this.selectedTab)) {
       this.registrationForm.removeControl("pincode");
+      this.registrationForm.removeControl("dob");
       this.registrationForm.addControl(
         "vehicleNumber",
         this.fb.control("", [
@@ -292,6 +336,15 @@ export class MotorCarInsuranceComponent {
           Validators.pattern(/^[1-9]\d{5}$/),
           Validators.maxLength(6),
           Validators.minLength(6),
+        ])
+      );
+    } else if (this.selectedTab === "Life") {
+      this.registrationForm.removeControl("vehicleNumber");
+      this.registrationForm.removeControl("pincode");
+      this.registrationForm.addControl(
+        "dob",
+        this.fb.control("", [
+          Validators.required,
         ])
       );
     }
@@ -313,6 +366,7 @@ export class MotorCarInsuranceComponent {
         (el: { name: string }) => el.name == tab
       ).subtitle;
       this.resetForm();
+      this.dateValue = null;
     }
   }
 
@@ -331,6 +385,7 @@ export class MotorCarInsuranceComponent {
   }
   isOtpVerified(event: boolean) {
     this.otpVerfied = event;
+    this.isWait = true;
     if (event) {
       let body = this.payLoadMapping();
 
@@ -343,12 +398,16 @@ export class MotorCarInsuranceComponent {
         .subscribe(
           (res) => {
             if (res) {
+              this.isWait = false;
               if (this.selectedTab == "Health") {
                 window.location.href =
                   "https://health.renewbuyinsurance.com/health/basic-details";
               } else if (this.selectedTab == "Life") {
-                this.toastService.toastError(res, "success");
+                this.isThankyouPopup = true;
+                this.dob = null;
+                // this.toastService.toastError(res, "success");
                 this.registrationForm.reset();
+                this.dob = null;
               } else if (this.selectedTab === "Bike") {
                 window.location.href = `https://apex.renewbuyinsurance.com/motor/?reg_no=${
                   this.registrationForm.get("vehicleNumber")?.value
@@ -362,7 +421,8 @@ export class MotorCarInsuranceComponent {
                   this.registrationForm.get("contactNumber")?.value
                 }&vehicle=fourWheeler`;
               }else if(this.selectedTab === "CV"){
-                this.toastService.toastError(res, "success");
+                this.isThankyouPopup = true;
+                // this.toastService.toastError(res, "success");
                 this.registrationForm.reset();
               } else {
                 this.registrationForm.reset();
@@ -381,6 +441,11 @@ export class MotorCarInsuranceComponent {
       this.onSubmitregistrationForm(this.registrationForm.valid);
     }
   }
+
+  onDateChange(event: Event): void {
+    const input = event.target as HTMLInputElement;
+    this.dob = input.value;
+  }
   getUserDetail() {
     const header = new HttpHeaders({
       Authorization: `Bearer   ${this.cookieService.get("access_token")}`,
@@ -397,4 +462,9 @@ export class MotorCarInsuranceComponent {
         this.registrationForm.get("contactNumber")?.disable();
       });
   }
+
+  closeThankYouModal(event: boolean) {
+    this.isThankyouPopup = false;
+  }
+  
 }

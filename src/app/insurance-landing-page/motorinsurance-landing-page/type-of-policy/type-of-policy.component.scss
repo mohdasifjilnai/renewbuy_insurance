@@ -24,6 +24,9 @@
     }
   }
   .types-of-policy-card-container {
+    .card-container{
+      row-gap: 25px;
+    }
     .card {
       border-radius: 24px;
       background-color: #ffffff;

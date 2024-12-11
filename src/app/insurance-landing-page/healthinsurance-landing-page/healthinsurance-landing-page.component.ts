@@ -11,6 +11,10 @@ import { MetaService } from "../../utilis/service/meta.service";
   styleUrl: "./healthinsurance-landing-page.component.scss",
 })
 export class HealthinsuranceLandingPageComponent {
+  health = {
+      pageType: 'Health',
+    };
+
   addOnspageData = [
     {
       pageHeader: `What is Health Insurance?`,

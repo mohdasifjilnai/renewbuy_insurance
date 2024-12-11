@@ -16,6 +16,7 @@ export class AddOnsInuranceComponent {
   addOnSubHead:any;
   insuranceLink = environment.renewbuyInsuranceDomain;
   homePageRoute = environment.mainDomain;
+  breadCrumb:any;
 
   constructor() {}
   ngOnChanges() {
@@ -25,6 +26,14 @@ export class AddOnsInuranceComponent {
     this.pageName = this.pageData[0]?.pageName;
     this.addOnsHead = this.pageData[0]?.addOnsHead;
     this.addOnSubHead = this.pageData[0]?.addOnSubHead;
+    
+    if(this.pageName === 'motor'){
+      this.breadCrumb = "Motor";
+    }else if(this.pageName === 'health'){
+      this.breadCrumb = "Health";
+    }else if(this.pageName === 'life'){
+      this.breadCrumb = "Life";
+    }
   }
   // cardData = [
   //   {

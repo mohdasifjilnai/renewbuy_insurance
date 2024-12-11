@@ -29,6 +29,13 @@ const routes: Routes = [
           ).then((m) => m.HealthinsuranceLandingPageModule),
       },
       {
+        path: "life-insurance",
+        loadChildren: () =>
+          import(
+            "../../app/insurance-landing-page/lifeinsurance-landing-page/lifeinsurance-landing-page.module"
+          ).then((m) => m.LifeinsuranceLandingPageModule),
+      },
+      {
         path: "privacy-policy",
         loadChildren: () =>
           import(

@@ -25,6 +25,8 @@ import { FaqMotorComponent } from '../insurance-landing-page/motorinsurance-land
 import { NavigatorComponent } from '../insurance-landing-page/motorinsurance-landing-page/navigator/navigator.component';
 import { TermsConditionHeroComponent } from '../insurance-landing-page/terms-conditions/terms-condition-hero/terms-condition-hero.component';
 import { ServiceProviderComponent } from '../insurance-landing-page/terms-conditions/service-provider/service-provider.component';
+import { ReduceInsurancePremiumComponent } from '../insurance-landing-page/healthinsurance-landing-page/reduce-insurance-premium/reduce-insurance-premium.component';
+import { TypeOfPolicyComponent } from '../insurance-landing-page/motorinsurance-landing-page/type-of-policy/type-of-policy.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +43,9 @@ import { ServiceProviderComponent } from '../insurance-landing-page/terms-condit
     InclusionsComponent,
     FaqMotorComponent,
     NavigatorComponent,
+    ReduceInsurancePremiumComponent,
+    TypeOfPolicyComponent,
+    ThankYouPopupComponent
   ],
   imports: [
     CommonModule,
@@ -53,7 +58,6 @@ import { ServiceProviderComponent } from '../insurance-landing-page/terms-condit
     CashlessGaragePopupComponent,
     CookieConsentComponent,
     AutoLoadPopupComponent,
-    ThankYouPopupComponent,
     OtpPopupComponent,
     TermsConditionHeroComponent,
     ServiceProviderComponent
@@ -75,11 +79,14 @@ import { ServiceProviderComponent } from '../insurance-landing-page/terms-condit
     RegistraionNumberDirective,
     MotorCarInsuranceComponent,
     AddOnsInuranceComponent,
+    ReduceInsurancePremiumComponent,
     InclusionsComponent,
     FaqMotorComponent,
     NavigatorComponent,
     TermsConditionHeroComponent,
-    ServiceProviderComponent
+    ServiceProviderComponent,
+    TypeOfPolicyComponent,
+    ThankYouPopupComponent
   ],
 })
 export class CommanModuleModule {}

@@ -21,6 +21,40 @@
     margin: 10px 0 20px 0;
   }
 
+  .custom-form-control {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #fff;
+    color: #000;
+    cursor: pointer;
+  }
+  
+  .custom-form-control.placeholder {
+    color: transparent;
+    transition: color 0.3s ease-in-out; 
+  }
+  
+  .custom-form-control:focus.placeholder {
+    color: #000; 
+  }
+  
+  .placeholder-text {
+    position: absolute;
+    top: 1rem;
+    left: 5%;
+    color: #aaa;
+    pointer-events: none;
+    font-size: 18px;
+    transition: all 0.3s;
+  }
+  
+  .custom-form-control:focus + .placeholder-text,
+  .custom-form-control:not(.placeholder):valid + .placeholder-text {
+    visibility: hidden;
+    opacity: 0;
+  }
+
   .navigation-tab {
     display: flex;
     align-items: start;
@@ -259,6 +293,15 @@
           }
         }
       }
+    }
+    .placeholder-text {
+      position: absolute;
+      top: 33%;
+      left: 5%;
+      color: #aaa;
+      pointer-events: none;
+      font-size: 15px;
+      transition: all 0.3s;
     }
     .card {
       .form-container {
