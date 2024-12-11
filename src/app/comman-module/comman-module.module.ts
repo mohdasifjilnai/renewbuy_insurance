@@ -27,6 +27,13 @@ import { TermsConditionHeroComponent } from '../insurance-landing-page/terms-con
 import { ServiceProviderComponent } from '../insurance-landing-page/terms-conditions/service-provider/service-provider.component';
 import { ReduceInsurancePremiumComponent } from '../insurance-landing-page/healthinsurance-landing-page/reduce-insurance-premium/reduce-insurance-premium.component';
 import { TypeOfPolicyComponent } from '../insurance-landing-page/motorinsurance-landing-page/type-of-policy/type-of-policy.component';
+import { DatePicker } from 'primeng/datepicker';
+import { CalendarModule } from 'primeng/calendar';
+import { InputTextModule } from 'primeng/inputtext';
+import { FloatLabelModule } from 'primeng/floatlabel';
+import { InputMaskModule } from 'primeng/inputmask';
+import { DatePickerModule } from 'primeng/datepicker';
+import { DateFormatterDirective } from '../utilis/directives/date-formatter.directive';
 
 @NgModule({
   declarations: [
@@ -45,7 +52,7 @@ import { TypeOfPolicyComponent } from '../insurance-landing-page/motorinsurance-
     NavigatorComponent,
     ReduceInsurancePremiumComponent,
     TypeOfPolicyComponent,
-    ThankYouPopupComponent
+    ThankYouPopupComponent,
   ],
   imports: [
     CommonModule,
@@ -60,7 +67,14 @@ import { TypeOfPolicyComponent } from '../insurance-landing-page/motorinsurance-
     AutoLoadPopupComponent,
     OtpPopupComponent,
     TermsConditionHeroComponent,
-    ServiceProviderComponent
+    ServiceProviderComponent,
+    DatePicker,
+    CalendarModule,
+    InputTextModule,
+    FloatLabelModule,
+    InputMaskModule,
+    DatePickerModule,
+    
   ],
   exports: [
     InsurarComponent,
@@ -86,7 +100,14 @@ import { TypeOfPolicyComponent } from '../insurance-landing-page/motorinsurance-
     TermsConditionHeroComponent,
     ServiceProviderComponent,
     TypeOfPolicyComponent,
-    ThankYouPopupComponent
+    ThankYouPopupComponent,
+    DatePicker,
+    CalendarModule,
+    InputTextModule,
+    FloatLabelModule,
+    InputMaskModule,
+    DatePickerModule,
+    
   ],
 })
 export class CommanModuleModule {}

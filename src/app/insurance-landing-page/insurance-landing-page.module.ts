@@ -12,6 +12,7 @@ import { CommanModuleModule } from '../comman-module/comman-module.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RegistraionNumberDirective } from '../utilis/directives/registraion-number.directive';
 import { AcceptOnlyDigitDirective } from '../utilis/directives/accept-only-digit.directive';
+import { DateFormatterDirective } from '../utilis/directives/date-formatter.directive';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { AcceptOnlyDigitDirective } from '../utilis/directives/accept-only-digit
     CommanModuleModule,
     InsuranceLandingPageRoutingModule,
     AcceptOnlyDigitDirective,
+    DateFormatterDirective
   ],
 })
 export class InsuranceLandingPageModule {

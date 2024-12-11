@@ -174,7 +174,29 @@
               } @else if(selectedTab === 'Life'){
               <div>
                 <div class="mb-3 position-relative">
-                  <input
+                  <p-floatlabel
+                    variant="in"
+                    (document:click)="onClickOutside($event)"
+                  >
+                    <p-datepicker
+                      inputId="in_label"
+                      formControlName="dob"
+                      [minDate]="minDateString"
+                      [maxDate]="maxDateString"
+                      showIcon
+                      iconDisplay="input"
+                      appDateFormatter
+                      [placeholder]="dobPlaceholder"
+                      (onFocus)="addPlaceholder('dd/mm/yyyy')"
+                      (onClickOutside)="addPlaceholder('')"
+                      [showOnFocus]="false"
+                      (onIconClick)="onIconClick($event)"
+                      (input)="formatDate($event)"
+                    ></p-datepicker>
+                    <label for="in_label">Select Date of Birth</label>
+                  </p-floatlabel>
+
+                  <!-- <input
                     type="date"
                     class="custom-form-control form-control p-3 input-box"
                     formControlName="dob"
@@ -183,7 +205,7 @@
                     (change)="onDateChange($event)"
                     [class.placeholder]="!dob"
                   />
-                  <span *ngIf="!dob" class="placeholder-text">Select Date of Birth</span>
+                  <span *ngIf="!dob" class="placeholder-text">Select Date of Birth</span> -->
                   <!-- <label
                     class="date-label d-block d-lg-none"
                     *ngIf="dateValue == null"
@@ -263,10 +285,7 @@
                   Get Quotes
                 </button>
                 }@else{
-                <button
-                  type="submit"
-                  class="btn button-radius"
-                >
+                <button type="submit" class="btn button-radius">
                   <span
                     class="spinner-border spinner-border-sm"
                     role="status"
@@ -377,8 +396,9 @@
   [isRenewbuyInsurance]="true"
   [mobileNumber]="phoneNumber"
 ></sign-in> -->
-<app-thank-you-popup 
-*ngIf="isThankyouPopup" 
-[isThankyouPopOpen]="isThankyouPopup"
-(closeThankYouPopUp)="closeThankYouModal($event)">
+<app-thank-you-popup
+  *ngIf="isThankyouPopup"
+  [isThankyouPopOpen]="isThankyouPopup"
+  (closeThankYouPopUp)="closeThankYouModal($event)"
+>
 </app-thank-you-popup>

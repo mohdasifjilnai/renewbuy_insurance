@@ -5,7 +5,7 @@ import {
   FormControl,
   AbstractControl,
 } from "@angular/forms";
-import { Component, Inject, PLATFORM_ID } from "@angular/core";
+import { Component, HostListener, Inject, PLATFORM_ID } from "@angular/core";
 import { ApiService } from "../../utilis/service/api.service";
 import { ShareService } from "../../utilis/service/share.service";
 import { isPlatformBrowser } from "@angular/common";
@@ -61,6 +61,8 @@ export class CarInsuranceComponent {
   insuranceType: any = 1;
   isThankyouPopup: boolean = false;
   dob: string | null = null;
+  dobPlaceholder: string = "";
+
   tabList: any = [
     {
       name: "Car",
@@ -194,6 +196,23 @@ export class CarInsuranceComponent {
     // if (isPlatformBrowser(this.platformId)) {
     //   this.startProgress();
     // }
+  }
+  addPlaceholder(formate: any) {
+    this.dobPlaceholder = formate;
+  }
+  @HostListener("document:click", ["$event"])
+  onClickOutside(event: MouseEvent): void {
+    const clickedElement = event.target as HTMLElement;
+    if (!clickedElement.closest("p-floatlabel")) {
+      console.log("Clicked outside the date picker component");
+      this.addPlaceholder("");
+    }
+  }
+  onIconClick(event: Event | any) {
+    const datepicker: any = event.target.closest("p-datepicker");
+    if (datepicker && datepicker.showOverlay) {
+      datepicker.showOverlay();
+    }
   }
 
   createForm() {
@@ -358,8 +377,9 @@ export class CarInsuranceComponent {
         currentDate.getMonth(),
         currentDate.getDate()
       );
-      this.minDateString = minDate.toISOString().split("T")[0]; // Format to YYYY-MM-DD
-      this.maxDateString = maxDate.toISOString().split("T")[0];
+      this.minDateString = minDate; // Format to YYYY-MM-DD
+      this.maxDateString = maxDate;
+
       this.registrationForm.removeControl("vehicleNumber");
       this.registrationForm.removeControl("pincode");
       this.registrationForm.addControl(
@@ -518,5 +538,15 @@ export class CarInsuranceComponent {
   }
   closeThankYouModal(event: boolean) {
     this.isThankyouPopup = false;
+  }
+  formatDate(event: any): void {
+    const input = event.target as HTMLInputElement;
+    let value = input.value.replace(/[^0-9]/g, "");
+    if (value.length > 2 && value.length <= 4) {
+      value = `${value.slice(0, 2)}/${value.slice(2)}`;
+    } else if (value.length > 4) {
+      value = `${value.slice(0, 2)}/${value.slice(2, 4)}/${value.slice(4, 8)}`;
+    }
+    input.value = value;
   }
 }
