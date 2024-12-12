@@ -53,6 +53,7 @@ import { DateFormatterDirective } from '../utilis/directives/date-formatter.dire
     ReduceInsurancePremiumComponent,
     TypeOfPolicyComponent,
     ThankYouPopupComponent,
+    DateFormatterDirective
   ],
   imports: [
     CommonModule,
@@ -91,6 +92,7 @@ import { DateFormatterDirective } from '../utilis/directives/date-formatter.dire
     CashlessGaragePopupComponent,
     CookieConsentComponent,
     RegistraionNumberDirective,
+    DateFormatterDirective,
     MotorCarInsuranceComponent,
     AddOnsInuranceComponent,
     ReduceInsurancePremiumComponent,

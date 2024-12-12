@@ -9,6 +9,7 @@ import { CommanModuleModule } from "../../comman-module/comman-module.module";
 import { ExclusionsComponent } from "./exclusions/exclusions.component";
 import { SelectRightPolicyComponent } from "./select-right-policy/select-right-policy.component";
 import { TypeOfPolicyComponent } from "./type-of-policy/type-of-policy.component";
+// import { DateFormatterDirective } from "../../utilis/directives/date-formatter.directive";
 // import { FaqMotorComponent } from './faq-motor/faq-motor.component';
 
 @NgModule({
@@ -23,6 +24,7 @@ import { TypeOfPolicyComponent } from "./type-of-policy/type-of-policy.component
     ReactiveFormsModule,
     CommanModuleModule,
     MotorinsuranceLandingPageRoutingModule,
+    // DateFormatterDirective
   ],
 })
 export class MotorinsuranceLandingPageModule {}

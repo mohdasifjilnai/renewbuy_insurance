@@ -187,6 +187,7 @@
                       iconDisplay="input"
                       appDateFormatter
                       [placeholder]="dobPlaceholder"
+                      [dateFormat]="'dd/mm/yy'"
                       (onFocus)="addPlaceholder('dd/mm/yyyy')"
                       (onClickOutside)="addPlaceholder('')"
                       [showOnFocus]="false"
@@ -285,7 +286,7 @@
                   Get Quotes
                 </button>
                 }@else{
-                <button type="submit" class="btn button-radius">
+                <button [disabled]="true" class="btn button-radius">
                   <span
                     class="spinner-border spinner-border-sm"
                     role="status"

@@ -284,7 +284,7 @@ export class CarInsuranceComponent {
         payload.insurance_type = 4;
         break;
       case "Life":
-        payload["dob"] = this.registrationForm.get("dob")?.value;
+        payload["dob"] = new Date(this.registrationForm.get("dob")?.value).toISOString().split('T')[0];
         payload.insurance_type = 5;
         break;
       default:

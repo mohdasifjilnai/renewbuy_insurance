@@ -129,7 +129,29 @@
 
                     <div *ngIf="selectedTab === 'Life'">
                       <div class="mb-3 position-relative">
-                        <input
+                        <p-floatlabel
+                    variant="in"
+                    (document:click)="onClickOutside($event)"
+                  >
+                        <p-datepicker
+                      inputId="in_label"
+                      formControlName="dob"
+                      [minDate]="minDateString"
+                      [maxDate]="maxDateString"
+                      showIcon
+                      iconDisplay="input"
+                      appDateFormatter
+                      [placeholder]="dobPlaceholder"
+                      [dateFormat]="'dd/mm/yy'"
+                      (onFocus)="addPlaceholder('dd/mm/yyyy')"
+                      (onClickOutside)="addPlaceholder('')"
+                      [showOnFocus]="false"
+                      (onIconClick)="onIconClick($event)"
+                      (input)="formatDate($event)"
+                    ></p-datepicker>
+                    <label for="in_label">Select Date of Birth</label>
+                  </p-floatlabel>
+                        <!-- <input
                           type="date"
                           id="dateInput"
                           class="custom-form-control form-control p-3 input-box"
@@ -139,7 +161,7 @@
                         />
                         <span *ngIf="!dob" class="placeholder-text"
                           >Select Date of Birth</span
-                        >
+                        > -->
                         <div
                           *ngIf="
                             registrationForm.get('dob')?.invalid &&
@@ -200,10 +222,7 @@
                         Get Quotes
                       </button>
                       }@else{
-                      <button
-                        type="submit"
-                        class="btn button-radius"
-                      >
+                      <button [disabled]="true" class="btn button-radius">
                         <span
                           class="spinner-border spinner-border-sm"
                           role="status"
