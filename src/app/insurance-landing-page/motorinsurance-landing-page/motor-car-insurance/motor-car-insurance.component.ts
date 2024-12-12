@@ -7,6 +7,7 @@ import {
 } from "@angular/forms";
 import {
   Component,
+  HostListener,
   Inject,
   Input,
   PLATFORM_ID,
@@ -155,8 +156,8 @@ export class MotorCarInsuranceComponent {
       currentDate.getMonth(),
       currentDate.getDate()
     );
-    this.minDateString = minDate.toISOString().split('T')[0]; 
-    this.maxDateString = maxDate.toISOString().split('T')[0];
+    this.minDateString = minDate;
+    this.maxDateString = maxDate;
 
     this.isBrowser = isPlatformBrowser(platformId);
 
@@ -193,28 +194,28 @@ export class MotorCarInsuranceComponent {
   }
   ngOnChanges(changes: SimpleChanges) {
     if (!this.isShowTab) {
-      if(this.page?.pageType === 'Health'){
-      this.selectedTab = "Health";
-      this.selectedHeroImage = "healthinsurance.svg";
-      this.title = `<h1 class="page-title">Compare & buy customised Health Plans starting at just <span class="day-color">₹257/month</span>*</h1>`;
-      this.subtitle = `<span class='text-bold'>Discover a range of coverage plan designed to meet your specific requirements</span>`;
-      this.discount = `<span class='text-bold'><img src="./rb_assets/assets/images/health-discount.svg" /> Get online discount upto 15% off*</span>`;
-      this.tabList = this.tabList.find(
-        (el: { name: string }) => el.name == "Health"
-      );
-      this.resetForm();
-    }else if(this.page?.pageType == 'Life'){
-      this.selectedTab = "Life";
-      this.selectedHeroImage = "lifeinsurance.svg";
-      this.title = `<h1 class="page-title-life">Get <span class="day-color">₹1 Crore </span> Term Insurance plan starting from <span class="day-color">₹16/day</span>*</h1>`;
-      this.subtitle = `<span class='text-bold'>Discover a range of coverage plans designed to meet your specific requirements</span>`;
-      this.discount = `<span class='text-bold'><img src="./rb_assets/assets/images/health-discount.svg" /> Get online discount upto <span class="discount">15% off</span>*</span>`;
-      this.tabList = this.tabList.find(
-        (el: { name: string }) => el.name == "Life"
-      );
-      this.resetForm();
-    }
-  } else {
+      if (this.page?.pageType === "Health") {
+        this.selectedTab = "Health";
+        this.selectedHeroImage = "healthinsurance.svg";
+        this.title = `<h1 class="page-title">Compare & buy customised Health Plans starting at just <span class="day-color">₹257/month</span>*</h1>`;
+        this.subtitle = `<span class='text-bold'>Discover a range of coverage plan designed to meet your specific requirements</span>`;
+        this.discount = `<span class='text-bold'><img src="./rb_assets/assets/images/health-discount.svg" /> Get online discount upto 15% off*</span>`;
+        this.tabList = this.tabList.find(
+          (el: { name: string }) => el.name == "Health"
+        );
+        this.resetForm();
+      } else if (this.page?.pageType == "Life") {
+        this.selectedTab = "Life";
+        this.selectedHeroImage = "lifeinsurance.svg";
+        this.title = `<h1 class="page-title-life">Get <span class="day-color">₹1 Crore </span> Term Insurance plan starting from <span class="day-color">₹16/day</span>*</h1>`;
+        this.subtitle = `<span class='text-bold'>Discover a range of coverage plans designed to meet your specific requirements</span>`;
+        this.discount = `<span class='text-bold'><img src="./rb_assets/assets/images/health-discount.svg" /> Get online discount upto <span class="discount">15% off</span>*</span>`;
+        this.tabList = this.tabList.find(
+          (el: { name: string }) => el.name == "Life"
+        );
+        this.resetForm();
+      }
+    } else {
       this.tabList = this.tabList.filter(
         (el: { name: string }) => el.name != "Health" && el.name !== "Life"
       );
@@ -289,7 +290,9 @@ export class MotorCarInsuranceComponent {
         payload.insurance_type = 4;
         break;
       case "Life":
-        payload["dob"] = this.registrationForm.get("dob")?.value;
+        payload["dob"] = new Date(this.registrationForm.get("dob")?.value)
+          .toISOString()
+          .split("T")[0];
         payload.insurance_type = 5;
         break;
       default:
@@ -343,9 +346,7 @@ export class MotorCarInsuranceComponent {
       this.registrationForm.removeControl("pincode");
       this.registrationForm.addControl(
         "dob",
-        this.fb.control("", [
-          Validators.required,
-        ])
+        this.fb.control("", [Validators.required])
       );
     }
   }
@@ -420,7 +421,7 @@ export class MotorCarInsuranceComponent {
                 }&mobile_no=${
                   this.registrationForm.get("contactNumber")?.value
                 }&vehicle=fourWheeler`;
-              }else if(this.selectedTab === "CV"){
+              } else if (this.selectedTab === "CV") {
                 this.isThankyouPopup = true;
                 // this.toastService.toastError(res, "success");
                 this.registrationForm.reset();
@@ -466,5 +467,33 @@ export class MotorCarInsuranceComponent {
   closeThankYouModal(event: boolean) {
     this.isThankyouPopup = false;
   }
-  
+  dobPlaceholder: any = "";
+  addPlaceholder(formate: any) {
+    this.dobPlaceholder = formate;
+  }
+  @HostListener("document:click", ["$event"])
+  onClickOutside(event: MouseEvent): void {
+    const clickedElement = event.target as HTMLElement;
+    if (!clickedElement.closest("p-floatlabel")) {
+      console.log("Clicked outside the date picker component");
+      this.addPlaceholder("");
+    }
+  }
+
+  onIconClick(event: Event | any) {
+    const datepicker: any = event.target.closest("p-datepicker");
+    if (datepicker && datepicker.showOverlay) {
+      datepicker.showOverlay();
+    }
+  }
+  formatDate(event: any): void {
+    const input = event.target as HTMLInputElement;
+    let value = input.value.replace(/[^0-9]/g, "");
+    if (value.length > 2 && value.length <= 4) {
+      value = `${value.slice(0, 2)}/${value.slice(2)}`;
+    } else if (value.length > 4) {
+      value = `${value.slice(0, 2)}/${value.slice(2, 4)}/${value.slice(4, 8)}`;
+    }
+    input.value = value;
+  }
 }

@@ -12,7 +12,8 @@ import {
 } from 'ngx-lottie';
 import player from 'lottie-web';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import { providePrimeNG } from 'primeng/config';
+import Aura from '@primeng/themes/aura';
 export const appConfig: ApplicationConfig = {
   providers: [
     provideRouter(routes),
@@ -22,5 +23,10 @@ export const appConfig: ApplicationConfig = {
     provideCacheableAnimationLoader(),
     provideRouter(routes),
     importProvidersFrom([BrowserModule, BrowserAnimationsModule]),
+    providePrimeNG({ 
+      theme: {
+          preset: Aura
+      }
+  })
   ],
 };

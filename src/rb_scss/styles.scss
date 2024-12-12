@@ -237,7 +237,7 @@ body.no-scroll {
       }
     }
   }
-  .page-title-life{
+  .page-title-life {
     text-wrap: nowrap;
     font-weight: 600;
     font-size: 32px;
@@ -491,6 +491,34 @@ body.no-scroll {
 .style-hide {
   text-decoration: none;
 }
-.placeholder{
+.placeholder {
   background-color: #ffff !important;
+}
+
+.p-inputtext:enabled:focus {
+  border-color: #eaeaea !important;
+}
+.p-datepicker-day-selected {
+  background: #5384ea !important;
+}
+.p-floatlabel label {
+  color: #999999 !important;
+}
+
+.p-inputtext {
+  border: 1px solid #eaeaea !important;
+  border-radius: 16px !important;
+  color: black !important;
+}
+
+.p-datepicker {
+  width: 100%;
+  input::placeholder {
+    color: #999999;
+    opacity: 1;
+  }
+
+  input:focus::placeholder {
+    color: #999999;
+  }
 }
