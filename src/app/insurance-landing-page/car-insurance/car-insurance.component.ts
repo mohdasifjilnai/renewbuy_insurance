@@ -1,10 +1,4 @@
-import {
-  FormGroup,
-  FormBuilder,
-  Validators,
-  FormControl,
-  AbstractControl,
-} from "@angular/forms";
+import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 import { Component, HostListener, Inject, PLATFORM_ID } from "@angular/core";
 import { ApiService } from "../../utilis/service/api.service";
 import { ShareService } from "../../utilis/service/share.service";
@@ -284,7 +278,9 @@ export class CarInsuranceComponent {
         payload.insurance_type = 4;
         break;
       case "Life":
-        payload["dob"] = new Date(this.registrationForm.get("dob")?.value).toISOString().split('T')[0];
+        payload["dob"] = new Date(this.registrationForm.get("dob")?.value)
+          .toISOString()
+          .split("T")[0];
         payload.insurance_type = 5;
         break;
       default:
