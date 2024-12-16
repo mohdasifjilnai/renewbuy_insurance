@@ -11,7 +11,6 @@ import { CashlessGaragesComponent } from './cashless-garages/cashless-garages.co
 import { CommanModuleModule } from '../comman-module/comman-module.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AcceptOnlyDigitDirective } from '../utilis/directives/accept-only-digit.directive';
-import { DateFormatterDirective } from '../utilis/directives/date-formatter.directive';
 
 @NgModule({
   declarations: [
@@ -28,7 +27,6 @@ import { DateFormatterDirective } from '../utilis/directives/date-formatter.dire
     CommanModuleModule,
     InsuranceLandingPageRoutingModule,
     AcceptOnlyDigitDirective,
-    // DateFormatterDirective,
   ],
 })
 export class InsuranceLandingPageModule {

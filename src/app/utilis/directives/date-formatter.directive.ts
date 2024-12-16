@@ -10,8 +10,6 @@ export class DateFormatterDirective {
 
   @HostListener("input", ["$event"]) onInput(event: any): void {
     const inputValue = event.target.value;
-    console.log(inputValue.length, "input value:");
-
     if (inputValue.length > this.maxLength) {
       event.target.value = inputValue.slice(0, this.maxLength - 1);
     }
