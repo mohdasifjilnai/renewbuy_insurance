@@ -22,7 +22,7 @@ FROM node:20-alpine
 WORKDIR /app
 
 # Copy the built files from the previous stage
-COPY --from=build /app/dist/consumer ./dist/consumer
+COPY --from=build /app/dist/consumer ./dist/
 
 # Install production dependencies
 COPY package*.json ./

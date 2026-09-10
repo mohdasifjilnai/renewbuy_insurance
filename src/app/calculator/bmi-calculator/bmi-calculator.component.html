@@ -1,0 +1,49 @@
+<app-calculator-header [header]="calculatorHeader"></app-calculator-header>
+ 
+ <div class="container retirement-calculator mb-5 p-5">
+  <div class="row">
+    <!-- Form Section -->
+    <div class="col-6">
+      <form [formGroup]="bmiForm" (ngSubmit)="calculateBMI()">
+        <app-calculator-input [form]="bmiForm" [controls]="sliders" ></app-calculator-input>
+        <div class="row">
+          <div class="col-6 calculate-btn mt-2">
+            <button class="btn-calculate" type="submit">
+              Calculate BMI
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <!-- BMI Result and Scale Section -->
+    <!-- <div class="col-6" *ngIf="showChart; else doYouKnowTemplate">
+      <div class="chart-container">
+        <canvas id="bmiGauge"></canvas>
+        <div class="bmi-info">
+          <p>BMI Value: {{ bmiValue }}</p>
+          <p>BMI Category: {{ bmiCategory }}</p>
+        </div>
+      </div>
+      
+    </div>
+    <ng-template #doYouKnowTemplate>
+      <div class="col-6">
+        <app-do-you-know></app-do-you-know>
+      </div>
+    </ng-template> -->
+
+    <div class="col-6" >
+      <div class="chart-container">
+        <canvas id="bmiGauge" ></canvas>
+        <div class="bmi-info">
+          <p>BMI Value: {{ bmiValue }}</p>
+          <p>BMI Category: {{ bmiCategory }}</p>
+        </div>
+      </div>
+      
+    </div>
+
+
+  </div>
+</div>
