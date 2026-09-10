@@ -1,0 +1,2 @@
+<!-- Push my current code to GitHub and give me a post-push completion comment. If the current branch is main, push directly to main. If it is another branch, push that branch and create a GitHub Pull Request to the correct base branch: use an explicitly named base branch first, then the branch it was cut from when Git metadata identifies it, otherwise main. Report the source branch, base branch, commit, verification status, and PR URL. -->
+
