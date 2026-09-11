@@ -177,7 +177,7 @@ export class HeaderComponent {
       // this.parent_uri = environment["renewbuyInsuranceDomain"];
       // this.sub_domain = this.getDomainOnly(environment["dashboardDomain"]);
       // this.location = this.cookieService.get("location");
-      // this.projectName = "renewbuyinsurance";
+      // this.projectName = "enewbuyinsurance";
       // setTimeout(() => {
       //   this.renewbuyinsuranceform.nativeElement.submit();
       // }, 0);
