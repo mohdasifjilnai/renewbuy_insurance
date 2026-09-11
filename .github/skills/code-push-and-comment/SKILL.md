@@ -18,7 +18,7 @@ Use this workflow for GitHub publishing requests in this repository.
    - Identify the current branch with `git branch --show-current`.
 2. Confirm the intended GitHub remote from the user's request. Do not expose or request passwords, tokens, or private keys in chat.
 3. Check for large tracked files before pushing. If a file is at least 100 MB, use Git LFS. Existing oversized blobs must be migrated from the branch history; tracking only a new copy is insufficient.
-4. Never discard user changes. Do not create a commit unless the user asked for one or the repository already requires it for the requested push.
+4. Never discard user changes. When the user explicitly invokes `code-push-and-comment`, commit the relevant pending project changes before pushing. Use a concise descriptive commit message if none is provided. Do not stage unrelated files or create a commit when the user only asks for inspection or explicitly says not to commit.
 5. Determine the delivery path:
    - If the source branch is `main`, push it directly to `main`.
    - If the source branch is another branch, push it as the source branch and open a GitHub Pull Request. GitHub calls this a Pull Request; do not call it an MR in the completion comment.
